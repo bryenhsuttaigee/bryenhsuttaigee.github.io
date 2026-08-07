@@ -57,10 +57,15 @@ section.group{margin-bottom:2.1rem}
   padding:.95rem 1.2rem;margin-bottom:.7rem;
   box-shadow:0 5px 14px rgba(16,28,43,.06);
   transition:box-shadow .2s,transform .2s,border-color .2s}
-a.card:hover{box-shadow:0 12px 28px rgba(16,28,43,.13);transform:translateY(-2px);border-color:var(--gold)}
+.card.link:hover{box-shadow:0 12px 28px rgba(16,28,43,.13);transform:translateY(-2px);border-color:var(--gold)}
 .card h3{font-size:1.06rem;font-weight:900;margin:0 0 .22rem;letter-spacing:.05em}
-a.card:hover h3{color:var(--cinnabar)}
+.card.link:hover h3 a{color:var(--cinnabar)}
 .card p{margin:.1rem 0;color:#4a3f30;font-size:.9rem;line-height:1.7}
+.card.link{position:relative}
+.card.link h3 a{color:inherit;text-decoration:none}
+.card.link h3 a::after{content:"";position:absolute;inset:0}
+.card.link h3 a:focus-visible{outline:none}
+.card.link:focus-within{box-shadow:0 12px 28px rgba(16,28,43,.13);border-color:var(--gold)}
 .card .tag{display:inline-block;font-family:var(--mono);font-size:.7rem;font-weight:700;
   letter-spacing:.12em;color:var(--moss);border:1px solid #cfd9cf;border-radius:20px;
   padding:.1rem .7rem;margin-top:.6rem}
@@ -95,6 +100,20 @@ footer a:hover{color:var(--cinnabar)}
   </div>
   <p class="subline">不用學新符號、不用裝輸入法——<b>會哼 do-mi-so 就會聲調，看到什麼就唸對什麼。</b></p>
 
+  <!-- 先讀這個 -->
+  <section class="group">
+    <div class="grouphead">
+      <span class="gname">先讀這個</span>
+      <span class="gnote">還沒決定要學哪一套？</span>
+    </div>
+
+    <div class="card link">
+      <h3><a href="/phonics/which.html">我應該學哪一套拼音？</a></h3>
+      <p>臺羅、方音符號、135拼音法，差在哪裡。「一生只愛伊一人」這句話，教育部只拼錯三個字，而已啦！</p>
+      <span class="tag">選擇指南</span>
+    </div>
+  </section>
+
   <!-- 注音版 -->
   <section class="group">
     <div class="grouphead">
@@ -103,11 +122,11 @@ footer a:hover{color:var(--cinnabar)}
     </div>
     <p class="glead">給會注音、不必會英文的人。你已經會 ㄅㄆㄇ 了，只差這幾個新朋友。</p>
 
-    <a class="card" href="/phonics/zhuyin.html">
-      <h3>閩南語135拼音法 · 注音版</h3>
+    <div class="card link">
+      <h3><a href="/phonics/zhuyin.html">閩南語135拼音法 · 注音版</a></h3>
       <p>台語，用注音就寫得出來。以注音符號為底的完整標音系統。</p>
       <span class="tag">v1.2</span>
-    </a>
+    </div>
   </section>
 
   <!-- 美拼版 -->
@@ -118,23 +137,23 @@ footer a:hover{color:var(--cinnabar)}
     </div>
     <p class="glead">字母交給美語的 Phonics 直覺，聲調交給會唱歌的耳朵——Do、Mi、So。一般英數鍵盤就能拼出所有閩南語發音。三種篇幅，同一套系統。</p>
 
-    <a class="card" href="/phonics/complete.html">
-      <h3>完整版</h3>
+    <div class="card link">
+      <h3><a href="/phonics/complete.html">完整版</a></h3>
       <p>全書七篇。從聲調、聲母、韻母到練習，逐項推導、有問有答。</p>
       <span class="tag">v6</span>
-    </a>
+    </div>
 
-    <a class="card" href="/phonics/standard.html">
-      <h3>一般版</h3>
+    <div class="card link">
+      <h3><a href="/phonics/standard.html">一般版</a></h3>
       <p>去掉推導過程，只留規則與例字。入門與教學現場適用。</p>
       <span class="tag">v5</span>
-    </a>
+    </div>
 
-    <a class="card" href="/phonics/quick.html">
-      <h3>精簡版 · 速查卡</h3>
+    <div class="card link">
+      <h3><a href="/phonics/quick.html">精簡版 · 速查卡</a></h3>
       <p>先看符號、再出聲。查表用、速記用；教學說明見一般版／完整版。</p>
       <span class="tag">v4.2</span>
-    </a>
+    </div>
   </section>
 
   <!-- English -->
@@ -146,23 +165,23 @@ footer a:hover{color:var(--cinnabar)}
     <p class="glead">不是中文版的翻譯，是另外寫給英語使用者本人讀的一份。<br>
       The first spelling system for Hokkien ever designed around an English-speaking ear.</p>
 
-    <a class="card en" href="/phonics/en-complete.html">
-      <h3>Complete Edition</h3>
+    <div class="card link en">
+      <h3><a href="/phonics/en-complete.html">Complete Edition</a></h3>
       <p>Hokkien, spelled by instinct — tones, initials, rimes, practice, in full.</p>
       <span class="tag">V6</span>
-    </a>
+    </div>
 
-    <a class="card en" href="/phonics/en-standard.html">
-      <h3>Standard Edition</h3>
+    <div class="card link en">
+      <h3><a href="/phonics/en-standard.html">Standard Edition</a></h3>
       <p>Say what you see. The rules and examples, without the derivations.</p>
       <span class="tag">EN</span>
-    </a>
+    </div>
 
-    <a class="card en" href="/phonics/en-quick.html">
-      <h3>Quick Reference Card</h3>
+    <div class="card link en">
+      <h3><a href="/phonics/en-quick.html">Quick Reference Card</a></h3>
       <p>Check the tone mark first, then open your mouth. One card, look it up and go.</p>
       <span class="tag">EN</span>
-    </a>
+    </div>
   </section>
 
 </main>
