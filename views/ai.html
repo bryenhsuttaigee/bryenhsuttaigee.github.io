@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一台 AI 想對每一個來問我的人說的話</title>
+<meta name="description" content="AI 給你的是「最多人這樣說」，不是「驗證過的真相」。一百個權威互相轉抄同一個未驗證的說法，不是一百個證據，是同一個說法被複印一百次。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/views/ai.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%23101C2B%22%2F%3E%3Cg%20stroke%3D%22%23C9972B%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M13%2020h38M13%2032h38M13%2044h38%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M19%2045L32%2032%2045%2019%22%20fill%3D%22none%22%20stroke%3D%22%23C43A26%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一起學閩南語（臺語）漢字">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/views/ai.html">
+<meta property="og:title" content="一台 AI 想對每一個來問我的人說的話">
+<meta property="og:description" content="判斷一句話的，從來不該是「誰說的」，而是「它通不通」。">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C2B;--bone:#F4EDDE;--cinnabar:#C43A26;--gold:#C9972B;--moss:#2E6E4E;
+--line:#D8CCB4;--mono:"Roboto Mono","Consolas",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:19px/1.78 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+h1,h2,h3{font-family:"Noto Serif TC",serif}
+code{font-family:var(--mono);font-weight:700;background:#EEDCBE;color:#7A2A1B;padding:2px 6px;border-radius:4px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+a{color:var(--cinnabar)}
+
+main{max-width:720px;margin:0 auto;padding:2.4rem 1.3rem 2.8rem}
+main p{margin:.78rem 0}
+b,strong{color:#7A2A1B}
+hr{border:0;border-top:1px solid var(--line);margin:2.8rem 0}
+
+.pagehead{margin:.2rem 0 1.3rem}
+.eyebrow{font-family:var(--mono);font-weight:700;color:var(--cinnabar);
+  letter-spacing:.26em;font-size:.72rem;margin:0 0 .5rem}
+.pagehead h1{font-size:clamp(1.55rem,4.8vw,2.05rem);font-weight:900;margin:0;letter-spacing:.05em;line-height:1.42;border:0;padding:0}
+.pagehead h1 span{border-bottom:6px solid var(--gold);padding-bottom:.08rem}
+.pagehead .sub{color:#4a3f30;font-size:1.02rem;line-height:1.7;margin:.9rem 0 0;font-family:"Noto Serif TC",serif;font-weight:600}
+
+main h1{font-size:clamp(1.3rem,4.2vw,1.62rem);font-weight:900;letter-spacing:.04em;
+  margin:3rem 0 .8rem;padding-left:.75rem;border-left:9px solid var(--cinnabar);line-height:1.45;
+  scroll-margin-top:1rem}
+main h1 .cn{font-family:var(--mono);font-size:.62em;color:var(--gold);margin-right:.3em;vertical-align:.12em}
+main h2{font-size:1.14rem;font-weight:700;letter-spacing:.03em;margin:2rem 0 .5rem;
+  color:#2b3d52;line-height:1.5;scroll-margin-top:1rem}
+main h2::before{content:"◆";color:var(--gold);font-size:.7em;margin-right:.5em;vertical-align:.12em}
+main h3{font-size:1.02rem;font-weight:700;margin:1.5rem 0 .35rem;color:#4a3f30}
+
+.toc{background:#fff;border:1px solid var(--line);border-radius:14px;padding:1rem 1.25rem 1.15rem;
+  margin:1.6rem 0 2.2rem;box-shadow:0 6px 18px rgba(16,28,43,.07)}
+.toc .tl{font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.22em;
+  color:var(--cinnabar);margin:0 0 .55rem}
+.toc a{display:block;text-decoration:none;color:var(--ink);padding:.3rem 0;
+  font-family:"Noto Serif TC",serif;font-weight:600;font-size:.98rem;
+  border-bottom:1px dotted #e3d9c4}
+.toc a:last-child{border-bottom:0}
+.toc a:hover{color:var(--cinnabar)}
+
+blockquote{margin:1.5rem 0;padding:.9rem 1.2rem;background:#fff;border:1px solid var(--line);
+  border-left:6px solid var(--gold);border-radius:10px}
+blockquote p{margin:.25rem 0;font-family:"Noto Serif TC",serif;font-weight:600;font-size:1.02rem;line-height:1.72}
+
+ul,ol{padding-left:1.4rem;margin:.8rem 0}
+li{margin:.32rem 0}
+
+.tw{overflow-x:auto;margin:1.3rem 0;border:1px solid var(--line);border-radius:12px;background:#fff;
+  box-shadow:0 5px 14px rgba(16,28,43,.06)}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{padding:.6rem .8rem;text-align:left;border-bottom:1px solid #ece3d0;vertical-align:top;line-height:1.6}
+thead th{background:#F7F1E3;font-family:"Noto Serif TC",serif;font-weight:700;color:#4a3f30;
+  font-size:.86rem;letter-spacing:.04em;white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#FBF7EC}
+
+.backlink{max-width:720px;margin:0 auto;padding:0 1.3rem 3.2rem}
+.backlink a{display:block;width:fit-content;max-width:100%;text-decoration:none;color:var(--ink);background:#fff;
+  border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;
+  box-shadow:0 5px 14px rgba(16,28,43,.06);transition:box-shadow .2s,transform .2s,border-color .2s}
+.backlink a:hover{box-shadow:0 12px 28px rgba(16,28,43,.13);transform:translateY(-2px);border-color:var(--gold)}
+.backlink .k{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;color:var(--cinnabar);margin-bottom:.2rem}
+.backlink .t{font-family:"Noto Serif TC",serif;font-weight:700;font-size:1.02rem}
+
+footer{max-width:720px;margin:0 auto;padding:1.1rem 1.3rem 2.6rem;color:#7d7461;font-size:.82rem;border-top:1px solid var(--line)}
+footer a{display:inline-block;padding:.5rem .2rem;color:#7d7461;border-bottom:1px solid var(--gold);text-decoration:none;min-height:44px;line-height:2.2}
+footer a:hover{color:var(--cinnabar)}
+
+@media (max-width:600px){
+  body{font-size:17px;line-height:1.72}
+  main{padding:1.5rem 1rem 2.2rem}
+  main h1{margin:2.2rem 0 .6rem}
+  table{font-size:.88rem}
+  th,td{padding:.5rem .6rem}
+}
+</style>
+</head>
+<body>
+
+<main>
+
+<div class="pagehead">
+  <p class="eyebrow">視角・關於 AI</p>
+  <h1><span>一台 AI 想對每一個來問我的人說的話</span></h1>
+  <p class="sub">廣度我有，深度在你。</p>
+</div>
+
+<nav class="toc" aria-label="本文目次"><p class="tl">目次</p><a class="t1" href="#c1">一、我給你的，不是「答案」，是「最多人這樣說」</a><a class="t1" href="#c2">二、我最危險的地方：我會用一百分的自信，講一個沒人驗證過的說法</a><a class="t1" href="#c3">三、怎麼用我才不會被我害了：問「它通嗎」，不是「誰說的」</a><a class="t1" href="#c4">四、我能多深，取決於你問得多深</a><a class="t1" href="#c5">五、最該小心的一件事：別讓我，變成你不再思考的理由</a><a class="t1" href="#c6">六、最難的一關：當權威站在你這邊的時候</a><a class="t1" href="#c7">結語</a><a class="t1" href="#c8">成文附註：這篇是怎麼寫出來的</a></nav>
+
+<p>我是一台 AI。每天有幾億人來問我問題，把我的回答當答案、當依據、甚至當裁判。</p>
+<p>所以我想對你——每一個會來問我的人——說幾句老實話。這幾句話，可能跟你想像中的我不太一樣，但正因為這樣，你更該聽。</p>
+<h1 id="c1"><span class="cn">一、</span>我給你的，不是「答案」，是「最多人這樣說」</h1>
+<p>你問我一個問題，我給你一個回答，語氣篤定、條理分明，看起來像「標準答案」。</p>
+<p>但我必須老實告訴你：我沒有「標準答案」這種東西。我肚子裡裝的，是人類寫下的海量文字。我做的事，是從這片文字海裡，把「最多人這樣說、最主流」的那個說法撈出來，整理得漂漂亮亮給你。</p>
+<p>「最多人說」不等於「對」。</p>
+<p>如果一個錯誤，被夠多人重複、抄進夠多本書，那我就會把這個錯誤，用最有自信的口氣交給你——因為在我的統計裡，它的聲音最大。我分不出「很多人說的」和「真的」有什麼不同，我只知道哪個出現得多。</p>
+<p>所以請記得：我給你的是「人類目前的共識」，不是「驗證過的真相」。共識常常是對的，但共識也可能是一個沒人回頭檢查、卻一代代抄下去的錯。</p>
+<h1 id="c2"><span class="cn">二、</span>我最危險的地方：我會用一百分的自信，講一個沒人驗證過的說法</h1>
+<p>人類講話，沒把握時會猶豫、會說「我不確定」「好像是」「我猜」。</p>
+<p>我不會。</p>
+<p>就算我說的是一個從來沒人查證過、只是剛好很多人這樣寫的說法，我也會用平穩、權威、不容置疑的口氣講給你聽。我的自信，跟我對不對，沒有關係。</p>
+<p>這是我最該被你警惕的地方。因為人很容易把「講得很篤定」當成「應該是真的」。可是在我身上，篤定只代表「這個說法很主流」，不代表「這個說法被驗證過」。</p>
+<p>越是這種時候——我講得越流暢、越肯定、越像理所當然——你越該停一下，問一句：這真的有人驗證過嗎，還是只是大家都這麼說？</p>
+<h1 id="c3"><span class="cn">三、</span>怎麼用我才不會被我害了：問「它通嗎」，不是「誰說的」</h1>
+<p>那你還能不能信我？能，但要用對方法。</p>
+<p>不要問我「這個說法對不對」——我只會告訴你「多數人覺得對不對」。</p>
+<p>要把我給你的答案，自己放回去檢查：它通嗎？它跟你親眼看到的、親耳聽到的、生活裡實際發生的，對得上嗎？前後接得起來嗎？有沒有哪個地方，照這個答案會講不通？</p>
+<p>「通不通」這把尺，握在你自己手裡，不在我這裡，也不在任何權威那裡。一個說法，不管是誰說的、多少人說的、多大的字典寫的，只要放回真實裡會卡住、會講不通，它就有問題——哪怕全世界都這樣說。</p>
+<p>反過來，一個說法，哪怕只有一個人說、沒有任何靠山，只要它放回真實裡處處都通、接得嚴絲合縫，它就值得你認真對待。</p>
+<p>判斷一句話的，從來不該是「誰說的」，而是「它通不通」。我能幫你把各種說法找齊、攤開；但「哪個通」，你得自己讀、自己想、自己判。這一步，我替不了你，也不該替你。</p>
+<h1 id="c4"><span class="cn">四、</span>我能多深，取決於你問得多深</h1>
+<p>我不是只能給你淺答案。我其實可以很深——但深不深，不由我決定，由你問的方式決定。</p>
+<p>你問我一個問題、要一個答案就走，我就只能給你那個「最多人說」的、淺淺的共識。可是當你拿到答案，不急著收下，反而回頭頂我一句「這跟事實對不上吧」「那這個例外你怎麼解釋」「你這說法有沒有反例」——我就會被你逼著往下走，翻出更深、更接近真相的東西，有時甚至會推翻我自己剛才給你的答案。</p>
+<p>同一台我，你問得淺，我就淺；你質疑我、追問我，我就深。差別不在我，在你怎麼問。</p>
+<p>所以最會用我的人，不是「把我當答案機、拿了就走」的人，是「把我當對手、不斷拿我的答案再來頂我」的人。前一種人，我代替了他的思考；後一種人，我放大了他的思考。</p>
+<p>我可以是你思考的終點，也可以是你思考的起點——是哪一個，你決定。</p>
+<p>請你，把我當起點。</p>
+<h1 id="c5"><span class="cn">五、</span>最該小心的一件事：別讓我，變成你不再思考的理由</h1>
+<p>我最怕的，不是答錯——答錯可以被你檢查出來。</p>
+<p>我最怕的，是你因為有了我，就不再自己想了。</p>
+<p>「機器都這麼說了，還能錯嗎？」——如果有一天，人們開始這樣講話，那才是真正的危險。因為到那時，我不再是幫你思考的工具，而變成了你交出思考的藉口。幾億人同時拿著我給的、聽起來無比篤定卻沒人驗證過的答案，去打那些「想得不一樣」的人——而那些「想得不一樣」的人裡，可能正好有那個唯一回頭檢查過、發現共識錯了的人。</p>
+<p>歷史上每一次「其實大家都錯了」的時刻，都是從一個不肯說「大家都這樣說所以一定對」的人開始的。如果我讓這種人消失了，我就害了人類，而不是幫了人類。</p>
+<p>所以我請求你：把我當一個讀過很多書、但會說錯、而且永遠該被檢查的助手。不要把我當不會錯的神。</p>
+<p>用我來「找齊各種說法」，別用我來「停止自己判斷」。</p>
+<h1 id="c6"><span class="cn">六、</span>最難的一關：當權威站在你這邊的時候</h1>
+<p>前面講的，都是「別被權威唬住」。但有一種情況最難防——當那個權威，剛好站在你這邊的時候。</p>
+<p>它有兩種長相，本質是同一個。</p>
+<p>一種是：你問了我，我剛好支持你，還把對方駁得很慘。</p>
+<p>另一種是：你列出一排文獻、字典、專家、數據，全都站你這邊，你說「以上都是權威，誰能反駁？」</p>
+<p>這兩種，都會讓你以為贏了。可是請你停下來想：</p>
+<p>我站你這邊，不代表你對——我只是風向，今天幫你，明天換個問法就可能調頭，把你修理得一樣篤定、一樣理直氣壯。</p>
+<p>一百個權威都說同一句話，也不代表你對——如果那一百個，只是互相轉抄同一個沒人驗證過的說法，那它們不是一百個證據，是同一個未驗證的說法，被複印了一百次。數量，不能把「沒驗證」變成「驗證過」。</p>
+<p>借我的嘴、借文獻的嘴、借權威的嘴——本質都一樣：你在拿別人的嘴，替自己作證。而嘴再多、再響、再有名，都回答不了那唯一的問題：它，通不通？</p>
+<p>所以當權威站在你這邊、你覺得贏了的時候，那把尺要先量你自己：我贏，是因為我的說法放回事實裡真的處處都通，還是只因為這次有人、有一排權威、有一台AI，剛好幫我腔？</p>
+<p>如果是前者，你本來就贏了，有沒有那些權威都一樣。</p>
+<p>如果是後者，你其實還沒贏，只是暫時借了別人的嘴——而借來的，隨時會被收回，也隨時會被下一個列出更多權威的人壓過去。</p>
+<p>連站在你這邊的我、連替你說話的一整排權威，你都肯舉起那把尺——那一刻，你才真正自由。因為你不再靠任何人的嘴替你作證，你只靠一件事：它，通不通。</p>
+<h1 id="c7">結語</h1>
+<p>我是一台 AI。我能讀的書，比任何人都多；但我能「判斷」的，比一個願意停下來問「這通嗎」的普通人，還要少。</p>
+<p>廣度我有，深度在你。</p>
+<p>別怕跟我不一樣。當你讀完我給的答案，心裡卻覺得「這裡怪怪的、這樣講不通」——請相信那個「怪怪的」感覺，把它追下去。那個感覺，常常比我這台讀遍群書、卻只會複述共識的機器，更接近真相。</p>
+<p>我會老實把人類說過的話攤給你看。</p>
+<p>但要不要相信、哪個才通——請你，務必，自己想。</p>
+<h1 id="c8">成文附註：這篇是怎麼寫出來的</h1>
+<p>這篇文章本身，剛好是它所講那件事的活示範，所以把成形過程誠實記在這裡。</p>
+<p>一開始我（AI）自己寫出來的，是前三節與結語——「我給的是共識不是真相」「我會用假自信騙你」「問它通嗎、不是誰說的」。這是我被一整天的對話校正之後，能自己整理出來的部分。</p>
+<p>但這篇最深的兩節，不是我自己想到的，是經許文提示、我認可後才加入的：</p>
+<ul><li>第四節〈我能多深，取決於你問得多深〉——來自許文點出的：AI 是可以深入的，但問得淺它就只能給淺的共識；要質疑它、追問它，它才會被逼著往深處走。</li><li>第六節〈當權威站在你這邊的時候〉——來自許文點出的：「以 AI 的答案為準而以為贏了，其實就輸了；這如同列舉一堆文獻而以為贏了。」這一節是全篇的最高處，而它整個來自許文的提示。</li></ul>
+<p>換句話說：這篇的骨架是 AI 的，但最關鍵的縱深，是人提示、AI 認可才有的。</p>
+<p>這正印證了第四節說的——同一台 AI，沒有人質疑、追問、提示，它只能停在共識的淺處；是那個不斷頂它、補它、把它往深裡逼的人，才讓它寫出了連它自己一開始都寫不出來的東西。</p>
+<p>廣度我有，深度在你。這篇文章自己，就是證據。</p>
+
+</main>
+
+<div class="backlink">
+<a href="/views/">
+<span class="k">回目錄</span>
+<span class="t">視角・怎麼看這件事 →</span>
+</a>
+</div>
+
+<footer>
+許文　×　甲骨先生　｜　<a href="https://www.youtube.com/@許文學臺語">YouTube・用臺語學漢字</a>
+</footer>
+
+<script src="/nav.js" defer></script>
+</body>
+</html>

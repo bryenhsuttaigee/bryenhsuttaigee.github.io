@@ -35,13 +35,24 @@
       { href: '/phonics/en-standard.html',  label: 'Standard Edition' },
       { href: '/phonics/en-quick.html',     label: 'Quick Reference' }
     ]},
+    { group: '常用字 100 課', items: [
+      { href: '/lesson/',                   label: '一百課・總目' },
+      { href: '/lesson/1.html',             label: '第一課・數字', note: '四字文' }
+    ]},
     { group: '甲骨釋文', items: [
-      { href: '/oracle/',                   label: '用字這一案', note: '籌備中', soon: true }
+      { href: '/oracle/',                   label: '用字這一案' },
+      { href: '/oracle/shihao.html',        label: '上古帝王諡號', note: '開篇' }
+    ]},
+    { group: '視角', items: [
+      { href: '/views/',                    label: '怎麼看這件事' },
+      { href: '/views/ai.html',             label: '一台 AI 想對你說的話' },
+      { href: '/views/transform.html',      label: '變形的存在', note: '近期', soon: true }
     ]}
   ];
 
   /* 上一篇／下一篇的閱讀順序 */
   var ORDER = [
+    '/phonics/which.html',
     '/phonics/zhuyin.html',
     '/phonics/complete.html',
     '/phonics/standard.html',

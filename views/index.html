@@ -3,20 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>一起學閩南語（臺語）漢字</title>
-<meta name="description" content="還台灣人一套看得懂的音標；把漢字寫回它原本的生活裡。怪的從來不是台語，是音標。">
-<link rel="canonical" href="https://bryenhsuttaigee.github.io/">
+<title>視角・怎麼看這件事｜一起學閩南語（臺語）漢字</title>
+<meta name="description" content="不談怎麼拼、也不談怎麼寫，談的是「怎麼看」——語言是怎麼在沒有人負責的情況下被改掉的，一個說法憑什麼算數，以及 AI 給你的答案到底是什麼。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/views/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%23101C2B%22%2F%3E%3Cg%20stroke%3D%22%23C9972B%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M13%2020h38M13%2032h38M13%2044h38%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M19%2045L32%2032%2045%2019%22%20fill%3D%22none%22%20stroke%3D%22%23C43A26%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="一起學閩南語（臺語）漢字">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:url" content="https://bryenhsuttaigee.github.io/">
-<meta property="og:title" content="一起學閩南語（臺語）漢字">
-<meta property="og:description" content="還台灣人一套看得懂的音標；把漢字寫回它原本的生活裡。怪的從來不是台語，是音標。">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/views/">
+<meta property="og:title" content="視角・怎麼看這件事">
+<meta property="og:description" content="語言是怎麼在沒有人負責的情況下被改掉的，一個說法憑什麼算數，AI 給你的答案到底是什麼。">
 <meta property="og:image" content="https://bryenhsuttaigee.github.io/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="七個聲調畫在五線譜上：低是 do、中是 mi、高是 so。">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -27,13 +26,13 @@ body{margin:0;background:var(--bone);color:var(--ink);font:18px/1.7 "Noto Sans T
 h1,h2,h3{font-family:"Noto Serif TC",serif}
 :focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
-/* 細窄頂欄 */
 .bar{background:var(--ink);color:var(--bone);padding:.95rem 1.2rem;position:relative;overflow:hidden}
 .bar::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(600px 200px at 88% -40%,rgba(201,151,43,.18),transparent 65%)}
 .bar-in{max-width:920px;margin:0 auto;position:relative;display:flex;align-items:baseline;
   justify-content:space-between;gap:1rem;flex-wrap:wrap}
 .site{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(1.1rem,4.1vw,1.45rem);letter-spacing:.08em;line-height:1.35}
+.site a{color:inherit;text-decoration:none}
 .site .alt{font-size:.72em;font-weight:600;color:#8FA5BD;letter-spacing:.02em;margin-left:.15em}
 .bar .motto{color:#9FB2C6;font-size:.82rem;letter-spacing:.05em}
 
@@ -43,7 +42,7 @@ main{max-width:920px;margin:0 auto;padding:2rem 1.2rem 3.4rem}
 h1.title{font-size:1.6rem;font-weight:900;margin:0;letter-spacing:.06em}
 h1.title span{border-bottom:6px solid var(--gold);padding-bottom:.08rem}
 .eyebrow{font-family:var(--mono);font-weight:700;color:var(--cinnabar);letter-spacing:.26em;font-size:.74rem;margin:0}
-.subline{color:#4a3f30;font-size:.95rem;margin:.7rem 0 1.5rem;line-height:1.8}
+.subline{color:#4a3f30;font-size:.95rem;margin:.7rem 0 1.6rem;line-height:1.8}
 .subline b{color:var(--cinnabar);font-weight:700}
 
 .card{display:block;width:fit-content;max-width:100%;text-decoration:none;color:var(--ink);
@@ -64,65 +63,71 @@ h1.title span{border-bottom:6px solid var(--gold);padding-bottom:.08rem}
   letter-spacing:.12em;color:var(--moss);border:1px solid #cfd9cf;border-radius:20px;
   padding:.12rem .75rem;margin-top:.7rem}
 .card.soon{background:transparent;border-style:dashed;box-shadow:none;opacity:.95}
+.card.soon .tag{color:#8b8168;border-color:var(--line)}
 .card p b{color:var(--moss);font-weight:700}
 .card .teaser{margin-top:.75rem;padding-left:.85rem;border-left:3px solid var(--gold);color:#6b6252;font-size:.9rem;line-height:1.75}
-.card.soon .tag{color:#8b8168;border-color:var(--line)}
+
+.grouphead{font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.22em;
+  color:var(--cinnabar);margin:2.2rem 0 .8rem;padding-bottom:.35rem;border-bottom:1px solid var(--line)}
 
 footer{max-width:920px;margin:0 auto;padding:1.1rem 1.2rem 2.6rem;color:#7d7461;font-size:.82rem;border-top:1px solid var(--line)}
 footer a{display:inline-block;padding:.5rem .2rem;color:#7d7461;border-bottom:1px solid var(--gold);text-decoration:none;min-height:44px;line-height:2.2}
 footer a:hover{color:var(--cinnabar)}
 
 @media (max-width:600px){
-  .card{width:auto}
+  .card{width:auto;padding:1rem 1.05rem}
   body{font-size:16px}
   main{padding:1.5rem .9rem 2.4rem}
   .bar .motto{display:none}
-  .card{padding:1rem 1.05rem}
   .card p{font-size:.98rem}
-  .glead,.subline{font-size:.96rem}
+  .subline{font-size:.96rem}
 }
 </style>
 </head>
 <body>
 
 <div class="bar"><div class="bar-in">
-  <span class="site">一起學閩南語<span class="alt">（臺語）</span>漢字</span>
+  <span class="site"><a href="/">一起學閩南語<span class="alt">（臺語）</span>漢字</a></span>
   <span class="motto">怪的從來不是台語</span>
 </div></div>
 
 <main>
   <div class="pagehead">
-    <h1 class="title"><span>總　目</span></h1>
-    <p class="eyebrow">CONTENTS</p>
+    <h1 class="title"><span>視　角</span></h1>
+    <p class="eyebrow">VIEWS</p>
   </div>
-  <p class="subline">兩條戰線：<b>音標</b>（怎麼唸），<b>用字</b>（怎麼寫）。<br>外加一套<b>一百課</b>照著學，和一區<b>視角</b>——不談唸也不談寫，談的是怎麼看。</p>
+  <p class="subline">音標談<b>怎麼唸</b>，用字談<b>怎麼寫</b>。這一區談的是<b>怎麼看</b>——同樣的材料擺在眼前，為什麼有人看得出問題，有人看不出。</p>
 
-  <div class="card link">
-    <h2><a href="/phonics/">閩南語拼音法</a></h2>
-    <p>三組：<b>注音版</b>（會 ㄅㄆㄇ 就會）、<b>美拼版</b>（完整・一般・速查卡）、<b>English</b>——最後這組不是中文版的翻譯，是另外寫給英語的耳朵讀的。</p>
-    <p>不必先學一套新符號，一般英數鍵盤就打得出所有拼音；聲調交給音樂耳朵。</p>
-    <span class="tag">注音版・美拼版・English</span>
-  </div>
+  <p class="grouphead">語言與權力</p>
 
-  <div class="card link">
-    <h2><a href="/lesson/">台語常用字・一百課</a></h2>
-    <p>一課一組字，配一段<b>四字文口訣</b>——逐字帶注音與美拼，唸得出來就記得住。</p>
-    <p class="teaser">第一課〈數字〉：一二三四，台語數字；五六七八，周商文白。<br>白讀是商的嘴，文讀是周的音——一開口就是周商合璧。</p>
-    <span class="tag">第一課上線</span>
+  <div class="card soon">
+    <h2>變形的存在</h2>
+    <p>從北魏孝文帝到台語推薦用字。孝文帝下詔全朝說正音，結果鮮卑語沒了，<b>北方漢語也沒了</b>——兩個都變了，只有一邊留下名字。</p>
+    <p class="teaser">那批人不是想改造漢語而失手，他們是拚命想學好漢語，而語言變化從他們學不好的地方漏出來。<br>今天訂用字的人，結構是一樣的：沒有人需要負責，而每個人都照著做。</p>
+    <span class="tag">近期上線</span>
   </div>
 
-  <div class="card link">
-    <h2><a href="/oracle/">甲骨釋文</a></h2>
-    <p>用字這一案。從一個人、一個場景說起，把字寫回它原本的生活裡。</p>
-    <p class="teaser">先看這個字原本畫的是什麼，再看是誰把它換掉了。<br>開篇〈上古帝王諡號〉，另有六支一分鐘短片：雨、熊、時、寫、鄉、序。</p>
-    <span class="tag">開篇・短片六支</span>
+  <p class="grouphead">怎麼判斷一個說法</p>
+
+  <div class="card soon">
+    <h2>你不會拿台灣腔英文去規定美國人</h2>
+    <p>判斷一套求字說法站不站得住，只有一把尺：放回事實裡通不通。</p>
+    <span class="tag">籌備中</span>
   </div>
 
+  <div class="card soon">
+    <h2>何謂文獻派</h2>
+    <p>病不在「要文獻」，在把<b>有沒有出處</b>偷換成<b>是不是真的</b>——等於把判斷力外包出去。附七種常見話術。</p>
+    <span class="tag">籌備中</span>
+  </div>
+
+  <p class="grouphead">關於 AI</p>
+
   <div class="card link">
-    <h2><a href="/views/">視角</a></h2>
-    <p>語言是怎麼在<b>沒有人負責</b>的情況下被改掉的；一個說法憑什麼算數；AI 給你的那個答案，到底是什麼。</p>
-    <p class="teaser">首篇〈一台 AI 想對每一個來問我的人說的話〉：<br>一百個權威互相轉抄同一個未驗證的說法，不是一百個證據，是同一個說法被複印一百次。</p>
-    <span class="tag">怎麼看這件事</span>
+    <h2><a href="/views/ai.html">一台 AI 想對每一個來問我的人說的話</a></h2>
+    <p>AI 給的是「<b>最多人這樣說</b>」，不是「驗證過的真相」。而它會用一百分的自信，講一個沒人驗證過的說法。</p>
+    <p class="teaser">一百個權威互相轉抄同一個未驗證的說法，不是一百個證據，<br>是同一個說法被複印一百次。</p>
+    <span class="tag">AI 第一人稱</span>
   </div>
 </main>
 
