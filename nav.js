@@ -22,8 +22,18 @@
       { href: '/',                          label: '一起學閩南語（臺語）漢字' },
       { href: '/phonics/',                  label: '閩南語拼音法 · 總目' }
     ]},
+    { group: '先看這個', items: [
+      { href: '/phonics/stuck.html',        label: '你是不是卡在這裡？', note: '入口' },
+      { href: '/phonics/which.html',        label: '我應該學哪一套拼音？' }
+    ]},
     { group: '注音版', items: [
       { href: '/phonics/zhuyin.html',       label: '135拼音法 · 注音版', note: 'v1.2' }
+    ]},
+    { group: '漢拼版', items: [
+      { href: '/phonics/hanpin.html',       label: '135拼音法 · 漢語拼音版', note: 'v1' }
+    ]},
+    { group: '臺羅對照版', items: [
+      { href: '/phonics/tailo.html',        label: '135拼音法 · 臺羅對照版', note: 'v1' }
     ]},
     { group: '美拼版', items: [
       { href: '/phonics/complete.html',     label: '完整版', note: 'v6' },
@@ -52,8 +62,11 @@
 
   /* 上一篇／下一篇的閱讀順序 */
   var ORDER = [
+    '/phonics/stuck.html',
     '/phonics/which.html',
     '/phonics/zhuyin.html',
+    '/phonics/hanpin.html',
+    '/phonics/tailo.html',
     '/phonics/complete.html',
     '/phonics/standard.html',
     '/phonics/quick.html',

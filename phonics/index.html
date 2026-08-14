@@ -70,6 +70,32 @@ section.group{margin-bottom:2.1rem}
   letter-spacing:.12em;color:var(--moss);border:1px solid #cfd9cf;border-radius:20px;
   padding:.1rem .7rem;margin-top:.6rem}
 .card.en h3{font-family:"Noto Sans TC",sans-serif;letter-spacing:.01em}
+.ag{background:#fff;border:1px solid var(--line);border-radius:14px;padding:.95rem 1.1rem 1.05rem;
+  margin:0 0 2rem;box-shadow:0 6px 18px rgba(16,28,43,.07)}
+.agk{font-family:var(--mono);font-size:.66rem;font-weight:700;letter-spacing:.2em;
+  color:var(--cinnabar);margin:0 0 .1rem}
+.agk em{font-style:normal;font-family:"Noto Sans TC",sans-serif;letter-spacing:.02em;
+  font-size:1.06em;color:#8b8168;margin-left:.7em;font-weight:500}
+.agrow{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:.7rem 0 .1rem}
+.agrow a{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+  border-radius:9px;padding:.45rem .6rem .5rem;line-height:1.35;transition:background .15s,border-color .15s}
+.agrow a:hover{background:#FBF3E2;border-color:var(--gold)}
+.agrow b{display:block;font-family:"Noto Serif TC",serif;font-size:.94rem;font-weight:700;letter-spacing:.03em}
+.agrow span{display:block;font-size:.72rem;color:#8b8168;margin-top:.1rem}
+.agrow a.g1{border-left:3px solid var(--moss)}
+.agrow a.g2{border-left:3px solid var(--cinnabar)}
+.agrow a.g3{border-left:3px solid #4a6d8c}
+.agrow a.g4{border-left:3px solid var(--gold)}
+.agrow a.g5{border-left:3px solid #5B4B86}
+.stuck{display:block;background:#2B2445;color:var(--bone);border-radius:14px;padding:1.2rem 1.5rem;margin:1.4rem 0 0;
+  text-decoration:none;width:fit-content;max-width:100%;box-shadow:0 10px 26px rgba(43,36,69,.2)}
+.stuck b{display:block;font-family:"Noto Serif TC",serif;font-size:clamp(1.25rem,3.2vw,1.6rem);font-weight:900;line-height:1.4}
+.stuck em{display:block;font-style:normal;color:#CFC6E4;margin-top:.4rem;font-size:1rem;line-height:1.7}
+.stuck i{font-style:normal;color:#E9A93A;font-weight:700}
+.stuck:hover b{color:#E9A93A}
+.agtip{margin:.75rem 0 0;font-size:.82rem;color:#7d7461;line-height:1.7}
+.agtip b{color:var(--cinnabar)}
+@media (max-width:760px){ .agrow{grid-template-columns:repeat(2,1fr)} }
 .card.yt h3 a::before{content:"\25B6";color:#C43A26;font-size:.68em;margin-right:.45em;vertical-align:.14em}
 .card.yt .tag{color:#C43A26;border-color:#e6c9c2}
 
@@ -102,6 +128,28 @@ footer a:hover{color:var(--cinnabar)}
   </div>
   <p class="subline">不用學新符號、不用裝輸入法——<b>會哼 do-mi-so 就會聲調，看到什麼就唸對什麼。</b></p>
 
+  <a class="stuck" href="/phonics/stuck.html">
+    <b>你是不是卡在這裡？</b>
+    <em>第八調到底唸多高？排骨、骨架、排骨酥的「骨」為什麼不一樣？<span style="white-space:nowrap">thinn</span> 的 nn 唸在哪裡？「伊」是第幾調？<br>學台語卡住的地方就那幾個，<i>而且多半不是你的問題</i>——一頁十七題，先給答案，再指路。</em>
+  </a>
+
+  <nav class="ag" aria-label="版本一覽">
+    <p class="agk">9 EDITIONS<em>同一套系統，四種寫法、九種篇幅——挑一種就好</em></p>
+    <div class="agrow">
+      <a class="g1" href="/phonics/zhuyin.html"><b>注音版</b><span>會 ㄅㄆㄇ 就會</span></a>
+      <a class="g4" href="/phonics/hanpin.html"><b>漢拼版</b><span>會漢語拼音就會</span></a>
+      <a class="g5" href="/phonics/tailo.html"><b>臺羅對照版</b><span>學過臺羅就會</span></a>
+      <a class="g2" href="/phonics/complete.html"><b>美拼・完整版</b><span>逐項推導</span></a>
+      <a class="g2" href="/phonics/standard.html"><b>美拼・一般版</b><span>只留規則例字</span></a>
+      <a class="g2" href="/phonics/quick.html"><b>美拼・速查卡</b><span>查表用</span></a>
+      <a class="g3" href="/phonics/en-complete.html"><b>Complete</b><span>English</span></a>
+      <a class="g3" href="/phonics/en-standard.html"><b>Standard</b><span>English</span></a>
+      <a class="g3" href="/phonics/en-quick.html"><b>Quick Ref.</b><span>English</span></a>
+      <a class="g1" href="/phonics/which.html"><b>還沒決定？</b><span>選擇指南</span></a>
+    </div>
+    <p class="agtip">往下捲有每一種的說明；最下面還有<b>「音標釋疑」影片</b>三支，按下去自己聽。</p>
+  </nav>
+
   <!-- 先讀這個 -->
   <section class="group">
     <div class="grouphead">
@@ -128,6 +176,36 @@ footer a:hover{color:var(--cinnabar)}
       <h3><a href="/phonics/zhuyin.html">閩南語135拼音法 · 注音版</a></h3>
       <p>台語，用注音就寫得出來。以注音符號為底的完整標音系統。</p>
       <span class="tag">v1.2</span>
+    </div>
+  </section>
+
+  <!-- 漢拼版 -->
+  <section class="group">
+    <div class="grouphead">
+      <span class="gname">漢拼版</span>
+      <span class="gnote">漢語拼音直通台語</span>
+    </div>
+    <p class="glead">給會漢語拼音的人。<b>標準漢拼一個字母都不改</b>，只把台語多出來的那幾格補上去——是累積，不是取代：你原本會的，全部還算數。</p>
+
+    <div class="card link">
+      <h3><a href="/phonics/hanpin.html">閩南語135拼音法 · 漢語拼音版</a></h3>
+      <p>要學的只有五件事：多兩個聲調、多三個聲母、多三個韻母加收尾韻，<br><code>e</code>（ㄜ）與 <code>ê</code>（ㄝ）分家，一句變調口訣。</p>
+      <span class="tag">v1</span>
+    </div>
+  </section>
+
+  <!-- 臺羅對照版 -->
+  <section class="group">
+    <div class="grouphead">
+      <span class="gname">臺羅對照版</span>
+      <span class="gnote">你手上那套，換算成音高</span>
+    </div>
+    <p class="glead"><b>臺羅寫的是拼法，這一本寫的是唱法。</b>左欄照抄臺羅，右欄注音，中間是耳朵——調號、字尾 <code>h</code>、字尾 <code>nn</code>，一個一個換算成實際的音高與鼻音位置。</p>
+
+    <div class="card link">
+      <h3><a href="/phonics/tailo.html">閩南語135拼音法 · 臺羅對照版</a></h3>
+      <p>一個臺羅拼寫，唱出來是哪一個高度、鼻音在哪裡、收尾收在哪裡。<br>母檔 7,830 個單字音全量比對。</p>
+      <span class="tag">v1</span>
     </div>
   </section>
 

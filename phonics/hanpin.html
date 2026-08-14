@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閩南語135拼音法·漢語拼音版 v1 ── 標準漢拼直通台語</title>
+<meta name="description" content="台語，用漢語拼音就寫得出來。標準漢拼一個字母都不改，只把台語多出來的那幾格補上去：bh、gh、r、iw、wi、ie、ê、收尾韻與低中兩個聲調。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/phonics/hanpin.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2213%22%20fill%3D%22%23101C2B%22%2F%3E%3Cg%20stroke%3D%22%23C9972B%22%20stroke-width%3D%223.4%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M13%2020h38M13%2032h38M13%2044h38%22%2F%3E%3C%2Fg%3E%3Cpath%20d%3D%22M19%2045L32%2032%2045%2019%22%20fill%3D%22none%22%20stroke%3D%22%23C43A26%22%20stroke-width%3D%227%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="一起學閩南語（臺語）漢字">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/phonics/hanpin.html">
+<meta property="og:title" content="閩南語135拼音法·漢語拼音版 v1">
+<meta property="og:description" content="台語，用漢語拼音就寫得出來。標準漢拼是基準，一條規則都不改；台語多出來的音才另造，累積補足。">
+<meta property="og:image" content="https://bryenhsuttaigee.github.io/phonics/og/og-index.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="七個聲調畫在五線譜上：低是 do、中是 mi、高是 so。">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C2B;--bone:#F4EDDE;--cinnabar:#C43A26;--gold:#C9972B;--moss:#2E6E4E;
+--line:#D8CCB4;--mono:"Roboto Mono","Consolas",monospace;
+--deep:#0F3A40;--deep2:#1E6B6B;--ochre:#C9972B}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:18px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+svg{max-width:100%;height:auto;display:block;margin:0 auto}
+img{max-width:100%;height:auto}
+h1,h2,h3{font-family:"Noto Serif TC",serif}
+code{font-family:var(--mono);font-weight:700;background:#E3E9DE;color:#0F3A40;padding:2px 6px;border-radius:4px;white-space:nowrap}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{background:var(--deep);color:var(--bone);padding:3rem 1.2rem 3.2rem;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1100px 480px at 82% -12%,rgba(201,151,43,.15),transparent 62%)}
+.hero-in{max-width:960px;margin:0 auto;position:relative}
+.booktitle{color:#DCE8E4;font-size:1rem;letter-spacing:.08em;margin:0}
+.booktitle span{color:#93B2AE;font-size:.85rem;margin-left:.5em}
+.hero h1{font-size:clamp(2.2rem,6.4vw,4rem);font-weight:900;line-height:1.25;margin:.6rem 0;letter-spacing:.05em}
+.hero .red{color:#E9A93A}
+.sub2{color:#CBDCD8;font-size:1.08rem;margin:.2rem auto .9rem;max-width:36em}
+.def{font-family:"Noto Serif TC",serif;font-weight:900;font-size:clamp(1.3rem,3.2vw,1.85rem);margin:.4rem 0 1.2rem}
+.pill{display:inline-block;border:1px solid rgba(244,237,222,.38);border-radius:30px;padding:.35rem 1.3rem;font-size:.95rem;color:#DCE8E4}
+.byline{color:#93B2AE;font-size:.86rem;margin:1.4rem 0 0;letter-spacing:.1em}
+.strip{max-width:960px;margin:-1.6rem auto 0;position:relative;padding:0 1.2rem}
+.strip>div{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 26px rgba(15,58,64,.16);
+  padding:.85rem 1.3rem;text-align:center;font-size:1.02rem}
+.no{color:var(--cinnabar);font-weight:700}.use{color:var(--moss);font-weight:700}
+main{max-width:920px;margin:0 auto;padding:1rem 1.2rem 3.6rem}
+.eyebrow{font-family:var(--mono);font-weight:700;color:var(--deep2);letter-spacing:.28em;font-size:.8rem}
+h2.sec{font-size:clamp(1.5rem,3.2vw,1.95rem);font-weight:900;margin:.2rem 0 1rem}
+h2.sec span{border-bottom:6px solid var(--ochre);padding-bottom:.1rem}
+.toc{font-size:1.05rem;line-height:1.9;padding-left:1.4rem}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--ochre)}
+.toc a:hover{color:var(--deep2)}
+.doc h2{font-size:clamp(1.6rem,4vw,2.15rem);font-weight:900;margin:2.2rem 0 .5rem;color:var(--ink);
+  border-left:10px solid var(--ochre);padding-left:.7rem;line-height:1.4;font-family:"Noto Serif TC",serif}
+.doc h3{font-size:1.16rem;font-weight:900;margin:1.4rem 0 .35rem;color:#14555A}
+.doc h4{font-size:1rem;font-weight:900;margin:.9rem 0 .25rem;color:var(--cinnabar)}
+.doc h4::before{content:"▪ "}
+sub{font-size:.62em}
+.doc table{width:100%;display:table;max-width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;
+  overflow:hidden;font-size:.95rem;margin:1rem 0}
+.doc th{background:var(--deep);color:var(--bone);font-weight:700;padding:.5rem .8rem;text-align:center;white-space:nowrap}
+.doc th.l{text-align:left}
+.doc td{padding:.6rem .8rem;border-top:1px solid var(--line);word-break:break-word;text-align:center;vertical-align:middle}
+.doc td.l{text-align:left}
+.doc caption{caption-side:top;text-align:left;font-size:.86rem;color:#6f7a72;padding:.2rem .1rem .5rem}
+.doc blockquote{border-left:6px solid var(--ochre);background:#fff;margin:1.1rem 0;padding:.7rem 1.1rem;width:fit-content;max-width:100%;
+  border-radius:0 8px 8px 0;color:#33453f}
+.doc blockquote.hi{border-left-color:var(--cinnabar);background:#FBF3E3;color:#3d2f22}
+.doc blockquote.eg{border-left:none;border:1px solid var(--line);border-radius:8px;background:#fbfdfa}
+.doc blockquote p{margin:.35rem 0}
+.doc li{margin:.3rem 0}
+.doc p{margin:.55rem 0}
+.detox{border:1.5px dashed #7f8f89;background:#E8EEE9;padding:.9rem 1.2rem;margin:1.6rem 0;font-size:.95rem;border-radius:8px}
+.detox .dh{font-weight:900;color:#4c5b55;letter-spacing:.06em;margin:.1rem 0 .4rem}
+.detox p{margin:.5rem 0}
+.detox table{background:#fbfdfa;font-size:.92rem}
+.detox blockquote{margin:.7rem 0}
+.hp{font-family:var(--mono);letter-spacing:.01em}
+.hp b{color:var(--cinnabar);font-weight:700}
+.tm{color:var(--cinnabar);font-weight:700;font-size:1.05em}
+.han{font-family:"Noto Sans TC","PingFang TC",sans-serif;font-size:1.06em;font-weight:700;letter-spacing:0}
+.mute{color:#6f7a72}
+.note{font-size:.9rem;color:#6f7a72}
+figure{margin:1.6rem 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:.8rem .6rem}
+figcaption{text-align:center;font-size:.86rem;color:#6f7a72;margin-top:.4rem;line-height:1.7}
+.backtoc{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--deep);color:var(--bone);
+  border:2px solid var(--ochre);border-radius:30px;padding:.5rem 1.1rem;font-size:.95rem;font-weight:700;
+  text-decoration:none;box-shadow:0 6px 18px rgba(15,58,64,.34)}
+.backtoc:hover{background:var(--deep2);border-color:var(--ochre)}
+footer{max-width:920px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#6f7a72;font-size:.84rem;border-top:1px solid var(--line);text-align:center;line-height:2}
+@media (max-width:600px){
+  body{font-size:16px}
+  main{padding:.8rem .9rem 2.6rem}
+  .hero{padding:2.2rem .9rem 2.4rem}
+  .doc table{font-size:.88rem}
+  .doc th,.doc td{padding:.45rem .6rem}
+  .backtoc{right:10px;bottom:10px;padding:.4rem .9rem;font-size:.85rem}
+}
+</style></head>
+<body>
+
+<header class="hero"><div class="hero-in">
+  <p class="booktitle">《閩南語135拼音法·漢語拼音版》 <span>漢拼版 · 標準漢拼直通台語 · v1</span></p>
+  <h1>台語，用<span class="red">漢語拼音</span>就寫得出來</h1>
+  <p class="sub2">給會漢語拼音、想用一般英數鍵盤打台語的人。你已經會 b p m、a o e i u 了。</p>
+  <p class="def">標準漢拼一個字母都不改，只把台語多出來的那幾格補上去。</p>
+  <div class="pill">不換系統 · 不另裝輸入法 · 一般英數鍵盤就打得出來</div>
+  <p class="byline">許文 × 甲骨先生</p>
+</div></header>
+
+<div class="strip"><div><span class="no">另學一套羅馬字＝地獄級</span> → <span class="use">用漢語拼音學台語＝天堂級</span>：規則免教，只補三個聲母、三個韻母、兩個聲調。</div></div>
+<p style="max-width:680px;margin:2rem auto .4rem;padding:0 1.3rem;color:#33453f;font-size:1.02rem;line-height:1.9;text-align:center">本手冊源自 135 拼音法，是引擎本體的直接呈現——不是任何拼音的翻譯版。<b>標準漢語拼音是骨</b>，一條規則都不改；台語比華語多出來的音，就在原來的漢拼表上補回去。補了以後，你手上這套 b p m、a o e i u 就寫得出完整的台語。</p>
+
+<main>
+<section id="toc"><p class="eyebrow">CONTENTS</p><h2 class="sec"><span>目錄</span></h2>
+<ol class="toc">
+<li><a href="#s1">一、你已經會的，跟你還缺的</a></li>
+<li><a href="#s2">二、先認調：七個調，一張表認齊</a></li>
+<li><a href="#s3">三、聲母：只有三個新朋友</a></li>
+<li><a href="#s4">四、ng：一個寫法，四個角色</a></li>
+<li><a href="#s5">五、韻母：e 跟 ê 一定要分家</a></li>
+<li><a href="#s6">六、收尾韻：-p -t -k -m</a></li>
+<li><a href="#s7">七、零聲母：字首要換裝（i→y、u→w）</a></li>
+<li><a href="#s8">八、變調：低調個性，一個重點</a></li>
+<li><a href="#s9">九、拼句練習</a></li>
+<li><a href="#s10">十、常用例字表</a></li>
+</ol>
+</section>
+
+<article class="doc">
+<h2 id="s1">一、你已經會的，跟你還缺的</h2>
+
+<p>先把最容易誤會的一件事講清楚：<b>漢拼不是另一套羅馬字</b>。它就是你在小學課本、路牌、護照上看到的那套漢語拼音——<code>b p m d t n l g k h j q x z c s</code>、<code>a o e i u</code>、<code>an ang en eng</code>，一個字母都沒改，一條規則都沒換。</p>
+
+<p>135拼音法在漢拼上做的事，只有一件：</p>
+
+<blockquote class="hi"><b>標準漢拼是基準，不修改、不替換。<br>只有標準漢拼<u>覆蓋不到</u>的台語音，才另造新符號——而且永遠是「累積」，不是「取代」。</b></blockquote>
+
+<p>這一條看起來像技術規格，其實是給學習者的承諾：<b>你原本會的，全部還算數。</b>你只要學「多出來的那幾格」。</p>
+
+<table>
+<caption>一張表看完：你要學的全部</caption>
+<tr><th>類別</th><th class="l">內容</th><th>在哪一章</th></tr>
+<tr><td><b>多兩個聲調</b></td><td class="l">華語只有 5 個調，台語有 7 個。多出來的是<span class="tm">低</span>（符號 <span class="tm">_</span>）和<span class="tm">中</span>（符號 <span class="tm">+</span>）——兩個都在鍵盤上，現成。</td><td>第二章</td></tr>
+<tr><td><b>多三個聲母</b></td><td class="l">濁音 <span class="hp tm">bh</span>、<span class="hp tm">gh</span>，加上借來當濁音用的 <span class="hp tm">r</span>。另外每個聲母後面都能加 <span class="hp tm">ng</span>，變成鼻音聲母。</td><td>第三、四章</td></tr>
+<tr><td><b>多三個韻母</b></td><td class="l"><span class="hp tm">iw</span>（ㄧㄨ）、<span class="hp tm">wi</span>（ㄨㄧ）、<span class="hp tm">ie</span>（ㄧㄜ）；加上合口韻 <span class="hp tm">-m</span>、自成音節的 <span class="hp tm">ng</span>，以及收尾韻 <span class="hp tm">-p -t -k -m</span>。</td><td>第五、六章</td></tr>
+<tr><td><b>一個習慣要改</b></td><td class="l"><span class="hp tm">e</span> 是 ㄜ、<span class="hp tm">ê</span>（或寫 <span class="hp">eh</span>）才是 ㄝ。這兩個在台語是兩個音，不能混。</td><td>第五章</td></tr>
+</table>
+
+<h3>1.1 另造的符號，每一個都有不得不的理由</h3>
+
+<p>看到 <code>iw</code>、<code>wi</code>、<code>yw</code> 這些長相奇怪的寫法，很多人第一個反應是「135自己發明的例外」。<b>剛好相反</b>——它們是為了<u>不去動標準漢拼</u>，被逼出來的必要形式。</p>
+
+<table>
+<caption>另造符號一覽：原因都是「原來那格已經被佔走了」</caption>
+<tr><th>另造</th><th>讀音</th><th class="l">標準漢拼那一格已經是誰的</th><th class="l">所以</th></tr>
+<tr><td class="hp tm">iw</td><td>ㄧㄨ</td><td class="l"><code>iu</code> ＝ ㄧㄡ（流、牛）；<code>yu</code> ＝ ㄩ（魚）</td><td class="l">兩格都不能借，另造 <b>iw</b>：手 <span class="hp">qìw</span>、酒 <span class="hp">jìw</span></td></tr>
+<tr><td class="hp tm">wi</td><td>ㄨㄧ</td><td class="l"><code>ui</code> ＝ ㄨㄟ（威、對、水的華語音）</td><td class="l">另造 <b>wi</b>：水 <span class="hp">zwì</span>、對 <span class="hp">dwi_</span></td></tr>
+<tr><td class="hp tm">yw</td><td>ㄧㄨ（零聲母）</td><td class="l">—</td><td class="l">這不是新造的，是 <b>iw</b> 照標準漢拼「字首 i→y」規則走出來的結果：有 <span class="hp">ỳw</span></td></tr>
+<tr><td class="hp tm">ê / eh</td><td>ㄝ</td><td class="l"><code>e</code> ＝ ㄜ（哥、河）</td><td class="l">ㄝ 只好戴帽子或加 h：茶 <span class="hp">dê̌</span>、地 <span class="hp">dê+</span></td></tr>
+<tr><td class="hp tm">ie</td><td>ㄧㄜ</td><td class="l">中文的 <code>ie</code> ＝ ㄧㄝ（別、鐵），台語沒有那個音</td><td class="l">這一格台語拿來裝 ㄧㄜ：燒 <span class="hp">xiē</span>、橋 <span class="hp">giě</span></td></tr>
+<tr><td class="hp tm">bh / gh</td><td>ㄅ<sub>ㄏ</sub> ㄍ<sub>ㄏ</sub></td><td class="l">標準漢拼<b>沒有</b>濁聲母這一類</td><td class="l">在 b、g 後面掛一個 h 表示「聲帶先振」：文 <span class="hp">bhǔn</span>、我 <span class="hp">ghuà</span></td></tr>
+<tr><td class="hp tm">ng-</td><td>ㄥ 當聲母</td><td class="l">標準漢拼的 ng 只能收在字尾</td><td class="l">台語它可以站在字頭：碗 <span class="hp">nguà</span>、影 <span class="hp">ngià</span></td></tr>
+<tr><td class="hp tm">-p -t -k -m</td><td>收尾韻</td><td class="l">華語沒有收尾韻</td><td class="l">借四個聲母字母來寫收尾動作：八 <span class="hp">bat</span>、十 <span class="hp">zap+</span></td></tr>
+<tr><td class="hp tm">_　+</td><td>低聲、中聲</td><td class="l">華語只有 4 聲＋輕聲，沒有這兩格</td><td class="l">鍵盤上現成的兩個半形符號，掛在音節尾</td></tr>
+</table>
+
+<blockquote>
+<b>關鍵觀察：這是資源再利用，不是浪費。</b><br>
+中文的 <code>iu</code>（ㄧㄡ）和 <code>ui</code>（ㄨㄟ）這兩個音，<b>台語根本沒用到</b>；中文的 <code>ie</code>（ㄧㄝ）台語也沒有。<br>
+正因為這幾格在台語是空的，135 才能安心把 <b>iw</b>、<b>wi</b>、<b>ie</b> 放進去——<b>不跟任何一個漢拼字衝突</b>。
+</blockquote>
+
+<p>反過來說，華語有、台語根本用不到的部分，也可以先放一邊：</p>
+
+<table>
+<caption>台語用不到的漢拼符號（放心跳過）</caption>
+<tr><th>符號</th><th class="l">台語怎麼辦</th></tr>
+<tr><td class="hp"><b>f</b></td><td class="l">台語沒有這個唇齒音，一律讀 <span class="hp">h</span>。<span class="mute">風 <span class="hp">hōng</span>、分 <span class="hp">hūn</span>、飛 <span class="hp">hwī</span>、夫 <span class="hp">hū</span></span>（所以才有「台語會漏風」的說法）</td></tr>
+<tr><td class="hp"><b>zh ch sh</b></td><td class="l">台語不捲舌，一律用 <span class="hp">z c s</span>（碰到 <span class="hp">i</span> 開頭的韻就寫成 <span class="hp">j q x</span>，見 3.1）。<span class="mute">真 <span class="hp">jīn</span>、車 <span class="hp">qiā</span>、四 <span class="hp">xi_</span>、石 <span class="hp">xik+</span></span></td></tr>
+<tr><td class="hp"><b>ei ou er</b></td><td class="l">台語沒有這三個韻。<span class="mute">華語的 ei，台語走 <span class="hp">ue</span> 或 <span class="hp">ê</span>；華語的 ou，台語走 <span class="hp">o</span> 或 <span class="hp">ao</span>；「二」台語讀 <span class="hp">ghi+</span></span></td></tr>
+<tr><td class="hp"><b>iu ui uo</b></td><td class="l">這三格是<b>中文的</b>（流 <span class="hp">liu</span>、威 <span class="hp">wei</span>、國 <span class="hp">guo</span>），台語不用——台語要的是另造的 <span class="hp tm">iw</span>、<span class="hp tm">wi</span>，以及 <span class="hp">o</span>（國 <span class="hp">gok</span>）。<b>打錯就會被系統老實讀成中文音</b>，見 7.3。</td></tr>
+<tr><td class="hp"><b>ü 系</b></td><td class="l">單獨的 <span class="hp">ü</span>、<span class="hp">üê</span>、<span class="hp">üan</span>、<span class="hp">ün</span>（魚、月、原、雲的華語音）台語都沒有。<span class="mute">只有 <span class="hp">iong</span>、<span class="hp">iok</span> 兩個讀成 ㄩㄥ、ㄩㄎ，那是省符號的訓音寫法，第五章說</span></td></tr>
+<tr><td class="hp"><b>iê ・ iai</b></td><td class="l">中文的 ㄧㄝ（別、鐵）與 ㄧㄞ（崖），台語都沒有。<span class="mute">台語這一類多半收在 <span class="hp">-t</span>：別 <span class="hp">biat</span></span></td></tr>
+</table>
+
+<p class="note">※ 本書的例字讀音，一律取自母檔（台語正字讀音資料庫），不憑印象標音。單字例一律標<b>本調</b>；進到詞句裡會變調，那是第八章的事。</p>
+
+<h2 id="s2">二、先認調：七個調，一張表認齊</h2>
+
+<p>為什麼先講聲調？因為台語是<b>先有高低，才有字音</b>。同一個 <span class="hp">gun</span>，唱在不同高度就是不同的字：<span class="hp">gūn</span> 君、<span class="hp">gùn</span> 滾、<span class="hp">gǔn</span> 群、<span class="hp">gun_</span> 棍、<span class="hp">gun+</span> 郡。聲母韻母你本來就會，聲調才是真正要練的。</p>
+
+<h3>三個基準音：Do、Mi、So</h3>
+
+<p>台語的調，說穿了就是唱歌的音高。先抓三個高度，其他四個都是在這三條線之間走動：</p>
+
+<table>
+<tr><th>高度</th><th>身體開關</th><th class="l">怎麼找</th></tr>
+<tr><td><b>低</b>（Do）</td><td>往下坐的竭力</td><td class="l">想像坐一張很矮很矮的矮椅仔——屁股往下坐的那個「竭力」，就是低聲。手放胸口，聲音在胸腔震。</td></tr>
+<tr><td><b>中</b>（Mi）</td><td>目睭看正中</td><td class="l">眼睛看正前方，聲音平平地向正中送出去，勇敢送、不高不低。</td></tr>
+<tr><td><b>高</b>（So）</td><td>頭殼頂共振</td><td class="l">共振點跑到頭殼頂，聲音往上掛。這就是華語的一聲，你本來就會。</td></tr>
+</table>
+
+<p>「135」就是從 Do Re Mi Fa So 裡取 <b>1（Do）、3（Mi）、5（So）</b> 三個基準音——<b>聲調不是編號，是音高</b>。</p>
+
+<figure style="margin:1.6rem auto;max-width:560px">
+<svg viewBox="0 0 1000 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="三個聲調音高譜：低中高對應 do mi so">
+<rect x="2" y="2" width="996" height="536" rx="16" fill="#FCF8EF" stroke="#D8CCB4" stroke-width="1.5"/>
+<defs><marker id="ah3" markerUnits="userSpaceOnUse" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="15" markerHeight="15" orient="auto-start-reverse"><path d="M1,1.5 L11,6 L1,10.5 z" fill="#C43A26"/></marker></defs>
+<style>text{font-family:"Noto Sans TC","PingFang TC",sans-serif} .mp{font-family:"Noto Sans TC","PingFang TC",sans-serif}</style>
+<text x="60" y="42" font-size="30" font-weight="900" fill="#101C2B">三個聲調，一張譜</text>
+<line x1="140" y1="418" x2="965" y2="418" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text x="112" y="424" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">1</text>
+<line x1="140" y1="357" x2="965" y2="357" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text x="112" y="363" font-size="18" text-anchor="end" fill="#C3B79B" font-weight="400">2</text>
+<line x1="140" y1="296" x2="965" y2="296" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text x="112" y="302" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">3</text>
+<line x1="140" y1="235" x2="965" y2="235" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text x="112" y="241" font-size="18" text-anchor="end" fill="#C3B79B" font-weight="400">4</text>
+<line x1="140" y1="174" x2="965" y2="174" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/>
+<text x="112" y="180" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">5</text>
+<text x="86" y="472" font-size="16" text-anchor="end" fill="#8A7F68">譜調</text>
+<text x="250" y="84" font-size="34" font-weight="900" text-anchor="middle" fill="#C43A26">低</text>
+<text x="250" y="110" font-size="17" text-anchor="middle" fill="#101C2B">低聲</text>
+<text x="250" y="406" font-size="40" font-weight="700" text-anchor="middle" fill="#C43A26">a_</text>
+<line x1="212" y1="418" x2="288" y2="418" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#ah3)"/>
+<text x="250" y="468" font-size="19" text-anchor="middle" fill="#101C2B" font-weight="700">1</text>
+<text x="250" y="491" font-size="16" text-anchor="middle" fill="#8A7F68">do</text>
+<text x="500" y="84" font-size="34" font-weight="900" text-anchor="middle" fill="#C43A26">中</text>
+<text x="500" y="110" font-size="17" text-anchor="middle" fill="#101C2B">中聲</text>
+<text x="500" y="284" font-size="40" font-weight="700" text-anchor="middle" fill="#C43A26">a+</text>
+<line x1="462" y1="296" x2="538" y2="296" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#ah3)"/>
+<text x="500" y="468" font-size="19" text-anchor="middle" fill="#101C2B" font-weight="700">3</text>
+<text x="500" y="491" font-size="16" text-anchor="middle" fill="#8A7F68">mi</text>
+<text x="750" y="84" font-size="34" font-weight="900" text-anchor="middle" fill="#C43A26">高</text>
+<text x="750" y="110" font-size="17" text-anchor="middle" fill="#101C2B">一聲</text>
+<text x="750" y="160" font-size="40" font-weight="700" text-anchor="middle" fill="#C43A26">ā</text>
+<line x1="712" y1="174" x2="788" y2="174" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#ah3)"/>
+<text x="750" y="468" font-size="19" text-anchor="middle" fill="#101C2B" font-weight="700">5</text>
+<text x="750" y="491" font-size="16" text-anchor="middle" fill="#8A7F68">so</text>
+<text x="500" y="524" font-size="16" text-anchor="middle" fill="#C9972B" font-weight="700">不用背數字，看譜唱歌。</text>
+</svg>
+<figcaption>低、中、高這三個，一個高度唱到底，就是後面七個聲調的地基。</figcaption>
+</figure>
+
+<h3>七個調，一張表</h3>
+
+<table>
+<caption>七聲調總表（例字皆為本調，取自母檔）</caption>
+<tr><th>調性</th><th>漢拼調號</th><th>怎麼唱</th><th>華語對照</th><th class="l">例字</th></tr>
+<tr><td><b>低</b></td><td class="tm">_ <span class="note">（掛尾）</span></td><td>Do 壓到最低</td><td>華語<b>沒有</b></td><td class="l hp"><span class="han">豹</span> ba_　<span class="han">去</span> ki_　<span class="han">四</span> xi_　<span class="han">棍</span> gun_　<span class="han">棟</span> dong_　<span class="han">世</span> sê_</td></tr>
+<tr><td><b>中</b></td><td class="tm">+ <span class="note">（掛尾）</span></td><td>Mi 平平中音</td><td>華語<b>沒有</b></td><td class="l hp"><span class="han">象</span> qngiw+　<span class="han">淡</span> dam+　<span class="han">地</span> dê+　<span class="han">郡</span> gun+　<span class="han">洞</span> dong+　<span class="han">舅</span> gu+</td></tr>
+<tr><td><b>高</b></td><td class="tm">ā <span class="note">（一橫）</span></td><td>So 吊在最高</td><td>華語一聲</td><td class="l hp"><span class="han">獅</span> sāi　<span class="han">君</span> gūn　<span class="han">東</span> dōng　<span class="han">天</span> tiān　<span class="han">工</span> gāng　<span class="han">心</span> xīm</td></tr>
+<tr><td><b>升</b></td><td class="tm">á</td><td>Mi→So 往上揚</td><td>華語二聲</td><td class="l"><span class="mute">台語沒有本調是升調的字——它只在變調與語氣裡出現，見下方說明。</span></td></tr>
+<tr><td><b>沈</b></td><td class="tm">ǎ</td><td>先沉到 Do，再折回 Mi</td><td>近華語三聲<br><span class="note">但不一樣</span></td><td class="l hp"><span class="han">猴</span> gǎo　<span class="han">來</span> lǎi　<span class="han">群</span> gǔn　<span class="han">同</span> dǒng　<span class="han">人</span> lǎng　<span class="han">鵝</span> ghě</td></tr>
+<tr><td><b>降</b></td><td class="tm">à</td><td>So→Mi 從高處落下</td><td>華語四聲</td><td class="l hp"><span class="han">虎</span> hò　<span class="han">好</span> hè　<span class="han">狗</span> gào　<span class="han">滾</span> gùn　<span class="han">黨</span> dòng　<span class="han">水</span> zwì</td></tr>
+<tr><td><b>頓</b></td><td class="tm">a <span class="note">（不標）</span></td><td>Mi 上點一下就收（半拍）</td><td>華語輕聲</td><td class="l hp"><span class="han">骨</span> gut　<span class="han">督</span> dok　<span class="han">八</span> bat　<span class="han">七</span> qit　<span class="han">肉</span> bha　<span class="han">百</span> ba</td></tr>
+</table>
+
+<h3>⭐ 調號怎麼寫：漢拼版最要緊的一節</h3>
+
+<p>注音把調號寫在音節<b>後面</b>；漢拼不一樣——<b>調號戴在母音頭上</b>，這是標準漢拼本來就有的辦法，135 完全照用。</p>
+
+<blockquote class="hi">
+<b>四條規矩，一次記牢：</b><br>
+① <b>升、沈、降</b>戴帽子在母音上：<span class="hp tm">á ǎ à</span>（跟華語二三四聲一模一樣）<br>
+② <b>高聲</b>戴一橫：<span class="hp tm">ā ō ē ī ū</span>（就是標準漢拼的一聲）<br>
+③ <b>頓聲不標</b>——標準漢拼的輕聲本來就不標，台語的頓調沿用這一格<br>
+④ <b>低 <span class="tm">_</span>、中 <span class="tm">+</span></b> 是台語多出來的兩個，沒有帽子可戴，<b>掛在音節最後</b>
+</blockquote>
+
+<table>
+<caption>七個調的實際寫法（以 a 與 ba 為例）</caption>
+<tr><th>調性</th><th>低</th><th>中</th><th>高</th><th>升</th><th>沈</th><th>降</th><th>頓</th></tr>
+<tr><td><b>單韻母</b></td><td class="hp tm">a_</td><td class="hp tm">a+</td><td class="hp tm">ā</td><td class="hp tm">á</td><td class="hp tm">ǎ</td><td class="hp tm">à</td><td class="hp tm">a</td></tr>
+<tr><td><b>加聲母</b></td><td class="hp tm">ba_</td><td class="hp tm">ba+</td><td class="hp tm">bā</td><td class="hp tm">bá</td><td class="hp tm">bǎ</td><td class="hp tm">bà</td><td class="hp tm">ba</td></tr>
+<tr><td><b>數字輸入</b></td><td class="hp">ba9</td><td class="hp">ba0</td><td class="hp">ba1</td><td class="hp">ba2</td><td class="hp">ba3</td><td class="hp">ba4</td><td class="hp">ba5</td></tr>
+</table>
+
+<blockquote>
+<b>數字調——135 系列共通的一套標準，不是漢拼版專屬。</b><br>
+<span class="hp">ba9</span>、<span class="hp">dam0</span>、<span class="hp">sai1</span>、<span class="hp">gut5</span>——注音版、美拼版一樣能用，<b>七個數字的對應完全相同</b>。<br>
+差別只在<b>習慣</b>：注音鍵盤上七個調號本來就在手邊，打符號比打數字快，所以注音版習慣直接標符號；漢拼在英數鍵盤上，帽子不好打，數字反而順手。<br>
+它本來是<b>程式輸入</b>用的寫法，<b>但也可以當「簡易書寫版」</b>——手邊沒有帽子可打、或臨時記在紙上、傳訊息給人，直接寫數字調就好，一樣讀得懂：<span class="hp">gua4 ai9 li3</span>。<br>
+<span class="note">兩種寫法完全等價，看場合順手。正式版面用帽子，隨手記用數字。</span>
+</blockquote>
+
+<p class="note">※ 低聲另可寫 <span class="tm">'</span>、中聲另可寫 <span class="tm">"</span>，兩組等價，看哪一組順手。</p>
+
+<h4>帽子戴在哪一個母音上？</h4>
+
+<p>一個音節有好幾個母音時，<b>戴在第一個母音上</b>——照 <code>a o e i u ü ê</code> 的順序找到第一個就是它。</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">來</span> <b>lǎi</b>（不是 laǐ）　<span class="han">狗</span> <b>gào</b>　<span class="han">水</span> <b>zwì</b>　<span class="han">酒</span> <b>jìw</b>　<span class="han">娘</span> <b>nǐw</b>　<span class="han">橋</span> <b>giě</b></p>
+<p class="note">零聲母字首換裝成 <span class="hp">y-</span>、<span class="hp">w-</span> 以後，帽子就落在那個 y 或 w 上：有 <b class="hp">ỳw</b>、油 <b class="hp">y̌w</b>、友 <b class="hp">ỳw</b>。（第七章）</p>
+</blockquote>
+
+<h4>ê 的四頂帽子</h4>
+
+<p><span class="hp tm">ê</span> 本來就戴了一頂（那是「這是 ㄝ 不是 ㄜ」的記號），加上聲調就是兩層：</p>
+
+<table>
+<tr><th>調性</th><th>高</th><th>升</th><th>沈</th><th>降</th><th>低</th><th>中</th><th>頓</th></tr>
+<tr><td><b>寫法</b></td><td class="hp tm">ê̄</td><td class="hp tm">ế</td><td class="hp tm">ê̌</td><td class="hp tm">ề</td><td class="hp tm">ê_</td><td class="hp tm">ê+</td><td class="hp tm">ê</td></tr>
+<tr><td class="l"><b>例字</b></td><td class="l hp" colspan="7"><span class="han">坑</span> kngê̄　<span class="han">茶</span> dê̌　<span class="han">短</span> dề　<span class="han">馬</span> bhề　<span class="han">世</span> sê_　<span class="han">地</span> dê+　<span class="han">八</span> bê</td></tr>
+</table>
+
+<p class="note">※ 打字時直接打 <span class="hp">eh</span> 就好——<span class="hp">deh3</span>、<span class="hp">beh5</span>，系統會轉成 <span class="hp">dê̌</span>、<span class="hp">bê</span>。<b>eh 的 h 是「ㄝ」的記號，不是收尾韻</b>，別跟第六章的 -p -t -k 混。</p>
+
+<h4>沒有母音的音節怎麼標</h4>
+
+<p>台語有幾個字整個音節就是一個鼻音，沒有母音可以戴帽子。這時帽子就戴在 <span class="hp">m</span> 或 <span class="hp">n</span> 上：</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">姆</span> <b>m̀</b>　<span class="han">毋</span> <b>m+</b>　<span class="han">黃</span> <b>ěng</b>　<span class="han">秧</span> <b>ēng</b>　<span class="han">卬</span> <b>eng_</b>　<span class="han">袂</span> <b>èng</b></p>
+<p class="note">單獨成音節的 <span class="hp">ng</span>，漢拼補一個 e 寫成 <span class="hp">eng</span>（帽子才有地方戴）；讀音還是 ㄥ。打字時打 <span class="hp">ng3</span> 或 <span class="hp">eng3</span> 都認得。</p>
+</blockquote>
+
+<figure style="margin:1.8rem 0">
+<svg viewBox="0 0 1300 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="七個聲調音高譜（漢拼標示）">
+<rect x="2" y="2" width="1296" height="556" rx="16" fill="#FCF8EF" stroke="#D8CCB4" stroke-width="1.5"/>
+<defs><marker id="a7" markerUnits="userSpaceOnUse" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M1,1.5 L11,6 L1,10.5 z" fill="#C43A26"/></marker></defs>
+<style>text{font-family:"Noto Sans TC","PingFang TC",sans-serif} .mp{font-family:"Noto Sans TC","PingFang TC",sans-serif}</style>
+<text x="60" y="48" font-size="30" font-weight="900" fill="#101C2B">七個聲調，一張譜</text>
+<line x1="160" y1="448" x2="1262" y2="448" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="134" y="454" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">1</text>
+<line x1="160" y1="382" x2="1262" y2="382" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="134" y="388" font-size="18" text-anchor="end" fill="#C3B79B">2</text>
+<line x1="160" y1="316" x2="1262" y2="316" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="134" y="322" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">3</text>
+<line x1="160" y1="250" x2="1262" y2="250" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="134" y="256" font-size="18" text-anchor="end" fill="#C3B79B">4</text>
+<line x1="160" y1="184" x2="1262" y2="184" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="134" y="190" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">5</text>
+<text x="108" y="504" font-size="15" text-anchor="end" fill="#8A7F68">譜調</text>
+<!-- 低 -->
+<text x="220" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">低</text><text x="220" y="120" font-size="16" text-anchor="middle" fill="#101C2B">低聲</text>
+<text x="220" y="426" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">a_</text>
+<line x1="182" y1="448" x2="258" y2="448" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="220" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">1</text><text x="220" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">do</text>
+<!-- 中 -->
+<text x="370" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">中</text><text x="370" y="120" font-size="16" text-anchor="middle" fill="#101C2B">中聲</text>
+<text x="370" y="294" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">a+</text>
+<line x1="332" y1="316" x2="408" y2="316" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="370" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">3</text><text x="370" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">mi</text>
+<!-- 高 -->
+<text x="520" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">高</text><text x="520" y="120" font-size="16" text-anchor="middle" fill="#101C2B">一聲</text>
+<text x="520" y="164" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">ā</text>
+<line x1="482" y1="184" x2="558" y2="184" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="520" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">5</text><text x="520" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">so</text>
+<!-- 升 二聲 3->5 -->
+<text x="670" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">升</text><text x="670" y="120" font-size="16" text-anchor="middle" fill="#101C2B">二聲</text>
+<line x1="632" y1="316" x2="708" y2="184" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="712" y="260" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">á</text>
+<text x="670" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">35</text><text x="670" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">中升</text>
+<!-- 沈 三聲 1->3 (113) -->
+<text x="820" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">沈</text><text x="820" y="120" font-size="16" text-anchor="middle" fill="#101C2B">三聲</text>
+<path d="M765 448 L805 448 L858 316" fill="none" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a7)"/>
+<text x="866" y="388" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">ǎ</text>
+<text x="820" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">113</text><text x="820" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">低升</text>
+<!-- 降 四聲 5->3 (53) -->
+<text x="970" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">降</text><text x="970" y="120" font-size="16" text-anchor="middle" fill="#101C2B">四聲</text>
+<line x1="932" y1="184" x2="1008" y2="316" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="996" y="236" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">à</text>
+<text x="970" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">53</text><text x="970" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">高降</text>
+<!-- 頓 輕聲 -->
+<text x="1120" y="92" font-size="35" font-weight="900" text-anchor="middle" fill="#C43A26">頓</text><text x="1120" y="120" font-size="16" text-anchor="middle" fill="#101C2B">輕聲</text>
+<text x="1120" y="294" font-size="34" font-weight="700" text-anchor="middle" fill="#C43A26">a</text>
+<line x1="1098" y1="316" x2="1132" y2="316" stroke="#C43A26" stroke-width="4.5" stroke-linecap="round"/><circle cx="1142" cy="316" r="6" fill="#C43A26"/>
+<text x="1120" y="500" font-size="20" text-anchor="middle" fill="#101C2B" font-weight="700">3</text><text x="1120" y="523" font-size="14" text-anchor="middle" fill="#8A7F68">短促</text>
+<text x="650" y="548" font-size="17" text-anchor="middle" fill="#C9972B" font-weight="700">不用背數字，看譜唱歌。</text>
+</svg>
+<figcaption>七個調全在 Do-Mi-So 三條線之間——這就是口訣「低中高升沈降頓」的樣子。</figcaption>
+</figure>
+
+<h3>怎麼看這張〈七個聲調，一張譜〉</h3>
+
+<p>這張譜，<b>跟著老師唸一遍，一下子就學會了</b>。但要當老師的人，就要稍微理解底下這幾件事——因為學生問「為什麼」的時候，你得答得出來。</p>
+
+<table>
+<tr><th>圖上的位置</th><th class="l">在說什麼</th></tr>
+<tr><td><b>左邊的 1～5</b></td><td class="l">音高的五個刻度，<b>1 最低、5 最高</b>。其中 <b>1、3、5</b> 印得比較黑——那就是 Do、Mi、So 三條基準線；2 和 4 只是過路，不必記。</td></tr>
+<tr><td><b>七欄的欄頭</b></td><td class="l">上面大字是<b>調性</b>（低中高升沈降頓），底下小字是<b>調名</b>，再底下是<b>漢拼示範</b>（a_、a+、ā…）。三個講的是同一件事，換三種說法而已。</td></tr>
+<tr><td><b>中間的紅線</b></td><td class="l">整張圖的主角——<b>紅線怎麼走，嘴就怎麼唱</b>。<br>・<b>平線</b>（低、中、高）＝一個高度唱到底，不滑動。<br>・<b>斜線</b>（升、降）＝從一個高度滑到另一個高度；箭頭指向終點。<br>・<b>先平後折的折線</b>（沈）＝先貼在第 1 格走一小段，再折上第 3 格。這條線的「腰」就是沈調最有味道的地方。<br>・<b>短線加一個圓點</b>（頓）＝停在第 3 格，點一下就收，只有<b>半拍</b>。</td></tr>
+<tr><td><b>最底下兩列</b></td><td class="l">上面是<b>五度調值</b>（1、3、5、35、113、53、3），用數字把紅線的起點與終點寫出來。<br>對照著看就懂了：降是 <b>53</b>——起點 5、終點 3；沈是 <b>113</b>——在 1 拖一下，再到 3。<b>第八章「一個重點」的變調口訣，答案就藏在這一列數字裡。</b></td></tr>
+</table>
+
+<h3>開口練：七個調，兩排音</h3>
+
+<p>不必先背理論，先跟著唸。照調名的順序，一路唱下去：</p>
+
+<blockquote class="eg">
+<p><b>調名</b>　低　·　中　·　高　·　升　·　沈　·　降　·　頓</p>
+<p class="hp" style="font-size:1.5em;letter-spacing:.06em"><b>a_　a+　ā　á　ǎ　à　a</b></p>
+<p class="hp" style="font-size:1.5em;letter-spacing:.06em"><b>ba_　ba+　bā　bá　bǎ　bà　ba</b></p>
+<p class="note">先唸單韻母的那排，把七個高度唱穩；再加上聲母唸第二排，確認掛上聲母以後高度不會跑掉。<br>
+唸的時候手貼胸口、眼睛看正中、想著頭殼頂——就是前面那三格身體開關。</p>
+</blockquote>
+
+<h3>三個關鍵釐清</h3>
+
+<h4>① 沈調（ǎ）不是華語的二聲</h4>
+<p>華語的三聲是「先降再升」，台語的沈調是<b>先沉在低音、尾巴再往上勾</b>——重點在「先有一個低音」。台語的「來」<span class="hp">lǎi</span>，起頭要壓到 Do，這是華語的「來」（直接拗高音）沒有的。這一格最容易被華語習慣帶歪，值得單獨練。</p>
+<p class="note">補一句：台語的沈調個性很活潑——低音拉長、或高音拉長，都還是同一個調。</p>
+
+<h4>② 升調（á）沒有本調字</h4>
+<p>七個調裡，只有升調在台語裡找不到「本調就是升」的字。它出現在兩個地方：一是變調的結果，二是<b>加強語氣</b>的時候。</p>
+<blockquote class="eg">
+<p class="hp"><span class="han">心肝寶貝</span>　—　中間那個「肝」本調是 <b>gnguā</b>（高），實務上為了強調，會唱成升調 <b>gnguá</b>。</p>
+<p class="note">這就是升調在口語裡真正的位子：不是哪個字本來的調，而是說話的人把語氣加上去的。</p>
+</blockquote>
+<p>所以上表的升調那一列，例字欄是空的——這不是漏掉，是事實。</p>
+
+<h4>③ 頓調不標符號，不代表「沒有調」</h4>
+<p>看到光禿禿沒有帽子的音節（<span class="hp">gut</span>、<span class="hp">bat</span>、<span class="hp">bha</span>），那就是頓調：在中音點一下、半拍就收。<b>它跟高聲 <span class="hp">gūn</span> 差在那一橫</b>，別看漏了。</p>
+
+<div class="detox">
+<p class="dh">〔解毒箱〕給學過羅馬字那一套的人</p>
+<p>本書正文不用編號講聲調——編號不會唱歌。但如果你以前背過那套數字，這裡給你一條回家的路：</p>
+<table>
+<tr><th>本書</th><th>漢拼符號</th><th class="l">舊系統的編號</th></tr>
+<tr><td><b>低</b></td><td class="tm">_</td><td class="l">第三調</td></tr>
+<tr><td><b>中</b></td><td class="tm">+</td><td class="l">第七調</td></tr>
+</table>
+<p>對上編號以後，就把編號忘掉——<b>照譜唱高度</b>，比記第幾調快得多。</p>
+</div>
+
+<h3>中聲、低聲分不出來的時候</h3>
+
+<p>七個調裡，最容易混的是<b>中</b>跟<b>低</b>——兩個都是平平的，只差一階。這裡有一個偷食步：</p>
+
+<blockquote>
+遇到分不出「中」還是「低」——先把它放進一個會變調的詞裡聽。<br>
+<b>本調中聲</b>，變調會落到<b>低聲</b>；<b>本調低聲</b>，變調會翻成<b>降聲</b>。<br>
+降聲很好認（從頭頂摔下來），一聽到降，就知道本調是低聲。
+</blockquote>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">淡</span>水　本調 dam<b>+</b>-zwì → 唱出來是 <b>低</b>・降　<span class="mute">（變調落到低聲 → 淡的本調是<b>中</b>）</span></p>
+<p class="hp"><span class="han">世</span>界　本調 sê<b>_</b>-gai_ → 唱出來是 <b>降</b>・低　<span class="mute">（變調翻成降聲 → 世的本調是<b>低</b>）</span></p>
+</blockquote>
+
+<h2 id="s3">三、聲母：只有三個新朋友</h2>
+
+<p>台語的聲母，絕大多數你照標準漢拼唸就對。真正要學的，只有三個。</p>
+
+<h3>3.1 照標準漢拼唸就對的（十六個）</h3>
+
+<table>
+<caption>這一組不必學，看到就唸。例字皆本調。</caption>
+<tr><th>符號</th><th class="l">例字</th><th>符號</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>b</b></td><td class="l hp"><span class="han">包</span> bāo　<span class="han">布</span> bo_　<span class="han">半</span> buan_</td>
+    <td class="hp"><b>g</b></td><td class="l hp"><span class="han">哥</span> gē　<span class="han">工</span> gāng　<span class="han">金</span> gīm</td></tr>
+<tr><td class="hp"><b>p</b></td><td class="l hp"><span class="han">抱</span> pe+　<span class="han">品</span> pìn　<span class="han">泡</span> pē</td>
+    <td class="hp"><b>k</b></td><td class="l hp"><span class="han">可</span> kè　<span class="han">開</span> kāi　<span class="han">去</span> ki_</td></tr>
+<tr><td class="hp"><b>m</b></td><td class="l hp"><span class="han">媽</span> mà　<span class="han">麵</span> mi+　<span class="han">妹</span> muê+</td>
+    <td class="hp"><b>h</b></td><td class="l hp"><span class="han">好</span> hè　<span class="han">風</span> hōng　<span class="han">雨</span> ho+</td></tr>
+<tr><td class="hp"><b>d</b></td><td class="l hp"><span class="han">刀</span> dē　<span class="han">大</span> dua+　<span class="han">東</span> dōng</td>
+    <td class="hp"><b>j</b></td><td class="l hp"><span class="han">姊</span> jì　<span class="han">真</span> jīn　<span class="han">針</span> jiām</td></tr>
+<tr><td class="hp"><b>t</b></td><td class="l hp"><span class="han">土</span> tò　<span class="han">拖</span> tuā　<span class="han">糖</span> těng</td>
+    <td class="hp"><b>q</b></td><td class="l hp"><span class="han">清</span> qīng　<span class="han">親</span> qīn　<span class="han">手</span> qìw</td></tr>
+<tr><td class="hp"><b>n</b></td><td class="l hp"><span class="han">若</span> na+　<span class="han">鬧</span> nao+　<span class="han">娘</span> nǐw</td>
+    <td class="hp"><b>x</b></td><td class="l hp"><span class="han">心</span> xīm　<span class="han">新</span> xīn　<span class="han">四</span> xi_</td></tr>
+<tr><td class="hp"><b>l</b></td><td class="l hp"><span class="han">路</span> lo+　<span class="han">來</span> lǎi　<span class="han">林</span> lǐm</td>
+    <td class="hp"><b>z c s</b></td><td class="l hp"><span class="han">做</span> ze_　<span class="han">厝</span> cu_　<span class="han">孫</span> sūn</td></tr>
+</table>
+
+<blockquote class="hi">
+<b>z c s 跟 j q x 是同一組——這是漢拼版最重要的一條書寫規則。</b><br>
+z、c、s 碰到<b>「以 i 開頭」的韻母</b>，嘴巴自己就軟化成 j、q、x。<br>
+<span class="hp">做 ze_ ／ 姊 jì　　菜 cai_ ／ 清 qīng　　三 sām ／ 心 xīm　　石 xik+</span><br>
+<span class="note"><b>條件是「以 i 開頭」，不是「含有 i」</b>——所以 <span class="hp">zwi</span>（水 zwì）不轉，因為韻母是 <span class="hp">wi</span>，開頭是 w 不是 i。</span>
+</blockquote>
+
+<blockquote>
+<b>這件事不是台語專屬——中文是這樣，連英文也是。</b><br>
+<b>中文：</b>標準漢拼的 j q x 跟 z c s 本來就不會撞在一起——<span class="hp">zi ci si</span> 有了，就不會有 <span class="hp">ji qi xi</span> 以外的第二種寫法。<b>它們是同一批聲母在 i 前面的另一張臉</b>，漢拼只是替這張臉另給了字母。<br>
+<b>英文：</b>唸唸看 <span class="hp">check</span> 跟 <span class="hp">cheese</span>——同樣拼 <span class="hp">ch</span>，但 cheese 那個 ch 因為後面接的是 i 類的母音，舌頭整個往上顎靠上去，位置跟 check 的 ch 不一樣。<b>英文用同一個 ch 帶過，中文與台語則乾脆給這兩張臉各一個字母：<span class="hp">c</span> 與 <span class="hp">q</span>。</b><br>
+<span class="note">所以這不必背。<b>你的嘴本來就會做</b>，135 只是把嘴巴已經做了的事老實寫出來——差別只在寫不寫得出來。</span>
+</blockquote>
+
+<h3>3.2 台語才有的三個：bh・gh・r</h3>
+
+<p>台語有一種華語完全沒有的音——<b>濁音</b>：出聲以前，喉嚨（聲帶）要先振動起來。標準漢拼裡沒有這一格（華語沒有這種音，自然沒人替它留位子），所以 135 補了兩個：<b>在 b、g 後面掛一個 h</b>。</p>
+
+<table>
+<tr><th>符號</th><th>怎麼發</th><th class="l">例字</th></tr>
+<tr><td class="hp tm">bh</td><td>濁的 b<br><span class="note">聲帶先振</span></td><td class="l hp"><span class="han">舞</span> bhù　<span class="han">文</span> bhǔn　<span class="han">肉</span> bha　<span class="han">米</span> bhì　<span class="han">馬</span> bhề　<span class="han">望</span> bhang+　<span class="han">民</span> bhǐn　<span class="han">目</span> bhak+</td></tr>
+<tr><td class="hp tm">gh</td><td>濁的 g<br><span class="note">聲帶先振</span></td><td class="l hp"><span class="han">我</span> ghuà　<span class="han">五</span> gho+　<span class="han">鵝</span> ghě　<span class="han">牛</span> ghǔ　<span class="han">餓</span> ghe+　<span class="han">月</span> ghuê+　<span class="han">二</span> ghi+　<span class="han">玉</span> ghik+</td></tr>
+<tr><td class="hp tm">r</td><td>借來的濁音<br><span class="note">不另造符號</span></td><td class="l hp"><span class="han">人</span> rǐn　<span class="han">仁</span> rǐn　<span class="han">日</span> rit+　<span class="han">入</span> rip+　<span class="han">熱</span> rêt+　<span class="han">染</span> riàm　<span class="han">肉</span> riok+　<span class="han">弱</span> riok+</td></tr>
+</table>
+
+<blockquote class="hi">
+<b>最常被弄丟的就是這三個。</b><br>
+華語人第一次唸台語，常把 <span class="hp">bh</span> 唸成 <span class="hp">b</span>、<span class="hp">gh</span> 唸成 <span class="hp">g</span>——因為母語裡沒有這個元素，耳朵「有聽沒有到」，嘴巴自然也不會做。<br>
+試試看：找一個習慣講華語的人，請他唸「我去宜蘭食鵝肉」。這一句裡藏了<b>三個</b> gh——<span class="hp">我 ghuà</span>、<span class="hp">宜 ghǐ</span>、<span class="hp">鵝 ghě</span>，他多半會全部讀成清音的 g——或者乾脆整個忽略掉。<br>
+<b>檢查法：</b>手指貼在喉結上，先發 <span class="hp">g</span>，再發 <span class="hp">gh</span>——後者在出聲之前手指就要感覺到震動。
+</blockquote>
+
+<p class="note">※ 為什麼借 <span class="hp">r</span> 來當第三個濁音？因為華語的 r 本來就是濁音，台語這個音（人、日、熱）跟它夠近，直接借最省事——不必再造第三個新符號。<br>
+※ <b>h 這個字母在漢拼裡只有三種身分</b>：獨立聲母 h（好 hè）、濁音記號 bh／gh、以及 ㄝ 的記號 eh。它<b>不會</b>出現在字尾當收尾韻——那是別套系統的寫法。</p>
+
+<h3>3.3 鼻音聲母：每個聲母都能加 ng</h3>
+
+<p>台語有一大批字，鼻音是<b>從頭就開始</b>的。135 的寫法很直觀：<b>聲母後面加 <span class="hp">ng</span></b>，表示這個字整個掛上鼻腔——這兩者組合成<b>一個聲符</b>，當一個聲母看待，不是兩個音。</p>
+
+<blockquote><b>格式：〔聲母 ＋ <span class="hp">ng</span>〕＋ 韻母</b><br>前面那一整段合起來是<b>一個聲符</b>；鼻音就寫在它實際發生的位置——頭前。<br><span class="note">濁音也能再加鼻化：<span class="hp">ghng-</span>（雅 ghngà、五 ghngò）。</span></blockquote>
+
+<blockquote class="hi">
+<b>為什麼表上沒有 <span class="hp">bhng-</span>？因為 <span class="hp">bhng-</span> 就是 <span class="hp">m-</span>。</b><br>
+<span class="hp">bh</span> 是雙唇濁音，再把氣送進鼻腔——出來的正是 <span class="hp">m</span>。這不是規定，是嘴巴的事實：<b>雙唇濁音＋鼻腔＝ㄇ</b>。<br>
+所以 <span class="hp">m</span> 這個聲母本身就已經是「鼻化的 bh」，不必也不能再加 ng。同理 <span class="hp">n</span> 也不加。
+</blockquote>
+
+<table>
+<caption>鼻音聲母例字（母檔本調）</caption>
+<tr><th>寫法</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>dng-</b></td><td class="l hp"><span class="han">打</span> dngà<span class="mute">（敲擊義）</span>　<span class="han">埕</span> dngiǎ　<span class="han">長</span> dngìw</td></tr>
+<tr><td class="hp"><b>tng-</b></td><td class="l hp"><span class="han">天</span> tngī　<span class="han">廳</span> tngiā　<span class="han">躺</span> tngê̄</td></tr>
+<tr><td class="hp"><b>png-</b></td><td class="l hp"><span class="han">鼻</span> pngi+　<span class="han">歹</span> pngài　<span class="han">伴</span> pngua+</td></tr>
+<tr><td class="hp"><b>bng-</b></td><td class="l hp"><span class="han">半</span> bngua_　<span class="han">平</span> bngiǎ　<span class="han">丙</span> bngià</td></tr>
+<tr><td class="hp"><b>gng-</b></td><td class="l hp"><span class="han">官</span> gnguā　<span class="han">囝</span> gngià　<span class="han">關</span> gnguāi　<span class="han">寒</span> gnguǎ</td></tr>
+<tr><td class="hp"><b>kng-</b></td><td class="l hp"><span class="han">坑</span> kngê̄　<span class="han">看</span> kngua_</td></tr>
+<tr><td class="hp"><b>hng-</b></td><td class="l hp"><span class="han">兄</span> hngiā　<span class="han">岸</span> hngua+　<span class="han">橫</span> hnguǎi</td></tr>
+<tr><td class="hp"><b>xng- ／ sng-</b></td><td class="l hp"><span class="han">聲</span> xngiā　<span class="han">想</span> xngiw+　<span class="han">城</span> xngiǎ　<span class="han">三</span> sngā　<span class="han">山</span> snguā</td></tr>
+<tr><td class="hp"><b>jng- ／ zng-</b></td><td class="l hp"><span class="han">錢</span> jngǐ　<span class="han">上</span> jngiw+　<span class="han">成</span> jngiǎ　<span class="han">井</span> zngề</td></tr>
+<tr><td class="hp"><b>qng- ／ cng-</b></td><td class="l hp"><span class="han">象</span> qngiw+　<span class="han">倩</span> qngia+　<span class="han">閂</span> cngua_</td></tr>
+<tr><td class="hp"><b>ghng-</b></td><td class="l hp"><span class="han">雅</span> ghngà　<span class="han">迎</span> ghngiǎ　<span class="han">我</span> ghngò　<span class="han">五</span> ghngò</td></tr>
+</table>
+
+<p class="note">※ 鼻化以後 z/c/s 的軟化照舊看<b>ng 後面那個韻母</b>：<span class="hp">sngia</span> 寫成 <span class="hp">xngia</span>（韻母 ia 以 i 開頭），<span class="hp">sngua</span> 就維持 <span class="hp">sngua</span>。</p>
+
+<p>對照一下，就看得出這套寫法的好處。<b>三個字同一個聲母 q、同一個母音 i，只差鼻音站在哪裡</b>：</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">親</span> q<b>ī</b>n　—　鼻音在<b>後</b>（韻尾 n）</p>
+<p class="hp"><span class="han">清</span> q<b>ī</b>ng　—　鼻音在<b>後</b>（韻尾 ng）</p>
+<p class="hp"><span class="han">鱻</span> q<b>ngī</b>　—　鼻音在<b>前</b>（鼻音聲母）<span class="mute">　※鱻＝生、鮮</span></p>
+<p class="note">同樣是鼻音，位置完全不同。寫在它真正發生的地方，唸起來就不會錯。</p>
+</blockquote>
+
+<h2 id="s4">四、ng：一個寫法，四個角色</h2>
+
+<p>台語最有味道的一個音是 <span class="hp tm">ng</span>。在漢拼裡它一個人兼四個角色——先把四個位子分清楚，後面就不會亂。</p>
+
+<p>先學會把它單獨哼出來：唸<b>華語</b>的「僧」<span class="hp">seng</span>，再把開頭的 <span class="hp">s</span> 砍掉——剩下那聲從鼻子出來的嗡，就是它。</p>
+
+<h3>角色一：純聲母（<span class="hp">ng</span> ＋ 韻母）</h3>
+
+<p><span class="hp">ng</span> 站在字頭，後面直接接韻母——它就是這個字的聲母。這是標準漢拼完全沒有的用法（華語的 ng 只能收尾）。</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">碗</span> nguà　<span class="han">影</span> ngià　<span class="han">迎</span> ngiǎ　<span class="han">院</span> ngi+　<span class="han">換</span> ngua+　<span class="han">頷</span> nga_<span class="mute">（低頭）</span></p>
+</blockquote>
+
+<h3>角色二：鼻化聲母標記（聲母 ＋ <span class="hp">ng</span> ＋ 韻母）</h3>
+
+<p>夾在聲母跟韻母中間，它不是一個獨立的音，而是<b>把整個字掛上鼻腔</b>的記號：跟前面的聲母合成<b>一個聲符</b>——就是第三章 3.3 那一整張表。</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">聲</span> xngiā　<span class="han">雅</span> ghngà　<span class="han">歹</span> pngài　<span class="han">天</span> tngī　<span class="han">山</span> snguā　<span class="han">錢</span> jngǐ</p>
+<p class="note">怎麼分辨角色一跟角色二？<b>看 ng 前面有沒有東西</b>。ng 開頭 → 純聲母；ng 前面還有一個聲母 → 鼻化記號。</p>
+</blockquote>
+
+<h3>角色三：當韻母（收在字尾）</h3>
+
+<p>收在字尾當韻母——<b>這個角色標準漢拼也有</b>（東 dong、清 qing），所以不必特別學。兩種形式：</p>
+
+<table>
+<tr><th>形式</th><th class="l">例字</th></tr>
+<tr><td>前面有元音<br><span class="note">（ng 是韻尾）</span></td><td class="l hp"><span class="han">工</span> gāng　<span class="han">東</span> dōng　<span class="han">清</span> qīng　<span class="han">中</span> diōng　<span class="han">風</span> hōng　<span class="han">冰</span> bīng</td></tr>
+<tr><td>聲母直接加 <span class="hp">ng</span><br><span class="note">（＝華語「僧」那一類，漢拼補 e 寫成 -eng）</span></td><td class="l hp"><span class="han">光</span> gēng　<span class="han">卵</span> neng+　<span class="han">飯</span> beng+　<span class="han">湯</span> tēng　<span class="han">糖</span> těng　<span class="han">丈</span> deng+　<span class="han">方</span> hēng　<span class="han">問</span> meng+　<span class="han">園</span> hěng　<span class="han">二</span> neng+</td></tr>
+</table>
+
+<p class="note">※ 第二種形式打字時可以偷懶直接打 <span class="hp">dng</span>、<span class="hp">tng3</span>，系統會補成 <span class="hp">dēng</span>、<span class="hp">těng</span>——<b>因為調號需要一個母音才有地方站</b>。這個補上去的 e 不改讀音。</p>
+
+<blockquote>
+<b>順手記一條訓音：華語的 <span class="hp tm">ong</span> 唸 ㄨㄥ，台語的 <span class="hp tm">ong</span> 唸 ㄛㄥ。</b><br>
+華語把「翁、東、風」讀成 ㄨㄥ，是省符號的舊慣例；實際發音本來就是 ㄛㄥ。<br>
+<b>本系統回歸實際發音</b>：東 <span class="hp">dōng</span>、風 <span class="hp">hōng</span>、國 <span class="hp">gok</span>，一律 ㄛㄥ／ㄛㄎ。<br>
+<span class="note">（至於 <span class="hp">iong</span>＝ㄩㄥ、<span class="hp">iok</span>＝ㄩㄎ 這兩個訓音確實省了一個符號，就照舊慣例沿用，跟華語的「雍 yong」同一招。）</span>
+</blockquote>
+
+<h3>角色四：自己就是一個字（獨立成音）</h3>
+
+<p>不配任何聲母，<span class="hp">ng</span> 自己就撐起一整個字。這一格<b>華語完全沒有</b>。漢拼書寫時補一個 e 給調號站，寫成 <span class="hp">eng</span>：</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">黃</span> ěng　<span class="han">秧</span> ēng　<span class="han">卬</span> eng_<span class="mute">（＝仰，抬頭仰望；跟角色一那個「頷 nga_」低頭，正好一對）</span>　<span class="han">袂</span> èng　<span class="han">掩</span> ēng</p>
+</blockquote>
+
+<blockquote>
+<b>四個角色，一句話分辨：</b><br>
+<span class="hp">ng</span> 在<b>最前面</b>、後面有韻母 → 角色一，純聲母（碗 <span class="hp">nguà</span>）。<br>
+<span class="hp">ng</span> <b>夾在聲母與韻母中間</b> → 角色二，合成一個鼻化聲符（聲 <span class="hp">xngiā</span>）。<br>
+<span class="hp">ng</span> 在<b>最後面</b> → 角色三，當韻母（東 <span class="hp">dōng</span>、光 <span class="hp">gēng</span>）。<br>
+<span class="hp">ng</span> <b>自己一個</b>（寫成 <span class="hp">eng</span>） → 角色四，獨立成字（黃 <span class="hp">ěng</span>）。
+</blockquote>
+
+<h2 id="s5">五、韻母：e 跟 ê 一定要分家</h2>
+
+<h3>5.1 六個基本韻母</h3>
+
+<table>
+<caption>台語的六個基本單韻母（例字皆本調）</caption>
+<tr><th>符號</th><th class="l">例字</th><th class="l">與標準漢拼的異同</th></tr>
+<tr><td class="hp"><b>a</b></td><td class="l hp"><span class="han">家</span> gā　<span class="han">加</span> gā　<span class="han">咬</span> ga+　<span class="han">假</span> gà　<span class="han">差</span> cā　<span class="han">壓</span> a</td><td class="l">相同</td></tr>
+<tr><td class="hp"><b>o</b></td><td class="l hp"><span class="han">五</span> gho+　<span class="han">土</span> tò　<span class="han">圖</span> dǒ　<span class="han">布</span> bo_　<span class="han">姑</span> gō　<span class="han">雨</span> ho+</td><td class="l">相同（台語的嘴型更圓）</td></tr>
+<tr><td class="hp"><b>e</b></td><td class="l hp"><span class="han">哥</span> gē　<span class="han">歌</span> gē　<span class="han">刀</span> dē　<span class="han">好</span> hè　<span class="han">河</span> hě　<span class="han">學</span> e+</td><td class="l">相同（＝ㄜ，就是華語「哥」的那個 e）</td></tr>
+<tr><td class="hp"><b>ê</b><span class="note">（＝eh）</span></td><td class="l hp"><span class="han">地</span> dê+　<span class="han">茶</span> dê̌　<span class="han">細</span> sê_　<span class="han">會</span> ê+　<span class="han">鞋</span> ê̌　<span class="han">馬</span> bhề　<span class="han">短</span> dề</td><td class="l"><b>標準漢拼沒有這一格</b>——因為 e 已經被 ㄜ 佔走，ㄝ 只好戴帽子</td></tr>
+<tr><td class="hp"><b>i</b></td><td class="l hp"><span class="han">你</span> lì　<span class="han">四</span> xi_　<span class="han">二</span> ghi+　<span class="han">去</span> ki_　<span class="han">姨</span> yǐ　<span class="han">味</span> bhi+</td><td class="l">相同</td></tr>
+<tr><td class="hp"><b>u</b></td><td class="l hp"><span class="han">舞</span> bhù　<span class="han">牛</span> ghǔ　<span class="han">師</span> sū　<span class="han">久</span> gù　<span class="han">舅</span> gu+　<span class="han">夫</span> hū</td><td class="l">相同</td></tr>
+</table>
+
+<blockquote class="hi">
+<b>整本手冊最容易錯的一格：<span class="hp">e</span> ≠ <span class="hp">ê</span>。</b><br>
+<span class="hp">e</span> ＝ ㄜ（嘴型較圓、舌位較低）　<span class="hp">ê</span>／<span class="hp">eh</span> ＝ ㄝ（嘴型較扁）<br>
+<span class="hp">座 ze+ ／ 坐 zê+　　刀 dē ／ 茶 dê̌　　哥 gē ／ 價 gê_　　be 是 ㄅㄜ、bê 才是 ㄅㄝ</span><br>
+<span class="note">打字時 <span class="hp">beh</span> 跟 <span class="hp">bê</span> 等價，系統都認；輸出一律寫成戴帽子的 <span class="hp">bê</span>。</span>
+</blockquote>
+
+<h3>5.2 標準漢拼沒有的三個韻：wi、iw、ie</h3>
+
+<p>這三個是<b>華語根本沒有的讀音</b>——不是誰對應誰，是華語裡壓根沒有這幾個音。反過來，<span class="hp">ei</span> 和 <span class="hp">ou</span> 則是台語沒有的音。</p>
+
+<table>
+<tr><th>韻母</th><th>唸法</th><th class="l">例字</th></tr>
+<tr><td class="hp tm">wi</td><td>ㄨ→ㄧ<br><span class="note">不是 ui（ㄨㄟ）</span></td><td class="l hp"><span class="han">水</span> zwì　<span class="han">對</span> dwi_　<span class="han">美</span> swì　<span class="han">嘴</span> cwi_　<span class="han">氣</span> kwi_　<span class="han">位</span> wi+　<span class="han">開</span> kwī　<span class="han">飛</span> hwī</td></tr>
+<tr><td class="hp tm">iw</td><td>ㄧ→ㄨ<br><span class="note">不是 iu（ㄧㄡ）</span></td><td class="l hp"><span class="han">手</span> qìw　<span class="han">酒</span> jìw　<span class="han">有</span> ỳw　<span class="han">油</span> y̌w　<span class="han">抽</span> tīw　<span class="han">救</span> giw_　<span class="han">收</span> xīw　<span class="han">友</span> ỳw</td></tr>
+<tr><td class="hp tm">ie</td><td>ㄧ→ㄜ<br><span class="note">不是中文的 ie（ㄧㄝ）</span></td><td class="l hp"><span class="han">育</span> yē　<span class="han">腰</span> yē　<span class="han">搖</span> yě　<span class="han">燒</span> xiē　<span class="han">惜</span> xie　<span class="han">笑</span> qie_　<span class="han">招</span> jiē　<span class="han">借</span> jie　<span class="han">挑</span> tiē　<span class="han">標</span> biē　<span class="han">橋</span> giě　<span class="han">茄</span> giě　<span class="han">石</span> jie+　<span class="han">葉</span> hie+　<span class="han">尿</span> ghie+　<span class="han">廟</span> bhie+</td></tr>
+</table>
+
+<blockquote class="hi">
+<b>這三格就是「另造」的全部理由，值得多花三十秒。</b><br>
+・想寫 ㄨㄧ，不能借 <span class="hp">ui</span>——<span class="hp">ui</span> 在標準漢拼已經是 ㄨㄟ（威）。<br>
+・想寫 ㄧㄨ，不能借 <span class="hp">iu</span>（那是 ㄧㄡ，流），也不能借 <span class="hp">yu</span>（那是 ㄩ，魚）。<br>
+・想寫 ㄧㄜ，中文的 <span class="hp">ie</span> 是 ㄧㄝ——但台語沒有 ㄧㄝ，這一格是空的，<b>可以乾淨地拿來用</b>。<br>
+<span class="note">唸的時候老實照字母走：<span class="hp">wi</span> 是「u→i」、<span class="hp">iw</span> 是「i→u」、<span class="hp">ie</span> 是「i→e」。嘴型走到底，音就對了。</span>
+</blockquote>
+
+<h3>5.3 複韻母一覽</h3>
+
+<table>
+<caption>i 開頭的一家</caption>
+<tr><th>韻母</th><th class="l">例字</th><th>韻母</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>ia</b></td><td class="l hp"><span class="han">食</span> jia+　<span class="han">車</span> qiā　<span class="han">寫</span> xià　<span class="han">謝</span> xia+</td>
+    <td class="hp"><b>ian</b></td><td class="l hp"><span class="han">天</span> tiān　<span class="han">先</span> xiān　<span class="han">年</span> liǎn　<span class="han">現</span> hian_</td></tr>
+<tr><td class="hp"><b>ie</b><span class="note">（華語無）</span></td><td class="l hp"><span class="han">燒</span> xiē　<span class="han">橋</span> giě　<span class="han">茄</span> giě　<span class="han">尿</span> ghie+</td>
+    <td class="hp"><b>in</b></td><td class="l hp"><span class="han">人</span> rǐn　<span class="han">新</span> xīn　<span class="han">真</span> jīn　<span class="han">因</span> yīn</td></tr>
+<tr><td class="hp"><b>iao</b></td><td class="l hp"><span class="han">小</span> xiào　<span class="han">條</span> liǎo　<span class="han">標</span> biāo　<span class="han">巧</span> kiào</td>
+    <td class="hp"><b>iang</b></td><td class="l hp"><span class="han">涼</span> liǎng　<span class="han">央</span> yāng　<span class="han">響</span> hiàng　<span class="han">像</span> xiang+</td></tr>
+<tr><td class="hp"><b>iw</b><span class="note">（華語無）</span></td><td class="l hp"><span class="han">手</span> qìw　<span class="han">酒</span> jìw　<span class="han">油</span> y̌w　<span class="han">抽</span> tīw</td>
+    <td class="hp"><b>ing</b></td><td class="l hp"><span class="han">冰</span> bīng　<span class="han">清</span> qīng　<span class="han">冷</span> lìng　<span class="han">停</span> tǐng</td></tr>
+<tr><td class="hp"><b>iong</b><span class="note">（讀 ㄩㄥ）</span></td><td class="l hp" colspan="3"><span class="han">中</span> diōng　<span class="han">忠</span> diōng　<span class="han">用</span> yong+　<span class="han">勇</span> yòng　<span class="han">龍</span> liǒng　<span class="han">雄</span> hiǒng　<span class="mute">（實際是 ㄧㄛㄥ，比照舊慣例省寫、省唸成 ㄩㄥ，跟華語的「雍 yong」同一招）</span></td></tr>
+</table>
+
+<table>
+<caption>u 開頭的一家</caption>
+<tr><th>韻母</th><th class="l">例字</th><th>韻母</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>ua</b></td><td class="l hp"><span class="han">我</span> ghuà　<span class="han">大</span> dua+　<span class="han">拖</span> tuā　<span class="han">外</span> ghua+</td>
+    <td class="hp"><b>uai</b></td><td class="l hp"><span class="han">乖</span> guāi　<span class="han">快</span> kuai_　<span class="han">怪</span> guai_　<span class="han">歪</span> wāi</td></tr>
+<tr><td class="hp"><b>uê</b><span class="note">（＝ueh）</span></td><td class="l hp"><span class="han">火</span> hùê　<span class="han">月</span> ghuê+　<span class="han">未</span> bhuê+　<span class="han">歲</span> huê_　<span class="han">妹</span> muê+</td>
+    <td class="hp"><b>uan</b></td><td class="l hp"><span class="han">灣</span> wān　<span class="han">全</span> zuǎn　<span class="han">算</span> suan_　<span class="han">團</span> tuǎn</td></tr>
+<tr><td class="hp"><b>wi</b><span class="note">（華語無）</span></td><td class="l hp"><span class="han">水</span> zwì　<span class="han">對</span> dwi_　<span class="han">美</span> swì　<span class="han">嘴</span> cwi_</td>
+    <td class="hp"><b>un</b></td><td class="l hp"><span class="han">君</span> gūn　<span class="han">分</span> hūn　<span class="han">孫</span> sūn　<span class="han">文</span> bhǔn</td></tr>
+</table>
+
+<table>
+<caption>其餘（ai ao an ang ong eng）</caption>
+<tr><th>韻母</th><th class="l">例字</th><th>韻母</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>ai</b></td><td class="l hp"><span class="han">來</span> lǎi　<span class="han">愛</span> ai_　<span class="han">知</span> zāi　<span class="han">台</span> dǎi</td>
+    <td class="hp"><b>ang</b></td><td class="l hp"><span class="han">人</span> lǎng　<span class="han">工</span> gāng　<span class="han">港</span> gàng　<span class="han">空</span> kāng</td></tr>
+<tr><td class="hp"><b>ao</b><span class="note">（au 亦可）</span></td><td class="l hp"><span class="han">九</span> gào　<span class="han">包</span> bāo　<span class="han">猴</span> gǎo　<span class="han">厚</span> gao+</td>
+    <td class="hp"><b>ong</b><span class="note">（讀 ㄛㄥ）</span></td><td class="l hp"><span class="han">東</span> dōng　<span class="han">風</span> hōng　<span class="han">同</span> dǒng　<span class="han">黨</span> dòng</td></tr>
+<tr><td class="hp"><b>an</b></td><td class="l hp"><span class="han">山</span> sān　<span class="han">安</span> ān　<span class="han">半</span> ban_　<span class="han">看</span> kan_</td>
+    <td class="hp"><b>eng</b><span class="note">（＝自成音節的 ng）</span></td><td class="l hp"><span class="han">黃</span> ěng　<span class="han">秧</span> ēng　<span class="han">光</span> gēng　<span class="han">飯</span> beng+</td></tr>
+</table>
+
+<p class="note">※ 台語沒有單獨的 <span class="hp">en</span> 韻——它只跟著 i、u 出現（<span class="hp">in</span>、<span class="hp">un</span>）。</p>
+
+<h3>5.4 合口韻 -m：嘴唇要勇敢含起來</h3>
+
+<p><span class="hp tm">m</span> 本來是聲母，照理放在頭前；<b>放在後面，就是借它來當韻尾</b>——收音的時候雙唇要合起來，而且永遠合起來。這是台語有、華語完全沒有的一類。</p>
+
+<table>
+<tr><th>韻母</th><th class="l">例字</th></tr>
+<tr><td class="hp"><b>am</b></td><td class="l hp"><span class="han">三</span> sām　<span class="han">甘</span> gām　<span class="han">感</span> gàm　<span class="han">淡</span> dam+　<span class="han">南</span> lǎm　<span class="han">暗</span> am_　<span class="han">膽</span> dàm</td></tr>
+<tr><td class="hp"><b>im</b></td><td class="l hp"><span class="han">心</span> xīm　<span class="han">金</span> gīm　<span class="han">音</span> yīm　<span class="han">深</span> qīm　<span class="han">林</span> lǐm　<span class="han">沉</span> dǐm</td></tr>
+<tr><td class="hp"><b>iam</b></td><td class="l hp"><span class="han">鹽</span> yǎm　<span class="han">針</span> jiām　<span class="han">兼</span> giām　<span class="han">點</span> diàm　<span class="han">減</span> giàm　<span class="han">染</span> riàm</td></tr>
+<tr><td class="hp"><b>m</b><span class="note">（自成音節）</span></td><td class="l hp"><span class="han">姆</span> m̀　<span class="han">毋</span> m+</td></tr>
+</table>
+
+<blockquote>
+做個實驗：請一個習慣講華語的人唸「去淡水河感冒」。<br>
+他不習慣嘴唇合起來的音，那個 <span class="hp">m</span> 會自動消失——<span class="hp">淡 dam+</span> 變成 <span class="hp">dan</span>、<span class="hp">感 gàm</span> 變成 <span class="hp">gàn</span>。<br>
+不是笑任何人，只是點出差別：<b>遇到合口韻，嘴唇就勇敢「含」起來</b>，很快就會了。
+</blockquote>
+
+<h2 id="s6">六、收尾韻：-p -t -k -m</h2>
+
+<p>台語有一批字，尾巴是「煞住」的——嘴巴到位就停，不放開。135 借四個聲母字母來寫這個收尾的動作：</p>
+
+<table>
+<tr><th>收尾</th><th>怎麼收</th><th class="l">例字</th></tr>
+<tr><td class="hp tm">-p</td><td>雙唇合住</td><td class="l hp"><span class="han">十</span> zap+　<span class="han">合</span> hap+　<span class="han">急</span> gip　<span class="han">立</span> lip+　<span class="han">入</span> rip+　<span class="han">汁</span> jiap　<span class="han">接</span> jiap</td></tr>
+<tr><td class="hp tm">-t</td><td>舌尖頂住</td><td class="l hp"><span class="han">八</span> bat　<span class="han">骨</span> gut　<span class="han">日</span> rit+　<span class="han">七</span> qit　<span class="han">節</span> zat　<span class="han">血</span> hêt　<span class="han">熱</span> rêt+　<span class="han">出</span> cut</td></tr>
+<tr><td class="hp tm">-k</td><td>舌根卡住</td><td class="l hp"><span class="han">六</span> lak+　<span class="han">目</span> bhak+　<span class="han">北</span> bak　<span class="han">國</span> gok　<span class="han">毒</span> dok+　<span class="han">鹿</span> lok+　<span class="han">白</span> bik+　<span class="han">腳</span> giok</td></tr>
+<tr><td class="hp tm">-m</td><td>雙唇合住（鼻音）</td><td class="l hp"><span class="han">三</span> sām　<span class="han">心</span> xīm　<span class="han">金</span> gīm　<span class="han">鹽</span> yǎm　<span class="han">淡</span> dam+　<span class="han">感</span> gàm</td></tr>
+</table>
+
+<blockquote>
+<b>-p -t -k 不爆破。</b>嘴巴到位就停住，不把氣放出來。<br>
+<span class="hp">歷 lik+</span>：<span class="hp">li</span> 唸出來，最後嘴型做出 <span class="hp">k</span> 但不發聲。<br>
+<span class="hp">骨 gut</span>：<span class="hp">gu</span> 唸出來，舌尖頂上去就停。
+</blockquote>
+
+<p class="note">※ 這四個字母放在<b>字尾</b>，就是收尾韻的記號；放在<b>字頭</b>，還是原來的聲母。位置決定身分，不會搞混。<br>
+※ <b>漢拼沒有 -h 收尾。</b>看到 <span class="hp">eh</span>、<span class="hp">ueh</span>、<span class="hp">ieh</span>，那個 h 是「ㄝ」的記號（＝ê），不是收尾韻。<br>
+※ <span class="hp">ok</span> 與 <span class="hp">iok</span> 是完整韻母，不拆開看：國 <span class="hp">gok</span>、腳 <span class="hp">giok</span>（讀 ㄩㄎ）。</p>
+
+<h3>6.1 收尾韻不是一種聲調</h3>
+
+<p>收尾韻常被當成「一種聲調」看待——這是個誤會。<b>它是韻母的收尾方式，跟聲調完全無關</b>：一個收尾韻的字，七個高度照樣掛得上去。</p>
+
+<p>不必爭論，直接聽。同一個 <span class="hp">gut</span>，在日常詞裡就唱得出<b>六個</b>高度：</p>
+
+<table>
+<caption>同一個音節 gut 的六個聲調（例出〈釋文066〉；讀音以母檔為準）</caption>
+<tr><th>高度</th><th>寫法</th><th>詞</th><th class="l">怎麼來的</th></tr>
+<tr><td><b>頓</b></td><td class="hp tm">gut</td><td>排<b>骨</b></td><td class="l">「骨」是詞尾、守本調——頓調就是它的本調</td></tr>
+<tr><td><b>降</b></td><td class="hp tm">gùt</td><td><b>骨</b>架、<b>骨</b>頭</td><td class="l">「骨」不在詞尾，正常變調：頓 → 降</td></tr>
+<tr><td><b>高</b></td><td class="hp tm">gūt</td><td>排<b>骨</b>酥</td><td class="l">在這個詞裡又<b>省音</b>，唱成高調</td></tr>
+<tr><td><b>中</b></td><td class="hp tm">gut+</td><td>很<b>滑</b></td><td class="l">「滑」的本調是中調</td></tr>
+<tr><td><b>低</b></td><td class="hp tm">gut_</td><td><b>滑</b>倒、<b>滑</b>溜溜</td><td class="l">中調正常變調 → 低調</td></tr>
+<tr><td><b>升</b></td><td class="hp tm">gút</td><td><b>滑</b>滑滑</td><td class="l">疊字第一個字，加強語氣唱成升調</td></tr>
+</table>
+
+<p>六個高度，一個音節——七個調裡只缺沈調（先沉再勾的轉音，接在 <span class="hp">-p -t -k</span> 那個硬「收」後面不順口，實務上沒有這樣的字，但規則上沒有禁止）。不信自己聽：把教育部辭典裡的<b>排骨、骨架、排骨酥</b>三個「骨」點開小喇叭，三種高度便知。</p>
+
+<blockquote>
+<b>本書的立場，一句話：</b><br>
+收尾韻是<b>韻母的收法</b>，七個聲調照樣掛得上去，變調照第八章的一般規則走——<b>沒有任何特別條款要背</b>。<br>
+<span class="note">收尾韻也<b>不一定是短促音</b>——「滑 gut+」就拉得長。</span>
+</blockquote>
+
+<p class="note">※ 順便分清楚一組容易混的：<span class="hp"><span class="han">壓</span> a</span> 是開音節的<b>頓調</b>（只是唸得短促）；<span class="hp"><span class="han">合</span> hap+</span> 才是真的 <span class="hp">-p</span> 收尾——嘴唇有合起來。短促 ≠ 收尾韻。</p>
+
+<div class="detox">
+<p class="dh">〔解毒箱〕給學過羅馬字那一套的人</p>
+
+<p>底下這些名詞，本書正文一個都不用。列出來只為了一件事——<b>讓被那套系統繞暈的人找到出口</b>。看過就可以忘掉。</p>
+
+<p><b>①「入聲」這個名字，誤導了一千年。</b>它被當成一種聲調，其實它是<b>韻母的收尾方式</b>。名字換成「收尾韻」，事情立刻就清楚了。</p>
+
+<p><b>②「入聲只有兩個調」是偽問題。</b>一旦相信只有兩格，就得硬把每個字塞進那兩格，塞不下的只好標歪。上面那張表已經給了六個高度。</p>
+
+<p><b>③ 那兩格對到本書的哪裡：</b>「陰入」那一格，就是本書的<b>頓調</b>。至於「陽入」——教育部教人讀成像「排骨酥」那個<b>高調</b>。<b>從「一」開始就標錯了。</b></p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">一</span>　本調 <b>jit+</b>（中調）　→　進到詞句裡變調成<b>低調</b></p>
+<p class="hp">一半　本調 jit+-bngua_　→　唱出來是 <b>低</b>・<b>低</b></p>
+<p class="note">「一」走的是<b>中 → 低</b>，從頭到尾沒有出現高調。</p>
+</blockquote>
+
+<p>這句「從『一』開始就標錯了」是雙關：<b>它是第一個字，也就是那個字。</b>連這個天天在用、簡單到不能再簡單的字都標錯，後面整套自然跟著錯。</p>
+
+<p><b>而這麼簡單的一件事，那套羅馬字偏偏標不出來</b>——因為它從頭就只給收尾韻兩格，「中 → 低」這條路在它的表上不存在。本書用的是同一批羅馬字母，標得出來：<span class="hp">jit+</span>，唱的時候讓成低調。<b>標不出來的不是字母，是那套系統對聲調的假設。</b></p>
+
+<p><b>④ 還有一個寫法上的岔路：</b>那套系統用 <b>-h</b> 當收尾韻（bah、beh）。<b>135 漢拼沒有 -h 收尾</b>——h 只做三件事：獨立聲母、濁音記號（bh/gh）、ㄝ 的記號（eh）。看到字尾的 h，先想「這是 ê」。</p>
+
+<p><b>出口在這裡：</b>回到「收尾韻只是韻母的收法、聲調照七個調走」，上面那些扭曲會全部消失——不必背特別條款，也不必記第幾調。</p>
+</div>
+
+<h2 id="s7">七、零聲母：字首要換裝（i→y、u→w）</h2>
+
+<p>這一章是<b>漢拼版獨有的</b>——注音沒有這個問題，因為注音不必考慮「一個音節長什麼樣才像個字」。標準漢拼有一條老規矩：</p>
+
+<blockquote class="hi">
+<b>音節開頭沒有聲母時，i 要換裝成 y、u 要換裝成 w。</b><br>
+這不是 135 的規定，是標準漢語拼音本來的規則——<span class="hp">yi</span>（衣）、<span class="hp">wu</span>（烏）、<span class="hp">ya</span>（呀）、<span class="hp">yan</span>（煙）、<span class="hp">wan</span>（彎）、<span class="hp">wei</span>（威）……你早就在用了。<br>
+<b>135 一條都沒改，全部照走。</b>
+</blockquote>
+
+<h3>7.1 換裝總表</h3>
+
+<table>
+<caption>零聲母時的字首轉換（有聲母就<b>不換</b>）</caption>
+<tr><th>原形</th><th>換成</th><th class="l">例字</th><th>備註</th></tr>
+<tr><td class="hp">i</td><td class="hp tm">yi</td><td class="l hp"><span class="han">姨</span> yǐ　<span class="han">椅</span> yì</td><td>標準漢拼</td></tr>
+<tr><td class="hp">ia</td><td class="hp tm">ya</td><td class="l hp"><span class="han">爺</span> yǎ</td><td>一般 i→y</td></tr>
+<tr><td class="hp">ie</td><td class="hp tm">ye</td><td class="l hp"><span class="han">腰</span> yē　<span class="han">搖</span> yě　<span class="han">育</span> yē</td><td>一般 i→y</td></tr>
+<tr><td class="hp">iao</td><td class="hp tm">yao</td><td class="l hp"><span class="han">要</span> yao_</td><td>一般 i→y</td></tr>
+<tr><td class="hp">ian</td><td class="hp tm">yan</td><td class="l hp"><span class="han">煙</span> yān</td><td>一般 i→y</td></tr>
+<tr><td class="hp">iang</td><td class="hp tm">yang</td><td class="l hp"><span class="han">央</span> yāng</td><td>一般 i→y</td></tr>
+<tr><td class="hp">in</td><td class="hp tm">yin</td><td class="l hp"><span class="han">因</span> yīn</td><td>標準漢拼</td></tr>
+<tr><td class="hp">ing</td><td class="hp tm">ying</td><td class="l hp"><span class="han">英</span> yīng</td><td>標準漢拼</td></tr>
+<tr><td class="hp">im ／ iam</td><td class="hp tm">yim ／ yam</td><td class="l hp"><span class="han">音</span> yīm　<span class="han">鹽</span> yǎm</td><td>規則一致延伸</td></tr>
+<tr><td class="hp">iong ／ iok</td><td class="hp tm">yong ／ yok</td><td class="l hp"><span class="han">用</span> yong+　<span class="han">勇</span> yòng</td><td>讀 ㄩㄥ／ㄩㄎ</td></tr>
+<tr><td class="hp tm">iw</td><td class="hp tm">yw</td><td class="l hp"><span class="han">有</span> ỳw　<span class="han">友</span> ỳw　<span class="han">油</span> y̌w</td><td><b>台語另造</b>（不是 yu！）</td></tr>
+<tr><td class="hp">iu</td><td class="hp">you</td><td class="l mute">（中文用，台語不用）</td><td>標準漢拼</td></tr>
+<tr><td class="hp">u</td><td class="hp tm">wu</td><td class="l hp"><span class="han">烏</span> wū</td><td>標準漢拼</td></tr>
+<tr><td class="hp">ua</td><td class="hp tm">wa</td><td class="l hp"><span class="han">蛙</span> wā</td><td>一般 u→w</td></tr>
+<tr><td class="hp">uan</td><td class="hp tm">wan</td><td class="l hp"><span class="han">灣</span> wān</td><td>一般 u→w</td></tr>
+<tr><td class="hp">uai</td><td class="hp tm">wai</td><td class="l hp"><span class="han">歪</span> wāi</td><td>一般 u→w</td></tr>
+<tr><td class="hp">uê</td><td class="hp tm">wê</td><td class="l hp"><span class="han">話</span> wê+</td><td>一般 u→w</td></tr>
+<tr><td class="hp">un</td><td class="hp tm">wen</td><td class="l hp"><span class="han">溫</span> wēn</td><td>標準漢拼</td></tr>
+<tr><td class="hp">ui</td><td class="hp">wei</td><td class="l mute">（中文用，台語不用）</td><td>標準漢拼</td></tr>
+<tr><td class="hp tm">wi</td><td class="hp tm">wi</td><td class="l hp"><span class="han">位</span> wi+</td><td><b>不換裝</b>——它本來就是 w 開頭</td></tr>
+<tr><td class="hp tm">ong</td><td class="hp tm">weng</td><td class="l hp"><span class="han">翁</span> wēng</td><td>標準漢拼（翁）</td></tr>
+<tr><td class="hp">ng</td><td class="hp tm">eng</td><td class="l hp"><span class="han">黃</span> ěng</td><td>補 e 給調號站</td></tr>
+</table>
+
+<p class="note">※ <b>有聲母就不換</b>：抽 <span class="hp">tīw</span>（不是 tȳw）、東 <span class="hp">dōng</span>（不是 dweng）、君 <span class="hp">gūn</span>（不是 gwen）。換裝只發生在音節<b>最前面沒有聲母</b>的時候。</p>
+
+<h3>7.2 收尾韻的字首也照換</h3>
+
+<p>零聲母又帶收尾韻的字，一樣照規則走——<b>規則一致，不開特例</b>：</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">一</span>（文讀）<b>yit</b>　　<span class="han">益</span> <b>yik</b>　　<span class="han">邑</span> <b>yip</b>　　<span class="han">熨</span> <b>wut</b>　　<span class="han">越</span> <b>wat</b>　　<span class="han">壓</span>（葉韻）<b>yap</b></p>
+<p class="note">打字時舊寫法 <span class="hp">it</span>、<span class="hp">ik</span>、<span class="hp">im</span>、<span class="hp">ip</span>、<span class="hp">ut</span> 系統仍然認得（容錯），但<b>輸出一律是換裝後的正寫</b>。</p>
+</blockquote>
+
+<h3>7.3 ⭐ 換裝規則同時是一個「踩雷偵測器」</h3>
+
+<p>135 有一條刻意的設計：<b>系統按標準漢拼老實解析，不替你猜、不替你容錯。</b>你打錯了，它就老實輸出「你打的那個字真正的讀音」，讓你自己看出來。</p>
+
+<table>
+<caption>三個最常見的雷，與它們的正解</caption>
+<tr><th>你打的</th><th>系統老實輸出</th><th class="l">為什麼</th><th>正解</th></tr>
+<tr><td class="hp">tiu1</td><td class="hp">tīu（ㄊㄧㄡ）</td><td class="l"><span class="hp">iu</span> 在標準漢拼是 ㄧㄡ，那是中文的音</td><td class="hp tm">tiw1 → tīw（抽）</td></tr>
+<tr><td class="hp">zui4</td><td class="hp">zuì（ㄗㄨㄟ）</td><td class="l"><span class="hp">ui</span> 在標準漢拼是 ㄨㄟ，那是「醉」的華語音</td><td class="hp tm">zwi4 → zwì（水）</td></tr>
+<tr><td class="hp">i1</td><td class="hp">yī</td><td class="l">零聲母字首一定要換裝，這是標準漢拼的規則</td><td class="hp tm">本來就該寫 yi1</td></tr>
+</table>
+
+<blockquote>
+<b>設計鐵律：寧可讓你察覺、自己改，也不替你「容錯」掉學習機會。</b><br>
+如果系統貼心地把 <span class="hp">tiu</span> 猜成 <span class="hp">tiw</span>，你永遠學不會「為什麼台語需要另造 iw」。<br>
+親身踩過一次，你就會明白：<b>另造那幾個看似麻煩的符號，是必要的，不是任性的。</b>
+</blockquote>
+
+<h2 id="s8">八、變調：低調個性，一個重點</h2>
+
+<p>台語的字有一個天性：<b>排進詞句裡，就會互相讓調</b>。單獨唸是一個調（本調），站在別的字前面，常常換成另一個調。</p>
+
+<blockquote><b>口訣：低調個性，一個重點。</b></blockquote>
+
+<table>
+<caption>七調變調總表</caption>
+<tr><th>本調</th><th>變成</th><th class="l">怎麼記</th><th class="l">例（漢拼標的是本調）</th></tr>
+<tr><td><b>高</b> <span class="hp tm">ā</span></td><td><b>中</b> <span class="tm">+</span></td><td class="l" rowspan="4"><b>低調個性</b>——能量一路往下沈：<br>高讓成中、中讓成低；<br>低到底了物極必反，翻成降；<br>頓也一樣翻成降。</td><td class="l hp">天公 tngī-gōng → 唱 <b>中</b>・高</td></tr>
+<tr><td><b>中</b> <span class="tm">+</span></td><td><b>低</b> <span class="tm">_</span></td><td class="l hp">淡水 dam+-zwì → 唱 <b>低</b>・降</td></tr>
+<tr><td><b>低</b> <span class="tm">_</span></td><td><b>降</b> <span class="hp tm">à</span></td><td class="l hp">世界 sê_-gai_ → 唱 <b>降</b>・低</td></tr>
+<tr><td><b>頓</b> <span class="hp tm">a</span></td><td><b>降</b> <span class="hp tm">à</span></td><td class="l hp">一生 yit-xīng → 唱 <b>降</b>・高</td></tr>
+<tr><td><b>降</b> <span class="hp tm">à</span></td><td><b>高</b> <span class="hp tm">ā</span></td><td class="l" rowspan="2"><b>一個重點</b>——<br>降是 5→3，只留起點的 5，就成了高；<br>沈是 1→1→3，只留終點的 3，就成了中。</td><td class="l hp">好膽 hè-dngà → 唱 <b>高</b>・降</td></tr>
+<tr><td><b>沈</b> <span class="hp tm">ǎ</span></td><td><b>中</b> <span class="tm">+</span></td><td class="l hp">人事 rǐn-su+ → 唱 <b>中</b>・中</td></tr>
+<tr><td><b>升</b> <span class="hp tm">á</span></td><td>不變</td><td class="l">升調本來就沒有本調字，自然也不動。</td><td class="l mute">——</td></tr>
+</table>
+
+<p>用樂譜體會一下，就知道這套規則有多自然：</p>
+
+<blockquote class="eg">
+<p><b>So → Mi → Do → 再翻回高降</b>：高讓成中、中讓成低、低到底翻成降。</p>
+<p><b>只取一個重點</b>：降（5→3）取起點 5 就成了高；沈（1→3）取終點 3 就成了中。</p>
+</blockquote>
+
+<h3>8.1 ⭐ 漢拼寫的永遠是本調</h3>
+
+<p>這是漢拼版與注音版<b>最大的一個分工</b>，一定要記牢：</p>
+
+<blockquote class="hi">
+<b>漢拼是字典的臉，注音是嘴巴的臉。</b><br>
+<b>漢拼</b>——不論有沒有連接號，<b>字面永遠是本調</b>。它記的是「這個字本來是什麼調」。<br>
+<b>注音</b>——沒有連接號時寫的是<b>詞句音</b>（已經變調完成，照唸就對）；刻意加了連接號，才表示「這是本調」。
+</blockquote>
+
+<p>所以 <b>連接號在漢拼裡的意思是：「這個字進到詞裡要變調」</b>——它是一個提示，不是把調號改掉。變調的結果留在嘴上，不寫進字面。</p>
+
+<blockquote class="eg">
+<p class="hp"><span class="han">淡水河</span>　漢拼 <b>dam+-zwì-hě</b>　→　唱出來是 <b>低・高・沈</b></p>
+<p class="hp"><span class="han">院長</span>　漢拼 <b>ngi+-dngìw</b>　→　唱出來是 <b>低・降</b></p>
+<p class="note">連接號可以掛在任何一個音節後面，包括詞的最後一個字——所以不能用「最後一字不變調」的位置去猜，要逐字看有沒有掛。<br>
+連接兩條（<span class="hp">--</span>）表示<b>連續變調兩次</b>：<span class="hp">bhê--lǎi</span>，bhê 從頓調一路讓到高調。</p>
+</blockquote>
+
+<p class="note">※ 這條分工也是給 AI 與轉換工具的規格：讀到漢拼，一律當本調；讀到沒有連接號的注音，一律當詞句音。兩邊不能互相套用。</p>
+
+<h2 id="s9">九、拼句練習</h2>
+
+<p>把聲母、韻母、聲調拼起來，讀出十個詞句。左邊是漢拼（本調，帶連接號），右邊是唱出來的實際高度。</p>
+
+<table>
+<caption>十個定本例句（讀音全部取自母檔）</caption>
+<tr><th>詞</th><th class="l">漢拼（本調・帶連接號）</th><th class="l">唱出來的高度</th><th class="l">看點</th></tr>
+<tr><td class="han">多謝</td><td class="l hp">dē-xia+</td><td class="l"><b>中</b>・中</td><td class="l">高→中；兩字都落在中音</td></tr>
+<tr><td class="han">食飽</td><td class="l hp">jia+-bà</td><td class="l"><b>低</b>・降</td><td class="l">中→低；末字守本調</td></tr>
+<tr><td class="han">知影</td><td class="l hp">zāi-ngià</td><td class="l"><b>中</b>・降</td><td class="l"><span class="hp">ng-</span> 當字首聲母</td></tr>
+<tr><td class="han">飲茶</td><td class="l hp">līm-dê̌</td><td class="l"><b>中</b>・沈</td><td class="l">合口韻 <span class="hp">-m</span>；末字沈調</td></tr>
+<tr><td class="han">好膽</td><td class="l hp">hè-dngà</td><td class="l"><b>高</b>・降</td><td class="l">降→高；<span class="hp">dng-</span> 鼻音聲母</td></tr>
+<tr><td class="han">日頭</td><td class="l hp">rit+-tǎo</td><td class="l"><b>低</b>・沈</td><td class="l">濁音 <span class="hp">r</span> ＋ 收尾韻 <span class="hp">-t</span></td></tr>
+<tr><td class="han">月娘</td><td class="l hp">ghuê+-nǐw</td><td class="l"><b>低</b>・沈</td><td class="l">濁音 <span class="hp">gh</span>；<span class="hp">iw</span> 不是 <span class="hp">iu</span></td></tr>
+<tr><td class="han">目睭</td><td class="l hp">bhak+-jīw</td><td class="l"><b>低</b>・高</td><td class="l">濁音 <span class="hp">bh</span> ＋ 收尾韻 <span class="hp">-k</span></td></tr>
+<tr><td class="han">心肝</td><td class="l hp">xīm-gnguā</td><td class="l"><b>中</b>・高</td><td class="l">合口韻 ＋ <span class="hp">gng-</span> 鼻音聲母</td></tr>
+<tr><td class="han">排骨酥</td><td class="l hp">bǎi-gut-sō</td><td class="l"><b>中</b>・降・高</td><td class="l">排：沈→中；骨：本調頓調，這個詞裡省音成高調</td></tr>
+</table>
+
+<h2 id="s10">十、常用例字表</h2>
+
+<p>最後帶四十個天天用得到的字回家。下面標的都是<b>本調</b>；放進句子裡，照第八章那張表走就對了。</p>
+
+<table>
+<caption>常用字（母檔本調；括號內為文讀／白讀之別）</caption>
+<tr><th colspan="6" class="l">數字<span class="note">（白讀／文讀，依〈第一課・數字〉）</span></th></tr>
+<tr><td class="han">一</td><td class="hp l">jit+<span class="mute">／文 yit</span></td><td class="han">二</td><td class="hp l">neng+<span class="mute">／文 ghi+</span></td><td class="han">三</td><td class="hp l">sngā<span class="mute">／文 sām</span></td></tr>
+<tr><td class="han">四</td><td class="hp l">xi_<span class="mute">／文 su_</span></td><td class="han">五</td><td class="hp l">gho+<span class="mute">／文 ghngò</span></td><td class="han">六</td><td class="hp l">lak+<span class="mute">／文 liok+</span></td></tr>
+<tr><td class="han">七</td><td class="hp l">qit<span class="mute">／文白同</span></td><td class="han">八</td><td class="hp l">bê<span class="mute">／文 bat</span></td><td class="han">九</td><td class="hp l">gào<span class="mute">／文 gìw</span></td></tr>
+<tr><td class="han">十</td><td class="hp l">zap+<span class="mute">／文 xip+</span></td><td colspan="4" class="l"><span class="note">白讀是商的嘴，文讀是周的音——一開口就是周商合璧。整套口訣見〈台語常用字・第一課〉。</span></td></tr>
+<tr><th colspan="6" class="l">天地山水</th></tr>
+<tr><td class="han">天</td><td class="hp l">tngī</td><td class="han">地</td><td class="hp l">dê+</td><td class="han">日</td><td class="hp l">rit+<span class="mute">／又 ghit+</span></td></tr>
+<tr><td class="han">月</td><td class="hp l">ghuê+</td><td class="han">山</td><td class="hp l">snguā</td><td class="han">水</td><td class="hp l">zwì</td></tr>
+<tr><td class="han">火</td><td class="hp l">hùê</td><td class="han">風</td><td class="hp l">hōng</td><td class="han">雨</td><td class="hp l">ho+</td></tr>
+<tr><th colspan="6" class="l">食物</th></tr>
+<tr><td class="han">飯</td><td class="hp l">beng+</td><td class="han">麵</td><td class="hp l">mi+</td><td class="han">米</td><td class="hp l">bhì</td></tr>
+<tr><td class="han">肉</td><td class="hp l">bha</td><td class="han">菜</td><td class="hp l">cai_</td><td class="han">茶</td><td class="hp l">dê̌</td></tr>
+<tr><td class="han">糖</td><td class="hp l">těng</td><td class="han">鹽</td><td class="hp l">yǎm</td><td class="han">油</td><td class="hp l">y̌w</td></tr>
+<tr><th colspan="6" class="l">身體與生活</th></tr>
+<tr><td class="han">手</td><td class="hp l">qìw</td><td class="han">頭</td><td class="hp l">tǎo</td><td class="han">心</td><td class="hp l">xīm</td></tr>
+<tr><td class="han">嘴</td><td class="hp l">cwi_</td><td class="han">人</td><td class="hp l">lǎng<span class="mute">／文 rǐn</span></td><td class="han">錢</td><td class="hp l">jngǐ</td></tr>
+<tr><td class="han">車</td><td class="hp l">qiā</td><td class="han">路</td><td class="hp l">lo+</td><td class="han">厝</td><td class="hp l">cu_</td></tr>
+<tr><td class="han">我</td><td class="hp l">ghuà</td><td class="han">你</td><td class="hp l">lì</td><td class="han">好</td><td class="hp l">hè</td></tr>
+</table>
+
+<div class="detox">
+<p class="dh">〔腔口小記〕中聲，海口腔唱成降</p>
+
+<p>台語不是只有一種腔口。有一類字，腔口之間唱的高度不一樣——而且不是隨機的，<b>有條界線</b>：</p>
+
+<blockquote><b>本調是中聲、<u>而且帶收尾韻</u>的字，海口腔唱成降。<br>中聲但<u>不帶收尾韻</u>的字，維持中聲，不動。</b></blockquote>
+
+<p class="note">※ 這裡的「海口腔」是<b>通稱</b>，指西部沿海一帶的腔口，本書不再細分是哪一個地方。</p>
+
+<p>上面十個數字剛好把兩邊都示範了：</p>
+
+<table>
+<tr><th class="l">中聲字</th><th>一 <span class="note">-t</span></th><th>六 <span class="note">-k</span></th><th>十 <span class="note">-p</span></th><th>二</th><th>五</th></tr>
+<tr><td class="l"><b>本書標音</b><span class="note">（中）</span></td><td class="hp">jit+</td><td class="hp">lak+</td><td class="hp">zap+</td><td class="hp">neng+</td><td class="hp">gho+</td></tr>
+<tr><td class="l"><b>海口腔</b></td><td class="hp tm">jìt</td><td class="hp tm">làk</td><td class="hp tm">zàp</td><td class="hp">neng+<span class="note">不變</span></td><td class="hp">gho+<span class="note">不變</span></td></tr>
+</table>
+
+<p class="note">文讀同理：六 <span class="hp">liok+</span> → <span class="hp tm">liòk</span>、十 <span class="hp">xip+</span> → <span class="hp tm">xìp</span>（都帶收尾韻）；二 <span class="hp">ghi+</span> 不帶收尾韻，維持中聲。</p>
+
+<p><b>這對學習者其實是好消息。</b>它正好證明第二章的立場：<b>調是一整組高度，不是一個一個死背的編號。</b>換一個腔口，是某一類字整組挪一格，字還是同一個字，一樣聽得懂——會唱高度的人換腔口只要挪一下，背編號的人就整套垮掉。</p>
+
+<p class="note">※ 這是<b>腔口差異，不是系統要加條款</b>。第六章講的仍然成立：收尾韻只是韻母的收法，七個聲調照樣掛得上去；腔口換的是唱的人，不是標法。<br>
+※ 本書正文的標音一律以母檔為準。遇到跟你家裡講的不一樣，先不要急著改——先確定是哪一個腔口在說話。</p>
+</div>
+
+<h2>結業：你已經在讀台語了</h2>
+
+<p>回頭看，你並沒有學一套新的羅馬字——你只是把原來會的漢語拼音，補上了台語多出來的那幾格：</p>
+
+<ul>
+<li>兩個聲調符號：<span class="tm">_</span>（低）、<span class="tm">+</span>（中）；其餘四個帽子 <span class="hp tm">ā á ǎ à</span> 跟頓調的不標，都是標準漢拼原有的</li>
+<li>三個聲母：<span class="hp tm">bh</span>、<span class="hp tm">gh</span>、<span class="hp tm">r</span>，加上「聲母＋<span class="hp">ng</span>」的鼻音聲母</li>
+<li>三個韻母：<span class="hp tm">iw</span>、<span class="hp tm">wi</span>、<span class="hp tm">ie</span>；加上合口韻 <span class="hp tm">-m</span>、自成音節的 <span class="hp tm">ng</span>（寫 eng），以及收尾韻 <span class="hp tm">-p -t -k -m</span></li>
+<li>一個要改掉的習慣：<span class="hp tm">e</span>（ㄜ）跟 <span class="hp tm">ê</span>（ㄝ）分家</li>
+<li>一條你早就會、只是沒發現自己會的規則：零聲母字首 <b>i→y、u→w</b></li>
+<li>一句變調口訣：<b>低調個性，一個重點</b></li>
+</ul>
+
+<p>就這些。往後遇到任何一句台語，做法都一樣：把每個字拆成聲母、韻母，看它戴的是哪一頂帽子，唱出那個高度，再連起來。字認得越多，讀得越順——台語，本來就在你伸手可及的地方。</p>
+</article>
+</main>
+
+<footer>
+閩南語135拼音法 · 漢語拼音版 v1<br>
+許文 × 甲骨先生。例字讀音以母檔為準。<br>
+© 2026 許文 × 甲骨先生．版權所有 All rights reserved.<br>
+造訪次數：<span id="visit-count">…</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/hanpin135-bryenhsu/views')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '—'; })
+    .catch(function(){ el.textContent='—'; });
+})();
+</script>
+<a class="backtoc" href="#toc">☰ 回到目錄</a>
+<script src="/nav.js" defer></script>
+</body></html>
