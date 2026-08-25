@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閩南語135拼音法 · 國際音標版（IPA Edition）完整版</title>
+<meta name="description" content="閩南語135拼音法國際音標版完整版：七聲調值與趙氏調符、變調的調值演算、聲母韻母 IPA 全表、無聲除阻收尾韻、鼻化母音、整字與句子、嚴式變體、雙制輸入層、照妖鏡。台語記音的量尺。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/phonics/ipa.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一起學閩南語（臺語）漢字">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/phonics/ipa.html">
+<meta property="og:title" content="閩南語135拼音法 · 國際音標版（IPA Edition）完整版">
+<meta property="og:description" content="台語記音的量尺：七聲調值與趙氏調符、變調的調值演算、聲母韻母 IPA 全表、收尾韻與鼻化母音、嚴式變體、雙層制。">
+<meta property="og:image" content="https://bryenhsuttaigee.github.io/phonics/og/og-index.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C2B;--bone:#F4EDDE;--steel:#9AA5B1;--graphite:#33383F;--moss:#2E6E4E;--cinnabar:#C43A26;--gold:#C9972B;
+--line:#D8CCB4;--mono:"Roboto Mono","Consolas",monospace}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:17px/1.75 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+h1,h2,h3{font-family:"Noto Serif TC",serif}
+code{font-family:var(--mono);font-weight:700;background:#E7E4DC;color:#2B3540;padding:2px 6px;border-radius:4px;white-space:nowrap}
+.ipa{font-weight:700;white-space:nowrap}
+:focus-visible{outline:3px solid var(--steel);outline-offset:2px}
+.hero{background:var(--graphite);color:var(--bone);padding:2.3rem 1.2rem 2.5rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+ background:radial-gradient(1100px 480px at 82% -12%,rgba(154,165,177,.22),transparent 62%)}
+.hero-in{max-width:960px;margin:0 auto;position:relative}
+.booktitle{color:#C8CFD8;font-size:1rem;letter-spacing:.08em;margin:0}
+.booktitle span{color:var(--steel);font-size:.85rem;margin-left:.5em}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.25;margin:.6rem 0;letter-spacing:.05em}
+.hero .silver{color:var(--steel)}
+.sub2{color:#D5DAE1;font-size:1.02rem;margin:.2rem auto .9rem;max-width:38em}
+.pill{display:inline-block;border:1px solid rgba(244,237,222,.4);border-radius:30px;padding:.34rem 1.25rem;font-size:.94rem;color:#C8CFD8}
+.byline{color:var(--steel);font-size:.86rem;margin:1.2rem 0 0;letter-spacing:.1em}
+main{max-width:940px;margin:0 auto;padding:1rem 1.2rem 3.6rem}
+.eyebrow{font-family:var(--mono);font-weight:700;color:var(--steel);letter-spacing:.28em;font-size:.8rem}
+.toc{font-size:1.03rem;line-height:1.95;padding-left:1.4rem}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:2px solid var(--steel)}
+.toc a:hover{color:var(--cinnabar)}
+.doc h1{font-size:clamp(1.55rem,4vw,2.05rem);font-weight:900;margin:1.7rem 0 .4rem;border-left:10px solid var(--graphite);padding-left:.7rem;line-height:1.4}
+.doc h2{font-size:1.25rem;font-weight:900;margin:.9rem 0 .4rem}
+.doc table{width:auto;display:inline-table;max-width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:.94rem;margin:.9rem 0}
+.doc th{background:var(--graphite);color:var(--bone);font-weight:700;padding:.48rem .78rem;text-align:left;white-space:nowrap}
+.doc td{padding:.52rem .78rem;border-top:1px solid var(--line);word-break:break-word}
+.doc blockquote{border-left:6px solid var(--steel);background:#fff;margin:1.05rem 0;padding:.68rem 1.05rem;width:fit-content;max-width:100%;border-radius:0 8px 8px 0}
+.doc blockquote.key{border-left-color:var(--cinnabar);background:#FBF3E3}
+.doc blockquote.key::before{content:"量尺守則";display:block;font-weight:900;color:var(--cinnabar);font-size:.8rem;letter-spacing:.06em;margin-bottom:.32rem}
+.doc p{margin:.5rem 0}.doc li{margin:.3rem 0}.doc ol{padding-left:1.4rem}
+.backtoc{position:fixed;right:18px;bottom:18px;z-index:50;background:var(--graphite);color:var(--bone);border:2px solid var(--steel);border-radius:30px;padding:.5rem 1.1rem;font-size:.92rem;font-weight:700;text-decoration:none;box-shadow:0 6px 18px rgba(16,28,43,.3)}
+.backtoc:hover{background:var(--cinnabar);border-color:var(--cinnabar)}
+footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;font-size:.84rem;border-top:1px solid var(--line)}
+@media (max-width:600px){body{font-size:15.5px}main{padding:.8rem .9rem 2.6rem}.doc table{font-size:.86rem}.doc th,.doc td{padding:.42rem .58rem}.backtoc{right:10px;bottom:10px;padding:.4rem .9rem;font-size:.84rem}}
+</style></head>
+<body id="top">
+
+<header class="hero"><div class="hero-in">
+<p class="booktitle">《閩南語135拼音法》<span>國際音標版 · IPA Edition · 完整版 v4</span></p>
+<h1>台語記音的<span class="silver">量尺</span></h1>
+<p class="sub2">其他版本是外衣，裁給某個母語的直覺；這一版不服務任何人的直覺——它服務精確。國際音標（IPA）是全世界語言學共用的尺，台語的每一個音、每一個調，在這裡量給你看。</p>
+<span class="pill">聲調＝調值 · 音段＝IPA · 輸入＝純鍵盤</span>
+<p class="byline">許文 × 甲骨先生</p>
+</div></header>
+
+<main class="doc">
+
+<p class="eyebrow">CONTENTS</p>
+<h2>目錄</h2>
+<ul class="toc">
+<li><a href="#ch0">〇、這一版給誰：定位與雙層制</a></li>
+<li><a href="#ch1">一、聲調篇：七個調值</a></li>
+<li><a href="#ch2">二、變調篇：調值的演算</a></li>
+<li><a href="#ch3">三、聲母篇</a></li>
+<li><a href="#ch4">四、韻母篇：含收尾韻與鼻化</a></li>
+<li><a href="#ch5">五、整字與句子</a></li>
+<li><a href="#ch6">六、嚴式變體（腔口）</a></li>
+<li><a href="#ch7">七、怎麼打出這些符號</a></li>
+<li><a href="#ch8">八、照妖鏡：拿尺量台羅</a></li>
+<li><a href="#ch9">九、結語：尺與外衣</a></li>
+</ul>
+
+<h1 id="ch0">〇、這一版給誰：定位與雙層制</h1>
+<p>這一版寫給三種讀者：寫論文需要引用台語音的人、要拿台語跟其他語言記音對照的人，還有 AI——機器讀 IPA 比讀任何拼音都準。若您的目的是<strong>學會唸台語</strong>，請先讀前台的兩版：<strong>《135拼音法·拼注音版》</strong>（會ㄅㄆㄇ即可上手）或<strong>《美拼版》</strong>（借英語直覺）——那兩版負責好學，這一版負責精確；前台每一版寫下的音，都能一對一換算到這裡查對。</p>
+
+<h2>先認識這把尺：IPA 是什麼</h2>
+<p>IPA（International Phonetic Alphabet，國際音標）這個名字您多半聽過——字典音標、語言教材上那些帶括號的符號，就是它。您不需要學過它也能讀本文，只要知道它解決什麼問題：一般字母在不同語言裡唸法會漂移（同一個 j，英語、德語、西班牙語三個音），IPA 的規矩是<strong>一個符號永遠只代表一個發音動作</strong>，不隨語言改變。所以用它記台語，等於把「這個音怎麼發」寫成全世界都讀得懂的座標——不必透過任何一種外語的習慣去猜。</p>
+<p>本文只用到 IPA 的一小角，兩類符號而已：<strong>音的符號</strong>（幾個母音、子音，出現時都附ㄅㄆㄇ或例字對照，不必背）；<strong>調的符號</strong>——「五度標調法」，把說話的音高從低到高分成 1 到 5 度，像五線譜：<span class="ipa">˥</span> 是最高的 5 度、<span class="ipa">˧</span> 是中間的 3 度、<span class="ipa">˩</span> 是最低的 1 度，連寫就是滑動——<span class="ipa">˥˧</span> 讀作「從 5 滑到 3」，正是中文四聲的高降走法。看得懂溫度計，就看得懂這套調符。</p>
+
+<blockquote class="key">雙層制：<strong>輸入層</strong>用純鍵盤字元（調值寫成數字 53、33，好打、好搜尋、好存進資料庫）；<strong>顯示層</strong>用正式 IPA 字符加調符（可直接用於發表與跨語言對照）。兩層逐符互換、來回不失真——這不是兩套系統，是同一把尺的手寫面與印刷面。對照例：<code>kut3.</code> ↔ <span class="ipa">kut˧·</span>（骨・頓）、<code>kut53</code> ↔ <span class="ipa">kut˥˧</span>（骨頭的骨・高降）、<code>sia~5</code> ↔ <span class="ipa">ɕĩã˥</span>（聲）。</blockquote>
+
+<h1 id="ch1">一、聲調篇：七個調值</h1>
+<p>IPA 標聲調有兩套並列的正式方案：</p>
+<p><strong>一、趙氏調符</strong>（tone letters）：˥˦˧˨˩，五度豎線制，可組合畫出任何調形，現代方言學的標準——<strong>本篇採用的就是它</strong>。</p>
+<p><strong>二、母音附加符</strong>：á 高平、ā 中平、à 低平（另有極高、極低雙符，罕用）、ǎ 升、â 降——低中高三階其實標得出（à、ā、á），ǎ 也可粗略對應 113。</p>
+<p>不採附加符，理由有二。其一，<strong>標不準</strong>：ǎ 只說「升」，說不出從哪升到哪，更寫不出 113 低段 2/3 拍的腰；â 只說「降」，分不出 53 與取 5 的 5·；附加符沒有長度維度，半拍無從標；疊上鼻化波浪還須雙層堆疊組合符，渲染負擔沉重。其二，<strong>與臺羅撞形</strong>：á、à、â、ā 這幾頂帽子，臺羅拿去當調類編號的代號（第2、第3、第5、第7調）——同一頂帽子，兩套系統兩種意思，本篇若再用它標音高，臺羅讀者與 IPA 讀者各讀各的，必成大混亂。附加符是形狀的名字，調值是座標——量尺要座標，本篇不採。</p>
+<p>135拼音法的譜調本來就是五度制——低＝1、中＝3、高＝5，正是趙氏調符的同一把尺。七個聲調的座標一次列清：</p>
+<table>
+<tr><th>調性</th><th>注音</th><th>調值（輸入）</th><th>趙氏調符（顯示）</th><th>調形</th></tr>
+<tr><td>低（低聲，9）</td><td>ㄚ_</td><td>1</td><td class="ipa">˩</td><td>貼底平走</td></tr>
+<tr><td>中（中聲，0）</td><td>ㄚ+</td><td>3</td><td class="ipa">˧</td><td>中線平走</td></tr>
+<tr><td>高（一聲，1）</td><td>ㄚ</td><td>5</td><td class="ipa">˥</td><td>頂線平走</td></tr>
+<tr><td>升（二聲，2）</td><td>ㄚˊ</td><td>35</td><td class="ipa">˧˥</td><td>中→高上揚</td></tr>
+<tr><td>沈（三聲，3）</td><td>ㄚˇ</td><td>113</td><td class="ipa">˩˩˧</td><td>貼底拖行、尾端折上</td></tr>
+<tr><td>降（四聲，4）</td><td>ㄚˋ</td><td>53</td><td class="ipa">˥˧</td><td>高→中滑落</td></tr>
+<tr><td>頓（輕聲，5）</td><td>ㄚ·</td><td>3·（簡 ·）</td><td class="ipa">˧·（簡 ·）</td><td>中線半拍點收</td></tr>
+</table>
+
+<figure style="margin:1.2rem 0;max-width:820px"><svg viewBox="0 0 1300 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="七聲調值圖·IPA版">
+<rect x="2" y="2" width="1296" height="476" rx="16" fill="#FCF8EF" stroke="#D8CCB4" stroke-width="1.5"/>
+<defs><marker id="a7" markerUnits="userSpaceOnUse" viewBox="0 0 12 12" refX="10.5" refY="6" markerWidth="14" markerHeight="14" orient="auto-start-reverse"><path d="M1,1.5 L11,6 L1,10.5 z" fill="#33383F"/></marker></defs>
+<text x="56" y="48" font-size="30" font-weight="900" fill="#101C2B" font-family="Noto Sans TC,sans-serif">七個調值，一張譜</text>
+<line x1="150" y1="400" x2="1262" y2="400" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="126" y="406" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">1</text>
+<line x1="150" y1="340" x2="1262" y2="340" stroke="#E4DCCB" stroke-width="1" stroke-dasharray="5 6"/><text x="126" y="346" font-size="16" text-anchor="end" fill="#C3B79B">2</text>
+<line x1="150" y1="280" x2="1262" y2="280" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="126" y="286" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">3</text>
+<line x1="150" y1="220" x2="1262" y2="220" stroke="#E4DCCB" stroke-width="1" stroke-dasharray="5 6"/><text x="126" y="226" font-size="16" text-anchor="end" fill="#C3B79B">4</text>
+<line x1="150" y1="160" x2="1262" y2="160" stroke="#D8CCB4" stroke-width="1.5" stroke-dasharray="5 6"/><text x="126" y="166" font-size="18" text-anchor="end" fill="#101C2B" font-weight="700">5</text>
+<!-- 低 11 -->
+<text x="215" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">低</text>
+<line x1="180" y1="400" x2="252" y2="400" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="215" y="378" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˩</text>
+<text x="215" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">1</text>
+<!-- 中 33 -->
+<text x="375" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">中</text>
+<line x1="340" y1="280" x2="412" y2="280" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="375" y="258" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˧</text>
+<text x="375" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">3</text>
+<!-- 高 55 -->
+<text x="535" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">高</text>
+<line x1="500" y1="160" x2="572" y2="160" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="535" y="140" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˥</text>
+<text x="535" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">5</text>
+<!-- 升 35 -->
+<text x="695" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">升</text>
+<line x1="660" y1="280" x2="732" y2="160" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="742" y="228" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˧˥</text>
+<text x="695" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">35</text>
+<!-- 沈 113 -->
+<text x="875" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">沈</text>
+<path d="M822 400 L878 400 L926 280" fill="none" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a7)"/>
+<text x="936" y="352" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˩˩˧</text>
+<text x="875" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">113</text>
+<!-- 降 53 -->
+<text x="1045" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">降</text>
+<line x1="1010" y1="160" x2="1082" y2="280" stroke="#33383F" stroke-width="4.5" stroke-linecap="round" marker-end="url(#a7)"/>
+<text x="1072" y="212" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˥˧</text>
+<text x="1045" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">53</text>
+<!-- 頓 3短 -->
+<text x="1185" y="110" font-size="30" font-weight="900" text-anchor="middle" fill="#33383F" font-family="Noto Sans TC,sans-serif">頓</text>
+<line x1="1162" y1="280" x2="1192" y2="280" stroke="#33383F" stroke-width="4.5" stroke-linecap="round"/><circle cx="1202" cy="280" r="6" fill="#33383F"/>
+<text x="1185" y="258" font-size="27" font-weight="700" text-anchor="middle" fill="#33383F">a˧·</text>
+<text x="1185" y="446" font-size="18" text-anchor="middle" fill="#8A7F68">3·</text>
+<text x="650" y="472" font-size="17" text-anchor="middle" fill="#8C98A8" font-weight="700" font-family="Noto Sans TC,sans-serif">1、3、5 三條基準線＝Do、Mi、So。調值就是座標。</text>
+</svg></figure>
+
+<blockquote><strong>調值規約：數字管高度，中點管拍長。</strong>平調一位數字即滿拍（1、3、5——簡譜同款：不加底線的音符本來就是一拍；舊制雙寫 55、33 照簡譜反而得加底線才湊成一拍，雙寫的不自然由簡譜自己證明）。滑動調多位數字＝一拍內的等分軌跡：53、35 前後各半拍；<strong>113 三等分——低段佔 2/3 拍</strong>、末 1/3 折上，三聲的「腰」在字面上有了定量。半拍加 ·（3·、5·）；此點是頓點、<strong>非簡譜附點</strong>（附點延長半拍，頓點砍成半拍，意義相反，會簡譜者留意）。輸入層的 · 打句點（<code>kut3.</code>）。趙氏調符與調值完全同構：平調單豎線即滿拍（˩、˧、˥），多豎線寫軌跡（˧˥、˥˧、˩˩˧），半拍同樣加 ·（˧·、˥·）。</blockquote>
+<blockquote><strong>簡化調符</strong>：完整形之外，兩個半拍格提供日常簡化——<strong>頓省高度符</strong>，單寫 ·（<code>ba.</code>＝<code>ba3.</code>；半拍只在中位出現，省 3 不撞音），與書寫層 <code>ah·</code>＝<code>ah+·</code> 之省同構；<strong>變調位省頓點</strong>，單寫 5／<span class="ipa">˥</span>（<code>kut5</code>＝<code>kut5.</code>；此音只在變調位置，省 · 不撞音），與書寫層 <code>kkut¯</code>＝<code>kkut¯·</code> 之省同構。完整形用於規格與教學，簡化形用於日常標記。</blockquote>
+<p>七調練習（同一音節七個座標，每格實際唱出）：四 <span class="ipa">ɕi˩</span>｜是 <span class="ipa">ɕi˧</span>｜絲 <span class="ipa">ɕi˥</span>｜絲絲絲第一字 <span class="ipa">ɕi˧˥</span>｜時 <span class="ipa">ɕi˩˩˧</span>｜始 <span class="ipa">ɕi˥˧</span>｜熾 <span class="ipa">ɕi˧·</span>。</p>
+<blockquote>小注：排骨酥的「骨」＝<span class="ipa">kut˥·</span>，實際是四聲（˥˧）的前半拍——起音打在 5、一出即收，還來不及滑落。調值完整形 5·、簡化形 5——「四聲取 5 的半拍」直接寫在字面上。此音只出現在變調位置（四聲變調取 5 成一聲），書寫層據此以一聲符號簡化標示。</blockquote>
+
+<h1 id="ch2">二、變調篇：調值的演算</h1>
+<p>意義單位的末字守本調，其餘變調。口訣「低調個性，一個重點」翻成調值語言，就是兩條演算：</p>
+<table>
+<tr><th>本調</th><th>變調後</th><th>調值演算</th><th>道理</th></tr>
+<tr><td>高 ˥</td><td>中 ˧</td><td>5 → 3</td><td rowspan="4">低調個性——整條往下沉一階；沉到底反彈成 53</td></tr>
+<tr><td>中 ˧</td><td>低 ˩</td><td>3 → 1</td></tr>
+<tr><td>低 ˩</td><td>降 ˥˧</td><td>1 → 53</td></tr>
+<tr><td>頓 ˧·</td><td>降 ˥˧</td><td>3· → 53</td></tr>
+<tr><td>降 ˥˧</td><td>高 ˥</td><td>53 → 5（取 5）</td><td rowspan="2">一個重點——滑動調省音成一個音高重點</td></tr>
+<tr><td>沈 ˩˩˧</td><td>中 ˧</td><td>113 → 3（取 3）</td></tr>
+</table>
+<p>升（˧˥）不在標準變調裡——它是特殊變調的結果：加強語氣的疊字，第一字變調成升（滑滑滑的第一個滑＝<span class="ipa">kut˧˥</span>）。</p>
+<p>還有一件事值得攤開：<strong>收尾韻字不需要另外的變調規則</strong>——頓 3·→53、中 3→1，跟所有字走同一張表。對照之下，傳統框架得為入聲專門多背一條「第四調與第八調互換」。為什麼多這一條？因為連續的變調結果硬塞回兩個格子：頓變調取高，他們的格子只能叫它第八調；中變調落低，他們的格子只能叫它第四調——一來一回，看起來就像「互換」。而且這條互換規則連預測都是錯的：照「4→8」，「骨頭」的骨變調後該是他們說明書上「高而促」的第八調——小喇叭實播四聲 <span class="ipa">kut˥˧</span>，滿拍滑落，正是本篇一般變調表的預測（頓 3·→53）。同樣的判決一連三響：「出名」的出實唱<strong>高</strong>（<span class="ipa">˥·</span>——降再省音、只取起點的高半拍；規則算第八調）、「木瓜」的木實唱<strong>低</strong>（規則算第四調）——互換律兩個方向雙雙落空，一般表＋省音機制雙向命中。兩個理論同場預測，一個錯、一個中，錄音當裁判。這種專用規則的存在本身就是分類錯誤的症狀：格子畫錯，規則就得多長一條來補——補出來的還是錯的。</p>
+<p>調值把變調的機制照得透亮：「取 5」「取 3」在編號系統裡是查表，在調值系統裡是字面運算——53 砍掉尾剩 5，113 砍掉頭剩 3。<strong>調值不只記錄變調，還解釋變調。</strong></p>
+
+<h1 id="ch3">三、聲母篇</h1>
+<table>
+<tr><th>注音</th><th>IPA</th><th>輸入</th><th>發音動作</th></tr>
+<tr><td>ㄅ</td><td class="ipa">p</td><td><code>p</code></td><td>雙唇塞音，不送氣清音</td></tr>
+<tr><td>ㄆ</td><td class="ipa">pʰ</td><td><code>ph</code></td><td>同上，送氣（ʰ＝送氣上標）</td></tr>
+<tr><td>ㄅㄏ</td><td class="ipa">b</td><td><code>b</code></td><td>同部位濁音，聲帶先振</td></tr>
+<tr><td>ㄇ</td><td class="ipa">m</td><td><code>m</code></td><td>雙唇鼻音</td></tr>
+<tr><td>ㄉ</td><td class="ipa">t</td><td><code>t</code></td><td>舌尖塞音，不送氣清音</td></tr>
+<tr><td>ㄊ</td><td class="ipa">tʰ</td><td><code>th</code></td><td>同上，送氣</td></tr>
+<tr><td>ㄋ</td><td class="ipa">n</td><td><code>n</code></td><td>舌尖鼻音</td></tr>
+<tr><td>ㄌ</td><td class="ipa">l</td><td><code>l</code></td><td>邊音</td></tr>
+<tr><td>ㄍ</td><td class="ipa">k</td><td><code>k</code></td><td>舌根塞音，不送氣清音</td></tr>
+<tr><td>ㄎ</td><td class="ipa">kʰ</td><td><code>kh</code></td><td>同上，送氣</td></tr>
+<tr><td>ㄍㄏ</td><td class="ipa">ɡ</td><td><code>g</code></td><td>同部位濁音</td></tr>
+<tr><td>ㄏ</td><td class="ipa">h</td><td><code>h</code></td><td>清喉擦音</td></tr>
+<tr><td>ㄗ／ㄐ</td><td class="ipa">ts／tɕ</td><td><code>ts</code></td><td>同一音位：配前高母音 i 顎化為 tɕ</td></tr>
+<tr><td>ㄘ／ㄑ</td><td class="ipa">tsʰ／tɕʰ</td><td><code>tsh</code></td><td>同上，送氣</td></tr>
+<tr><td>ㄙ／ㄒ</td><td class="ipa">s／ɕ</td><td><code>s</code></td><td>同上</td></tr>
+<tr><td>ㄖ</td><td class="ipa">z</td><td><code>z</code></td><td>有聲齒齦擦音，不捲舌；[dz] 變體見第六章</td></tr>
+<tr><td>ㄥ字首</td><td class="ipa">ŋ</td><td><code>ng</code></td><td>舌根鼻音當聲母（碗＝<span class="ipa">ŋua˥˧</span>）</td></tr>
+</table>
+<blockquote>顎化三兄弟在音位層只有三格（ts、tsʰ、s）：配上前高母音 i，舌面被擠著自動抬高，就成了 tɕ、tɕʰ、ɕ——IPA 兩套符號寫的是同一個聲母的兩種實現。這正是美拼「配 i 自動顎化、不必背」的音韻學版本。</blockquote>
+<h2>鼻化：不是聲母，是母音的性質</h2>
+<p>美拼的鼻化聲母（sngia、tngia）在 IPA 的正確寫法，是<strong>母音上加波浪鼻化符（ã、ĩ）</strong>：聲＝<span class="ipa">ɕĩã˥</span>、聽＝<span class="ipa">tʰĩã˥</span>、山＝<span class="ipa">sũã˥</span>。鼻腔的門在整個母音段都開著——鼻化是母音的性質，貫穿全程，既不是聲母的附件、更不是韻尾。這一格在第八章還有戲份。</p>
+
+<h1 id="ch4">四、韻母篇：含收尾韻與鼻化</h1>
+<h2>基本母音（六個）</h2>
+<table>
+<tr><th>注音</th><th>IPA</th><th>輸入</th><th>定錨</th><th>選符理由</th></tr>
+<tr><td>ㄚ</td><td class="ipa">a</td><td><code>a</code></td><td>Bahamas</td><td>開前不圓唇，無爭議</td></tr>
+<tr><td>ㄛ</td><td class="ipa">ɔ</td><td><code>o</code></td><td>law、saw</td><td>開半後圓唇；開口大於 /o/</td></tr>
+<tr><td>ㄜ</td><td class="ipa">ə</td><td><code>e</code></td><td>"Huh?"</td><td>央元音；母語親證非後圓唇。<strong>注意：非臺羅之 e（ㄝ）</strong>——本制 e 對齊漢語拼音（哥＝ge）</td></tr>
+<tr><td>ㄝ</td><td class="ipa">ɛ</td><td><code>eh</code></td><td>bed、egg</td><td>開半前元音。不記 /e/：IPA [e] 最近的英語體感是 he、we、be 的字母名起點，照 /e/ 唸即歪向ㄟ／ㄧ族；且 i–e 相擠、i–ɛ 一閉一開</td></tr>
+<tr><td>ㄧ</td><td class="ipa">i</td><td><code>i</code></td><td>see</td><td>閉前，無爭議</td></tr>
+<tr><td>ㄨ</td><td class="ipa">u</td><td><code>u</code></td><td>tofu</td><td>閉後圓唇，無爭議</td></tr>
+</table>
+<h2>複合與鼻音尾</h2>
+<table>
+<tr><th>注音</th><th>IPA</th><th>輸入</th><th>注音</th><th>IPA</th><th>輸入</th></tr>
+<tr><td>ㄞ</td><td class="ipa">ai</td><td><code>ai</code></td><td>ㄧㄣ</td><td class="ipa">in</td><td><code>in</code></td></tr>
+<tr><td>ㄠ</td><td class="ipa">au</td><td><code>au</code></td><td>ㄧㄥ</td><td class="ipa">iŋ</td><td><code>ing</code></td></tr>
+<tr><td>ㄢ</td><td class="ipa">an</td><td><code>an</code></td><td>ㄧㄇ</td><td class="ipa">im</td><td><code>im</code></td></tr>
+<tr><td>ㄤ</td><td class="ipa">aŋ</td><td><code>ang</code></td><td>ㄧㄚㄇ</td><td class="ipa">iam</td><td><code>iam</code></td></tr>
+<tr><td>ㄥ自成</td><td class="ipa">ŋ̍</td><td><code>ng</code></td><td>ㄧㄤ</td><td class="ipa">iaŋ</td><td><code>iang</code></td></tr>
+<tr><td>ㄛㄥ</td><td class="ipa">ɔŋ</td><td><code>ong</code></td><td>ㄧㄛㄥ</td><td class="ipa">iɔŋ</td><td><code>iong</code></td></tr>
+<tr><td>ㄧㄚ</td><td class="ipa">ia</td><td><code>ia</code></td><td>ㄧㄝㄣ</td><td class="ipa">iɛn</td><td><code>iehn</code></td></tr>
+<tr><td>ㄧㄨ</td><td class="ipa">iu</td><td><code>iu</code></td><td>ㄨㄣ</td><td class="ipa">un</td><td><code>un</code></td></tr>
+<tr><td>ㄧㄠ</td><td class="ipa">iau</td><td><code>iau</code></td><td>ㄨㄚ</td><td class="ipa">ua</td><td><code>ua</code></td></tr>
+<tr><td>ㄧㄜ</td><td class="ipa">iə</td><td><code>ie</code></td><td>ㄨㄝ</td><td class="ipa">uɛ</td><td><code>ueh</code></td></tr>
+<tr><td>ㄨㄧ</td><td class="ipa">ui</td><td><code>ui</code></td><td>ㄨㄞ</td><td class="ipa">uai</td><td><code>uai</code></td></tr>
+<tr><td>ㄨㄢ</td><td class="ipa">uan</td><td><code>uan</code></td><td>ㄨㄤ</td><td class="ipa">uaŋ</td><td><code>uang</code></td></tr>
+<tr><td>ㄇ自成</td><td class="ipa">m̩</td><td><code>m</code></td><td></td><td></td><td></td></tr>
+</table>
+<p>ŋ̍ 與 m̩ 底下那一小豎是<strong>成音節符</strong>——鼻音自己當母音：飯＝<span class="ipa">pŋ̍˧</span>、黃＝<span class="ipa">ŋ̍˩˩˧</span>、毋＝<span class="ipa">m̩˧</span>。<strong>整字標音省略此符</strong>（無母音時鼻音必為音節核，可預測），寫 pŋ˧ 即可。</p>
+<h2>收尾韻</h2>
+<table>
+<tr><th>收尾</th><th>IPA</th><th>輸入</th><th>收尾動作</th></tr>
+<tr><td>ㄆ尾</td><td class="ipa">p̚</td><td><code>-p</code></td><td>雙唇一閉，不爆破</td></tr>
+<tr><td>ㄊ尾</td><td class="ipa">t̚</td><td><code>-t</code></td><td>舌尖抵齒，不爆破</td></tr>
+<tr><td>ㄎ尾</td><td class="ipa">k̚</td><td><code>-k</code></td><td>舌根縮喉，不爆破</td></tr>
+<tr><td>ㄇ尾</td><td class="ipa">m</td><td><code>-m</code></td><td>閉唇、氣走鼻腔，可延續</td></tr>
+</table>
+<blockquote class="key">IPA 收尾子音右上的小角（<span class="ipa">p̚ t̚ k̚</span>，無聲除阻符）字面意義就是「收尾動作、不爆破」——它掛在<strong>子音</strong>上，不掛在聲調上。收尾韻是韻母的收法、不是聲調，國際音標協會的符號設計替這件事背書。收尾韻論的國際標準版本，就在這一格。<strong>整字標音省略角標</strong>（塞音站收尾位必然不爆破，可預測）——寬式寫 kut˥· 即可，角標僅本表示範；此亦與輸入層摺疊規則 3、4 同構：可預測者不寫。另注：角標與成音節豎屬組合符號，部分手機字型顯示為方框，學術輸出請安裝 Charis SIL／Doulos SIL。</blockquote>
+
+<h1 id="ch5">五、整字與句子</h1>
+<h2>整字示例</h2>
+<table>
+<tr><th>字</th><th>輸入</th><th>IPA 顯示</th></tr>
+<tr><td>骨（排骨）</td><td><code>kut3.</code></td><td class="ipa">kut˧·</td></tr>
+<tr><td>骨（骨架）</td><td><code>kut53</code></td><td class="ipa">kut˥˧</td></tr>
+<tr><td>骨（排骨酥）</td><td><code>kut5.</code></td><td class="ipa">kut˥·</td></tr>
+<tr><td>滑（很滑）</td><td><code>kut3</code></td><td class="ipa">kut˧ <small>（˧＝漳腔、本書寬式；辭典小喇叭實播海口腔高降 ˥˧——同「一、六、十」模式，見第六章）</small></td></tr>
+<tr><td>滑（滑溜）</td><td><code>kut1</code></td><td class="ipa">kut˩</td></tr>
+<tr><td>滑（滑滑滑首字）</td><td><code>kut35</code></td><td class="ipa">kut˧˥</td></tr>
+<tr><td>茶</td><td><code>teh113</code></td><td class="ipa">tɛ˩˩˧</td></tr>
+<tr><td>天</td><td><code>thiehn5</code></td><td class="ipa">tʰiɛn˥</td></tr>
+<tr><td>話</td><td><code>ueh3</code></td><td class="ipa">uɛ˧</td></tr>
+<tr><td>聲</td><td><code>sia~5</code></td><td class="ipa">ɕĩã˥</td></tr>
+<tr><td>我</td><td><code>gua53</code></td><td class="ipa">ɡua˥˧</td></tr>
+<tr><td>飯</td><td><code>png3</code></td><td class="ipa">pŋ˧</td></tr>
+<tr><td>惜</td><td><code>sie3.</code></td><td class="ipa">ɕiə˧·</td></tr>
+<tr><td>肉</td><td><code>ba3.</code></td><td class="ipa">ba˧·</td></tr>
+</table>
+<p>kut 六階並排——˧、˥˧、˥、˧、˩、˧˥——這一欄本身就是「入聲只有兩調」的反證，第八章開審。</p>
+<h2>開口五句（IPA 標本調；<code>-</code>＝該字在句中應變調，照第二章演算）</h2>
+<ol>
+<li><strong>你好</strong>　<span class="ipa">li˥˧-hə˥˧</span>（你：53 取 5 變 55；好：本調 53 滑落）</li>
+<li><strong>多謝</strong>　<span class="ipa">tə˥-ɕia˧</span>（多：55→33；謝：本調 33）</li>
+<li><strong>食飽未</strong>　<span class="ipa">tɕia˧-pa˥˧ buɛ˧-</span>（食：33→11；飽守本調；未句末讀低收尾）</li>
+<li><strong>飲茶</strong>　<span class="ipa">lim˥-tɛ˩˩˧</span>（飲：55→33，-m 老實閉嘴；茶：113 的腰，最有味的示範）</li>
+<li><strong>我是台灣人</strong>　<span class="ipa">ɡua˥˧-ɕi˧-tai˩˩˧-uan˥-laŋ˩˩˧</span>（人：本調 113 穩穩收住全句）</li>
+</ol>
+
+<h1 id="ch6">六、嚴式變體（腔口）</h1>
+<p>本篇主體為<strong>寬式記音</strong>（斜線 / /）：記到「足以區別意義」的精度，是本書標準。<strong>嚴式</strong>（方括 [ ]）記的是實際口音的細節（腔口變體），只收兩種來源：<strong>本系統字表已載、母語者親證</strong>——文獻變體不直接採用，因其敘述多掛在台羅的分類格上，格子畫錯，掛在上面的敘述連帶失效；引用前必須先驗證雙方講的是不是同一批字。</p>
+<table>
+<tr><th>項目</th><th>寬式（本書標準）</th><th>嚴式變體</th></tr>
+<tr><td>中聲收尾韻字（一、六、十）</td><td class="ipa">tɕit˧／lak˧／tsap˧</td><td>海口腔讀降：<span class="ipa">[tɕit˥˧] [lak˥˧] [tsap˥˧]</span></td></tr>
+<tr><td>上列變調</td><td colspan="2">兩腔變調皆落低聲 ˩——變調位置會合</td></tr>
+<tr><td>ㄖ聲母</td><td class="ipa">z</td><td>自由變體 <span class="ipa">[dz]</span></td></tr>
+<tr><td>ㄧㄛㄥ 韻（iong）</td><td class="ipa">iɔŋ</td><td>海口腔唇較圓：<span class="ipa">[ɥɔŋ]</span>（ㄩㄛㄥ）——親證。可對照：華語注音的ㄩㄥ即「ㄩ(ㄛ)ㄥ」之省寫，注音自家也有省寫傳統</td></tr>
+</table>
+
+<h1 id="ch7">七、怎麼打出這些符號</h1>
+<p>本篇字母表已內建原生輸入法——每張表的「輸入」欄就是答案：純 ASCII、逐符可逆（<code>kut53</code> ⇄ <span class="ipa">kut˥˧</span>、<code>sia~5</code> ⇄ <span class="ipa">ɕĩã˥</span>——~ 是罩住整個韻母的濾鏡，不是收尾動作）。摺疊規則只有五條：</p>
+<ol>
+<li><strong>送氣上標降級</strong>：ʰ → h（pʰ→<code>ph</code>、tʰ→<code>th</code>、kʰ→<code>kh</code>、tsʰ→<code>tsh</code>）——這是 IPA 上標的打字降級，不是拼音設計</li>
+<li><strong>顎化不記</strong>：tɕ/ɕ 與 ts/s 同音位，輸入一律 <code>ts</code>／<code>s</code>／<code>tsh</code>，顯示層遇 i 自動轉</li>
+<li><strong>鼻音</strong>：ŋ → <code>ng</code>；自成音節 ŋ／m 輸入即 <code>ng</code>／<code>m</code>（音節位置自明）；鼻化（ã、ĩ）輸入以 <code>~</code> 後置貼韻母</li>
+<li><strong>收尾除阻不記</strong>：角標不輸入——-p/-t/-k 站在收尾位置即隱含，顯示層自動補</li>
+<li><strong>母音後 h＝ɛ</strong>：<code>eh</code> 是一個母音的兩個字母（ə 佔 <code>e</code>、ɛ 記 <code>eh</code>）；本輸入法的 h 只出現在聲母內與 eh 之中，母音後的 h 必屬 ɛ，無第二種解讀（uɛ＝<code>ueh</code>、iɛn＝<code>iehn</code>、iə＝<code>ie</code>）</li>
+</ol>
+<p>聲調：調值直接綴於音節尾（<code>kut53</code>、<code>teh113</code>）；半拍的 · 鍵盤打句點（<code>kut3.</code>＝<span class="ipa">kut˧·</span>），與美拼同一條輸入慣例。</p>
+<h2>要打正式 IPA 字符時（顯示層）</h2>
+<p>學者輸出論文、辭書條目時的通用途徑：</p>
+<ol>
+<li><strong>線上 IPA 鍵盤</strong>：ipa.typeit.org 等，點選字符複製貼上，偶爾打幾個符號最快</li>
+<li><strong>文書軟體</strong>：Word／Google Docs「插入符號」查 Unicode 碼位——˥ U+02E5、˧ U+02E7、˩ U+02E9、無聲除阻 U+031A、鼻化波浪 U+0303、ɕ U+0255、ŋ U+014B、ɔ U+0254、ə U+0259、ɛ U+025B；常用者可設自動校正</li>
+<li><strong>LaTeX</strong>：tipa 套件，語言學論文的傳統路</li>
+<li><strong>字型</strong>（輸出品質的前提）：裝 Charis SIL 或 Doulos SIL（免費）——一般字型遇 ĩã 疊符、ŋ̍ 成音節豎、p̚ 角標常錯位缺字</li>
+</ol>
+<blockquote>但正解是：<strong>沒有人該手打 IPA</strong>。用「輸入」欄的 ASCII 打字，轉換交給程式——這正是雙層制的存在理由。<strong>本站「一起學閩南語（臺語）漢字」提供此轉換</strong>：輸入欄照上表打 ASCII，IPA 顯示層由站上程式生成。</blockquote>
+<h2>工具層：每件外衣都是輸入欄</h2>
+<p>本章到上一段為止是字母表的事；接下來是程式設計的事，兩者分離。轉換器的架構下，任何一件外衣都可以當輸入欄——美拼、漢拼、注音、法文版、日文版……各自經對應表映射到同一個 IPA 顯示層。介面以勾選切換輸入制，勾選狀態決定解析器。外衣讓各種母語的人開口，轉換器讓他們全部通到同一把尺。</p>
+<h2>現行面板：四制輸入＋注音自動判定，六軌並排</h2>
+<table>
+<tr><th>項目</th><th>實際做法</th></tr>
+<tr><td>輸入</td><td><strong>注音自動判定</strong>——打了注音符號就走注音，不必勾。其餘四制用勾選：<code>IPA甲制</code>（本章的摺疊式，<code>kut3.</code>）、<code>美拼</code>（<code>tteh~</code>、<code>kkut.</code>，數字碼原樣可用）、<code>漢拼</code>、<code>台羅</code>。可同時勾多個，依序試解，畫面回報實際判成哪一制。</td></tr>
+<tr><td>輸出</td><td>六軌任選並排：IPA 顯示層／IPA 輸入層／注音／美拼／漢拼／台羅——同一個音在五件外衣底下各長什麼樣，一眼看齊。</td></tr>
+<tr><td>調符</td><td>日常<strong>簡化形</strong>為預設（<span class="ipa">ɕiə·</span>、<span class="ipa">kut˥</span>）；勾「完整調符」切成規格與教學用的<strong>完整形</strong>（<span class="ipa">ɕiə˧·</span>、<span class="ipa">kut˥·</span>）。兩形都吃得進輸入欄（<code>sie.</code>＝<code>sie3.</code>、<code>kut5</code>＝<code>kut5.</code>）。</td></tr>
+<tr><td>角標</td><td>「教學角標」開關：關＝寬式整字（<span class="ipa">kut˥·</span>、<span class="ipa">pŋ˧</span>、<span class="ipa">hm˧</span>），開＝把可預測的符號補回來（<span class="ipa">kut̚˥·</span>、<span class="ipa">pŋ̍˧</span>、<span class="ipa">hm̩˧</span>）。第五章那句「可預測者不寫」，在面板上就是這個勾。</td></tr>
+<tr><td>變調</td><td>IPA 與各拼一律<strong>標本調</strong>，需變調處加連接號——同一般拼音法的慣例；只有注音欄顯示變調後的詞句音。</td></tr>
+<tr><td>拆解</td><td>逐字列出聲母／韻母／聲調各自怎麼來的，含顎化、鼻化、收尾韻與半拍兩形。</td></tr>
+</table>
+<blockquote class="key">為什麼輸入制非勾不可：<strong>同一串字母，在不同外衣底下是不同的字</strong>。<code>kut</code> 走甲制是 <span class="ipa">kut˥·</span>（一聲，變調位高半拍），走台羅是 <span class="ipa">kut˧·</span>（無調號＝第四調＝頓）；<code>gut</code> 走甲制起頭是濁音 <span class="ipa">ɡut˥·</span>，走漢拼卻是 <span class="ipa">kut˧·</span>（漢拼的 g 是清音 <span class="ipa">k</span>，濁音要寫 <code>gh</code>）。勾選不是排版偏好，是告訴程式「這串字母歸哪一套規則管」——外衣與尺必須分離，這就是實證。</blockquote>
+<h1 id="ch8">八、照妖鏡：拿尺量台羅</h1>
+<p>台羅掛著「接近學術」的招牌。好，這一版就是學術的尺——三面鏡子，各照一次：</p>
+<h2>鏡一：入聲「只有兩調」？kut 量出六階</h2>
+<table>
+<tr><th>詞</th><th>IPA 實測</th><th>台羅的格子</th></tr>
+<tr><td>排骨（骨）</td><td class="ipa">kut˧·（半拍）</td><td rowspan="6">只有兩格：kut（第4調）、kut（第8調）——六階實測被壓成兩調，其餘四階在系統裡無處安放</td></tr>
+<tr><td>骨架（骨）</td><td class="ipa">kut˥˧</td></tr>
+<tr><td>排骨酥（骨）</td><td class="ipa">kut˥·（半拍）</td></tr>
+<tr><td>很滑（滑）</td><td class="ipa">kut˧</td></tr>
+<tr><td>滑溜（滑）</td><td class="ipa">kut˩</td></tr>
+<tr><td>滑滑滑（首字）</td><td class="ipa">kut˧˥</td></tr>
+</table>
+<p>不必辯論，開教育部辭典的小喇叭逐一聽——六個高度是錄音檔自己說的。</p>
+<p>再聽兩個字：毒（to̍k）、律（lu̍t）——台羅第八調，教條說明書寫「短促而高」。小喇叭實播<strong>四聲</strong> <span class="ipa">tɔk˥˧</span>、<span class="ipa">lut˥˧</span>（海口腔），滿拍滑落——且非個案：<strong>辭典第八調詞條大多如此</strong>；漳腔讀<strong>中聲</strong> <span class="ipa">tɔk˧</span>，滿拍平走；「律師」「毒藥」的變調位，小喇叭一律發<strong>低</strong> <span class="ipa">˩</span>——兩腔會合，仍是滿拍。三種實現：降、中平、低——無一短促、無一高平，教條兩維度在每一種面前全倒。kut 六階證明格子不夠裝；毒、律證明連格子自己的標籤都貼錯了。</p>
+<p>最後，把整面鏡子濃縮到一個字上——全語言出現頻率最高的「一」。文讀白讀加變調，四個聲音，逐格對帳：</p>
+<table>
+<tr><th>「一」的四個聲音</th><th>實唱</th><th>IPA</th><th>台羅框架</th><th>判</th></tr>
+<tr><td>文讀本調　it</td><td>頓　ㄧㄊ·</td><td class="ipa">it˧·</td><td>第4調——「第4調＝輕聲」是兩個入聲格裡唯一對得上的一格</td><td>✓</td></tr>
+<tr><td>文讀變調（一生）</td><td>ㄧㄊ·→ㄧㄊˋ　降滿拍</td><td class="ipa">it˧· → it˥˧</td><td>互換規則算 4→8</td><td>✗</td></tr>
+<tr><td>白讀本調　tsi̍t</td><td>中聲滿拍（漳）／高降（辭典小喇叭・海口腔）</td><td class="ipa">tɕit˧ ／ tɕit˥˧</td><td>教育部定義「短促而高」</td><td>✗</td></tr>
+<tr><td>白讀變調（一人）</td><td>ㄐㄧㄊ+→ㄐㄧㄊ_　低滿拍</td><td class="ipa">tɕit˧ → tɕit˩</td><td>互換規則算 8→4</td><td>✗</td></tr>
+</table>
+<p>四個聲音錯三個，唯一的 ✓ 還是控制組。最高頻的字、錯誤率百分之七十五，掛在語言正門口幾十年。順帶一提：「一生只愛伊一人」九個字，正好包含一的兩讀兩變調與「伊」的守本調——台羅在這句情話上，恰好錯掉上表的三格。所以那句雙關不是玩笑，是統計：<strong>「一」開始就錯了。</strong></p>
+<h2>鏡二：鼻化是韻尾？IPA 說是母音的性質</h2>
+<p>台羅把鼻化寫成字尾 <code>-nn</code>（siann），彷彿鼻音是收尾動作。IPA 的標準寫法是母音上加波浪：聲＝<span class="ipa">ɕĩã˥</span>——鼻化貫穿整個母音，不是尾巴。國際標準與 135拼音法的「鼻化聲母／鼻化韻」同一邊。</p>
+<p>這不是紙上風險：台語金曲獎的頒獎場合，就有人把「聲」唸成「ㄒㄧㄚ<strong>ㄥ</strong>」——尾置的 -nn 被當成收尾鼻音，硬塞在字的末端（親聞實例）。尾置的寫法，養出尾置的錯讀。</p>
+<h2>鏡三：編號是音高嗎？</h2>
+<p>「第5調」「第7調」「第8調」——編號是標籤，標籤不會唱歌：背下數字，拿不回半分音高。調值不同：˥˧ 這三筆就是音高本身，53 這兩個數字就是起點與終點。135拼音法從譜調出發、IPA 以調值收尾，字面即唱法；台羅的編號層，永遠需要另一張換算表。</p>
+<h2>鏡四：字母對字母——台羅全表對照</h2>
+<p>先把時間軸擺正：白話字（台羅的前身）的字母選擇定於 1830 年代的傳教士辭書；國際音標協會 1886 年才成立——<strong>二百年前沒有 IPA</strong>，選字無從對齊，傳教士無可苛責。要指出的是 2006 年整併為台羅時，這副骨架原樣繼承、掛上「接近學術」的招牌，卻始終未依 IPA 校正。以下逐格對照：台羅字面若當 IPA 讀是什麼、實際的音是什麼——相符的照列，衝突的照量：</p>
+<table>
+<tr><th>台羅寫法</th><th>字面當 IPA 讀</th><th>實際 IPA</th><th>裁定</th></tr>
+<tr><td>j（jit）</td><td><span class="ipa">j</span>＝英語 y 的半母音</td><td class="ipa">z</td><td class="no">字母值相反</td></tr>
+<tr><td>-nn（siann）</td><td>nn＝雙寫長鼻音韻尾</td><td><span class="ipa">ɕĩã</span>（母音鼻化）</td><td class="no">性質寫成音段</td></tr>
+<tr><td>-h 尾（bah）</td><td><span class="ipa">h</span>＝喉擦音收尾</td><td><span class="ipa">ba˧·</span>（頓調半拍）</td><td class="no">聲調寫成子音</td></tr>
+<tr><td>e（tê）</td><td><span class="ipa">e</span>＝半閉前（he、we、be 起點）</td><td><span class="ipa">ɛ</span>（半開）</td><td class="no">高度錯一階</td></tr>
+<tr><td>o</td><td><span class="ipa">o</span>＝半閉後圓唇</td><td>主流實現為央元音 <span class="ipa">ə</span></td><td class="no">字母錯格（且其圈進的字與實際的音類不重疊）</td></tr>
+<tr><td>oo</td><td>雙寫＝長音 <span class="ipa">oː</span></td><td class="ipa">ɔ</td><td class="no">長度符號挪作音質</td></tr>
+<tr><td>調 2　á</td><td>IPA 附加符：高平</td><td><span class="ipa">˥˧</span>（降）</td><td class="no">平調符掛在降調上</td></tr>
+<tr><td>調 5　â</td><td>IPA 附加符：<strong>降</strong></td><td><span class="ipa">˩˩˧</span>（<strong>升</strong>）</td><td class="no">正好相反</td></tr>
+<tr><td>調 8　a̍</td><td>IPA：成音節符（U+030D）</td><td>被當作調號使用</td><td class="no">挪用他符</td></tr>
+<tr><td>調 3　à</td><td>IPA 附加符：低平</td><td><span class="ipa">˩</span>（低）</td><td class="use">相符</td></tr>
+<tr><td>調 7　ā</td><td>IPA 附加符：中平</td><td><span class="ipa">˧</span>（中）</td><td class="use">相符</td></tr>
+<tr><td>ph／th／kh</td><td>字母序列 p＋h</td><td class="ipa">pʰ</td><td class="use">送氣降級，慣例可容——本篇輸入層同樣採用</td></tr>
+</table>
+<p>à 與 ā 兩格相符，證明附加符<strong>可以</strong>對齊 IPA——正因如此，â 掛在升調上、á 掛在降調上就不是「慣例不同」能開脫的：同一套符號，兩格對了、兩格反了。而 j、-nn、-h、oo 四格，是把 IPA 的字母值、雙寫慣例、音段（獨立的一段音，如子音、母音）／性質之分整批錯置。二百年前無尺可對，今日有尺而不對——量尺量的是這個落差。</p>
+<blockquote class="key">這一章沒有一句評論是形容詞——每一面鏡子都是符號對符號、錄音對格子、字母對字母。尺不生氣，尺只量。</blockquote>
+
+<h1 id="ch9">九、結語：尺與外衣</h1>
+<blockquote>台語本音（固定）　→　135 聲調引擎（固定）　→　各國母語的外衣（可插拔）　→　IPA（量尺，對外公證）</blockquote>
+<p>美語版、法文版、日文版……每件外衣都為某雙耳朵而裁；IPA 版不裁給任何耳朵——它把引擎裡的每個零件攤在國際標準的座標上，讓任何語言學家、任何辭書、任何 AI，不經翻譯就能核對。外衣負責讓人開口，尺負責讓系統站得住：兩者合起來，才是一套完整的書寫系統。</p>
+<p>每一格選符的完整證據鏈——資料來源、競爭分析、可反駁條件——收錄於《135拼音法 · 裁定錄》。尺敢被檢驗，才配量人。</p>
+
+</main>
+
+<a class="backtoc" href="#top">回目錄 ↑</a>
+
+<footer>
+閩南語135拼音法 · 國際音標版（IPA Edition）· 完整版 v4<br>
+許文 × 甲骨先生 · 例字讀音以本系統字表（母檔）為準；嚴式變體逐步擴充；裁定證據鏈見《裁定錄》。<br>
+© 2026 許文 × 甲骨先生．版權所有 All rights reserved.
+<br>
+造訪次數：<span id="visit-count">…</span>
+</footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/ipa')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '\u2014'; })
+    .catch(function(){ el.textContent='\u2014'; });
+})();
+</script>
+
+
+<script src="/nav.js" defer></script>
+</body></html>

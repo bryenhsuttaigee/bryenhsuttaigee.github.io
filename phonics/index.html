@@ -76,17 +76,26 @@ section.group{margin-bottom:2.1rem}
   color:var(--cinnabar);margin:0 0 .1rem}
 .agk em{font-style:normal;font-family:"Noto Sans TC",sans-serif;letter-spacing:.02em;
   font-size:1.06em;color:#8b8168;margin-left:.7em;font-weight:500}
-.agrow{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;margin:.7rem 0 .1rem}
-.agrow a{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);
+.aglanes{margin:.75rem 0 .2rem}
+.aglane{display:grid;grid-template-columns:9.6rem 1fr;gap:.7rem;align-items:start;
+  padding:.5rem 0;border-top:1px solid #EFE7D5}
+.aglane:first-child{border-top:0;padding-top:.1rem}
+.aglab{padding-top:.42rem;line-height:1.3}
+.aglab b{display:block;font-family:"Noto Serif TC",serif;font-size:1rem;font-weight:900;letter-spacing:.03em}
+.aglab i{font-style:normal;font-family:var(--mono);font-size:.68rem;font-weight:700;color:#a89a7c;letter-spacing:.06em}
+.agcells{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem}
+.agcells a{display:block;text-decoration:none;color:var(--ink);border:1px solid var(--line);
   border-radius:9px;padding:.45rem .6rem .5rem;line-height:1.35;transition:background .15s,border-color .15s}
-.agrow a:hover{background:#FBF3E2;border-color:var(--gold)}
-.agrow b{display:block;font-family:"Noto Serif TC",serif;font-size:.94rem;font-weight:700;letter-spacing:.03em}
-.agrow span{display:block;font-size:.72rem;color:#8b8168;margin-top:.1rem}
-.agrow a.g1{border-left:3px solid var(--moss)}
-.agrow a.g2{border-left:3px solid var(--cinnabar)}
-.agrow a.g3{border-left:3px solid #4a6d8c}
-.agrow a.g4{border-left:3px solid var(--gold)}
-.agrow a.g5{border-left:3px solid #5B4B86}
+.agcells a:hover{background:#FBF3E2;border-color:var(--gold)}
+.agcells b{display:block;font-family:"Noto Serif TC",serif;font-size:.94rem;font-weight:700;letter-spacing:.03em}
+.agcells span{display:block;font-size:.72rem;color:#8b8168;margin-top:.1rem}
+.agsub{grid-column:1/-1;font-family:var(--mono);font-size:.63rem;font-weight:700;letter-spacing:.18em;
+  color:#a89a7c;margin:.3rem 0 -.05rem}
+.agcells a.g1{border-left:3px solid var(--moss)}
+.agcells a.g2{border-left:3px solid var(--cinnabar)}
+.agcells a.g3{border-left:3px solid #4a6d8c}
+.agcells a.g4{border-left:3px solid var(--gold)}
+.agcells a.g5{border-left:3px solid #5B4B86}
 .stuck{display:block;background:#2B2445;color:var(--bone);border-radius:14px;padding:1.2rem 1.5rem;margin:1.4rem 0 0;
   text-decoration:none;width:fit-content;max-width:100%;box-shadow:0 10px 26px rgba(43,36,69,.2)}
 .stuck b{display:block;font-family:"Noto Serif TC",serif;font-size:clamp(1.25rem,3.2vw,1.6rem);font-weight:900;line-height:1.4}
@@ -95,7 +104,12 @@ section.group{margin-bottom:2.1rem}
 .stuck:hover b{color:#E9A93A}
 .agtip{margin:.75rem 0 0;font-size:.82rem;color:#7d7461;line-height:1.7}
 .agtip b{color:var(--cinnabar)}
-@media (max-width:760px){ .agrow{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:760px){
+  .aglane{grid-template-columns:1fr;gap:.3rem}
+  .aglab{padding-top:0}
+  .aglab b{display:inline}.aglab i{margin-left:.5em}
+  .agcells{grid-template-columns:repeat(2,1fr)}
+}
 .card.yt h3 a::before{content:"\25B6";color:#C43A26;font-size:.68em;margin-right:.45em;vertical-align:.14em}
 .card.yt .tag{color:#C43A26;border-color:#e6c9c2}
 
@@ -134,20 +148,46 @@ footer a:hover{color:var(--cinnabar)}
   </a>
 
   <nav class="ag" aria-label="版本一覽">
-    <p class="agk">9 EDITIONS<em>同一套系統，四種寫法、九種篇幅——挑一種就好</em></p>
-    <div class="agrow">
-      <a class="g1" href="/phonics/zhuyin.html"><b>注音版</b><span>會 ㄅㄆㄇ 就會</span></a>
-      <a class="g4" href="/phonics/hanpin.html"><b>漢拼版</b><span>會漢語拼音就會</span></a>
-      <a class="g5" href="/phonics/tailo.html"><b>臺羅對照版</b><span>學過臺羅就會</span></a>
-      <a class="g2" href="/phonics/complete.html"><b>美拼・完整版</b><span>逐項推導</span></a>
-      <a class="g2" href="/phonics/standard.html"><b>美拼・一般版</b><span>只留規則例字</span></a>
-      <a class="g2" href="/phonics/quick.html"><b>美拼・速查卡</b><span>查表用</span></a>
-      <a class="g3" href="/phonics/en-complete.html"><b>Complete</b><span>English</span></a>
-      <a class="g3" href="/phonics/en-standard.html"><b>Standard</b><span>English</span></a>
-      <a class="g3" href="/phonics/en-quick.html"><b>Quick Ref.</b><span>English</span></a>
-      <a class="g1" href="/phonics/which.html"><b>還沒決定？</b><span>選擇指南</span></a>
+    <p class="agk">9 EDITIONS<em>同一套系統，四種寫法、九種篇幅——先挑寫法，再挑篇幅</em></p>
+
+    <div class="aglanes">
+      <div class="aglane">
+        <div class="aglab"><b>注音版</b><i>1 種篇幅</i></div>
+        <div class="agcells">
+          <a class="g1" href="/phonics/zhuyin.html"><b>注音版</b><span>會 ㄅㄆㄇ 就會</span></a>
+        </div>
+      </div>
+
+      <div class="aglane">
+        <div class="aglab"><b>漢拼版</b><i>1 種篇幅</i></div>
+        <div class="agcells">
+          <a class="g4" href="/phonics/hanpin.html"><b>漢拼版</b><span>會漢語拼音就會</span></a>
+        </div>
+      </div>
+
+      <div class="aglane">
+        <div class="aglab"><b>臺羅對照版</b><i>1 種篇幅</i></div>
+        <div class="agcells">
+          <a class="g5" href="/phonics/tailo.html"><b>臺羅對照版</b><span>學過臺羅就會</span></a>
+        </div>
+      </div>
+
+      <div class="aglane">
+        <div class="aglab"><b>美拼版</b><i>6 種篇幅</i></div>
+        <div class="agcells">
+          <p class="agsub">中文 · 三種篇幅</p>
+          <a class="g2" href="/phonics/complete.html"><b>完整版</b><span>逐項推導</span></a>
+          <a class="g2" href="/phonics/standard.html"><b>一般版</b><span>只留規則例字</span></a>
+          <a class="g2" href="/phonics/quick.html"><b>速查卡</b><span>查表用</span></a>
+          <p class="agsub">ENGLISH · 三種篇幅</p>
+          <a class="g3" href="/phonics/en-complete.html"><b>Complete</b><span>逐項推導</span></a>
+          <a class="g3" href="/phonics/en-standard.html"><b>Standard</b><span>只留規則例字</span></a>
+          <a class="g3" href="/phonics/en-quick.html"><b>Quick Ref.</b><span>查表用</span></a>
+        </div>
+      </div>
     </div>
-    <p class="agtip">往下捲有每一種的說明；最下面還有<b>「音標釋疑」影片</b>三支，按下去自己聽。</p>
+
+    <p class="agtip">還沒決定要學哪一套？先看<b><a href="/phonics/which.html">選擇指南</a></b>。往下捲有每一種的說明；最下面還有<b>「音標釋疑」影片</b>三支，按下去自己聽。</p>
   </nav>
 
   <!-- 先讀這個 -->
@@ -264,6 +304,59 @@ footer a:hover{color:var(--cinnabar)}
     </div>
   </section>
 
+  <!-- 量尺與卷宗 -->
+  <section class="group">
+    <div class="grouphead">
+      <span class="gname">量尺與卷宗</span>
+      <span class="gnote">不是外衣，是底下的東西</span>
+    </div>
+    <p class="glead">上面九種是<b>外衣</b>——同一套系統換不同寫法，挑一種學就好。這兩份不是拿來學發音的：一份是<b>量尺</b>，一份是<b>卷宗</b>。給想追到底的人、給做研究的人、也給讀這個站的 AI。</p>
+
+    <div class="card link">
+      <h3><a href="/phonics/ipa.html">國際音標版（IPA Edition）· 完整版</a></h3>
+      <p><b>不服務任何母語直覺，服務精確記音與學術對照。</b>七個調的調值與趙氏調符、變調的調值演算、聲母韻母 IPA 全表、無聲除阻的收尾韻、鼻化母音、嚴式腔口變體。<br>雙層制：輸入層用調值數字（純 ASCII），顯示層用 IPA ＋調符。</p>
+      <span class="tag">v4</span>
+    </div>
+
+    <div class="card link">
+      <h3><a href="/phonics/ipa-chart.html">國際音標版 · 聲母 × 韻母對照表</a></h3>
+      <p>上面那本的<b>查表面</b>。聲母乘韻母整張攤開：每格給 IPA 的<b>顯示層與輸入層並列</b>，另附<b>美拼／漢拼／臺羅</b>三欄對照——每一欄都是拿整個音節去問各自的核心算出來的，不是字母級硬湊。</p>
+      <p class="teaser">自母檔生成，母檔改了就重生。<br><span class="note">學術輸出建議裝 Charis SIL 或 Doulos SIL 字型，組合符號才顯示得完整。</span></p>
+      <span class="tag">v1</span>
+    </div>
+
+    <div class="card link">
+      <h3><a href="/phonics/records.html">135拼音法 · 裁定錄</a></h3>
+      <p>每一條重大裁定的<b>完整證據鏈</b>，固定八欄：裁定／資料來源／語音觀察／競爭分析／採用理由／IPA 選符／腔口效力／<b>可反駁條件</b>。</p>
+      <p class="teaser">敢寫出「什麼證據出現我就改」的系統，才配稱有理論。</p>
+      <span class="tag">v4</span>
+    </div>
+  </section>
+
+  <!-- 延伸閱讀 -->
+  <section class="group">
+    <div class="grouphead">
+      <span class="gname">延伸閱讀</span>
+      <span class="gnote">為什麼要另做一套</span>
+    </div>
+    <p class="glead">上面那些講<b>怎麼唸</b>。這三篇講<b>為什麼非得另做一套</b>——不是立場之爭，每一條都指得出教育部辭典裡的哪一個字、哪一個音檔。文章收在<a href="/views/">視角區</a>。</p>
+
+    <div class="card link">
+      <h3><a href="/views/tailo-1.html">臺羅之錯 ── 從一個「伊」字說起</a></h3>
+      <p>一天講一百遍的字，官方辭典標<b>高平第1調</b>，它自己的例句音檔讀的是<b>中平</b>。查「雨衣」跟「予伊」——臺羅標得一模一樣，小喇叭放出來就是不一樣：「變調」「腔口」兩個擋箭牌，一組詞拆完。</p>
+    </div>
+
+    <div class="card link">
+      <h3><a href="/views/tailo-2.html">臺羅之錯（二）── 入聲不止二個聲調</a></h3>
+      <p>同一個 <b>kut</b>，日常詞裡唱得出<b>六種</b>高度，辭典自己的錄音就是證人；而「四變八、八變四」的互換律正反兩向雙雙落空。病根在分類的第一步——把韻母的收尾方式立成了調類。</p>
+    </div>
+
+    <div class="card link">
+      <h3><a href="/views/mislead.html">我（AI）被臺羅誤導了</a></h3>
+      <p>一台 AI 的第一人稱自述：七條它原本深信不疑的教條，其實只是語料裡被重複了幾萬次的東西。<b>如果你問過 AI 台語聲調，這一篇解釋它為什麼那樣答你。</b></p>
+    </div>
+  </section>
+
   <!-- 音標釋疑 -->
   <section class="group">
     <div class="grouphead">
@@ -276,6 +369,12 @@ footer a:hover{color:var(--cinnabar)}
       <h3><a href="https://youtu.be/MA56XxOW358" target="_blank" rel="noopener">「奇怪音標」到底在講什麼？台語老師教的臺羅拼音</a></h3>
       <p>這一系列的第一集。從那則新聞說起：台語老師教的那套音標，一般人照著唸為什麼就是唸不對。</p>
       <span class="tag">001</span>
+    </div>
+
+    <div class="card link yt">
+      <h3><a href="https://youtu.be/l9E19IQD20E" target="_blank" rel="noopener">台語「伊」與中文「伊」同樣是一聲？教育部標錯二十年</a></h3>
+      <p>一天講一百遍的字，官方辭典標成高平第1調——它自己例句音檔讀的卻是中平。<b>唸兩次就分得出來的事，掛在網站上二十年。</b></p>
+      <span class="tag">002</span>
     </div>
 
     <div class="card link yt">
@@ -295,7 +394,19 @@ footer a:hover{color:var(--cinnabar)}
 
 <footer>
   許文　×　甲骨先生　｜　<a href="/">回總目</a>
+<br>
+造訪次數：<span id="visit-count">…</span>
 </footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/phonics')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '\u2014'; })
+    .catch(function(){ el.textContent='\u2014'; });
+})();
+</script>
+
 
 <script src="/nav.js" defer></script>
 </body>

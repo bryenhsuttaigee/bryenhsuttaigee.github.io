@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://bryenhsuttaigee.github.io/sitemap.xml
+
+# 給 AI／LLM 讀的全站摘要：
+# https://bryenhsuttaigee.github.io/llms.txt

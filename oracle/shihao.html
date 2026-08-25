@@ -145,7 +145,19 @@ footer a:hover{color:var(--cinnabar)}
 
 <footer>
 許文　×　甲骨先生　｜　<a href="https://www.youtube.com/@許文學臺語">YouTube・用臺語學漢字</a>
+<br>
+造訪次數：<span id="visit-count">…</span>
 </footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/oracle-shihao')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '\u2014'; })
+    .catch(function(){ el.textContent='\u2014'; });
+})();
+</script>
+
 
 <script src="/nav.js" defer></script>
 </body>

@@ -107,7 +107,7 @@ footer a:hover{color:var(--cinnabar)}
   <div class="card link">
     <h2><a href="/lesson/">台語常用字・一百課</a></h2>
     <p>一課一組字，配一段<b>四字文口訣</b>——逐字帶注音與美拼，唸得出來就記得住。</p>
-    <p class="teaser">第一課〈數字〉：一二三四，台語數字；五六七八，周商文白。<br>白讀是商的嘴，文讀是周的書——一開口就是周商合璧。</p>
+    <p class="teaser">第一課〈數字〉：一二三四，台語數字；五六七八，周商文白。<br>白讀是商的嘴，文讀是周的音——一開口就是周商合璧。</p>
     <span class="tag">第一課上線</span>
   </div>
 
@@ -128,7 +128,19 @@ footer a:hover{color:var(--cinnabar)}
 
 <footer>
   許文　×　甲骨先生　｜　<a href="https://www.youtube.com/@許文學臺語">YouTube・用臺語學漢字</a>
+<br>
+造訪次數：<span id="visit-count">…</span>
 </footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/home')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '\u2014'; })
+    .catch(function(){ el.textContent='\u2014'; });
+})();
+</script>
+
 
 <script src="/nav.js" defer></script>
 </body>

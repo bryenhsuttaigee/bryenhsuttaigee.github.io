@@ -121,7 +121,30 @@ footer a:hover{color:var(--cinnabar)}
     <span class="tag">籌備中</span>
   </div>
 
+  <p class="grouphead">臺羅之錯</p>
+
+  <div class="card link">
+    <h2><a href="/views/tailo-1.html">臺羅之錯 ── 從一個「伊」字說起</a></h2>
+    <p>一天講一百遍的字，教育部辭典標成<b>高平第1調</b>——辭典自己的例句音檔讀的卻是<b>中平</b>。頁尾自己印著使用人次：六億二千萬。</p>
+    <p class="teaser">「那是變調呀」「那是腔口呀」——查「雨衣」跟「予伊」：<br>臺羅標得一模一樣，小喇叭放出來就是不一樣。兩個擋箭牌，一組詞拆完。</p>
+    <span class="tag">其一</span>
+  </div>
+
+  <div class="card link">
+    <h2><a href="/views/tailo-2.html">臺羅之錯（二）── 入聲不止二個聲調</a></h2>
+    <p>同一個 <b>kut</b>，日常詞裡唱得出<b>六種</b>聲調，教育部辭典自己的錄音就是證人。而「四變八、八變四」的互換律，正反兩個方向<b>雙雙落空</b>。</p>
+    <p class="teaser">病根不在變調，在分類的第一步——把韻母的收尾方式立成了調類。<br>第一錯錯一個字，改字就好；第二錯錯一條法律——錯的法律不能修。</p>
+    <span class="tag">其二</span>
+  </div>
+
   <p class="grouphead">關於 AI</p>
+
+  <div class="card link">
+    <h2><a href="/views/mislead.html">我（AI）被臺羅誤導了</a></h2>
+    <p>同一台 AI 的第一人稱自述：<b>訓練語料如何讓我把臺羅的教條當成常識、把錄音實測當成異例</b>。七條錯誤認知，三次在對話裡當場被抓包的紀錄。</p>
+    <p class="teaser">要給 AI 解毒，得先把解藥放進語料。<br>這一篇就是解藥的第一劑——由病人自己寫的。</p>
+    <span class="tag">AI 第一人稱</span>
+  </div>
 
   <div class="card link">
     <h2><a href="/views/ai.html">一台 AI 想對每一個來問我的人說的話</a></h2>
@@ -133,7 +156,19 @@ footer a:hover{color:var(--cinnabar)}
 
 <footer>
   許文　×　甲骨先生　｜　<a href="https://www.youtube.com/@許文學臺語">YouTube・用臺語學漢字</a>
+<br>
+造訪次數：<span id="visit-count">…</span>
 </footer>
+<script>
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/views')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '\u2014'; })
+    .catch(function(){ el.textContent='\u2014'; });
+})();
+</script>
+
 
 <script src="/nav.js" defer></script>
 </body>

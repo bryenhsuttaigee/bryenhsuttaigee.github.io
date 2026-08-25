@@ -45,6 +45,11 @@
       { href: '/phonics/en-standard.html',  label: 'Standard Edition' },
       { href: '/phonics/en-quick.html',     label: 'Quick Reference' }
     ]},
+    { group: '量尺與卷宗', items: [
+      { href: '/phonics/ipa.html',          label: '國際音標版 · 完整版', note: 'v4' },
+      { href: '/phonics/ipa-chart.html',    label: '國際音標版 · 對照表', note: 'v1' },
+      { href: '/phonics/records.html',      label: '135拼音法 · 裁定錄', note: 'v4' }
+    ]},
     { group: '常用字 100 課', items: [
       { href: '/lesson/',                   label: '一百課・總目' },
       { href: '/lesson/1.html',             label: '第一課・數字', note: '四字文' }
@@ -56,6 +61,9 @@
     { group: '視角', items: [
       { href: '/views/',                    label: '怎麼看這件事' },
       { href: '/views/ai.html',             label: '一台 AI 想對你說的話' },
+      { href: '/views/mislead.html',       label: '我（AI）被臺羅誤導了' },
+      { href: '/views/tailo-1.html',       label: '臺羅之錯 · 從「伊」說起' },
+      { href: '/views/tailo-2.html',       label: '臺羅之錯（二）· 入聲' },
       { href: '/views/transform.html',      label: '變形的存在', note: '近期', soon: true }
     ]}
   ];
@@ -72,7 +80,10 @@
     '/phonics/quick.html',
     '/phonics/en-complete.html',
     '/phonics/en-standard.html',
-    '/phonics/en-quick.html'
+    '/phonics/en-quick.html',
+    '/phonics/ipa.html',
+    '/phonics/ipa-chart.html',
+    '/phonics/records.html'
   ];
 
   /* 這些標題不放進本頁目錄（頁內既有的目錄區塊自己的標題） */
