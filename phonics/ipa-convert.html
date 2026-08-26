@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閩南語135拼音法 · 國際音標版 · 線上轉換器</title>
+<meta name="description" content="注音 ⇄ 國際音標（IPA）線上互轉：輸入層打純 ASCII 調值（kut3.、sia~5），顯示層自動生成 IPA 音段與趙氏調符。雙層制逐符可逆，支援完整形／簡化形、教學角標與逐字拆解。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/phonics/ipa-convert.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一起學閩南語（臺語）漢字">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/phonics/ipa-convert.html">
+<meta property="og:title" content="閩南語135拼音法 · 國際音標版 · 線上轉換器">
+<meta property="og:description" content="沒有人該手打 IPA：輸入欄打 ASCII，IPA 顯示層交給程式。注音 ⇄ IPA 雙向、逐符可逆。">
+<meta property="og:image" content="https://bryenhsuttaigee.github.io/phonics/og/og-index.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C2B;--bone:#F4EDDE;--steel:#9AA5B1;--graphite:#33383F;--moss:#2E6E4E;
+--cinnabar:#C43A26;--gold:#C9972B;--line:#D8CCB4;--mono:"Roboto Mono","Consolas",monospace;--paper:#FFFDF7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bone);color:var(--ink);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+h1,h2{font-family:"Noto Serif TC",serif}
+code,kbd{font-family:var(--mono);font-weight:700;background:#E7E4DC;color:#2B3540;padding:1px 5px;border-radius:4px;white-space:nowrap}
+.ipa{font-family:"Charis SIL","Doulos SIL","Gentium Plus","Noto Sans TC",sans-serif;color:var(--moss)}
+:focus-visible{outline:3px solid var(--steel);outline-offset:2px}
+.hero{background:var(--graphite);color:var(--bone);padding:2rem 1.2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(1100px 480px at 82% -12%,rgba(154,165,177,.22),transparent 62%)}
+.hero-in{max-width:960px;margin:0 auto;position:relative}
+.booktitle{color:#C8CFD8;font-size:.95rem;letter-spacing:.08em;margin:0}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin:.5rem 0;letter-spacing:.04em}
+.hero .silver{color:var(--steel)}
+.sub2{color:#D5DAE1;font-size:1rem;margin:.2rem auto .8rem;max-width:40em}
+.pill{display:inline-block;border:1px solid rgba(244,237,222,.4);border-radius:30px;padding:.3rem 1.1rem;font-size:.88rem;color:#C8CFD8}
+main{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h2{font-size:1.25rem;margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--line)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
+label.big{display:block;font-weight:700;margin-bottom:.35rem}
+#in{width:100%;font:700 22px/1.5 "Roboto Mono","Noto Sans TC",monospace;padding:.6rem .7rem;
+ border:2px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+#in:focus{border-color:var(--moss);outline:none}
+.hint{color:#6B7480;font-size:.85rem;margin:.4rem 0 0}
+.exs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 0}
+.exs button{font:inherit;font-size:.85rem;background:#EFE7D5;border:1px solid var(--line);border-radius:20px;
+ padding:.25rem .8rem;cursor:pointer;color:var(--ink)}
+.exs button:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.opts{display:flex;flex-wrap:wrap;gap:1rem;margin:.8rem 0 0;font-size:.92rem}
+.opts label{cursor:pointer;user-select:none}
+.out{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem .8rem;align-items:center;margin-top:.2rem}
+.out .k{font-size:.85rem;color:#6B7480;white-space:nowrap}
+.out .v{font-size:22px;font-weight:700;word-break:break-word;min-height:1.6em;
+ font-family:"Charis SIL","Doulos SIL","Gentium Plus","Roboto Mono","Noto Sans TC",sans-serif}
+.out .v.zy{font-family:"PMingLiU",serif;color:var(--ink)}
+.out .v.ipa{color:var(--moss)}
+.out .v.inp{font-family:var(--mono);color:#2B3540;font-size:19px}
+.cp{font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--line);border-radius:5px;
+ padding:.2rem .6rem;cursor:pointer;color:#6B7480}
+.cp:hover{background:var(--moss);color:#fff;border-color:var(--moss)}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 9px;text-align:left}
+th{background:#EFE7D5;white-space:nowrap}
+details{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.6rem 1rem;margin:1rem 0}
+details summary{cursor:pointer;font-weight:700}
+.bad{color:var(--cinnabar)}
+footer{border-top:1px solid var(--line);margin-top:2.4rem;padding-top:1rem;color:#6B7480;font-size:.86rem}
+footer a{color:var(--cinnabar)}
+.scroll-x{overflow-x:auto}
+</style></head><body>
+<div class="hero"><div class="hero-in">
+<p class="booktitle">閩南語135拼音法 · 國際音標（IPA）版</p>
+<h1>線上轉換器　<span class="silver">注音 ⇄ IPA</span></h1>
+<p class="sub2">沒有人該手打 IPA。輸入欄打純 ASCII 的調值寫法，顯示層的音段與趙氏調符交給程式——這正是雙層制存在的理由。</p>
+<span class="pill">v1 · 逐符可逆 · 規則由核心生成</span>
+</div></div>
+<main>
+
+<div class="box">
+  <label class="big" for="in">輸入（打注音，或打 IPA 輸入層的 ASCII）</label>
+  <input id="in" autocomplete="off" autocapitalize="off" spellcheck="false"
+         placeholder="例：ㄍㄨㄊ˙　或　kut3." value="kut3.">
+  <p class="hint" id="kind"></p>
+  <div class="exs">
+    <button data-v="kut3.">骨 kut3.</button>
+    <button data-v="ㄍㄨㄊ˙">骨 ㄍㄨㄊ˙</button>
+    <button data-v="teh113">茶 teh113</button>
+    <button data-v="thiehn5">天 thiehn5</button>
+    <button data-v="sia~5">聲 sia~5</button>
+    <button data-v="png3">飯 png3</button>
+    <button data-v="hio.">否 hio.</button>
+    <button data-v="ㄌㄧˋ-ㄏㄜˋ">你好（變調）</button>
+  </div>
+  <div class="opts">
+    <label><input type="checkbox" id="full"> 完整調符（<span class="ipa">ɕiə˧·</span>／<span class="ipa">kut˥·</span>）</label>
+    <label><input type="checkbox" id="teach"> 教學角標（<span class="ipa">p̚ t̚ k̚ ŋ̍ m̩</span>）</label>
+    <label><input type="checkbox" id="sandhi" checked> 連接號變調（只作用注音）</label>
+  </div>
+</div>
+
+<div class="box">
+  <div class="out">
+    <span class="k">IPA 顯示</span><span class="v ipa" id="o_ipa"></span><button class="cp" data-t="o_ipa">複製</button>
+    <span class="k">IPA 輸入</span><span class="v inp" id="o_in"></span><button class="cp" data-t="o_in">複製</button>
+    <span class="k">注音</span><span class="v zy" id="o_zy"></span><button class="cp" data-t="o_zy">複製</button>
+  </div>
+</div>
+
+<h2>逐字拆解</h2>
+<div class="scroll-x"><table id="brk"><tr><th>注音</th><th>聲母</th><th>韻母</th><th>聲調</th><th>IPA</th></tr></table></div>
+
+<h2>怎麼打</h2>
+<details open><summary>調值（輸入層）</summary>
+<div class="scroll-x"><table>
+<tr><th>調</th><th>低</th><th>中</th><th>高（一聲）</th><th>升</th><th>沈</th><th>降</th><th>頓（輕聲）</th></tr>
+<tr><th>打</th><td><code>1</code></td><td><code>3</code></td><td><code>5</code></td><td><code>35</code></td><td><code>113</code></td><td><code>53</code></td><td><code>.</code>（完整 <code>3.</code>）</td></tr>
+<tr><th>顯示</th><td class="ipa">˩</td><td class="ipa">˧</td><td class="ipa">˥</td><td class="ipa">˧˥</td><td class="ipa">˩˩˧</td><td class="ipa">˥˧</td><td class="ipa">·</td></tr>
+</table></div>
+<p class="hint">變調位高半拍（一聲落在收尾韻）：打 <code>5</code>（完整 <code>5.</code>）→ <span class="ipa">˥</span>（完整 <span class="ipa">˥·</span>）。無調＝一聲。</p>
+</details>
+
+<details><summary>摺疊規則五條（為什麼 IPA 打得出來）</summary>
+<ol>
+<li><b>送氣上標降級</b>：ʰ → <code>h</code>（pʰ→<code>ph</code>、tsʰ→<code>tsh</code>）</li>
+<li><b>顎化不記</b>：輸入一律 <code>ts</code>／<code>s</code>／<code>tsh</code>，顯示層遇 i 自動轉 tɕ／ɕ／tɕʰ</li>
+<li><b>鼻音</b>：ŋ → <code>ng</code>；鼻化用 <code>~</code> <b>後置貼韻母</b>（<code>sia~5</code> → <span class="ipa">ɕĩã˥</span>）</li>
+<li><b>收尾除阻不記</b>：角標不輸入，-p/-t/-k 站在收尾位置即隱含</li>
+<li><b>母音後 h＝ɛ</b>：<code>eh</code> 是一個母音的兩個字母（ə 佔 <code>e</code>、ɛ 記 <code>eh</code>）</li>
+</ol>
+<p class="hint">⚠️ 這裡的 <code>.</code> 是<b>半拍</b>，不是句點。</p>
+</details>
+
+<details><summary>變調怎麼算</summary>
+<p><b>只依連接號</b>：音節後接 <code>-</code> 變一次、<code>--</code> 變兩次，沒打就不變（空白＝詞界）。
+<b>本程式不自行判斷變調</b>——變調很複雜，那是人腦與斷句法的事。</p>
+<p class="hint">而且只有<b>注音</b>欄會變；IPA 兩層一律標<b>本調</b>並保留連接號，與各拼音法慣例一致。</p>
+</details>
+
+<footer>
+<p>本頁的對照表由 <b>IPA 核心程式自動匯出</b>——規則只有一份，改核心這頁就跟著對，不是另抄一份。</p>
+<p>延伸：<a href="/phonics/ipa.html">國際音標版 · 完整版</a>（論述）｜<a href="/phonics/ipa-chart.html">聲母 × 韻母對照表</a>（查表面）</p>
+<p class="hint">組合符號（<span class="ipa">ĩã</span> 疊符、<span class="ipa">ŋ̍</span> 成音節豎、<span class="ipa">p̚</span> 角標）在一般字型可能錯位；學術輸出請裝 Charis SIL 或 Doulos SIL。</p>
+造訪次數：<span id="visit-count">…</span>
+</footer>
+</main>
+<script>const T = {"ONSET_IPA":{"ㄅ":"p","ㄆ":"pʰ","ㄅㄏ":"b","ㄇ":"m","ㄉ":"t","ㄊ":"tʰ","ㄋ":"n","ㄌ":"l","ㄍ":"k","ㄎ":"kʰ","ㄍㄏ":"ɡ","ㄏ":"h","ㄗ":"ts","ㄘ":"tsʰ","ㄙ":"s","ㄐ":"tɕ","ㄑ":"tɕʰ","ㄒ":"ɕ","ㄖ":"z","ㄥ":"ŋ"},"RIME_IPA":{"ㄚ":"a","ㄛ":"ɔ","ㄜ":"ə","ㄝ":"ɛ","ㄧ":"i","ㄨ":"u","ㄧㄛ":"iɔ","ㄞ":"ai","ㄠ":"au","ㄢ":"an","ㄤ":"aŋ","ㄥ":"ŋ","ㄇ":"m","ㄛㄥ":"ɔŋ","ㄧㄚ":"ia","ㄧㄜ":"iə","ㄧㄝ":"iɛ","ㄧㄞ":"iai","ㄧㄨ":"iu","ㄧㄠ":"iau","ㄧㄢ":"iɛn","ㄧㄣ":"in","ㄧㄥ":"iŋ","ㄧㄇ":"im","ㄧㄚㄇ":"iam","ㄧㄤ":"iaŋ","ㄩㄥ":"iɔŋ","ㄨㄣ":"un","ㄨㄚ":"ua","ㄨㄝ":"uɛ","ㄨㄧ":"ui","ㄨㄞ":"uai","ㄨㄢ":"uan","ㄨㄤ":"uaŋ","ㄚㄇ":"am","ㄛㄇ":"ɔm","ㄝㄥ":"ɛŋ","ㄚㄆ":"ap","ㄚㄊ":"at","ㄚㄎ":"ak","ㄛㄆ":"ɔp","ㄛㄊ":"ɔt","ㄛㄎ":"ɔk","ㄝㄆ":"ɛp","ㄝㄊ":"ɛt","ㄝㄎ":"ɛk","ㄧㄆ":"ip","ㄧㄊ":"it","ㄧㄎ":"ik","ㄨㄆ":"up","ㄨㄊ":"ut","ㄨㄎ":"uk","ㄧㄚㄆ":"iap","ㄧㄚㄊ":"iat","ㄧㄚㄎ":"iak","ㄨㄚㄊ":"uat","ㄩㄝㄊ":"uɛt","ㄩㄎ":"iɔk","ㄧㄝㄣ":"iɛn","ㄨㄝㄊ":"uɛt","ㄧㄛㄥ":"iɔŋ","ㄧㄛㄎ":"iɔk","ㄚㄥ":"aŋ","ㄨㄥ":"ɔŋ"},"ONSET_FOLD":{"ㄅ":"p","ㄆ":"ph","ㄅㄏ":"b","ㄇ":"m","ㄉ":"t","ㄊ":"th","ㄋ":"n","ㄌ":"l","ㄍ":"k","ㄎ":"kh","ㄍㄏ":"g","ㄏ":"h","ㄗ":"ts","ㄘ":"tsh","ㄙ":"s","ㄐ":"ts","ㄑ":"tsh","ㄒ":"s","ㄖ":"z","ㄥ":"ng"},"RIME_FOLD":{"ㄚ":"a","ㄛ":"o","ㄜ":"e","ㄝ":"eh","ㄧ":"i","ㄨ":"u","ㄧㄛ":"io","ㄞ":"ai","ㄠ":"au","ㄢ":"an","ㄤ":"ang","ㄥ":"ng","ㄇ":"m","ㄛㄥ":"ong","ㄧㄚ":"ia","ㄧㄜ":"ie","ㄧㄝ":"ieh","ㄧㄞ":"iai","ㄧㄨ":"iu","ㄧㄠ":"iau","ㄧㄢ":"iehn","ㄧㄣ":"in","ㄧㄥ":"ing","ㄧㄇ":"im","ㄧㄚㄇ":"iam","ㄧㄤ":"iang","ㄩㄥ":"iong","ㄨㄣ":"un","ㄨㄚ":"ua","ㄨㄝ":"ueh","ㄨㄧ":"ui","ㄨㄞ":"uai","ㄨㄢ":"uan","ㄨㄤ":"uang","ㄚㄇ":"am","ㄛㄇ":"om","ㄝㄥ":"ehng","ㄚㄆ":"ap","ㄚㄊ":"at","ㄚㄎ":"ak","ㄛㄆ":"op","ㄛㄊ":"ot","ㄛㄎ":"ok","ㄝㄆ":"ehp","ㄝㄊ":"eht","ㄝㄎ":"ehk","ㄧㄆ":"ip","ㄧㄊ":"it","ㄧㄎ":"ik","ㄨㄆ":"up","ㄨㄊ":"ut","ㄨㄎ":"uk","ㄧㄚㄆ":"iap","ㄧㄚㄊ":"iat","ㄧㄚㄎ":"iak","ㄨㄚㄊ":"uat","ㄩㄝㄊ":"ueht","ㄩㄎ":"iok","ㄧㄝㄣ":"iehn","ㄨㄝㄊ":"ueht","ㄧㄛㄥ":"iong","ㄧㄛㄎ":"iok","ㄚㄥ":"ang","ㄨㄥ":"ong"},"ONSET_INPUT":{"p":"ㄅ","ph":"ㄆ","b":"ㄅㄏ","m":"ㄇ","t":"ㄉ","th":"ㄊ","n":"ㄋ","l":"ㄌ","k":"ㄍ","kh":"ㄎ","g":"ㄍㄏ","h":"ㄏ","ts":"ㄗ","tsh":"ㄘ","s":"ㄙ","z":"ㄖ","ng":"ㄥ"},"ONSET_INPUT_KEYS":["tsh","ph","th","kh","ts","ng","p","b","m","t","n","l","k","g","h","s","z"],"RIME_INPUT":{"a":"ㄚ","o":"ㄛ","e":"ㄜ","eh":"ㄝ","i":"ㄧ","u":"ㄨ","io":"ㄧㄛ","ai":"ㄞ","au":"ㄠ","an":"ㄢ","ang":"ㄤ","ng":"ㄥ","m":"ㄇ","ong":"ㄛㄥ","ia":"ㄧㄚ","ie":"ㄧㄜ","ieh":"ㄧㄝ","iai":"ㄧㄞ","iu":"ㄧㄨ","iau":"ㄧㄠ","iehn":"ㄧㄢ","in":"ㄧㄣ","ing":"ㄧㄥ","im":"ㄧㄇ","iam":"ㄧㄚㄇ","iang":"ㄧㄤ","iong":"ㄩㄥ","un":"ㄨㄣ","ua":"ㄨㄚ","ueh":"ㄨㄝ","ui":"ㄨㄧ","uai":"ㄨㄞ","uan":"ㄨㄢ","uang":"ㄨㄤ","am":"ㄚㄇ","om":"ㄛㄇ","ehng":"ㄝㄥ","ap":"ㄚㄆ","at":"ㄚㄊ","ak":"ㄚㄎ","op":"ㄛㄆ","ot":"ㄛㄊ","ok":"ㄛㄎ","ehp":"ㄝㄆ","eht":"ㄝㄊ","ehk":"ㄝㄎ","ip":"ㄧㄆ","it":"ㄧㄊ","ik":"ㄧㄎ","up":"ㄨㄆ","ut":"ㄨㄊ","uk":"ㄨㄎ","iap":"ㄧㄚㄆ","iat":"ㄧㄚㄊ","iak":"ㄧㄚㄎ","uat":"ㄨㄚㄊ","ueht":"ㄩㄝㄊ","iok":"ㄩㄎ"},"PALATAL":{"ts":"tɕ","tsʰ":"tɕʰ","s":"ɕ"},"DEPALATAL":{"tɕ":"ts","tɕʰ":"tsʰ","ɕ":"s"},"PALATAL_ZHUYIN":{"ㄗ":"ㄐ","ㄘ":"ㄑ","ㄙ":"ㄒ"},"ONSET_KEYS":["ㄅㄏ","ㄍㄏ","ㄅ","ㄆ","ㄇ","ㄉ","ㄊ","ㄋ","ㄌ","ㄍ","ㄎ","ㄏ","ㄗ","ㄘ","ㄙ","ㄐ","ㄑ","ㄒ","ㄖ","ㄥ"],"CODA":["ㄆ","ㄊ","ㄎ"],"VOWELS":["a","e","i","o","u","ɔ","ə","ɛ"],"TONE_NAME":{"low":"低聲","mid":"中聲","t1":"一聲","t2":"二聲","t3":"三聲","t4":"四聲","light":"輕聲"},"TONE_VALUE":{"low":"1","mid":"3","t1":"5","t2":"35","t3":"113","t4":"53","light":"3"},"TONE_CHAO":{"low":"˩","mid":"˧","t1":"˥","t2":"˧˥","t3":"˩˩˧","t4":"˥˧","light":"˧"},"ZH_TONE_TO_CODE":{"":"t1","ˊ":"t2","ˇ":"t3","ˋ":"t4","˙":"light","_":"low","+":"mid","'":"low","\"":"mid"},"CODE_TO_ZH_TONE":{"t1":"","t2":"ˊ","t3":"ˇ","t4":"ˋ","light":"˙","low":"_","mid":"+"},"NUM_TO_ZH_TONE":{"1":"","2":"ˊ","3":"ˇ","4":"ˋ","5":"˙","7":"+","8":"+","9":"_","0":"+"},"VALUE_TO_CODE":{"1":"low","3":"mid","5":"t1","35":"t2","113":"t3","53":"t4","3.":"light",".":"light","5.":"t1"},"CHAO_TO_CODE":{"˩":"low","˧":"mid","˥":"t1","˧˥":"t2","˩˩˧":"t3","˥˧":"t4","˧·":"light","·":"light","˥·":"t1"},"MARKS":{"nasal":"̃","norel":"̚","sylLine":"̍","sylUnder":"̩","halfShow":"·","halfInput":"."}};
+
+/* ⛔ 本段只有演算法；所有對照表來自 T（由 ipa_core.py 匯出）。改規則請改核心後重跑產生器。 */
+const TONE_CHARS = new Set(['_', '+', 'ˊ', 'ˇ', 'ˋ', '˙', "'", '"']);
+const PUNCT = /[，。、；！？,;!?()（）「」『』【】《》〈〉：:—<>\[\]…]/;   /* ⚠️ 不含 . —— IPA 的句點是半拍 */
+const ZHUYIN_RE = /[ㄅ-ㄩ]/;
+
+const stripSub = s => (s || '').replace(/<sub>(.*?)<\/sub>/g, '$1');
+const hasZhuyin = s => ZHUYIN_RE.test(s || '');
+
+function extractTone(syl) {
+  if (!syl) return ['', 't1'];
+  const last = syl[syl.length - 1];
+  if (TONE_CHARS.has(last)) return [syl.slice(0, -1), T.ZH_TONE_TO_CODE[last]];
+  const m = syl.match(/^(.*?)([0-9])$/);
+  if (m && m[1]) {
+    const zt = T.NUM_TO_ZH_TONE[m[2]];
+    if (zt !== undefined) return [m[1], T.ZH_TONE_TO_CODE[zt]];
+  }
+  return [syl, 't1'];
+}
+
+function mk(onset, rime, nasal, tone) {
+  return {onset, rime, nasal, tone,
+          toneZh: T.CODE_TO_ZH_TONE[tone],
+          checked: !!(rime && T.CODA.includes(rime[rime.length - 1]))};
+}
+
+function parseZhuyin(syl) {
+  syl = stripSub(syl).trim();
+  if (!syl) return null;
+  const [body, tone] = extractTone(syl);
+  if (!body) return null;
+  let onset = '', rest = body;
+  for (const k of T.ONSET_KEYS) {
+    if (body.startsWith(k) && body.length > k.length) { onset = k; rest = body.slice(k.length); break; }
+  }
+  if (onset === 'ㄥ' && !(rest in T.RIME_IPA)) { onset = ''; rest = body; }
+  let nasal = false;
+  if (onset && onset !== 'ㄥ' && rest.startsWith('ㄥ') && rest.length > 1) { nasal = true; rest = rest.slice(1); }
+  if (!(rest in T.RIME_IPA)) {
+    if (body in T.RIME_IPA) { onset = ''; rest = body; nasal = false; }
+    else return null;
+  }
+  return mk(onset, rest, nasal, tone);
+}
+
+/* 顯示層 → 輸入層（摺疊五條；與 ipa_core.fold 同序） */
+function foldIpa(s) {
+  for (const [k, v] of Object.entries(T.DEPALATAL)) s = s.split(k).join(v);
+  s = s.split('ʰ').join('h').split('ŋ').join('ng').split('ɡ').join('g');
+  s = s.split('ɔ').join('o').split('ə').join('e').split('ɛ').join('eh');
+  s = s.split(T.MARKS.norel).join('').split(T.MARKS.sylLine).join('');
+  s = s.split(T.MARKS.sylUnder).join('').split(T.MARKS.nasal).join('');
+  return s;
+}
+
+function splitIpaTone(tok) {
+  let m = tok.match(/(\d+\.?|\.)$/);
+  if (m) { const v = m[1]; return (v in T.VALUE_TO_CODE) ? [tok.slice(0, m.index), T.VALUE_TO_CODE[v]] : null; }
+  m = tok.match(/([˩˧˥]+·?|·)$/);
+  if (m) { const v = m[1]; return (v in T.CHAO_TO_CODE) ? [tok.slice(0, m.index), T.CHAO_TO_CODE[v]] : null; }
+  return [tok, 't1'];
+}
+
+function parseIpa(tok) {
+  tok = (tok || '').normalize('NFC').trim();
+  if (!tok) return null;
+  tok = foldIpa(tok);
+  const sp = splitIpaTone(tok);
+  if (!sp) return null;
+  let [body, tone] = sp;
+  let nasal = false;
+  if (body.includes('~')) { nasal = true; body = body.split('~').join(''); }
+  if (!body) return null;
+  for (const k of T.ONSET_INPUT_KEYS) {
+    if (!body.startsWith(k)) continue;
+    const rest = body.slice(k.length);
+    if (!rest) continue;
+    const rimeZ = T.RIME_INPUT[rest];
+    if (rimeZ === undefined) continue;
+    let onsetZ = T.ONSET_INPUT[k];
+    if (T.RIME_IPA[rimeZ].startsWith('i') && (onsetZ in T.PALATAL_ZHUYIN)) onsetZ = T.PALATAL_ZHUYIN[onsetZ];
+    if (onsetZ === 'ㄥ' && nasal) return null;
+    return mk(onsetZ, rimeZ, nasal, tone);
+  }
+  const rimeZ = T.RIME_INPUT[body];
+  return rimeZ === undefined ? null : mk('', rimeZ, nasal, tone);
+}
+
+function onsetIpa(p, palatal) {
+  if (!p.onset) return '';
+  let ipa = T.ONSET_IPA[p.onset];
+  if (palatal === false) return T.DEPALATAL[ipa] || ipa;
+  if (T.RIME_IPA[p.rime].startsWith('i') && (ipa in T.PALATAL)) ipa = T.PALATAL[ipa];
+  return ipa;
+}
+
+function rimeIpa(p, teach) {
+  let r = T.RIME_IPA[p.rime];
+  if (teach) {
+    if (p.checked) r = r + T.MARKS.norel;
+    else if (r === 'ŋ') r = 'ŋ' + T.MARKS.sylLine;
+    else if (r === 'm') r = 'm' + T.MARKS.sylUnder;
+  }
+  if (p.nasal) r = [...r].map(c => T.VOWELS.includes(c) ? c + T.MARKS.nasal : c).join('');
+  return r;
+}
+
+const isHalfBeat = p => p.tone === 'light' || (p.tone === 't1' && p.checked);
+
+function toneStr(p, layer, style) {
+  const base = layer === 'show' ? T.TONE_CHAO[p.tone] : T.TONE_VALUE[p.tone];
+  if (!isHalfBeat(p)) return base;
+  const dot = layer === 'show' ? T.MARKS.halfShow : T.MARKS.halfInput;
+  if (style === 'full') return base + dot;
+  return p.tone === 'light' ? dot : base;          /* 頓省高度／變調位省頓點 */
+}
+
+const sylToIpa = (p, style, teach) => (onsetIpa(p, true) + rimeIpa(p, teach) + toneStr(p, 'show', style)).normalize('NFC');
+function sylToInputFull(p, style) {
+  return (p.onset ? T.ONSET_FOLD[p.onset] : '') + T.RIME_FOLD[p.rime] + (p.nasal ? '~' : '') + toneStr(p, 'input', style);
+}
+const toZhuyin = p => (p.onset + (p.nasal ? 'ㄥ' : '') + p.rime + p.toneZh);
+
+/* 整句：- 變調一次、-- 兩次、空白分詞、標點原樣（⚠️ . 不是標點） */
+function convertPhrase(text, o) {
+  const opt = Object.assign({style: 'simple', teach: false, sandhi: true, hyphen: true}, o || {});
+  /* 切詞：-- / - / 空白 / 標點 都當分隔（⚠️ 標點表不含 . ——那是半拍） */
+  const toks = (text || '').split(/(--|-|\s+|[，。、；！？,;!?()（）「」『』【】《》〈〉：:—<>\[\]…])/).filter(x => x);
+  const out = {ipa: [], input: [], zhuyin: []}, parts = [];
+  for (let i = 0; i < toks.length; i++) {
+    const tk = toks[i];
+    if (tk === '-' || tk === '--') {
+      out.zhuyin.push(opt.hyphen ? tk : ' '); out.ipa.push(tk); out.input.push(tk); continue;
+    }
+    if (/^\s+$/.test(tk)) { out.ipa.push(' '); out.input.push(' '); out.zhuyin.push(' '); continue; }
+    if (PUNCT.test(tk) && tk.length === 1) { out.ipa.push(tk); out.input.push(tk); out.zhuyin.push(tk); continue; }
+    let p = hasZhuyin(tk) ? parseZhuyin(tk) : parseIpa(tk);
+    const kind = hasZhuyin(tk) ? 'zhuyin' : 'ipa';
+    if (!p) {
+      if (PUNCT.test(tk)) { out.ipa.push(tk); out.input.push(tk); out.zhuyin.push(tk); }
+      else { const bad = '❌' + tk; out.ipa.push(bad); out.input.push(bad); out.zhuyin.push(bad); parts.push(null); }
+      continue;
+    }
+    let zh = toZhuyin(p);
+    if (opt.sandhi && (toks[i + 1] === '-' || toks[i + 1] === '--')) zh = applySandhi(zh, toks[i + 1] === '--' ? 2 : 1);
+    out.ipa.push(sylToIpa(p, opt.style, opt.teach));
+    out.input.push(sylToInputFull(p, opt.style));
+    out.zhuyin.push(zh);
+    parts.push({p, kind});
+  }
+  const join = a => a.join('').replace(/ +/g, ' ').trim();
+  return {ipa: join(out.ipa), input: join(out.input), zhuyin: join(out.zhuyin), parts};
+}
+
+/* 變調：⛔ 只依連接號（作者裁定 E，程式不判斷變調） */
+const SANDHI1 = {'': '+', 'ˊ': 'ˊ', 'ˇ': '+', 'ˋ': '', '˙': 'ˋ', '_': 'ˋ', '+': '_'};
+const SANDHI2 = {'': '_', 'ˊ': 'ˊ', 'ˇ': '_', 'ˋ': '+', '˙': '', '_': '', '+': 'ˋ'};
+function applySandhi(zh, level) {
+  const t = TONE_CHARS.has(zh[zh.length - 1]) ? zh[zh.length - 1] : '';
+  const base = t ? zh.slice(0, -1) : zh;
+  const tbl = level >= 2 ? SANDHI2 : SANDHI1;
+  return base + (t in tbl ? tbl[t] : t);
+}
+
+
+/* ── 介面 ── */
+const $ = id => document.getElementById(id);
+function render() {
+  const src = $('in').value;
+  const r = convertPhrase(src, {style: $('full').checked ? 'full' : 'simple',
+                                teach: $('teach').checked, sandhi: $('sandhi').checked, hyphen: true});
+  $('o_ipa').textContent = r.ipa; $('o_in').textContent = r.input; $('o_zy').textContent = r.zhuyin;
+  const ok = r.parts.filter(x => x);
+  $('kind').innerHTML = !src.trim() ? '' :
+    (ok.length ? '（判成 ' + (ok[0].kind === 'zhuyin' ? '注音' : 'IPA 輸入層') + '；' + ok.length + ' 個音節）'
+               : '<span class="bad">（解析不出——請對照下方「怎麼打」）</span>');
+  const t = $('brk');
+  t.innerHTML = '<tr><th>注音</th><th>聲母</th><th>韻母</th><th>聲調</th><th>IPA</th></tr>';
+  for (const it of r.parts) {
+    if (!it) continue;
+    const p = it.p, style = $('full').checked ? 'full' : 'simple', teach = $('teach').checked;
+    const on = p.onset ? (p.onset + ' → ' + onsetIpa(p, true) + (p.nasal ? '＋鼻化' : '')) : '（無聲母）';
+    const ry = p.rime + ' → ' + rimeIpa(p, teach) + (p.checked ? '（收尾韻）' : (['ㄥ','ㄇ'].includes(p.rime) ? '（成音節）' : ''));
+    const tn = T.TONE_NAME[p.tone] + '　' + toneStr(p, 'input', style) + '／' + toneStr(p, 'show', style)
+             + (isHalfBeat(p) ? '（半拍）' : '');
+    t.insertAdjacentHTML('beforeend', '<tr><td>' + toZhuyin(p) + '</td><td>' + on + '</td><td>' + ry
+      + '</td><td>' + tn + '</td><td class="ipa">' + sylToIpa(p, style, teach) + '</td></tr>');
+  }
+}
+['in','full','teach','sandhi'].forEach(id => $(id).addEventListener('input', render));
+document.querySelectorAll('.exs button').forEach(b =>
+  b.addEventListener('click', () => { $('in').value = b.dataset.v; render(); $('in').focus(); }));
+document.querySelectorAll('.cp').forEach(b => b.addEventListener('click', () => {
+  const v = $(b.dataset.t).textContent; if (!v) return;
+  navigator.clipboard.writeText(v).then(() => { const o = b.textContent; b.textContent = '已複製'; setTimeout(() => b.textContent = o, 1200); });
+}));
+render();
+(function(){
+  var el=document.getElementById('visit-count'); if(!el) return;
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/ipa-convert')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value!=null) ? d.value.toLocaleString() : '—'; })
+    .catch(function(){ el.textContent='—'; });
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body></html>

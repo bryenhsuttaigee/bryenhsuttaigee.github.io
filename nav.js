@@ -48,6 +48,7 @@
     { group: '量尺與卷宗', items: [
       { href: '/phonics/ipa.html',          label: '國際音標版 · 完整版', note: 'v4' },
       { href: '/phonics/ipa-chart.html',    label: '國際音標版 · 對照表', note: 'v1' },
+      { href: '/phonics/ipa-convert.html',  label: '國際音標版 · 轉換器', note: 'v1' },
       { href: '/phonics/records.html',      label: '135拼音法 · 裁定錄', note: 'v4' }
     ]},
     { group: '常用字 100 課', items: [
@@ -83,6 +84,7 @@
     '/phonics/en-quick.html',
     '/phonics/ipa.html',
     '/phonics/ipa-chart.html',
+    '/phonics/ipa-convert.html',
     '/phonics/records.html'
   ];
 
