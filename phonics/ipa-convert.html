@@ -37,6 +37,7 @@ label.big{display:block;font-weight:700;margin-bottom:.35rem}
 #in{width:100%;font:700 22px/1.5 "Roboto Mono","Noto Sans TC",monospace;padding:.6rem .7rem;
  border:2px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
 #in:focus{border-color:var(--moss);outline:none}
+#in::placeholder{color:#B6AE9C;font-weight:400;font-size:17px}   /* 淡色＝視同沒有內容 */
 .hint{color:#6B7480;font-size:.85rem;margin:.4rem 0 0}
 .exs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 0}
 .exs button{font:inherit;font-size:.85rem;background:#EFE7D5;border:1px solid var(--line);border-radius:20px;
@@ -51,6 +52,12 @@ label.big{display:block;font-weight:700;margin-bottom:.35rem}
 .out .v.zy{font-family:"PMingLiU",serif;color:var(--ink)}
 .out .v.ipa{color:var(--moss)}
 .out .v.inp{font-family:var(--mono);color:#2B3540;font-size:19px}
+.outhead{display:flex;align-items:center;justify-content:space-between;margin:0 0 .6rem;padding-bottom:.4rem;border-bottom:1px dashed var(--line)}
+.outhead .oh{font-weight:700;color:#6B7480;font-size:.9rem}
+.tg{font:inherit;font-size:.85rem;font-weight:700;background:#EFE7D5;border:1px solid var(--line);
+ border-radius:20px;padding:.28rem .95rem;cursor:pointer;color:var(--ink)}
+.tg:hover{border-color:var(--moss)}
+.tg.on{background:var(--moss);color:#fff;border-color:var(--moss)}
 .cp{font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--line);border-radius:5px;
  padding:.2rem .6rem;cursor:pointer;color:#6B7480}
 .cp:hover{background:var(--moss);color:#fff;border-color:var(--moss)}
@@ -74,8 +81,9 @@ footer a{color:var(--cinnabar)}
 
 <div class="box">
   <label class="big" for="in">輸入（打注音，或打 IPA 輸入層的 ASCII）</label>
-  <input id="in" autocomplete="off" autocapitalize="off" spellcheck="false"
-         placeholder="例：ㄍㄨㄊ˙　或　kut3." value="kut3.">
+  <!-- ⚠️ 不要給 value：預設要是空的，游標一進來就能打。範例用下面的鈕帶入。 -->
+  <input id="in" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus
+         placeholder="打注音（ㄍㄨㄊ˙）或 IPA 輸入層（kut3.）——也可直接按下面的範例">
   <p class="hint" id="kind"></p>
   <div class="exs">
     <button data-v="kut3.">骨 kut3.</button>
@@ -95,6 +103,10 @@ footer a{color:var(--cinnabar)}
 </div>
 
 <div class="box">
+  <div class="outhead">
+    <span class="oh">輸出</span>
+    <button id="tg" class="tg" title="教學用：把 IPA 兩層切成變調後的讀法；注音欄不受影響">其它標音：本調</button>
+  </div>
   <div class="out">
     <span class="k">IPA 顯示</span><span class="v ipa" id="o_ipa"></span><button class="cp" data-t="o_ipa">複製</button>
     <span class="k">IPA 輸入</span><span class="v inp" id="o_in"></span><button class="cp" data-t="o_in">複製</button>
@@ -129,7 +141,9 @@ footer a{color:var(--cinnabar)}
 <details><summary>變調怎麼算</summary>
 <p><b>只依連接號</b>：音節後接 <code>-</code> 變一次、<code>--</code> 變兩次，沒打就不變（空白＝詞界）。
 <b>本程式不自行判斷變調</b>——變調很複雜，那是人腦與斷句法的事。</p>
-<p class="hint">而且只有<b>注音</b>欄會變；IPA 兩層一律標<b>本調</b>並保留連接號，與各拼音法慣例一致。</p>
+<p class="hint">預設只有<b>注音</b>欄會變；IPA 兩層標<b>本調</b>並保留連接號，與各拼音法慣例一致。
+教學要看變調後的實際讀法時，按輸出區右上角的<b>「其它標音：本調 ⇄ 詞句音」</b>切換——
+本調與詞句音對照著看，一眼就知道哪幾個字變了、變成什麼。</p>
 </details>
 
 <footer>
@@ -266,7 +280,10 @@ const toZhuyin = p => (p.onset + (p.nasal ? 'ㄥ' : '') + p.rime + p.toneZh);
 
 /* 整句：- 變調一次、-- 兩次、空白分詞、標點原樣（⚠️ . 不是標點） */
 function convertPhrase(text, o) {
-  const opt = Object.assign({style: 'simple', teach: false, sandhi: true, hyphen: true}, o || {});
+  /* ipaSandhi：非注音的軌要不要也套變調。⚠️ 預設 false＝標本調（裁定 D）；
+     開啟只是教學檢視，注音欄仍由 sandhi 各自決定。 */
+  const opt = Object.assign({style: 'simple', teach: false, sandhi: true,
+                             hyphen: true, ipaSandhi: false}, o || {});
   /* 切詞：-- / - / 空白 / 標點 都當分隔（⚠️ 標點表不含 . ——那是半拍） */
   const toks = (text || '').split(/(--|-|\s+|[，。、；！？,;!?()（）「」『』【】《》〈〉：:—<>\[\]…])/).filter(x => x);
   const out = {ipa: [], input: [], zhuyin: []}, parts = [];
@@ -284,12 +301,16 @@ function convertPhrase(text, o) {
       else { const bad = '❌' + tk; out.ipa.push(bad); out.input.push(bad); out.zhuyin.push(bad); parts.push(null); }
       continue;
     }
+    const lvl = (toks[i + 1] === '--') ? 2 : (toks[i + 1] === '-' ? 1 : 0);
     let zh = toZhuyin(p);
-    if (opt.sandhi && (toks[i + 1] === '-' || toks[i + 1] === '--')) zh = applySandhi(zh, toks[i + 1] === '--' ? 2 : 1);
-    out.ipa.push(sylToIpa(p, opt.style, opt.teach));
-    out.input.push(sylToInputFull(p, opt.style));
+    if (opt.sandhi && lvl) zh = applySandhi(zh, lvl);
+    /* 非注音的軌：預設本調；開了 ipaSandhi 才把變調後的注音重新解析一次當輸出 */
+    let pOut = p;
+    if (opt.ipaSandhi && lvl) { const p2 = parseZhuyin(applySandhi(toZhuyin(p), lvl)); if (p2) pOut = p2; }
+    out.ipa.push(sylToIpa(pOut, opt.style, opt.teach));
+    out.input.push(sylToInputFull(pOut, opt.style));
     out.zhuyin.push(zh);
-    parts.push({p, kind});
+    parts.push({p: pOut, kind});
   }
   const join = a => a.join('').replace(/ +/g, ' ').trim();
   return {ipa: join(out.ipa), input: join(out.input), zhuyin: join(out.zhuyin), parts};
@@ -308,10 +329,12 @@ function applySandhi(zh, level) {
 
 /* ── 介面 ── */
 const $ = id => document.getElementById(id);
+let ipaSandhi = false;          /* 預設本調（裁定 D）；按鈕切成詞句音只是教學檢視 */
 function render() {
   const src = $('in').value;
   const r = convertPhrase(src, {style: $('full').checked ? 'full' : 'simple',
-                                teach: $('teach').checked, sandhi: $('sandhi').checked, hyphen: true});
+                                teach: $('teach').checked, sandhi: $('sandhi').checked,
+                                hyphen: true, ipaSandhi: ipaSandhi});
   $('o_ipa').textContent = r.ipa; $('o_in').textContent = r.input; $('o_zy').textContent = r.zhuyin;
   const ok = r.parts.filter(x => x);
   $('kind').innerHTML = !src.trim() ? '' :
@@ -331,6 +354,12 @@ function render() {
   }
 }
 ['in','full','teach','sandhi'].forEach(id => $(id).addEventListener('input', render));
+$('tg').addEventListener('click', () => {
+  ipaSandhi = !ipaSandhi;
+  $('tg').textContent = '其它標音：' + (ipaSandhi ? '詞句音' : '本調');
+  $('tg').classList.toggle('on', ipaSandhi);
+  render();
+});
 document.querySelectorAll('.exs button').forEach(b =>
   b.addEventListener('click', () => { $('in').value = b.dataset.v; render(); $('in').focus(); }));
 document.querySelectorAll('.cp').forEach(b => b.addEventListener('click', () => {
