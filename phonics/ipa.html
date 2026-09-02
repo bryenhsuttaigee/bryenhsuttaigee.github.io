@@ -55,7 +55,7 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <body id="top">
 
 <header class="hero"><div class="hero-in">
-<p class="booktitle">《閩南語135拼音法》<span>國際音標版 · IPA Edition · 完整版 v6.3</span></p>
+<p class="booktitle">《閩南語135拼音法》<span>國際音標版 · IPA Edition · 完整版 v6.4</span></p>
 <h1>台語記音的<span class="silver">量尺</span></h1>
 <p class="sub2">其他版本是外衣，裁給某個母語的直覺；這一版不服務任何人的直覺——它服務精確。國際音標（IPA）是全世界語言學共用的尺，台語的每一個音、每一個調，在這裡量給你看。</p>
 <span class="pill">聲調＝調值 · 音段＝IPA · 輸入＝純鍵盤</span>
@@ -296,18 +296,18 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <blockquote>但正解是：<strong>沒有人該手打 IPA</strong>。用「輸入」欄的 ASCII 打字，轉換交給程式——這正是雙層制的存在理由。<strong>本站「一起學閩南語（臺語）漢字」提供此轉換</strong>：輸入欄照上表打 ASCII，IPA 顯示層由站上程式生成。</blockquote>
 <h2>工具層：每件外衣都是輸入欄</h2>
 <p>本章到上一段為止是字母表的事；接下來是程式設計的事，兩者分離。轉換器的架構下，任何一件外衣都可以當輸入欄——美拼、漢拼、注音、法文版、日文版……各自經對應表映射到同一個 IPA 顯示層。介面以勾選切換輸入制，勾選狀態決定解析器。外衣讓各種母語的人開口，轉換器讓他們全部通到同一把尺。</p>
-<h2>現行面板：雙制輸入＋注音自動判定，四軌並排</h2>
+<h2>現行面板：四制輸入＋注音自動判定，六軌並排</h2>
 <table>
 <tr><th>項目</th><th>實際做法</th></tr>
-<tr><td>輸入</td><td><strong>注音自動判定</strong>——打了注音符號就走注音，不必選。拉丁字母則以單選鈕擇一制：<code>甲制</code>（本章的摺疊式，<code>kut3.</code>）或<code>乙制・美拼</code>（<code>tteh~</code>、<code>kkut.</code>，數字碼原樣可用）。兩制不可混寫，選的那一制決定解析器；畫面回報實際判成哪一制。</td></tr>
-<tr><td>輸出</td><td>四軌任選並排（逐列勾選顯示）：IPA 顯示層／IPA 輸入層／注音／美拼——同一個音在尺與外衣底下各長什麼樣，一眼看齊。按 Enter 直接複製勾選中的列。</td></tr>
+<tr><td>輸入</td><td><strong>注音自動判定</strong>——打了注音符號就走注音，不必選。拉丁字母則以單選鈕擇一制：<code>甲制</code>（本章的摺疊式，<code>kut3.</code>）、<code>乙制・美拼</code>（<code>tteh~</code>、<code>kkut.</code>）、<code>丙制・漢拼</code>（<code>gut</code>、<code>xngia1</code>）、<code>丁制・臺羅</code>（<code>kut</code>、<code>siann</code>）。四制不可混寫，選的那一制決定解析器；畫面回報實際判成哪一制。</td></tr>
+<tr><td>輸出</td><td>六軌任選並排（逐列勾選顯示）：IPA 顯示層／IPA 輸入層／注音／美拼／漢拼／臺羅——同一個音在尺與五件外衣底下各長什麼樣，一眼看齊。按 Enter 直接複製勾選中的列。</td></tr>
 <tr><td>調符</td><td>日常<strong>簡化形</strong>為預設（<span class="ipa">ɕiə·</span>、<span class="ipa">kut˥</span>）；勾「完整調符」切成規格與教學用的<strong>完整形</strong>（<span class="ipa">ɕiə˧·</span>、<span class="ipa">kut˥·</span>），滿拍平調在完整形下寫雙符（<span class="ipa">ɕĩã˥˥</span>、<span class="ipa">pŋ˧˧</span>／<code>55</code>、<code>33</code>）。兩形都吃得進輸入欄（<code>sie.</code>＝<code>sie3.</code>、<code>kut5</code>＝<code>kut5.</code>、<code>sia~55</code>＝<code>sia~5</code>）。</td></tr>
 <tr><td>角標</td><td>「教學角標」開關：關＝寬式整字（<span class="ipa">kut˥·</span>、<span class="ipa">pŋ˧</span>、<span class="ipa">hm˧</span>），開＝把可預測的符號補回來（<span class="ipa">kut̚˥·</span>、<span class="ipa">pŋ̍˧</span>、<span class="ipa">hm̩˧</span>）。第五章那句「可預測者不寫」，在面板上就是這個勾。</td></tr>
-<tr><td>變調</td><td>IPA 與各拼一律<strong>標本調</strong>，需變調處加連接號——同一般拼音法的慣例；只有注音欄顯示變調後的詞句音，按鈕可與 IPA 顯示層互換，兩邊永遠一本調一詞句音。介面的「<strong>有連接號</strong>」勾選只管<strong>輸出要不要留著這個記號</strong>（<code>ㄌㄧ-ㄏㄜˋ</code>／<code>ㄌㄧ ㄏㄜˋ</code>）——變調恆依輸入的連接號，取消勾選不會讓字不變調。<strong>特殊變調</strong>（不照標準表）把本調與變調一起寫：注音兩個調符 <code>ㄚˋ_</code>（或 <code>ㄚ49</code>）、美拼兩個調號 <code>ah\_</code>、IPA 因調值多位數改用 <code>&gt;</code> 分隔 <code>a53&gt;1</code>；只給旗標 <code>*</code> 不給值時程式保留本調並標示，不替你猜。</td></tr>
+<tr><td>變調</td><td>IPA 與各拼一律<strong>標本調</strong>，需變調處加連接號——同一般拼音法的慣例；只有注音欄顯示變調後的詞句音，按鈕可與 IPA 顯示層互換，兩邊永遠一本調一詞句音。介面的「<strong>有連接號</strong>」勾選只管<strong>輸出要不要留著這個記號</strong>（<code>ㄌㄧ-ㄏㄜˋ</code>／<code>ㄌㄧ ㄏㄜˋ</code>）——變調恆依輸入的連接號，取消勾選不會讓字不變調。<strong>特殊變調</strong>（不照標準表）把本調與變調一起寫：注音兩個調符 <code>ㄚˋ_</code>（或 <code>ㄚ49</code>）、美拼兩個調號 <code>ah\_</code>、IPA 因調值多位數改用 <code>&gt;</code> 分隔 <code>a53&gt;1</code>；只給旗標 <code>*</code> 不給值時程式保留本調並標示，不替你猜。這些記號<strong>自帶音節邊界</strong>——旗標與雙調號後面直接接下一個字即可（<code>ㄚˋ*ㄎㄚ˙</code>、<code>ㄚˋ_ㄎㄚ˙</code>、<code>ah\_kah·</code>），不必再打空白或連接號：一個音節不會有兩個調號，連寫本就不歧義。⚠️ <strong>臺羅軌不帶旗標</strong>——臺羅核心未移植雙聲調，該處只出本調。</td></tr>
 <tr><td>拆解</td><td>逐字列出聲母／韻母／聲調各自怎麼來的，含顎化、鼻化、收尾韻與半拍兩形。</td></tr>
 </table>
-<p class="hint">路線圖：再加<code>漢拼</code>、<code>台羅</code>兩制輸入與對應兩軌輸出，即為既定的<strong>四制六軌</strong>；本節所述為現行實況（雙制四軌），四制六軌尚未實作。</p>
-<blockquote class="key">為什麼輸入制非選不可：<strong>同一串字母，在不同外衣底下是不同的字</strong>。<code>kut</code> 走甲制是 <span class="ipa">kut˥·</span>（一聲，變調位高半拍），走台羅是 <span class="ipa">kut˧·</span>（無調號＝第四調＝頓）；<code>gut</code> 走甲制起頭是濁音 <span class="ipa">ɡut˥·</span>，走漢拼卻是 <span class="ipa">kut˧·</span>（漢拼的 g 是清音 <span class="ipa">k</span>，濁音要寫 <code>gh</code>）。勾選不是排版偏好，是告訴程式「這串字母歸哪一套規則管」——外衣與尺必須分離，這就是實證。</blockquote>
+<p class="hint">漢拼與臺羅兩軌用的是 <code>hanpin_core.py</code>／<code>tailo_core.py</code> 的 JS 副本——與站上「台語標音器」「台語字典系統」「台語TTS標音器」同一份積木，漂移由兩支 JS 等價守門測試以 node 實跑把關，本頁已列入其受測名單。<strong>規則只有一份：要改請改 Python 核心，四支一起同步。</strong></p>
+<blockquote class="key">為什麼輸入制非選不可：<strong>同一串字母，在不同外衣底下是不同的字</strong>。<code>kut</code> 走甲制是 <span class="ipa">kut˥·</span>（一聲，變調位高半拍），走臺羅是 <span class="ipa">kut˧·</span>（無調號＝第四調＝頓）；<code>gut</code> 走甲制起頭是濁音 <span class="ipa">ɡut˥·</span>，走漢拼卻是 <span class="ipa">kut˧·</span>（漢拼的 g 是清音 <span class="ipa">k</span>，濁音要寫 <code>gh</code>）。選制不是排版偏好，是告訴程式「這串字母歸哪一套規則管」——外衣與尺必須分離，這就是實證。</blockquote>
 <h1 id="ch8">八、照妖鏡：拿尺量台羅</h1>
 <p>台羅掛著「接近學術」的招牌。好，這一版就是學術的尺——三面鏡子，各照一次：</p>
 <h2>鏡一：入聲「只有兩調」？kut 量出六階</h2>
@@ -366,7 +366,7 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <a class="backtoc" href="#top">回目錄 ↑</a>
 
 <footer>
-閩南語135拼音法 · 國際音標版（IPA Edition）· 完整版 v6.3<br>
+閩南語135拼音法 · 國際音標版（IPA Edition）· 完整版 v6.4<br>
 許文 × 甲骨先生 · 例字讀音以本系統字表（母檔）為準；嚴式變體逐步擴充；裁定證據鏈見《裁定錄》。<br>
 © 2026 許文 × 甲骨先生．版權所有 All rights reserved.
 <br>
