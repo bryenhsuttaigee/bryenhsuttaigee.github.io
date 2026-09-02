@@ -107,7 +107,7 @@ footer a{color:var(--cinnabar)}
   <div class="opts">
     <label><input type="checkbox" id="full"> 完整調符（滿拍平調雙符 <span class="ipa">ɕĩã˥˥</span>；半拍 <span class="ipa">kut˥·</span>）</label>
     <label><input type="checkbox" id="teach"> 教學角標（<span class="ipa">p̚ t̚ k̚ ŋ̍ m̩</span>）</label>
-    <label><input type="checkbox" id="sandhi" checked> 連接號變調（只作用注音）</label>
+    <label><input type="checkbox" id="hyphen" checked> 有連接號（只影響注音：<code>ㄌㄧ-ㄏㄜˋ</code>／取消＝<code>ㄌㄧ ㄏㄜˋ</code>）</label>
   </div>
 </div>
 
@@ -173,7 +173,8 @@ IPA 輸出一律不帶旗標——特殊變調改在逐字拆解標示。</p>
 <details><summary>變調怎麼算</summary>
 <p><b>只依連接號</b>：音節後接 <code>-</code> 變一次、<code>--</code> 變兩次，沒打就不變（空白＝詞界）。
 <b>本程式不自行判斷變調</b>——變調很複雜，那是人腦與斷句法的事。</p>
-<p class="hint">預設：<b>注音</b>＝詞句音（依連接號），<b>IPA 兩層</b>＝本調並保留連接號，與各拼音法慣例一致。</p>
+<p class="hint">預設：<b>注音</b>＝詞句音（依連接號），<b>IPA 兩層</b>＝本調並保留連接號，與各拼音法慣例一致。
+「<b>有連接號</b>」勾選只管<b>注音欄要不要留著這個記號</b>——變調恆依輸入的連接號，取消勾選不會讓字不變調，只是把注音的 <code>-</code> 換成空白；IPA 與美拼依裁定 D <b>永遠保留連接號</b>。</p>
 <p class="hint">按輸出區右上角的 <b>「IPA 顯示：本調 ⇄ 詞句音」</b> 會做一次<b>交換</b>——
 IPA 顯示轉成變調後的實際讀法，<b>注音同時反向轉回本調</b>。所以不論按或不按，畫面上永遠是
 「一邊本調、一邊詞句音」，對照著看就知道哪幾個字變了、變成什麼。<br>
@@ -448,7 +449,8 @@ const toZhuyin = p => (p.onset + (p.nasal ? 'ㄥ' : '') + p.rime + p.toneZh
 
 /* 整句：- 變調一次、-- 兩次、空白分詞、標點原樣（⚠️ . 不是標點） */
 function convertPhrase(text, o) {
-  /* sandhi＝注音要不要變調；ipaShowSandhi＝「IPA 顯示」要不要變調。
+  /* sandhi＝注音要不要變調（恆為真，只有 swap 鈕會把它讓給 IPA 顯示層）；
+     ⭐ 連接號＝變調的所在，變調只依連接號；「有連接號」勾選只管**輸出要不要保留這個記號**。
      ⭐ IPA 輸入層**永遠本調**——它是「怎麼打」的規格，不隨檢視切換（裁定 D 的精神）。
      介面把兩者做成交換：鈕＝詞句音時 ipaShowSandhi=true 且 sandhi=false。 */
   const opt = Object.assign({style: 'simple', teach: false, sandhi: true,
@@ -467,9 +469,13 @@ function convertPhrase(text, o) {
   for (let i = 0; i < toks.length; i++) {
     const tk = toks[i];
     if (tk === '-' || tk === '--') {
-      out.zhuyin.push(opt.hyphen ? tk : ' '); out.ipa.push(tk); out.input.push(tk); out.meipin.push(tk); continue;
+      /* 裁定 D：IPA 與各拼**永遠保留連接號**；勾選只管注音欄要不要留 */
+      out.zhuyin.push(opt.hyphen ? tk : ' ');
+      out.ipa.push(tk); out.input.push(tk); out.meipin.push(tk); continue;
     }
-    if (tk === '\u0001') continue;                 /* 零寬邊界：只切詞，不輸出 */
+    if (tk === '\u0001') {                        /* 旗標邊界：注音／美拼自帶 `*`，IPA 兩軌補空白當詞界 */
+      out.zhuyin.push(''); out.meipin.push(''); out.ipa.push(' '); out.input.push(' '); continue;
+    }
     if (/^\s+$/.test(tk)) { out.ipa.push(' '); out.input.push(' '); out.zhuyin.push(' '); out.meipin.push(' '); continue; }
     if (PUNCT.test(tk) && tk.length === 1) { out.ipa.push(tk); out.input.push(tk); out.zhuyin.push(tk); out.meipin.push(tk); continue; }
     let p = hasZhuyin(tk) ? parseZhuyin(tk) : (opt.meipin ? parseMeipin(tk) : parseIpa(tk));
@@ -526,14 +532,12 @@ function render() {
   /* ⭐ 交換：鈕按下去時，IPA顯示轉詞句音、注音反向轉本調；輸入層不動 */
   const r = convertPhrase(src, {style: $('full').checked ? 'full' : 'simple',
                                 teach: $('teach').checked,
-                                sandhi: swap ? false : $('sandhi').checked,
-                                hyphen: true, ipaShowSandhi: swap,
+                                sandhi: !swap,
+                                hyphen: $('hyphen').checked, ipaShowSandhi: swap,
                                 meipin: $('md_m').checked});
-  $('sandhi').disabled = swap;                 /* 注音被鈕強制成本調時，這個勾選失效 */
-  $('sandhi').parentElement.style.opacity = swap ? .45 : 1;
   $('swaphint').innerHTML = (swap
     ? '（IPA 顯示＝詞句音；注音與 IPA 輸入＝本調）'
-    : '（IPA 兩層＝本調；注音依「連接號變調」）')
+    : '（IPA 兩層＝本調；注音＝依連接號的詞句音）')
     + (r.nBlind ? ' <b>⚠️ 含 ' + r.nBlind + ' 個特殊變調字只給了旗標 <code>~</code> 沒給值：'
                   + '不套標準表（寫成 <code>ㄚˋ_</code> 或 <code>a53&gt;1</code> 才算得出來）</b>'
                 : (r.nDual ? ' <b>（含 ' + r.nDual + ' 個特殊變調字，已依字串所寫的變調值）</b>' : ''));
@@ -562,7 +566,7 @@ function render() {
       + '</td><td>' + tn + '</td><td class="ipa">' + sylToIpa(p, style, teach) + '</td></tr>');
   }
 }
-['in','full','teach','sandhi','md_a','md_m'].forEach(id => $(id).addEventListener('input', render));
+['in','full','teach','hyphen','md_a','md_m'].forEach(id => $(id).addEventListener('input', render));
 document.querySelectorAll('.orow').forEach(cb => cb.addEventListener('input', render));
 /* Enter＝複製勾選中的輸出列 */
 $('in').addEventListener('keydown', e => {
