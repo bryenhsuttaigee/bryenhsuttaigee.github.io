@@ -30,6 +30,7 @@ code{font-family:var(--mono);font-weight:700;background:#E7E4DC;color:#2B3540;pa
 .booktitle span{color:var(--steel);font-size:.85rem;margin-left:.5em}
 .hero h1{font-size:clamp(2rem,6vw,3.2rem);font-weight:900;line-height:1.25;margin:.6rem 0;letter-spacing:.05em}
 .hero .silver{color:var(--steel)}
+.hero h1 .silver{font-size:.62em;letter-spacing:.04em;font-weight:700}
 .sub2{color:#D5DAE1;font-size:1.02rem;margin:.2rem auto .9rem;max-width:38em}
 .pill{display:inline-block;border:1px solid rgba(244,237,222,.4);border-radius:30px;padding:.34rem 1.25rem;font-size:.94rem;color:#C8CFD8}
 .byline{color:var(--steel);font-size:.86rem;margin:1.2rem 0 0;letter-spacing:.1em}
@@ -55,8 +56,8 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <body id="top">
 
 <header class="hero"><div class="hero-in">
-<p class="booktitle">《閩南語135拼音法》<span>國際音標版 · IPA Edition · 完整版 v6.4</span></p>
-<h1>台語記音的<span class="silver">量尺</span></h1>
+<p class="booktitle">《閩南語135拼音法》<span>IPA Edition · 完整版 v6.6</span></p>
+<h1>國際音標版　IPA<br><span class="silver">台語記音的量尺</span></h1>
 <p class="sub2">其他版本是外衣，裁給某個母語的直覺；這一版不服務任何人的直覺——它服務精確。國際音標（IPA）是全世界語言學共用的尺，台語的每一個音、每一個調，在這裡量給你看。</p>
 <span class="pill">聲調＝調值 · 音段＝IPA · 輸入＝純鍵盤</span>
 <p class="byline">許文 × 甲骨先生</p>
@@ -152,7 +153,7 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <text x="650" y="472" font-size="17" text-anchor="middle" fill="#8C98A8" font-weight="700" font-family="Noto Sans TC,sans-serif">1、3、5 三條基準線＝Do、Mi、So。調值就是座標。</text>
 </svg></figure>
 
-<blockquote><strong>調值規約：數字管高度，中點管拍長。</strong>平調一位數字即滿拍（1、3、5——簡譜同款：不加底線的音符本來就是一拍；舊制雙寫 55、33 照簡譜反而得加底線才湊成一拍，雙寫的不自然由簡譜自己證明）。滑動調多位數字＝一拍內的等分軌跡：53、35 前後各半拍；<strong>113 三等分——低段佔 2/3 拍</strong>、末 1/3 折上，三聲的「腰」在字面上有了定量。半拍加 ·（3·、5·）；此點是頓點、<strong>非簡譜附點</strong>（附點延長半拍，頓點砍成半拍，意義相反，會簡譜者留意）。輸入層的 · 打句點（<code>kut3.</code>）。趙氏調符與調值完全同構：平調單豎線即滿拍（˩、˧、˥），多豎線寫軌跡（˧˥、˥˧、˩˩˧），半拍同樣加 ·（˧·、˥·）。<strong>平調兩形</strong>（2026-08-27 裁定）：對外與「完整調符」模式，滿拍平調寫<strong>雙符</strong> ˥˥／˧˧／˩˩（55／33／11）——對齊通行五度制慣例（主流雙碼＝滿拍，單碼常被讀為促）；日常簡化形單符不變。</blockquote>
+<blockquote><strong>調值規約：數字管高度，中點管拍長。</strong>平調一位數字即滿拍（1、3、5——簡譜同款：不加底線的音符本來就是一拍；舊制雙寫 55、33 照簡譜反而得加底線才湊成一拍，雙寫的不自然由簡譜自己證明）。⚠️ 這一條說的是<strong>簡化形</strong>——單符是 135 的本色、日常預設；下面的平調兩形只在<strong>完整形</strong>加雙符，為的是對外對齊通行五度制慣例。兩者分工不衝突：<strong>單符是我們自己的話，雙符是說給外面聽的話。</strong>滑動調多位數字＝一拍內的等分軌跡：53、35 前後各半拍；<strong>113 三等分——低段佔 2/3 拍</strong>、末 1/3 折上，三聲的「腰」在字面上有了定量。半拍加 ·（3·、5·）；此點是頓點、<strong>非簡譜附點</strong>（附點延長半拍，頓點砍成半拍，意義相反，會簡譜者留意）。<strong>另一側也要擋</strong>：對記音學的讀者，<span class="ipa">·</span> 承襲<strong>美式記音（Americanist notation）「半」的用法</strong>（該傳統 <span class="ipa">V·</span>＝半長，做三分長度時是 <span class="ipa">a</span>／<span class="ipa">a·</span>／<span class="ipa">a꞉</span> 的中檔）——本系統只是把它從<strong>音段層</strong>搬到<strong>拍長層</strong>：它掛在<strong>調符</strong>上、管的是整個音節佔幾拍，<strong>不是</strong> IPA 的音段半長 <span class="ipa">ˑ</span>（U+02D1，後置貼音段），<strong>也不是</strong> IPA 的音節界線 <code>.</code>（U+002E，寫在音節之間）。那「直接用 IPA 自己的半長 <span class="ipa">ˑ</span> 不就好了」？位置寫對是 <span class="ipa">kuˑt</span>（長度記號後置、貼在被拉長的音段上），但它說的是<strong>「母音 u 半長」</strong>——那是<strong>音段的時長</strong>，不是「這個音節佔半拍」；何況收尾韻裡母音本來就短，標成半長等於另外主張了一件事。「骨」的嚴式寫法是 <span class="ipa">kut̚</span>——收尾韻本就短，不另標長度；<strong>IPA 根本沒有「這個音節佔半拍」這個範疇，這正是本系統得自訂一條規約的原因。</strong>輸入層的 · 打句點（<code>kut3.</code>）。趙氏調符與調值完全同構：平調單豎線即滿拍（˩、˧、˥），多豎線寫軌跡（˧˥、˥˧、˩˩˧），半拍同樣加 ·（˧·、˥·）。<strong>平調兩形</strong>（2026-08-27 裁定）：對外與「完整調符」模式，滿拍平調寫<strong>雙符</strong> ˥˥／˧˧／˩˩（55／33／11）——對齊通行五度制慣例（主流雙碼＝滿拍，單碼常被讀為促）；日常簡化形單符不變。</blockquote>
 <blockquote><strong>簡化調符</strong>：完整形之外，兩個半拍格提供日常簡化——<strong>頓省高度符</strong>，單寫 ·（<code>ba.</code>＝<code>ba3.</code>；半拍只在中位出現，省 3 不撞音），與書寫層 <code>ah·</code>＝<code>ah+·</code> 之省同構；<strong>變調位省頓點</strong>，單寫 5／<span class="ipa">˥</span>（<code>kut5</code>＝<code>kut5.</code>；此音只在變調位置，省 · 不撞音），與書寫層 <code>kkut¯</code>＝<code>kkut¯·</code> 之省同構。完整形用於規格與教學，簡化形用於日常標記。</blockquote>
 <p>七調練習（同一音節七個座標，每格實際唱出）：四 <span class="ipa">ɕi˩</span>｜是 <span class="ipa">ɕi˧</span>｜絲 <span class="ipa">ɕi˥</span>｜絲絲絲第一字 <span class="ipa">ɕi˧˥</span>｜時 <span class="ipa">ɕi˩˩˧</span>｜始 <span class="ipa">ɕi˥˧</span>｜熾 <span class="ipa">ɕi˧·</span>。</p>
 <blockquote>小注：排骨酥的「骨」＝<span class="ipa">kut˥·</span>，實際是四聲（˥˧）的前半拍——起音打在 5、一出即收，還來不及滑落。調值完整形 5·、簡化形 5——「四聲取 5 的半拍」直接寫在字面上。此音只出現在變調位置（四聲變調取 5 成一聲），書寫層據此以一聲符號簡化標示。</blockquote>
@@ -366,7 +367,7 @@ footer{max-width:940px;margin:0 auto;padding:1.3rem 1.2rem 3rem;color:#7d7461;fo
 <a class="backtoc" href="#top">回目錄 ↑</a>
 
 <footer>
-閩南語135拼音法 · 國際音標版（IPA Edition）· 完整版 v6.4<br>
+閩南語135拼音法 · 國際音標版（IPA Edition）· 完整版 v6.6<br>
 許文 × 甲骨先生 · 例字讀音以本系統字表（母檔）為準；嚴式變體逐步擴充；裁定證據鏈見《裁定錄》。<br>
 © 2026 許文 × 甲骨先生．版權所有 All rights reserved.
 <br>

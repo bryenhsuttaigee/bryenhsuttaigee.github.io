@@ -39,12 +39,15 @@ label.big{display:block;font-weight:700;margin-bottom:.35rem}
 #in:focus{border-color:var(--moss);outline:none}
 #in::placeholder{color:#B6AE9C;font-weight:400;font-size:17px}   /* 淡色＝視同沒有內容 */
 .hint{color:#6B7480;font-size:.85rem;margin:.4rem 0 0}
-.exs{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0 0}
-.exs button{font:inherit;font-size:.85rem;background:#EFE7D5;border:1px solid var(--line);border-radius:20px;
- padding:.25rem .8rem;cursor:pointer;color:var(--ink)}
+.exs{display:flex;flex-wrap:nowrap;gap:.4rem;margin:.5rem 0 0;overflow-x:auto;
+ padding-bottom:.25rem;scrollbar-width:thin}          /* ⭐ 單行＋橫捲：不讓範例把「輸出」擠下去 */
+.exs button{flex:0 0 auto;white-space:nowrap}
+.exs button{font:inherit;font-size:.82rem;background:#EFE7D5;border:1px solid var(--line);border-radius:20px;
+ padding:.22rem .7rem;cursor:pointer;color:var(--ink)}
 .exs button:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
 .opts{display:flex;flex-wrap:wrap;gap:1rem;margin:.8rem 0 0;font-size:.92rem}
 .opts label{cursor:pointer;user-select:none}
+.opts label.tip{cursor:help;text-decoration:underline dotted #B6AE9C;text-underline-offset:3px}
 .out{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem .8rem;align-items:center;margin-top:.2rem}
 .out .k{font-size:.85rem;color:#6B7480;white-space:nowrap}
 .out .v{font-size:22px;font-weight:700;word-break:break-word;min-height:1.6em;
@@ -76,7 +79,7 @@ footer a{color:var(--cinnabar)}
 <p class="booktitle">閩南語135拼音法 · 國際音標（IPA）版</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ IPA</span></h1>
 <p class="sub2">沒有人該手打 IPA。輸入欄打純 ASCII 的調值寫法，顯示層的音段與趙氏調符交給程式——這正是雙層制存在的理由。</p>
-<span class="pill">v4 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
+<span class="pill">v5 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
 </div></div>
 <main>
 
@@ -113,7 +116,9 @@ footer a{color:var(--cinnabar)}
   <div class="opts">
     <label><input type="checkbox" id="full"> 完整調符（滿拍平調雙符 <span class="ipa">ɕĩã˥˥</span>；半拍 <span class="ipa">kut˥·</span>）</label>
     <label><input type="checkbox" id="teach"> 教學角標（<span class="ipa">p̚ t̚ k̚ ŋ̍ m̩</span>）</label>
-    <label><input type="checkbox" id="hyphen" checked> 有連接號（只影響注音：<code>ㄌㄧ-ㄏㄜˋ</code>／取消＝<code>ㄌㄧ ㄏㄜˋ</code>）</label>
+    <label class="tip" title="只影響注音欄要不要留著這個記號：ㄌㄧ-ㄏㄜˋ／取消＝ㄌㄧ ㄏㄜˋ。
+變調恆依輸入的連接號——取消勾選不會讓字不變調，只是把注音的 - 換成空白。
+IPA 與各拼依裁定 D 永遠保留連接號，不受此勾選影響。"><input type="checkbox" id="hyphen" checked> 有連接號</label>
   </div>
 </div>
 
@@ -1568,8 +1573,13 @@ function convertPhrase(text, o) {
       out.ipa.push(tk); out.input.push(tk); out.meipin.push(tk);
       out.hanpin.push(tk); out.tailo.push(tk); continue;
     }
-    if (tk === '\u0001') {                        /* 旗標邊界：注音／美拼自帶 `*`，IPA 兩軌補空白當詞界 */
-      out.zhuyin.push(''); out.meipin.push(''); out.hanpin.push('');
+    if (tk === '\u0001') {
+      /* 特殊變調的邊界：軌道自己還留著記號（旗標 `*` 或雙調號）就不必補空白，
+         ⚠️ 但注音欄套了變調之後只剩單一調符——邊界會消失、輸出就再也讀不回去，故補一個空白。 */
+      const keep = a => { const v = a[a.length - 1] || '';
+        return v.endsWith('*') || (TONE_CHARS.has(v[v.length - 1]) && TONE_CHARS.has(v[v.length - 2])); };
+      out.zhuyin.push(keep(out.zhuyin) ? '' : ' ');
+      out.meipin.push(''); out.hanpin.push('');
       out.ipa.push(' '); out.input.push(' '); out.tailo.push(' '); continue;
     }
     if (/^\s+$/.test(tk)) { for (const k in out) out[k].push(' '); continue; }
@@ -1644,6 +1654,11 @@ function render() {
                 : (r.nDual ? ' <b>（含 ' + r.nDual + ' 個特殊變調字，已依字串所寫的變調值）</b>' : ''));
   $('o_ipa').textContent = r.ipa; $('o_in').textContent = r.input; $('o_zy').textContent = r.zhuyin;
   $('o_mp').textContent = r.meipin; $('o_hp').textContent = r.hanpin; $('o_tl').textContent = r.tailo;
+  /* 範例只留當制的那幾顆——單行放得下，「輸出」才不會被擠到螢幕外（錄影用） */
+  const md = $('md_m').checked ? '1' : $('md_h').checked ? 'h' : $('md_t').checked ? 't' : '';
+  document.querySelectorAll('.exs button').forEach(b => {
+    b.style.display = (b.dataset.m || '') === md ? '' : 'none';
+  });
   document.querySelectorAll('.orow').forEach(cb => {
     const k = cb.dataset.row, on = cb.checked ? '' : 'none';
     $('k_' + k).style.display = on; $('b_' + k).style.display = on; $('o_' + k).style.display = on;
