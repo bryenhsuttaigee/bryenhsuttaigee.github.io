@@ -35,6 +35,14 @@
     { group: '臺羅對照版', items: [
       { href: '/phonics/tailo.html',        label: '135拼音法 · 臺羅對照版', note: 'v1' }
     ]},
+    { group: '日文版', items: [
+      { href: '/phonics/nippin.html',       label: '135拼音法 · 日文版（日拼）', note: 'v1.9' },
+      { href: '/phonics/nippin-ja.html',    label: '日本語版（日本語で読む）', note: 'v1.4' },
+      { href: '/phonics/nippin-quick.html', label: '日文版 · 精簡版 · 速查卡', note: 'v1' },
+      { href: '/phonics/nippin-quick-ja.html', label: '日本語版 · 早見表', note: 'v1' },
+      { href: '/phonics/nippin-convert.html', label: '日文版 · 轉換器', note: 'v2' },
+      { href: '/phonics/nippin-songs.html', label: '台語歌 · 日拼示範句', note: 'v1' }
+    ]},
     { group: '美拼版', items: [
       { href: '/phonics/complete.html',     label: '完整版', note: 'v6' },
       { href: '/phonics/standard.html',     label: '一般版', note: 'v5' },
@@ -76,6 +84,12 @@
     '/phonics/zhuyin.html',
     '/phonics/hanpin.html',
     '/phonics/tailo.html',
+    '/phonics/nippin.html',
+    '/phonics/nippin-ja.html',
+    '/phonics/nippin-quick.html',
+    '/phonics/nippin-quick-ja.html',
+    '/phonics/nippin-convert.html',
+    '/phonics/nippin-songs.html',
     '/phonics/complete.html',
     '/phonics/standard.html',
     '/phonics/quick.html',

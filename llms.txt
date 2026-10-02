@@ -84,6 +84,12 @@
   - **我只學過 ㄅㄆㄇ，要怎麼開始寫？** → 用你已經會的那套寫，ㄅㄆㄇ 不必重學。台語多出來的只有幾個聲母、收尾韻、鼻化開關，加上低與中兩個高度。
   - **要考閩南語認證，聲調的題目一直錯** → 錯的多半不是你的台語，是中間那道換算。先把七個高度固定在耳朵裡，編號就變成最後一步的查表。
 - [135 拼音法・臺羅對照版](https://bryenhsuttaigee.github.io/phonics/tailo.html)：給已經學過臺羅的人。**臺羅寫的是拼法，這一本寫的是唱法**——左欄照抄臺羅，右欄注音，中間是耳朵。把調號、字尾 `h`、字尾 `nn` 換算成實際的音高與鼻音位置；母檔 7,830 個單字音全量比對。
+- [135 拼音法・日文版（日拼）](https://bryenhsuttaigee.github.io/phonics/nippin.html)：給會五十音的日本讀者。**台語不是中国語**；不先背新符號，用已經會的片假名把台語唸出聲。章序照日本人學過的清單走——清音・濁音・拗音・促音・撥音・アクセント，每章寫「你的 X 在台語變成什麼」。送氣後加 `ʰ`（純文字寫 `h`）、鼻化前加 `ng`、收尾 -p -t -k -m -n -ng 用小字假名 プツクムヌン 分三位置兩出口、七個調以 ド・ミ・ソ 為三根柱子加調號。注音為錨點、附 IPA 對照；上承 1931《臺日大辭典》的片假名台語標音。
+- [135 拼音法・日本語版（日本語で読む）](https://bryenhsuttaigee.github.io/phonics/nippin-ja.html)：日文版全書的日本語訳（です・ます調），內容與繁體中文版同步；給讀日文的讀者直接讀。
+- [日文版・精簡版（速查卡）](https://bryenhsuttaigee.github.io/phonics/nippin-quick.html)：一頁看完七個聲調、變調、收尾、聲母與韻母總表、開口五句；只列結果，カタカナ／ローマ字由日拼核心從注音算出。
+- [日本語版・早見表](https://bryenhsuttaigee.github.io/phonics/nippin-quick-ja.html)：同上速查卡的日本語訳。
+- [日文版・轉換器](https://bryenhsuttaigee.github.io/phonics/nippin-convert.html)：注音／ローマ字／カタカナ 互轉，ローマ字寫本調＋連接號、カタカナ與注音寫詞句音；小字、ʰ、前置 ng 照書排版，可複製到 Word／PPT。
+- [台語歌・日拼示範句](https://bryenhsuttaigee.github.io/phonics/nippin-songs.html)：玉蘭花・心心相連・雪中紅・黃昏的故鄉 四首歌的開頭示範句，每句漢字／カタカナ／ローマ字／注音四行對照（版權考量只列示範句）。
 - [國際音標版（IPA Edition）・完整版](https://bryenhsuttaigee.github.io/phonics/ipa.html)：**這一份不是外衣，是量尺**——不服務任何母語直覺，服務精確記音與學術對照。七聲的調值與趙氏調符、變調的調值演算、聲母韻母 IPA 全表、無聲除阻的收尾韻、鼻化母音、嚴式腔口變體。雙層制：輸入層＝調值數字（純 ASCII，如 `see5`），顯示層＝IPA 音段＋趙氏調符（如 `si˥`）。
 - [國際音標版・聲母 × 韻母對照表](https://bryenhsuttaigee.github.io/phonics/ipa-chart.html)：IPA 版的**查表面**——聲母 × 韻母整張攤開，每格並列**顯示層**（IPA 音段＋趙氏調符）與**輸入層**（純 ASCII 調值數字），另附**美拼／漢拼／臺羅**三欄對照。跨系統對照一律以**整個音節**向各自的核心求值，不做字母級硬湊；表由母檔生成，母檔改了就重生。
 - [國際音標版・線上轉換器](https://bryenhsuttaigee.github.io/phonics/ipa-convert.html)：注音 ⇄ IPA **雙向互轉**的網頁工具。輸入層打純 ASCII 調值（`kut3.`、`teh113`、鼻化 `sia~5`），顯示層自動生成 IPA 音段與趙氏調符；打注音也可反向得到 IPA。支援完整形／簡化形半拍記法、教學角標（`p̚ t̚ k̚ ŋ̍ m̩`）與逐字拆解。**頁內對照表由 IPA 唯一核心程式匯出、非手抄**，並以母檔全音節做過等價驗證。

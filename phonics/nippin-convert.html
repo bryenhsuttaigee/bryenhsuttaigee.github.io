@@ -1,0 +1,631 @@
+<!doctype html>
+<!--
+========================================================================
+ 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v2
+ ⛔ 本檔是「產物」：由 nippin_convert\build_nippin_web.py 從 nippin_page.tpl.html ＋ nippin_core.py 產生，⛔ 不要手改。
+    版面比照 /phonics/ipa-convert.html（作者 2026-10-02：「參考這」→ A 案）。
+    JS 核心與頁面上的對照表全部由 nippin_core.py 匯出；JS ⇄ Python 由 test_nippin_js_parity.py（node）守門。
+========================================================================
+-->
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>閩南語135拼音法 · 日文版 · 線上轉換器</title>
+<meta name="description" content="注音・ローマ字・カタカナ 線上互轉：台湾語（閩南語）の発音をカタカナで。逐字自動判別、可混寫；カタカナ寫詞句音、ローマ字寫本調＋連接號，附逐字拆解。">
+<link rel="canonical" href="https://bryenhsuttaigee.github.io/phonics/nippin-convert.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="一起學閩南語（臺語）漢字">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://bryenhsuttaigee.github.io/phonics/nippin-convert.html">
+<meta property="og:title" content="閩南語135拼音法 · 日文版 · 線上轉換器">
+<meta property="og:description" content="注音・ローマ字・カタカナ 三種都能打，程式逐字判別、互轉。台湾語をカタカナで。">
+<meta property="og:image" content="https://bryenhsuttaigee.github.io/phonics/og/og-index.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#101C2B;--bone:#F4EDDE;--steel:#9AA5B1;--graphite:#33383F;--moss:#2E6E4E;
+--cinnabar:#C43A26;--gold:#C9972B;--line:#D8CCB4;--mono:"Roboto Mono","Consolas",monospace;--paper:#FFFDF7;
+--jp:"Noto Sans JP","Hiragino Sans","Yu Gothic UI","Noto Sans TC",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;text-size-adjust:100%;overflow-x:hidden}
+body{margin:0;background:var(--bone);color:var(--ink);font:16px/1.7 "Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+h1,h2{font-family:"Noto Serif TC",serif}
+code,kbd{font-family:var(--mono);font-weight:700;background:#E7E4DC;color:#2B3540;padding:1px 5px;border-radius:4px;white-space:nowrap}
+.jp{font-family:var(--jp);color:var(--moss)}
+:focus-visible{outline:3px solid var(--steel);outline-offset:2px}
+.hero{background:var(--graphite);color:var(--bone);padding:2rem 1.2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(1100px 480px at 82% -12%,rgba(154,165,177,.22),transparent 62%)}
+.hero-in{max-width:960px;margin:0 auto;position:relative}
+.booktitle{color:#C8CFD8;font-size:.95rem;letter-spacing:.08em;margin:0}
+.hero h1{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin:.5rem 0;letter-spacing:.04em}
+.hero .silver{color:var(--steel)}
+.sub2{color:#D5DAE1;font-size:1rem;margin:.2rem auto .8rem;max-width:40em}
+.nw{display:inline-block}            /* 一句一個單位換行：不讓「轉。」單獨掉到下一行 */
+.pill{display:inline-block;border:1px solid rgba(244,237,222,.4);border-radius:30px;padding:.3rem 1.1rem;font-size:.88rem;color:#C8CFD8}
+main{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
+h2{font-size:1.25rem;margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--line)}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
+label.big{display:block;font-weight:700;margin-bottom:.35rem}
+#in{width:100%;font:700 22px/1.5 "Roboto Mono","Noto Sans JP","Noto Sans TC",monospace;padding:.6rem .7rem;
+ border:2px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
+#in:focus{border-color:var(--moss);outline:none}
+#in::placeholder{color:#B6AE9C;font-weight:400;font-size:17px}
+.hint{color:#6B7480;font-size:.85rem;margin:.4rem 0 0}
+.hnav{display:flex;align-items:center;gap:.4rem;margin:.35rem 0 0;font-size:.82rem;color:#6B7480}
+.hnav button{font:inherit;font-size:.8rem;background:#EFE7D5;border:1px solid var(--line);border-radius:5px;padding:.15rem .6rem;cursor:pointer;color:var(--ink)}
+.hnav button:hover{border-color:var(--moss)}
+.hnav .hk{margin-left:auto;color:#B6AE9C}
+.exs{display:flex;flex-wrap:nowrap;gap:.4rem;margin:.5rem 0 0;overflow-x:auto;padding-bottom:.25rem;scrollbar-width:thin}
+.exs button{flex:0 0 auto;white-space:nowrap;font:inherit;font-size:.82rem;background:#EFE7D5;border:1px solid var(--line);
+ border-radius:20px;padding:.22rem .7rem;cursor:pointer;color:var(--ink)}
+.exs button:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.opts{display:flex;flex-wrap:wrap;gap:.4rem 1rem;margin:.8rem 0 0;font-size:.92rem}
+.opts label{cursor:pointer;user-select:none}
+.opts label.tip{cursor:help;text-decoration:underline dotted #B6AE9C;text-underline-offset:3px}
+.opts input[type=number]{width:3.6em;font:inherit}
+.out{display:grid;grid-template-columns:auto 1fr auto;gap:.5rem .8rem;align-items:center;margin-top:.2rem}
+.out .k{font-size:.85rem;color:#6B7480;white-space:nowrap}
+.out .v{font-size:22px;font-weight:500;white-space:nowrap;overflow-x:auto;overflow-wrap:normal;min-height:1.6em;min-width:0}   /* 不自動換行：長句橫向捲動（作者 2026-10-02） */
+/* ⭐ 三列「看起來一樣大」（作者 2026-10-02）：比照 Word 輸出 カタカナ14：ローマ字16：注音12 ＝ 24：27：21px，
+      字型也比照 Word（假名・注音 Noto Sans TC 系、ローマ字 Segoe UI 系、一般粗細）——拉丁字母字身小要放大、注音字身大要縮小 */
+.out .v.ka{font-family:"Noto Sans TC",var(--jp);color:var(--moss);font-size:24px}
+.out .v.rm{font-family:"Segoe UI","Noto Sans",system-ui,sans-serif;color:#2B3540;font-size:27px}
+.out .v.zy{font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);font-size:21px}
+.outhead{display:flex;align-items:center;justify-content:space-between;margin:0 0 .6rem;padding-bottom:.4rem;border-bottom:1px dashed var(--line)}
+.outhead .oh{font-weight:700;color:#6B7480;font-size:.9rem}
+.swaphint{margin:-.2rem 0 .6rem;color:#6B7480;font-size:.82rem}
+.tg{font:inherit;font-size:.85rem;font-weight:700;background:#EFE7D5;border:1px solid var(--line);
+ border-radius:20px;padding:.28rem .95rem;cursor:pointer;color:var(--ink)}
+.tg:hover{border-color:var(--moss)}
+.tg.on{background:var(--moss);color:#fff;border-color:var(--moss)}
+.cp{font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--line);border-radius:5px;
+ padding:.2rem .6rem;cursor:pointer;color:#6B7480}
+.cp:hover{background:var(--moss);color:#fff;border-color:var(--moss)}
+table{border-collapse:collapse;width:100%;background:var(--paper);font-size:.95rem}
+th,td{border:1px solid var(--line);padding:5px 9px;text-align:left;white-space:nowrap}
+th{background:#EFE7D5}
+td.ka{font-family:var(--jp);font-size:1.1rem;color:var(--moss)}
+td.rm{font-family:var(--mono)}
+details{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:.6rem 1rem;margin:1rem 0}
+details summary{cursor:pointer;font-weight:700}
+.bad{color:var(--cinnabar)}
+.bp{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top;line-height:1.25}
+.bp .bs{font-family:var(--mono);font-size:.82em;color:#555}
+.bp .bn{font-size:.72em;color:#8a7f69}
+.bplus{color:#aaa;margin:0 .3em;vertical-align:top}
+footer{border-top:1px solid var(--line);margin-top:2.4rem;padding-top:1rem;color:#6B7480;font-size:.86rem}
+footer a{color:var(--cinnabar)}
+.scroll-x{overflow-x:auto}
+/* 書（閩南語135拼音法_日文版）的記號排版：小字＝假名層唯一的排版；ng／ʰ 是真字元（⛔ 不可用 ::before 生，複製會掉） */
+.co{font-size:.72em;vertical-align:-.02em;letter-spacing:0}   /* 小字統一 .72（作者 2026-10-02） */
+.coR{font-size:.72em;vertical-align:.20em;margin-right:-.04em;letter-spacing:0}   /* 作者 2026-10-02 選 C 案（書為 .60／.42） */
+.kimk{font-family:var(--mono);font-size:.8em;vertical-align:.34em;margin-left:.01em;color:var(--cinnabar)}
+.nasmk{font-family:var(--mono);font-size:.82em;vertical-align:.08em;margin-right:.02em;color:var(--cinnabar)}
+sub{font-size:.7em}
+</style></head><body>
+<div class="hero"><div class="hero-in">
+<p class="booktitle">閩南語135拼音法 · 日文版（日拼）</p>
+<h1>線上轉換器　<span class="silver">注音 ⇄ <span style="white-space:nowrap">カタカナ・ローマ字</span></span></h1>
+<p class="sub2"><span class="nw">讀的時候看カタカナ，打字的時候用ローマ字。</span><span class="nw">三種寫法都能打進來，程式逐字判別、互轉。</span><br><span class="nw">台湾語をカタカナで。</span></p>
+<span class="pill">v2 · 三種輸入自動判別（注音／ローマ字／カタカナ）· 三軌輸出 · 逐字可逆</span>
+</div></div>
+<main>
+
+<div class="box">
+  <label class="big" for="in">輸入</label>
+  <input id="in" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus
+         placeholder="打注音（ㄍㄨㄊ˙）、ローマ字（kut.）或カタカナ（クツ·）——Enter＝複製勾選的輸出">
+  <div class="hnav"><button type="button" id="hprev">◀ 上一筆</button><button type="button" id="hnext">下一筆 ▶</button><span id="hpos"></span><span class="hk">↑↓ 也可</span></div>
+  <p class="hint" id="kind"></p>
+  <div class="exs">
+    <button data-v="kut.">骨 kut.</button>
+    <button data-v="ㄍㄨㄊ˙">骨 ㄍㄨㄊ˙</button>
+    <button data-v="クツ·">骨 クツ·</button>
+    <button data-v="sngia">聲 sngia</button>
+    <button data-v="ngua\">碗 ngua\</button>
+    <button data-v="png+">飯 png+</button>
+    <button data-v="ran~ rang~">蘭／人 ran~ rang~</button>
+    <button data-v="giok+-ran~-hue">玉蘭花</button>
+    <button data-v="ㄌㄧˋ-ㄏㄜˋ">你好（變調）</button>
+    <button data-v="ai_ ri\_">深深愛你（特殊變調）</button>
+    <button data-v="si4" data-d="taiwan">四 si4（調號數字）</button>
+    <button data-v="si53" data-d="pitch">四 si53（音高數字）</button>
+  </div>
+  <div class="opts">
+    <span>數字調：</span>
+    <label class="tip" title="數字＝音高：1 低、3 中、5 高、35 升、113 沈、53 降、. 頓（日文版書 §9.4.1；與 IPA 調值同）"><input type="radio" name="dg" value="pitch"> 音高數字（1 3 5，同 IPA）</label>
+    <label class="tip" title="數字＝調號代號：9 低、0 中、1 一聲、2 二聲、3 三聲、4 四聲、5 輕聲（與美拼、漢拼同一套）。兩套意思相反，程式不猜，要先選"><input type="radio" name="dg" value="taiwan" checked> 調號數字（9 0 1-5，同美拼・漢拼）</label>
+  </div>
+  <div class="opts">
+    <label class="tip" title="只影響カタカナ與注音要不要留著連接號；拿掉時字間空一格。變調恆依輸入的連接號。ローマ字永遠保留連接號。"><input type="checkbox" id="hyphen"> 有連接號</label>
+    <label class="tip" title="勾＝高調寫 ¯（書的寫法）；取消＝高調不寫（ka）"><input type="checkbox" id="high" checked> 一聲上標 ¯</label>
+    <label class="tip" title="＝カタカナ的字級；ローマ字自動 ×16/14、注音 ×12/14（同歌詞 Word 版 14／16／12）。複製時附 HTML 格式，貼到 Word／PowerPoint 小字依此換算（PowerPoint 只認 pt，且會依目標文字框等比縮放）">複製字級（カタカナ）<input type="number" id="pt" value="14" min="8" max="96"> pt</label>
+  </div>
+</div>
+
+<div class="box">
+  <div class="outhead">
+    <span class="oh">輸出</span>
+    <button id="tg" class="tg" title="讀的兩層（カタカナ・注音）：詞句音 ⇄ 本調。ローマ字永遠本調。">カタカナ・注音：詞句音</button>
+  </div>
+  <div class="opts" style="margin:.15rem 0 .45rem">
+    <label><input type="checkbox" class="orow" data-row="ka" checked> カタカナ</label>
+    <label><input type="checkbox" class="orow" data-row="rm" checked> ローマ字</label>
+    <label><input type="checkbox" class="orow" data-row="zy" checked> 注音</label>
+    <span class="hint" style="margin:0">（勾選的列＝Enter 要複製的列）</span>
+  </div>
+  <p class="swaphint" id="swaphint"></p>
+  <div class="out">
+    <span class="k">カタカナ</span><span class="v ka" id="o_ka"></span><button class="cp" data-t="ka">複製</button>
+    <span class="k">ローマ字</span><span class="v rm" id="o_rm"></span><button class="cp" data-t="rm">複製</button>
+    <span class="k">注音</span><span class="v zy" id="o_zy"></span><button class="cp" data-t="zy">複製</button>
+  </div>
+</div>
+
+<h2>逐字拆解</h2>
+<div class="scroll-x"><table id="brk"></table></div>
+
+<h2>怎麼打</h2>
+<details open><summary>聲調：形狀與數字</summary>
+<div class="scroll-x"><table><tr><th>調</th><td>低</td><td>中</td><td>高</td><td>升</td><td>沈</td><td>降</td><td>頓</td></tr><tr><th>形狀（讀・打）</th><td><code>_</code></td><td><code>+</code></td><td><code>¯</code></td><td><code>/</code></td><td><code>~</code></td><td><code>\</code></td><td><code>·</code></td></tr><tr><th>調號數字（同美拼・漢拼）</th><td><code>9</code></td><td><code>0</code></td><td><code>1</code></td><td><code>2</code></td><td><code>3</code></td><td><code>4</code></td><td><code>5</code></td></tr><tr><th>音高數字（同 IPA）</th><td><code>1</code></td><td><code>3</code></td><td><code>5</code></td><td><code>35</code></td><td><code>113</code></td><td><code>53</code></td><td><code>.</code></td></tr><tr><th>注音</th><td>_</td><td>+</td><td>（不標）</td><td>ˊ</td><td>ˇ</td><td>ˋ</td><td>˙</td></tr><tr><th>例</th><td><span class="jp">シ_</span></td><td><span class="jp">シ+</span></td><td><span class="jp">シ¯</span></td><td><span class="jp">シ/</span></td><td><span class="jp">シ~</span></td><td><span class="jp">シ\</span></td><td><span class="jp">シ·</span></td></tr></table></div>
+<p class="hint">高 <code>¯</code> 可省（不打＝高）。頓打鍵盤的句點 <code>.</code>（也收 <code>・</code>）；日語鍵盤的 <code>¥</code> 當 <code>\</code>。⚠️ 兩套數字意思相反——上面先選哪一套，程式不猜。</p>
+</details>
+
+<details><summary>聲母：一行一個字母</summary>
+<div class="scroll-x"><table><tr><th>行</th><th>ローマ字</th><th>注音</th><th>例</th></tr><tr><td>ア行</td><td><code>（無）</code></td><td>（無）</td><td><span class="jp">ア</span> <code>a</code>　<span class="jp">イ</span> <code>i</code></td></tr><tr><td>カ行</td><td><code>k</code></td><td>ㄍ</td><td><span class="jp">カ</span> <code>ka</code>　<span class="jp">キ</span> <code>ki</code></td></tr><tr><td>カ<span class="kimk">ʰ</span>行</td><td><code>kh</code></td><td>ㄎ</td><td><span class="jp">カ<span class="kimk">ʰ</span></span> <code>kha</code>　<span class="jp">キ<span class="kimk">ʰ</span></span> <code>khi</code></td></tr><tr><td>ガ行</td><td><code>g</code></td><td>ㄍㄏ</td><td><span class="jp">ガ</span> <code>ga</code>　<span class="jp">ギ</span> <code>gi</code></td></tr><tr><td>サ行</td><td><code>s</code></td><td>ㄙ／ㄒ</td><td><span class="jp">サ</span> <code>sa</code>　<span class="jp">シ</span> <code>si</code></td></tr><tr><td>ザ行</td><td><code>z</code></td><td>ㄖ</td><td><span class="jp">ザ</span> <code>za</code>　<span class="jp">ジ</span> <code>zi</code></td></tr><tr><td>タ行</td><td><code>t</code></td><td>ㄉ</td><td><span class="jp">タ</span> <code>ta</code>　<span class="jp">ティ</span> <code>ti</code></td></tr><tr><td>タ<span class="kimk">ʰ</span>行</td><td><code>th</code></td><td>ㄊ</td><td><span class="jp">タ<span class="kimk">ʰ</span></span> <code>tha</code>　<span class="jp">ティ<span class="kimk">ʰ</span></span> <code>thi</code></td></tr><tr><td>ツァ行</td><td><code>ts</code></td><td>ㄗ／ㄐ</td><td><span class="jp">ツァ</span> <code>tsa</code>　<span class="jp">チ</span> <code>tsi</code></td></tr><tr><td>ツァ<span class="kimk">ʰ</span>行</td><td><code>tsh</code></td><td>ㄘ／ㄑ</td><td><span class="jp">ツァ<span class="kimk">ʰ</span></span> <code>tsha</code>　<span class="jp">チ<span class="kimk">ʰ</span></span> <code>tshi</code></td></tr><tr><td>ナ行</td><td><code>n</code></td><td>ㄋ</td><td><span class="jp">ナ</span> <code>na</code>　<span class="jp">ニ</span> <code>ni</code></td></tr><tr><td>ハ行</td><td><code>h</code></td><td>ㄏ</td><td><span class="jp">ハ</span> <code>ha</code>　<span class="jp">ヒ</span> <code>hi</code></td></tr><tr><td>マ行</td><td><code>m</code></td><td>ㄇ</td><td><span class="jp">マ</span> <code>ma</code>　<span class="jp">ミ</span> <code>mi</code></td></tr><tr><td>パ行</td><td><code>p</code></td><td>ㄅ</td><td><span class="jp">パ</span> <code>pa</code>　<span class="jp">ピ</span> <code>pi</code></td></tr><tr><td>パ<span class="kimk">ʰ</span>行</td><td><code>ph</code></td><td>ㄆ</td><td><span class="jp">パ<span class="kimk">ʰ</span></span> <code>pha</code>　<span class="jp">ピ<span class="kimk">ʰ</span></span> <code>phi</code></td></tr><tr><td>バ行</td><td><code>b</code></td><td>ㄅㄏ</td><td><span class="jp">バ</span> <code>ba</code>　<span class="jp">ビ</span> <code>bi</code></td></tr><tr><td>ラ行</td><td><code>r</code></td><td>ㄌ</td><td><span class="jp">ラ</span> <code>ra</code>　<span class="jp">リ</span> <code>ri</code></td></tr></table></div>
+<p class="hint"><b>送氣</b>＝聲母後加 <code>h</code>，カタカナ寫 <code>ʰ</code>，緊跟在聲母那組假名後面（<span class="jp">カʰ・キャʰ・ティʰヤ</span>）。
+<b>鼻化</b>＝聲母後加 <code>ng</code>（<code>sngia</code>，寫 <code>ngsia</code> 也收），カタカナ寫在最前面（<span class="jp">ngシャ</span>）。
+ng 與 ʰ 都是管聲母的記號，不是要唸出來的音。</p>
+</details>
+
+<details><summary>收尾與小字</summary>
+<p>收尾 <code>-m -n -ng -p -t -k</code> 寫小字的 <span class="jp">ム ヌ ン プ ツ ク</span>：小字只出子音、不出母音（<span class="jp">ハ<span class="co">ク</span></span>＝hak）。
+沒有母音的字（<code>ng</code>、<code>m</code> 韻）載體寫<b>上提</b>的小字：飯 <span class="jp"><span class="coR">プ</span>ン</span>＝png。</p>
+<p class="hint">⚠️ 收尾 <code>n</code> 與 <code>ng</code> 是兩個字：蘭 <code>ran~</code>（<span class="jp">ラ<span class="co">ヌ</span></span>）≠ 人 <code>rang~</code>（<span class="jp">ラ<span class="co">ン</span></span>）。所以打字照ローマ字打，不照假名打。</p>
+<p class="hint">小字在純文字裡會變回大字（純文字以ローマ字為準）。按「複製」會附 HTML 格式，貼到 Word／PowerPoint 小字與注音下標都保留——若貼到 Word 小字不見，是 Word 的「從其他程式貼上」設成了「合併格式設定」：貼上後選「保留來源格式」即可。</p>
+</details>
+
+<details><summary>變調與特殊變調</summary>
+<p><b>只依連接號</b>：音節後接 <code>-</code> 變一次、<code>--</code> 變兩次，沒打就不變（空白＝詞界）。程式不自行判斷變調。</p>
+<p class="hint">ローマ字永遠寫<b>本調＋連接號</b>；カタカナ與注音預設寫<b>詞句音</b>（唸出來的音）。輸出區右上角的鈕可把讀的兩層切回本調，對照著看就知道哪幾個字變了。</p>
+<p class="hint"><b>特殊變調</b>（算不出來的）：兩個調號連寫 <code>ri\_</code>＝本調降、實際唱低（數字用 <code>&gt;</code>：<code>ri53&gt;1</code>）；只知道特別、不知怎麼特別 → 字尾加 <code>*</code>（<code>ri\*</code>），程式保留本調並標示，不替你猜。</p>
+</details>
+
+<details><summary>容錯：這些舊寫法也打得進來</summary>
+<p><code>l</code>＝<code>r</code>　<code>ʰ</code>＝<code>h</code>　<code>kk tt pp</code>＝<code>k t p</code>　<code>cha chi chu</code>＝<code>tsha tshi tshu</code>　平假名＝カタカナ</p>
+<p class="hint">⛔ ヘボン式的 <code>shi ji fu</code> 不收——日拼寫 <code>si zi hu</code>（一行一個字母）。</p>
+</details>
+
+<footer>
+<p>本頁的對照表與轉換程式由 <b>日拼核心程式自動匯出</b>——規則只有一份，改核心這頁就跟著對，不是另抄一份。</p>
+<p>延伸：<a href="/phonics/nippin.html">閩南語135拼音法 · 日文版</a>（用日本人熟悉的標音學閩南語）｜<a href="/phonics/ipa-convert.html">國際音標版 · 線上轉換器</a></p>
+造訪次數：<span id="visit-count">…</span>
+</footer>
+</main>
+<script>
+/* 日拼核心（JS 版）—— ⛔ 本檔是「演算法」：表一律由 build_nippin_web.py 從 nippin_core.py 匯出注入（{"ALL_RIMES": ["a", "i", "u", "e", "o", "uh", "ai", "ao", "am", "an", "ang", "ong", "ap", "at", "ak", "ip", "it", "ik", "up", "ut", "uk", "ep", "et", "ek", "op", "ot", "ok", "ia", "iu", "iao", "ien", "iam", "iang", "iong", "in", "ing", "im", "iap", "iat", "iak", "iok", "iuh", "ua", "ue", "ui", "uai", "uan", "uang", "un", "uat", "ng", "m", "om", "io", "uet"], "CARRIER": {"ア": {"a": ["ア", ""], "e": ["エ", ""], "i": ["イ", ""], "o": ["オ", ""], "u": ["ウ", ""], "ya": ["ヤ", ""], "ye": ["イ", "エ"], "yo": ["ヨ", ""]}, "カ": {"a": ["カ", ""], "e": ["ケ", ""], "i": ["キ", ""], "o": ["コ", ""], "u": ["ク", ""], "ya": ["キャ", ""], "ye": ["キェ", ""], "yo": ["キョ", ""]}, "ガ": {"a": ["ガ", ""], "e": ["ゲ", ""], "i": ["ギ", ""], "o": ["ゴ", ""], "u": ["グ", ""], "ya": ["ギャ", ""], "ye": ["ギェ", ""], "yo": ["ギョ", ""]}, "サ": {"a": ["サ", ""], "e": ["セ", ""], "i": ["シ", ""], "o": ["ソ", ""], "u": ["ス", ""], "ya": ["シャ", ""], "ye": ["シェ", ""], "yo": ["ショ", ""]}, "ザ": {"a": ["ザ", ""], "e": ["ゼ", ""], "i": ["ジ", ""], "o": ["ゾ", ""], "u": ["ズ", ""], "ya": ["ジャ", ""], "ye": ["ジェ", ""], "yo": ["ジョ", ""]}, "タ": {"a": ["タ", ""], "e": ["テ", ""], "i": ["ティ", ""], "o": ["ト", ""], "u": ["トゥ", ""], "ya": ["ティ", "ヤ"], "ye": ["ティ", "エ"], "yo": ["ティ", "ヨ"]}, "ツァ": {"a": ["ツァ", ""], "e": ["ツェ", ""], "i": ["チ", ""], "o": ["ツォ", ""], "u": ["ツ", ""], "ya": ["チャ", ""], "ye": ["チェ", ""], "yo": ["チョ", ""]}, "ナ": {"a": ["ナ", ""], "e": ["ネ", ""], "i": ["ニ", ""], "o": ["ノ", ""], "u": ["ヌ", ""], "ya": ["ニャ", ""], "ye": ["ニェ", ""], "yo": ["ニョ", ""]}, "ハ": {"a": ["ハ", ""], "e": ["ヘ", ""], "i": ["ヒ", ""], "o": ["ホ", ""], "u": ["フ", ""], "ya": ["ヒャ", ""], "ye": ["ヒェ", ""], "yo": ["ヒョ", ""]}, "バ": {"a": ["バ", ""], "e": ["ベ", ""], "i": ["ビ", ""], "o": ["ボ", ""], "u": ["ブ", ""], "ya": ["ビャ", ""], "ye": ["ビェ", ""], "yo": ["ビョ", ""]}, "パ": {"a": ["パ", ""], "e": ["ペ", ""], "i": ["ピ", ""], "o": ["ポ", ""], "u": ["プ", ""], "ya": ["ピャ", ""], "ye": ["ピェ", ""], "yo": ["ピョ", ""]}, "マ": {"a": ["マ", ""], "e": ["メ", ""], "i": ["ミ", ""], "o": ["モ", ""], "u": ["ム", ""], "ya": ["ミャ", ""], "ye": ["ミェ", ""], "yo": ["ミョ", ""]}, "ラ": {"a": ["ラ", ""], "e": ["レ", ""], "i": ["リ", ""], "o": ["ロ", ""], "u": ["ル", ""], "ya": ["リャ", ""], "ye": ["リェ", ""], "yo": ["リョ", ""]}}, "CODA_KANA": {"k": "ク", "m": "ム", "n": "ヌ", "ng": "ン", "p": "プ", "t": "ツ"}, "DUAL_SEP": ">", "FLAG": "*", "NUM_TO_ZHUYIN_TONE": {"0": "+", "1": "", "2": "ˊ", "3": "ˇ", "4": "ˋ", "5": "˙", "9": "_"}, "ONSET_ROW": {"": ["ア", false], "b": ["バ", false], "g": ["ガ", false], "h": ["ハ", false], "k": ["カ", false], "kh": ["カ", true], "m": ["マ", false], "n": ["ナ", false], "p": ["パ", false], "ph": ["パ", true], "r": ["ラ", false], "s": ["サ", false], "t": ["タ", false], "th": ["タ", true], "ts": ["ツァ", false], "tsh": ["ツァ", true], "z": ["ザ", false]}, "ONSET_ZHUYIN": {"": "", "ㄅ": "p", "ㄅㄏ": "b", "ㄆ": "ph", "ㄇ": "m", "ㄉ": "t", "ㄊ": "th", "ㄋ": "n", "ㄌ": "r", "ㄍ": "k", "ㄍㄏ": "g", "ㄎ": "kh", "ㄏ": "h", "ㄐ": "ts", "ㄑ": "tsh", "ㄒ": "s", "ㄖ": "z", "ㄗ": "ts", "ㄘ": "tsh", "ㄙ": "s"}, "PITCH_TO_CODE": {".": "light", "1": "low", "113": "t3", "3": "mid", "3.": "light", "35": "t2", "5": "t1", "53": "t4"}, "RIMES": ["a", "i", "u", "e", "o", "uh", "ai", "ao", "am", "an", "ang", "ong", "ap", "at", "ak", "ip", "it", "ik", "up", "ut", "uk", "ep", "et", "ek", "op", "ot", "ok", "ia", "iu", "iao", "ien", "iam", "iang", "iong", "in", "ing", "im", "iap", "iat", "iak", "iok", "iuh", "ua", "ue", "ui", "uai", "uan", "uang", "un", "uat", "ng", "m"], "RIME_KANA": {"a": ["a", "", ""], "ai": ["a", "イ", ""], "ak": ["a", "", "k"], "am": ["a", "", "m"], "an": ["a", "", "n"], "ang": ["a", "", "ng"], "ao": ["a", "オ", ""], "ap": ["a", "", "p"], "at": ["a", "", "t"], "e": ["e", "", ""], "ek": ["e", "", "k"], "ep": ["e", "", "p"], "et": ["e", "", "t"], "i": ["i", "", ""], "ia": ["ya", "", ""], "iak": ["ya", "", "k"], "iam": ["ya", "", "m"], "iang": ["ya", "", "ng"], "iao": ["ya", "オ", ""], "iap": ["ya", "", "p"], "iat": ["ya", "", "t"], "ien": ["ye", "", "n"], "ik": ["i", "", "k"], "im": ["i", "", "m"], "in": ["i", "", "n"], "ing": ["i", "", "ng"], "io": ["yo", "", ""], "iok": ["yo", "", "k"], "iong": ["yo", "", "ng"], "ip": ["i", "", "p"], "it": ["i", "", "t"], "iu": ["i", "ウ", ""], "iuh": ["i", "ヲ", ""], "m": ["u", "", "m"], "ng": ["u", "", "ng"], "o": ["o", "", ""], "ok": ["o", "", "k"], "om": ["o", "", "m"], "ong": ["o", "", "ng"], "op": ["o", "", "p"], "ot": ["o", "", "t"], "u": ["u", "", ""], "ua": ["u", "ア", ""], "uai": ["u", "アイ", ""], "uan": ["u", "ア", "n"], "uang": ["u", "ア", "ng"], "uat": ["u", "ア", "t"], "ue": ["u", "エ", ""], "uet": ["u", "エ", "t"], "uh": ["u", "ヲ", ""], "ui": ["u", "イ", ""], "uk": ["u", "", "k"], "un": ["u", "", "n"], "up": ["u", "", "p"], "ut": ["u", "", "t"]}, "RIME_TO_ZHUYIN": {"a": "ㄚ", "ai": "ㄞ", "ak": "ㄚㄎ", "am": "ㄚㄇ", "an": "ㄢ", "ang": "ㄤ", "ao": "ㄠ", "ap": "ㄚㄆ", "at": "ㄚㄊ", "e": "ㄝ", "ek": "ㄝㄎ", "ep": "ㄝㄆ", "et": "ㄝㄊ", "i": "ㄧ", "ia": "ㄧㄚ", "iak": "ㄧㄚㄎ", "iam": "ㄧㄚㄇ", "iang": "ㄧㄤ", "iao": "ㄧㄠ", "iap": "ㄧㄚㄆ", "iat": "ㄧㄚㄊ", "ien": "ㄧㄢ", "ik": "ㄧㄎ", "im": "ㄧㄇ", "in": "ㄧㄣ", "ing": "ㄧㄥ", "io": "ㄧㄛ", "iok": "ㄩㄎ", "iong": "ㄩㄥ", "ip": "ㄧㄆ", "it": "ㄧㄊ", "iu": "ㄧㄨ", "iuh": "ㄧㄜ", "m": "ㄇ", "ng": "ㄥ", "o": "ㄛ", "ok": "ㄛㄎ", "om": "ㄛㄇ", "ong": "ㄛㄥ", "op": "ㄛㄆ", "ot": "ㄛㄊ", "u": "ㄨ", "ua": "ㄨㄚ", "uai": "ㄨㄞ", "uan": "ㄨㄢ", "uang": "ㄨㄤ", "uat": "ㄨㄚㄊ", "ue": "ㄨㄝ", "uet": "ㄩㄝㄊ", "uh": "ㄜ", "ui": "ㄨㄧ", "uk": "ㄨㄎ", "un": "ㄨㄣ", "up": "ㄨㄆ", "ut": "ㄨㄊ"}, "RIME_ZHUYIN": {"ㄇ": "m", "ㄚ": "a", "ㄚㄆ": "ap", "ㄚㄇ": "am", "ㄚㄊ": "at", "ㄚㄎ": "ak", "ㄚㄥ": "ang", "ㄛ": "o", "ㄛㄆ": "op", "ㄛㄇ": "om", "ㄛㄊ": "ot", "ㄛㄎ": "ok", "ㄛㄥ": "ong", "ㄜ": "uh", "ㄝ": "e", "ㄝㄆ": "ep", "ㄝㄊ": "et", "ㄝㄎ": "ek", "ㄞ": "ai", "ㄠ": "ao", "ㄢ": "an", "ㄤ": "ang", "ㄥ": "ng", "ㄧ": "i", "ㄧㄆ": "ip", "ㄧㄇ": "im", "ㄧㄊ": "it", "ㄧㄎ": "ik", "ㄧㄚ": "ia", "ㄧㄚㄆ": "iap", "ㄧㄚㄇ": "iam", "ㄧㄚㄊ": "iat", "ㄧㄚㄎ": "iak", "ㄧㄛ": "io", "ㄧㄛㄎ": "iok", "ㄧㄛㄥ": "iong", "ㄧㄜ": "iuh", "ㄧㄝㄣ": "ien", "ㄧㄠ": "iao", "ㄧㄢ": "ien", "ㄧㄣ": "in", "ㄧㄤ": "iang", "ㄧㄥ": "ing", "ㄧㄨ": "iu", "ㄨ": "u", "ㄨㄆ": "up", "ㄨㄊ": "ut", "ㄨㄎ": "uk", "ㄨㄚ": "ua", "ㄨㄚㄊ": "uat", "ㄨㄝ": "ue", "ㄨㄝㄊ": "uet", "ㄨㄞ": "uai", "ㄨㄢ": "uan", "ㄨㄣ": "un", "ㄨㄤ": "uang", "ㄨㄧ": "ui", "ㄩㄎ": "iok", "ㄩㄝㄊ": "uet", "ㄩㄥ": "iong"}, "ROW_ORDER": ["", "k", "kh", "g", "s", "z", "t", "th", "ts", "tsh", "n", "h", "m", "p", "ph", "b", "r"], "SANDHI": {"light": "t4", "low": "t4", "mid": "low", "t1": "mid", "t2": "t2", "t3": "mid", "t4": "t1"}, "SYM_TO_CODE": {"+": "mid", ".": "light", "/": "t2", "\\": "t4", "_": "low", "~": "t3", "¥": "t4", "¯": "t1", "·": "light", "ˉ": "t1", "̄": "t1", "〜": "t3", "・": "light", "＋": "mid", "／": "t2", "＼": "t4", "＿": "low", "～": "t3", "･": "light", "￣": "t1", "￥": "t4"}, "TAIWAN_TO_CODE": {"0": "mid", "1": "t1", "2": "t2", "3": "t3", "4": "t4", "5": "light", "9": "low"}, "TONE_PITCH": {"light": ".", "low": "1", "mid": "3", "t1": "5", "t2": "35", "t3": "113", "t4": "53"}, "TONE_SYM": {"light": "·", "low": "_", "mid": "+", "t1": "¯", "t2": "/", "t3": "~", "t4": "\\"}, "TONE_TAIWAN": {"light": "5", "low": "9", "mid": "0", "t1": "1", "t2": "2", "t3": "3", "t4": "4"}, "TONE_ZHUYIN": {"light": "˙", "low": "_", "mid": "+", "t1": "", "t2": "ˊ", "t3": "ˇ", "t4": "ˋ"}, "ZHUYIN_TO_CODE": {"": "t1", "\"": "mid", "'": "low", "+": "mid", "_": "low", "ˇ": "t3", "ˊ": "t2", "ˋ": "t4", "˙": "light"}}）。
+   逐函式對照 nippin_core.py；改演算法要兩邊同改，並跑 test_nippin_js_parity.py（node 實跑）。 */
+(function (root) {
+'use strict';
+const T = {"ALL_RIMES": ["a", "i", "u", "e", "o", "uh", "ai", "ao", "am", "an", "ang", "ong", "ap", "at", "ak", "ip", "it", "ik", "up", "ut", "uk", "ep", "et", "ek", "op", "ot", "ok", "ia", "iu", "iao", "ien", "iam", "iang", "iong", "in", "ing", "im", "iap", "iat", "iak", "iok", "iuh", "ua", "ue", "ui", "uai", "uan", "uang", "un", "uat", "ng", "m", "om", "io", "uet"], "CARRIER": {"ア": {"a": ["ア", ""], "e": ["エ", ""], "i": ["イ", ""], "o": ["オ", ""], "u": ["ウ", ""], "ya": ["ヤ", ""], "ye": ["イ", "エ"], "yo": ["ヨ", ""]}, "カ": {"a": ["カ", ""], "e": ["ケ", ""], "i": ["キ", ""], "o": ["コ", ""], "u": ["ク", ""], "ya": ["キャ", ""], "ye": ["キェ", ""], "yo": ["キョ", ""]}, "ガ": {"a": ["ガ", ""], "e": ["ゲ", ""], "i": ["ギ", ""], "o": ["ゴ", ""], "u": ["グ", ""], "ya": ["ギャ", ""], "ye": ["ギェ", ""], "yo": ["ギョ", ""]}, "サ": {"a": ["サ", ""], "e": ["セ", ""], "i": ["シ", ""], "o": ["ソ", ""], "u": ["ス", ""], "ya": ["シャ", ""], "ye": ["シェ", ""], "yo": ["ショ", ""]}, "ザ": {"a": ["ザ", ""], "e": ["ゼ", ""], "i": ["ジ", ""], "o": ["ゾ", ""], "u": ["ズ", ""], "ya": ["ジャ", ""], "ye": ["ジェ", ""], "yo": ["ジョ", ""]}, "タ": {"a": ["タ", ""], "e": ["テ", ""], "i": ["ティ", ""], "o": ["ト", ""], "u": ["トゥ", ""], "ya": ["ティ", "ヤ"], "ye": ["ティ", "エ"], "yo": ["ティ", "ヨ"]}, "ツァ": {"a": ["ツァ", ""], "e": ["ツェ", ""], "i": ["チ", ""], "o": ["ツォ", ""], "u": ["ツ", ""], "ya": ["チャ", ""], "ye": ["チェ", ""], "yo": ["チョ", ""]}, "ナ": {"a": ["ナ", ""], "e": ["ネ", ""], "i": ["ニ", ""], "o": ["ノ", ""], "u": ["ヌ", ""], "ya": ["ニャ", ""], "ye": ["ニェ", ""], "yo": ["ニョ", ""]}, "ハ": {"a": ["ハ", ""], "e": ["ヘ", ""], "i": ["ヒ", ""], "o": ["ホ", ""], "u": ["フ", ""], "ya": ["ヒャ", ""], "ye": ["ヒェ", ""], "yo": ["ヒョ", ""]}, "バ": {"a": ["バ", ""], "e": ["ベ", ""], "i": ["ビ", ""], "o": ["ボ", ""], "u": ["ブ", ""], "ya": ["ビャ", ""], "ye": ["ビェ", ""], "yo": ["ビョ", ""]}, "パ": {"a": ["パ", ""], "e": ["ペ", ""], "i": ["ピ", ""], "o": ["ポ", ""], "u": ["プ", ""], "ya": ["ピャ", ""], "ye": ["ピェ", ""], "yo": ["ピョ", ""]}, "マ": {"a": ["マ", ""], "e": ["メ", ""], "i": ["ミ", ""], "o": ["モ", ""], "u": ["ム", ""], "ya": ["ミャ", ""], "ye": ["ミェ", ""], "yo": ["ミョ", ""]}, "ラ": {"a": ["ラ", ""], "e": ["レ", ""], "i": ["リ", ""], "o": ["ロ", ""], "u": ["ル", ""], "ya": ["リャ", ""], "ye": ["リェ", ""], "yo": ["リョ", ""]}}, "CODA_KANA": {"k": "ク", "m": "ム", "n": "ヌ", "ng": "ン", "p": "プ", "t": "ツ"}, "DUAL_SEP": ">", "FLAG": "*", "NUM_TO_ZHUYIN_TONE": {"0": "+", "1": "", "2": "ˊ", "3": "ˇ", "4": "ˋ", "5": "˙", "9": "_"}, "ONSET_ROW": {"": ["ア", false], "b": ["バ", false], "g": ["ガ", false], "h": ["ハ", false], "k": ["カ", false], "kh": ["カ", true], "m": ["マ", false], "n": ["ナ", false], "p": ["パ", false], "ph": ["パ", true], "r": ["ラ", false], "s": ["サ", false], "t": ["タ", false], "th": ["タ", true], "ts": ["ツァ", false], "tsh": ["ツァ", true], "z": ["ザ", false]}, "ONSET_ZHUYIN": {"": "", "ㄅ": "p", "ㄅㄏ": "b", "ㄆ": "ph", "ㄇ": "m", "ㄉ": "t", "ㄊ": "th", "ㄋ": "n", "ㄌ": "r", "ㄍ": "k", "ㄍㄏ": "g", "ㄎ": "kh", "ㄏ": "h", "ㄐ": "ts", "ㄑ": "tsh", "ㄒ": "s", "ㄖ": "z", "ㄗ": "ts", "ㄘ": "tsh", "ㄙ": "s"}, "PITCH_TO_CODE": {".": "light", "1": "low", "113": "t3", "3": "mid", "3.": "light", "35": "t2", "5": "t1", "53": "t4"}, "RIMES": ["a", "i", "u", "e", "o", "uh", "ai", "ao", "am", "an", "ang", "ong", "ap", "at", "ak", "ip", "it", "ik", "up", "ut", "uk", "ep", "et", "ek", "op", "ot", "ok", "ia", "iu", "iao", "ien", "iam", "iang", "iong", "in", "ing", "im", "iap", "iat", "iak", "iok", "iuh", "ua", "ue", "ui", "uai", "uan", "uang", "un", "uat", "ng", "m"], "RIME_KANA": {"a": ["a", "", ""], "ai": ["a", "イ", ""], "ak": ["a", "", "k"], "am": ["a", "", "m"], "an": ["a", "", "n"], "ang": ["a", "", "ng"], "ao": ["a", "オ", ""], "ap": ["a", "", "p"], "at": ["a", "", "t"], "e": ["e", "", ""], "ek": ["e", "", "k"], "ep": ["e", "", "p"], "et": ["e", "", "t"], "i": ["i", "", ""], "ia": ["ya", "", ""], "iak": ["ya", "", "k"], "iam": ["ya", "", "m"], "iang": ["ya", "", "ng"], "iao": ["ya", "オ", ""], "iap": ["ya", "", "p"], "iat": ["ya", "", "t"], "ien": ["ye", "", "n"], "ik": ["i", "", "k"], "im": ["i", "", "m"], "in": ["i", "", "n"], "ing": ["i", "", "ng"], "io": ["yo", "", ""], "iok": ["yo", "", "k"], "iong": ["yo", "", "ng"], "ip": ["i", "", "p"], "it": ["i", "", "t"], "iu": ["i", "ウ", ""], "iuh": ["i", "ヲ", ""], "m": ["u", "", "m"], "ng": ["u", "", "ng"], "o": ["o", "", ""], "ok": ["o", "", "k"], "om": ["o", "", "m"], "ong": ["o", "", "ng"], "op": ["o", "", "p"], "ot": ["o", "", "t"], "u": ["u", "", ""], "ua": ["u", "ア", ""], "uai": ["u", "アイ", ""], "uan": ["u", "ア", "n"], "uang": ["u", "ア", "ng"], "uat": ["u", "ア", "t"], "ue": ["u", "エ", ""], "uet": ["u", "エ", "t"], "uh": ["u", "ヲ", ""], "ui": ["u", "イ", ""], "uk": ["u", "", "k"], "un": ["u", "", "n"], "up": ["u", "", "p"], "ut": ["u", "", "t"]}, "RIME_TO_ZHUYIN": {"a": "ㄚ", "ai": "ㄞ", "ak": "ㄚㄎ", "am": "ㄚㄇ", "an": "ㄢ", "ang": "ㄤ", "ao": "ㄠ", "ap": "ㄚㄆ", "at": "ㄚㄊ", "e": "ㄝ", "ek": "ㄝㄎ", "ep": "ㄝㄆ", "et": "ㄝㄊ", "i": "ㄧ", "ia": "ㄧㄚ", "iak": "ㄧㄚㄎ", "iam": "ㄧㄚㄇ", "iang": "ㄧㄤ", "iao": "ㄧㄠ", "iap": "ㄧㄚㄆ", "iat": "ㄧㄚㄊ", "ien": "ㄧㄢ", "ik": "ㄧㄎ", "im": "ㄧㄇ", "in": "ㄧㄣ", "ing": "ㄧㄥ", "io": "ㄧㄛ", "iok": "ㄩㄎ", "iong": "ㄩㄥ", "ip": "ㄧㄆ", "it": "ㄧㄊ", "iu": "ㄧㄨ", "iuh": "ㄧㄜ", "m": "ㄇ", "ng": "ㄥ", "o": "ㄛ", "ok": "ㄛㄎ", "om": "ㄛㄇ", "ong": "ㄛㄥ", "op": "ㄛㄆ", "ot": "ㄛㄊ", "u": "ㄨ", "ua": "ㄨㄚ", "uai": "ㄨㄞ", "uan": "ㄨㄢ", "uang": "ㄨㄤ", "uat": "ㄨㄚㄊ", "ue": "ㄨㄝ", "uet": "ㄩㄝㄊ", "uh": "ㄜ", "ui": "ㄨㄧ", "uk": "ㄨㄎ", "un": "ㄨㄣ", "up": "ㄨㄆ", "ut": "ㄨㄊ"}, "RIME_ZHUYIN": {"ㄇ": "m", "ㄚ": "a", "ㄚㄆ": "ap", "ㄚㄇ": "am", "ㄚㄊ": "at", "ㄚㄎ": "ak", "ㄚㄥ": "ang", "ㄛ": "o", "ㄛㄆ": "op", "ㄛㄇ": "om", "ㄛㄊ": "ot", "ㄛㄎ": "ok", "ㄛㄥ": "ong", "ㄜ": "uh", "ㄝ": "e", "ㄝㄆ": "ep", "ㄝㄊ": "et", "ㄝㄎ": "ek", "ㄞ": "ai", "ㄠ": "ao", "ㄢ": "an", "ㄤ": "ang", "ㄥ": "ng", "ㄧ": "i", "ㄧㄆ": "ip", "ㄧㄇ": "im", "ㄧㄊ": "it", "ㄧㄎ": "ik", "ㄧㄚ": "ia", "ㄧㄚㄆ": "iap", "ㄧㄚㄇ": "iam", "ㄧㄚㄊ": "iat", "ㄧㄚㄎ": "iak", "ㄧㄛ": "io", "ㄧㄛㄎ": "iok", "ㄧㄛㄥ": "iong", "ㄧㄜ": "iuh", "ㄧㄝㄣ": "ien", "ㄧㄠ": "iao", "ㄧㄢ": "ien", "ㄧㄣ": "in", "ㄧㄤ": "iang", "ㄧㄥ": "ing", "ㄧㄨ": "iu", "ㄨ": "u", "ㄨㄆ": "up", "ㄨㄊ": "ut", "ㄨㄎ": "uk", "ㄨㄚ": "ua", "ㄨㄚㄊ": "uat", "ㄨㄝ": "ue", "ㄨㄝㄊ": "uet", "ㄨㄞ": "uai", "ㄨㄢ": "uan", "ㄨㄣ": "un", "ㄨㄤ": "uang", "ㄨㄧ": "ui", "ㄩㄎ": "iok", "ㄩㄝㄊ": "uet", "ㄩㄥ": "iong"}, "ROW_ORDER": ["", "k", "kh", "g", "s", "z", "t", "th", "ts", "tsh", "n", "h", "m", "p", "ph", "b", "r"], "SANDHI": {"light": "t4", "low": "t4", "mid": "low", "t1": "mid", "t2": "t2", "t3": "mid", "t4": "t1"}, "SYM_TO_CODE": {"+": "mid", ".": "light", "/": "t2", "\\": "t4", "_": "low", "~": "t3", "¥": "t4", "¯": "t1", "·": "light", "ˉ": "t1", "̄": "t1", "〜": "t3", "・": "light", "＋": "mid", "／": "t2", "＼": "t4", "＿": "low", "～": "t3", "･": "light", "￣": "t1", "￥": "t4"}, "TAIWAN_TO_CODE": {"0": "mid", "1": "t1", "2": "t2", "3": "t3", "4": "t4", "5": "light", "9": "low"}, "TONE_PITCH": {"light": ".", "low": "1", "mid": "3", "t1": "5", "t2": "35", "t3": "113", "t4": "53"}, "TONE_SYM": {"light": "·", "low": "_", "mid": "+", "t1": "¯", "t2": "/", "t3": "~", "t4": "\\"}, "TONE_TAIWAN": {"light": "5", "low": "9", "mid": "0", "t1": "1", "t2": "2", "t3": "3", "t4": "4"}, "TONE_ZHUYIN": {"light": "˙", "low": "_", "mid": "+", "t1": "", "t2": "ˊ", "t3": "ˇ", "t4": "ˋ"}, "ZHUYIN_TO_CODE": {"": "t1", "\"": "mid", "'": "low", "+": "mid", "_": "low", "ˇ": "t3", "ˊ": "t2", "ˋ": "t4", "˙": "light"}};
+const FLAG = T.FLAG, SEP = T.DUAL_SEP, SENT = '\u0000';
+const ZY_TONE_CHARS = new Set('_+ˊˇˋ˙');
+const ZY_TONES_ALL = new Set('_+ˊˇˋ˙\'"');
+const RIME_SET = new Set(T.ALL_RIMES);
+const RM_ONSETS = Object.keys(T.ONSET_ROW).filter(k => k).sort((a, b) => b.length - a.length);
+const ZY_ONSET_KEYS = Object.keys(T.ONSET_ZHUYIN).filter(k => k).sort((a, b) => b.length - a.length);
+const ZY_FROM_ROMAN = {};
+for (const [k, v] of Object.entries(T.ONSET_ZHUYIN)) if (!'ㄐㄑㄒ'.includes(k) || k === '') ZY_FROM_ROMAN[v] = k;
+ZY_FROM_ROMAN[''] = '';
+const NO_VOWEL = new Set(['ng', 'm']);
+const A_BARE = new Set(['uh', 'ng', 'm']);
+
+function sandhi(code, level) { for (let i = 0; i < level; i++) code = (code in T.SANDHI) ? T.SANDHI[code] : code; return code; }
+function mk(onset, rime, nasal, tone, dual) { return {onset, rime, nasal, tone, dual: dual || ''}; }
+function toneText(code, style) { return ({symbol: T.TONE_SYM, pitch: T.TONE_PITCH, taiwan: T.TONE_TAIWAN})[style][code]; }
+function romanBody(p) { return p.onset + (p.nasal ? 'ng' : '') + p.rime; }
+function sylRoman(p, style, high) {
+  style = style || 'symbol'; if (high === undefined) high = true;
+  const t0 = (!high && style === 'symbol' && p.tone === 't1') ? '' : toneText(p.tone, style);
+  let out = romanBody(p) + t0;
+  if (p.dual === FLAG) out += FLAG;
+  else if (p.dual) out += (style !== 'symbol' ? SEP : '') + toneText(p.dual, style);
+  return out;
+}
+function kanaParts(p) {
+  const [row, asp] = T.ONSET_ROW[p.onset];
+  const [key, mid, coda] = T.RIME_KANA[p.rime];
+  let car, after;
+  if (row === 'ア' && A_BARE.has(p.rime)) { car = ''; after = ''; } else { [car, after] = T.CARRIER[row][key]; }
+  return [p.nasal ? 'ng' : '', car, asp ? 'ʰ' : '', after + mid, T.CODA_KANA[coda] || '', NO_VOWEL.has(p.rime)];
+}
+/* 逐字拆解：照假名的組法拆（不照聲母＋韻母）——逐行對照 nippin_core.py kana_breakdown（作者 2026-10-02） */
+const DAN_SOUND = {a: 'a', i: 'i', u: 'u', e: 'e', o: 'o', ya: 'ia', yo: 'io', ye: 'ie'};
+const MID_SOUND = {'ア': 'a', 'イ': 'i', 'ウ': 'u', 'エ': 'e', 'オ': 'o', 'ヲ': 'uh'};
+const CODA_NOTE = {p: '收尾・塞住不放', t: '收尾・塞住不放', k: '收尾・塞住不放', m: '鼻音收尾', n: '鼻音收尾', ng: '鼻音收尾'};
+function kanaBreakdown(p) {
+  const [ng, car, asp, rest, coda, nov] = kanaParts(p);
+  const [key, mid, codaR] = T.RIME_KANA[p.rime];
+  const after = mid ? rest.slice(0, rest.length - mid.length) : rest;
+  const out = [];
+  if (ng) out.push(['ng', '', '聲母帶鼻音']);
+  if (car) {
+    const kana = car + asp + after;
+    if (nov) out.push([kana, p.onset, '小字上提・只出子音']);
+    else if (mid.startsWith('ヲ')) out.push([kana, p.onset + (key === 'i' ? 'i' : ''), '']);
+    else out.push([kana, p.onset + DAN_SOUND[key], asp ? '送氣' : '']);
+  }
+  for (const ch of mid) out.push([ch, MID_SOUND[ch], '']);
+  if (coda) out.push(nov ? [coda, codaR, '韻腹（沒有母音）'] : [coda, '-' + codaR, CODA_NOTE[codaR]]);
+  return out;
+}
+function sylKana(p, tone, flag, html, high) {
+  if (high === undefined) high = true;
+  const [ng, car, asp, rest, coda, nov] = kanaParts(p);
+  const t = (tone && (high || tone !== 't1')) ? T.TONE_SYM[tone] : '', f = flag ? FLAG : '';
+  if (!html) return ng + car + asp + rest + coda + t + f;
+  let h = '';
+  if (ng) h += '<span class="nasmk">ng</span>';
+  h += (nov && car) ? '<span class="coR">' + car + '</span>' : car;
+  if (asp) h += '<span class="kimk">ʰ</span>';
+  h += rest;
+  if (coda) h += nov ? coda : '<span class="co">' + coda + '</span>';
+  return h + t + f;
+}
+function onsetZhuyin(p) {
+  const o = p.onset;
+  if ((o === 'ts' || o === 'tsh' || o === 's') && p.rime.startsWith('i')) return {ts: 'ㄐ', tsh: 'ㄑ', s: 'ㄒ'}[o];
+  return ZY_FROM_ROMAN[o];
+}
+function sylZhuyin(p, tone, html, flag) {
+  const o = onsetZhuyin(p), r = T.RIME_TO_ZHUYIN[p.rime];
+  if (tone == null) tone = p.tone;
+  let head;
+  if (p.nasal && !o) head = 'ㄥ';
+  else if (html && o.length === 2) head = o[0] + '<sub>' + o[1] + (p.nasal ? 'ㄥ' : '') + '</sub>';
+  else if (html && p.nasal) head = o + '<sub>ㄥ</sub>';
+  else head = o + (p.nasal ? 'ㄥ' : '');
+  return head + r + T.TONE_ZHUYIN[tone] + (flag ? FLAG : '');
+}
+
+/* ── sandhi_dual（中立模組）的注音側原語：逐行對照 sandhi_dual.py ── */
+function splitDual(tok, toneChars, numToTone) {
+  let t = (tok || '').trim();
+  if (!t) return [tok, ''];
+  if (t.includes(SEP)) t = t.split(SEP).join('');
+  const n = t.length, last = t[n - 1], prev = t[n - 2];
+  if (n >= 2 && last === FLAG) return [t.slice(0, -1), FLAG];
+  if (n >= 3 && toneChars.has(last) && toneChars.has(prev)) return [t.slice(0, -1), last];
+  if (numToTone) {
+    if (n >= 3 && (last in numToTone) && (toneChars.has(prev) || (prev in numToTone)))
+      return [t.slice(0, -1), numToTone[last] || last];
+  }
+  return [t, ''];
+}
+const splitDualZhuyin = tok => splitDual(tok, ZY_TONE_CHARS, T.NUM_TO_ZHUYIN_TONE);
+function markDualBoundariesZhuyin(text) {
+  let t = (text || '').split(SEP).join('');
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙])([_+ˊˇˋ˙])/g, '$1$2' + SENT);
+  return t.split(FLAG).join(FLAG + SENT);
+}
+
+function stripHtml(s) { return String(s == null ? '' : s).replace(/<[^>]+>/g, ''); }
+
+function parseZhuyin(syl) {
+  syl = stripHtml(syl).trim();
+  if (!syl) return null;
+  let [base, d] = splitDualZhuyin(syl);
+  if (base.endsWith(FLAG)) base = base.slice(0, -1);
+  if (d === FLAG) { const [b2, d2] = splitDualZhuyin(base); if (d2 && d2 !== FLAG) { base = b2; d = d2; } }
+  let dual = '';
+  if (d === FLAG) dual = FLAG;
+  else if (d) { dual = d === '1' ? 't1' : (T.ZHUYIN_TO_CODE[d] || ''); if (!dual) return null; }
+  let tone = 't1';
+  const last = base[base.length - 1];
+  if (base && ZY_TONES_ALL.has(last)) { tone = T.ZHUYIN_TO_CODE[last]; base = base.slice(0, -1); }
+  else if (base && /[0-9]/.test(last)) {
+    const t = T.NUM_TO_ZHUYIN_TONE[last];
+    if (t == null) return null;
+    tone = T.ZHUYIN_TO_CODE[t]; base = base.slice(0, -1);
+  }
+  if (!base) return null;
+  let onset = '', rest = base;
+  for (const k of ZY_ONSET_KEYS) if (base.startsWith(k) && base.length > k.length) { onset = k; rest = base.slice(k.length); break; }
+  let nasal = false;
+  if (onset && rest.startsWith('ㄥ') && (rest.slice(1) in T.RIME_ZHUYIN)) { nasal = true; rest = rest.slice(1); }
+  else if (!onset && base.startsWith('ㄥ') && (base.slice(1) in T.RIME_ZHUYIN)) { nasal = true; rest = base.slice(1); }
+  if (!(rest in T.RIME_ZHUYIN)) return null;
+  return mk(T.ONSET_ZHUYIN[onset], T.RIME_ZHUYIN[rest], nasal, tone, dual);
+}
+
+function foldRoman(s) {
+  s = s.split('ʰ').join('h');
+  for (const [a, b] of [['kk', 'k'], ['tt', 't'], ['pp', 'p']]) {
+    if (s.startsWith(a)) s = b + s.slice(2);
+    else if (s.startsWith('ng' + a)) s = 'ng' + b + s.slice(4);
+  }
+  const pre = (s.startsWith('ng') && s.length > 2 && !'aeiou'.includes(s[2])) ? 'ng' : '';
+  let t = s.slice(pre.length);
+  for (const [a, b] of [['ch', 'tsh'], ['l', 'r']]) {
+    if (t.startsWith(a)) { t = b + t.slice(a.length); break; }
+  }
+  return pre + t;
+}
+function splitOnset(s) {
+  for (const k of RM_ONSETS) if (s.startsWith(k) && s.length > k.length) return [k, s.slice(k.length)];
+  return ['', s];
+}
+function parseRomanBody(s) {
+  s = foldRoman(s.toLowerCase());
+  if (RIME_SET.has(s)) return ['', s, false];
+  if (s.startsWith('ng') && RIME_SET.has(s.slice(2))) return ['', s.slice(2), true];
+  if (s.startsWith('ng')) { const [o, r] = splitOnset(s.slice(2)); if (o && RIME_SET.has(r)) return [o, r, true]; }
+  const [o, r] = splitOnset(s);
+  if (!o) return null;
+  if (RIME_SET.has(r)) return [o, r, false];
+  if (r.startsWith('ng') && RIME_SET.has(r.slice(2))) return [o, r.slice(2), true];
+  return null;
+}
+function toneSeq(tail, digits) {
+  if (!tail) return [];
+  if (digits === 'pitch' && /^[0-9.>]+$/.test(tail)) {
+    const parts = tail.split(SEP);
+    if (parts.length > 2) return null;
+    const out = parts.map(x => T.PITCH_TO_CODE[x]);
+    return out.includes(undefined) ? null : out;
+  }
+  if (digits === 'taiwan' && /^[0-9>]+$/.test(tail)) {
+    const out = [...tail.split(SEP).join('')].map(c => T.TAIWAN_TO_CODE[c]);
+    return (out.includes(undefined) || out.length > 2) ? null : out;
+  }
+  const out = [...tail.split(SEP).join('')].map(c => T.SYM_TO_CODE[c]);
+  return (out.includes(undefined) || out.length > 2) ? null : out;
+}
+function parseToneTail(tail, digits) {
+  const flag = tail.endsWith(FLAG);
+  if (flag) tail = tail.slice(0, -1);
+  let seq = toneSeq(tail, digits);
+  if (seq === null) return null;
+  if (!seq.length) seq = ['t1'];
+  if (seq.length === 2) return [seq[0], seq[1]];
+  return [seq[0], flag ? FLAG : ''];
+}
+function parseRoman(tok, digits) {
+  tok = stripHtml(tok).trim().normalize('NFC');
+  if (!tok) return null;
+  const m = tok.match(/^([A-Za-zʰ]+)([\s\S]*)$/);
+  if (!m) return null;
+  const body = parseRomanBody(m[1]), tt = parseToneTail(m[2], digits || 'pitch');
+  if (!body || !tt) return null;
+  return mk(body[0], body[1], body[2], tt[0], tt[1]);
+}
+const hiraToKata = s => [...s].map(c => (c >= 'ぁ' && c <= 'ゖ') ? String.fromCharCode(c.charCodeAt(0) + 0x60) : c).join('');
+const KANA_REV = {};
+for (const o of T.ROW_ORDER) for (const r of T.ALL_RIMES) { const k = sylKana(mk(o, r, false, 't1'), null); if (!(k in KANA_REV)) KANA_REV[k] = [o, r]; }
+function parseKana(tok, digits) {
+  tok = hiraToKata(stripHtml(tok).trim().normalize('NFC'));
+  const nasal = tok.toLowerCase().startsWith('ng');
+  if (nasal) tok = tok.slice(2);
+  const m = tok.match(/^([ァ-ヺʰh]+)([\s\S]*)$/);
+  if (!m) return null;
+  const hit = KANA_REV[m[1].split('h').join('ʰ')], tt = parseToneTail(m[2], digits || 'pitch');
+  if (!hit || !tt) return null;
+  return mk(hit[0], hit[1], nasal, tt[0], tt[1]);
+}
+const isZhuyin = s => /[ㄅ-ㄩ]/.test(s || '');
+const isKana = s => /[゠-ヿ぀-ゟ]/.test(s || '');
+function parseAny(tok, digits) {
+  if (isZhuyin(tok)) return [parseZhuyin(tok), 'zhuyin'];
+  if (isKana(tok)) return [parseKana(tok, digits), 'kana'];
+  return [parseRoman(tok, digits), 'roman'];
+}
+
+const PUNCT = '，。、；！？,;!?()（）「」『』【】《》〈〉：:—…\n';
+const TONE_END = [...new Set([...Object.values(T.TONE_SYM), ...Object.keys(T.SYM_TO_CODE), FLAG])].sort().join('');
+const reEsc = s => s.replace(/[\\\]\[^\-]/g, '\\$&');
+const RE_TONE_END = new RegExp('([' + reEsc(TONE_END) + '0-9])(?=[A-Za-z゠-ヿ぀-ゟ])', 'g');
+function insertBoundaries(text) {
+  let t = markDualBoundariesZhuyin(text.split(SEP).join('\u0001')).split('\u0001').join(SEP);
+  t = t.replace(/\u0000(?=$|[\s\-－])/g, '').split(SENT).join(' ');
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙'"])(?=[ㄅ-ㄩ])/g, '$1 ');
+  return t.replace(RE_TONE_END, '$1 ');
+}
+function tokenize(text) {
+  const t = insertBoundaries((text || '').normalize('NFC'));
+  const out = []; let buf = '';
+  for (const c of t) {
+    if (/\s/.test(c) || c === '-' || c === '－' || PUNCT.includes(c)) {
+      if (buf) { out.push(['syl', buf]); buf = ''; }
+      if (out.length && out[out.length - 1][0] === 'sep') out[out.length - 1][1] += c; else out.push(['sep', c]);
+    } else buf += c;
+  }
+  if (buf) out.push(['syl', buf]);
+  return out;
+}
+function level(sep) { const s = sep.split('－').join('-'); return s.includes('--') ? 2 : (s.includes('-') ? 1 : 0); }
+function actualTone(x) {
+  const d = x.p.dual;
+  if (d && d !== FLAG) return d;
+  if (d === FLAG) return x.p.tone;
+  return sandhi(x.p.tone, x.level);
+}
+function render(items, fn, keepSep, joiner) {
+  joiner = joiner || '';
+  return items.map(x => x.sep !== undefined && !x.syl ? (keepSep ? x.sep : x.sep.replace(/[-－]+/g, joiner))
+    : (x.p ? fn(x) : '?' + x.raw + '?')).join('');
+}
+function convert(text, digits) {
+  digits = digits || 'pitch';
+  const toks = tokenize(text), items = [];
+  toks.forEach(([kind, s], i) => {
+    if (kind === 'sep') { items.push({sep: s}); return; }
+    const nxt = (i + 1 < toks.length && toks[i + 1][0] === 'sep') ? toks[i + 1][1] : '';
+    const [p, src] = parseAny(s, digits);
+    items.push({syl: true, raw: s, p, src, level: level(nxt)});
+  });
+  const res = {
+    items,
+    syllables: items.filter(x => x.syl),
+    bad: items.filter(x => x.syl && !x.p).map(x => x.raw),
+    roman: (style, high = true) => render(items, x => sylRoman(x.p, style || 'symbol', high), true),
+    kana: (sandhiOn = true, keepHyphen = false, html = false, high = true) => {
+      const s = render(items, x => {
+        const d = x.p.dual;
+        if (sandhiOn) return sylKana(x.p, actualTone(x), !!d, html, high);
+        if (d && d !== FLAG) return sylKana(x.p, x.p.tone, false, html, high) + T.TONE_SYM[d];
+        return sylKana(x.p, x.p.tone, d === FLAG, html, high);
+      }, keepHyphen, ' ');
+      return html ? '<span class="ka">' + s + '</span>' : s;
+    },
+    zhuyin: (sandhiOn = true, keepHyphen = true, html = false) => render(items, x => {
+      const d = x.p.dual;
+      if (sandhiOn) return sylZhuyin(x.p, actualTone(x), html, d === FLAG);
+      let s = sylZhuyin(x.p, null, html, d === FLAG);
+      if (d && d !== FLAG) s += T.TONE_ZHUYIN[d] || '1';
+      return s;
+    }, keepHyphen, ' '),
+  };
+  return res;
+}
+
+const API = {T, convert, parseZhuyin, parseRoman, parseKana, parseAny, sylRoman, sylKana, sylZhuyin, actualTone, romanBody, kanaBreakdown};
+if (typeof module !== 'undefined' && module.exports) module.exports = API; else root.NippinCore = API;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<script>
+(function(){
+const N = window.NippinCore, $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
+const TN = {low:'低',mid:'中',t1:'高',t2:'升',t3:'沈',t4:'降',light:'頓'};
+const SRC = {zhuyin:'注音', roman:'ローマ字', kana:'カタカナ'};
+let base = false;                      // false＝讀的兩層寫詞句音（預設）；true＝本調
+let plain = {}, rich = {};
+const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
+
+function render(){
+  const src = $('in').value;
+  const dg = document.querySelector('input[name=dg]:checked').value;
+  const r = N.convert(src, dg);
+  const hy = $('hyphen').checked, hi = $('high').checked, sd = !base;
+  plain = {ka: r.kana(sd, hy, false, hi), rm: r.roman('symbol', hi), zy: r.zhuyin(sd, hy)};
+  rich = {ka: r.kana(sd, hy, true, hi), rm: esc(plain.rm), zy: r.zhuyin(sd, hy, true)};
+  $('o_ka').innerHTML = rich.ka; $('o_rm').textContent = plain.rm; $('o_zy').innerHTML = rich.zy;
+  document.querySelectorAll('.orow').forEach(cb => {
+    const on = cb.checked, row = cb.dataset.row;
+    $('o_' + row).style.opacity = on ? '' : '.35';
+  });
+  $('swaphint').textContent = base ? '讀的兩層正顯示本調（未變調）。' : '';
+  const srcs = [...new Set(r.syllables.map(x => SRC[x.src]))];
+  $('kind').innerHTML = !src.trim() ? '' :
+    ('判讀為：' + srcs.join('＋') + (r.bad.length ? '　<span class="bad">⚠ 解析不出：' + r.bad.map(esc).join('　') + '</span>' : ''));
+  const t = $('brk');
+  // ⭐ 2026-10-02 作者：日拼不拆「聲母＋韻母」——ラヌ~ 是 ラ(ra) 加鼻音 n，不是 l＋an。照假名的組法拆。
+  t.innerHTML = '<tr><th>輸入</th><th>來源</th><th>カタカナ</th><th>ローマ字</th><th>注音</th><th>假名組成</th><th>調</th></tr>' +
+    r.syllables.map(x => {
+      if (!x.p) return '<tr><td>' + esc(x.raw) + '</td><td colspan="6" class="bad">解析不出</td></tr>';
+      const p = x.p, act = N.actualTone(x);
+      const tn = TN[p.tone] + ' ' + N.T.TONE_SYM[p.tone] + (act !== p.tone ? ' → ' + TN[act] + ' ' + N.T.TONE_SYM[act] : '') +
+                 (p.dual === '*' ? '（*特殊）' : (p.dual ? '（特殊・帶值）' : ''));
+      const parts = N.kanaBreakdown(p).map(([k, s, note]) =>
+        '<span class="bp"><span class="' + (k === 'ng' ? 'nasmk' : 'ka') + '">' + esc(k) + '</span>' +
+        (s ? '<span class="bs">' + esc(s) + '</span>' : '') + (note ? '<span class="bn">' + note + '</span>' : '') + '</span>').join('<span class="bplus">＋</span>');
+      return '<tr><td>' + esc(x.raw) + '</td><td>' + SRC[x.src] + '</td><td class="ka">' + N.sylKana(p, p.tone, false, true) +
+        '</td><td class="rm">' + esc(N.sylRoman(p)) + '</td><td>' + N.sylZhuyin(p, null, true) + '</td><td>' + parts +
+        '</td><td>' + tn + '</td></tr>';
+    }).join('');
+}
+
+// ⚠️ PowerPoint 只認絕對 pt（% em <small> 都丟掉）——2026-10-01 COM 實測；小字一律換算 pt
+// ⭐ 2026-10-02（作者：大小比例美感不佳）：カタカナ為主，ローマ字・注音 ×0.78；ng ×0.82；
+//    每列一個 <p>，text-autospace:none＝關掉 Word「中英文間自動加空白」（ng ティヤ 不再冒空隙）；
+//    ローマ字列用拉丁字型（Noto Sans TC 會把 · 排成全形）。與面板 nippin_gui_v2.html_for_clipboard 同規格。
+const ROW_RATIO = {ka: 1, rm: 16 / 14, zy: 12 / 14};   // ＝歌詞 docx 注12／カナ14／ロ16（作者 2026-10-02 定案）
+function rowHtml(k, h){
+  const n = Math.max(8, Math.min(96, parseInt($('pt').value) || 14)), sz = Math.round(n * ROW_RATIO[k]);
+  const st = {co: 'font-size:' + Math.round(sz * .72) + 'pt', coR: 'font-size:' + Math.round(sz * .72) + 'pt;vertical-align:super',
+              nasmk: 'font-family:Segoe UI;font-size:' + Math.round(sz * .82) + 'pt'};
+  const face = k === 'rm' ? 'Segoe UI' : 'Noto Sans TC';
+  return '<p style="margin:0;text-autospace:none;font-family:' + face + ';font-size:' + sz + 'pt">' +
+    h.replace(/<span class="(\w+)">/g, (_, c) => st[c] ? '<span style="' + st[c] + '">' : '<span>') + '</p>';
+}
+/* ── 輸入歷史：上一筆／下一筆（作者 2026-10-02，約存三十筆；存在本機瀏覽器）──
+   存的時機＝真的用了（複製）；重複的搬到最新，超過 30 筆丟最舊。↑↓ 鍵也可。 */
+const HIST_KEY = 'nippin_hist', HIST_MAX = 30;
+let hist = (() => { try { const h = JSON.parse(localStorage.getItem(HIST_KEY) || '[]'); return Array.isArray(h) ? h.filter(x => typeof x === 'string').slice(-HIST_MAX) : []; } catch (e) { return []; } })();
+let hpos = null, hdraft = '';
+function histLabel(){ $('hpos').textContent = hpos !== null ? (hpos + 1) + '／' + hist.length : (hist.length ? '共 ' + hist.length + ' 筆' : ''); }
+function histPush(){
+  const t = $('in').value.trim(); if (!t) return;
+  hist = hist.filter(x => x !== t).concat([t]).slice(-HIST_MAX); hpos = null;
+  try { localStorage.setItem(HIST_KEY, JSON.stringify(hist)); } catch (e) {}
+  histLabel();
+}
+function histShow(){ $('in').value = hpos === null ? hdraft : hist[hpos]; render(); histLabel(); }
+function histPrev(){
+  if (!hist.length) return;
+  if (hpos === null) { hdraft = $('in').value; hpos = hist.length - 1; if (hist[hpos] === hdraft.trim() && hpos > 0) hpos--; }
+  else if (hpos > 0) hpos--;
+  histShow();
+}
+function histNext(){ if (hpos === null) return; hpos++; if (hpos >= hist.length) hpos = null; histShow(); }
+async function copyRows(rows, done){
+  rows = rows.filter(k => plain[k]);
+  if (!rows.length) return;
+  histPush();
+  const txt = rows.map(k => plain[k]).join('\n'), h = rows.map(k => rowHtml(k, rich[k])).join('');
+  try {
+    await navigator.clipboard.write([new ClipboardItem({'text/plain': new Blob([txt], {type: 'text/plain'}),
+                                                        'text/html': new Blob([h], {type: 'text/html'})})]);
+  } catch (e) {
+    try { await navigator.clipboard.writeText(txt); } catch (e2) { return; }
+  }
+  done(rows.length);
+}
+const ORDER = ['ka', 'rm', 'zy'];
+/* Enter＝複製勾選中的輸出列（同 ipa-convert）；輸入法選字中的 Enter 不算 */
+$('in').addEventListener('keydown', e => {
+  if (e.isComposing) return;
+  if (e.key === 'ArrowUp') { e.preventDefault(); histPrev(); return; }
+  if (e.key === 'ArrowDown') { e.preventDefault(); histNext(); return; }
+  if (e.key !== 'Enter') return;
+  e.preventDefault(); render();
+  copyRows(ORDER.filter(k => document.querySelector('.orow[data-row=' + k + ']').checked), n => {
+    const k = $('kind'), keep = k.innerHTML;
+    k.innerHTML = '<span style="color:var(--moss);font-weight:700">已複製勾選的 ' + n + ' 列</span>';
+    setTimeout(() => { k.innerHTML = keep; }, 1200);
+  });
+});
+document.querySelectorAll('.cp').forEach(b => b.addEventListener('click', () =>
+  copyRows([b.dataset.t], () => { const o = b.textContent; b.textContent = '已複製'; setTimeout(() => b.textContent = o, 1200); })));
+$('hprev').addEventListener('click', () => { histPrev(); $('in').focus(); });
+$('hnext').addEventListener('click', () => { histNext(); $('in').focus(); });
+histLabel();
+$('tg').addEventListener('click', () => {
+  base = !base;
+  $('tg').textContent = 'カタカナ・注音：' + (base ? '本調' : '詞句音');
+  $('tg').classList.toggle('on', base);
+  render();
+});
+document.querySelectorAll('.exs button').forEach(b => b.addEventListener('click', () => {
+  $('in').value = b.dataset.v;
+  if (b.dataset.d) document.querySelector('input[name=dg][value=' + b.dataset.d + ']').checked = true;   // 範例沒用到數字就不動使用者的選擇
+  render(); $('in').focus();
+}));
+document.querySelectorAll('.orow').forEach(cb => {
+  const v = LS('nippin_row_' + cb.dataset.row); if (v !== null) cb.checked = v === '1';
+  cb.addEventListener('change', () => { LS('nippin_row_' + cb.dataset.row, cb.checked ? '1' : '0'); render(); });
+});
+['in', 'hyphen', 'high', 'pt'].forEach(id => $(id).addEventListener('input', render));
+document.querySelectorAll('input[name=dg]').forEach(e => e.addEventListener('change', render));
+render();
+})();
+(function(){
+  var el = document.getElementById('visit-count'); if (!el) return;
+  if (!/github\.io$/.test(location.hostname)) { el.textContent = '—'; return; }   // 本機預覽不計數
+  fetch('https://abacus.jasoncameron.dev/hit/ttaigee-bryenhsu/nippin-convert')
+    .then(function(r){ return r.ok ? r.json() : Promise.reject(); })
+    .then(function(d){ el.textContent = (d && d.value != null) ? d.value.toLocaleString() : '—'; })
+    .catch(function(){ el.textContent = '—'; });
+})();
+</script>
+<script src="/nav.js" defer></script>
+</body></html>
