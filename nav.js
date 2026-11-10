@@ -27,7 +27,7 @@
       { href: '/phonics/which.html',        label: '我應該學哪一套拼音？' }
     ]},
     { group: '注音版', items: [
-      { href: '/phonics/zhuyin.html',       label: '135拼音法 · 注音版', note: 'v1.2' }
+      { href: '/phonics/zhuyin.html',       label: '135拼音法 · 注音版', note: 'v1.2.3' }
     ]},
     { group: '漢拼版', items: [
       { href: '/phonics/hanpin.html',       label: '135拼音法 · 漢語拼音版', note: 'v1' }
@@ -40,7 +40,7 @@
       { href: '/phonics/nippin-ja.html',    label: '日本語版（日本語で読む）', note: 'v1.4' },
       { href: '/phonics/nippin-quick.html', label: '日文版 · 精簡版 · 速查卡', note: 'v1' },
       { href: '/phonics/nippin-quick-ja.html', label: '日本語版 · 早見表', note: 'v1' },
-      { href: '/phonics/nippin-convert.html', label: '日文版 · 轉換器', note: 'v2' },
+      { href: '/phonics/nippin-convert.html', label: '日文版 · 轉換器', note: 'v3' },
       { href: '/phonics/nippin-songs.html', label: '台語歌 · 日拼示範句', note: 'v1' }
     ]},
     { group: '美拼版', items: [
@@ -56,7 +56,7 @@
     { group: '量尺與卷宗', items: [
       { href: '/phonics/ipa.html',          label: '國際音標版 · 完整版', note: 'v4' },
       { href: '/phonics/ipa-chart.html',    label: '國際音標版 · 對照表', note: 'v1' },
-      { href: '/phonics/ipa-convert.html',  label: '國際音標版 · 轉換器', note: 'v1' },
+      { href: '/phonics/ipa-convert.html',  label: '國際音標版 · 轉換器', note: 'v9' },
       { href: '/phonics/records.html',      label: '135拼音法 · 裁定錄', note: 'v4' }
     ]},
     { group: '常用字 100 課', items: [
@@ -71,6 +71,7 @@
       { href: '/views/',                    label: '怎麼看這件事' },
       { href: '/views/ai.html',             label: '一台 AI 想對你說的話' },
       { href: '/views/mislead.html',       label: '我（AI）被臺羅誤導了' },
+      { href: '/views/google-ai-daming.html', label: '才結婚耶，哪來的二兒子？' },
       { href: '/views/tailo-1.html',       label: '臺羅之錯 · 從「伊」說起' },
       { href: '/views/tailo-2.html',       label: '臺羅之錯（二）· 入聲' },
       { href: '/views/transform.html',      label: '變形的存在', note: '近期', soon: true }

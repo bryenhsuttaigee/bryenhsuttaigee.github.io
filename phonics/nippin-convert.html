@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 ========================================================================
- 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v2
+ 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v4
  ⛔ 本檔是「產物」：由 nippin_convert\build_nippin_web.py 從 nippin_page.tpl.html ＋ nippin_core.py 產生，⛔ 不要手改。
     版面比照 /phonics/ipa-convert.html（作者 2026-10-02：「參考這」→ A 案）。
     JS 核心與頁面上的對照表全部由 nippin_core.py 匯出；JS ⇄ Python 由 test_nippin_js_parity.py（node）守門。
@@ -10,14 +10,14 @@
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>閩南語135拼音法 · 日文版 · 線上轉換器</title>
-<meta name="description" content="注音・ローマ字・カタカナ 線上互轉：台湾語（閩南語）の発音をカタカナで。逐字自動判別、可混寫；カタカナ寫詞句音、ローマ字寫本調＋連接號，附逐字拆解。">
+<meta name="description" content="注音・ローマ字・カタカナ・臺羅 線上互轉：台湾語（閩南語）の発音をカタカナで。逐字自動判別、可混寫；カタカナ寫詞句音、ローマ字寫本調＋連接號，附逐字拆解。">
 <link rel="canonical" href="https://bryenhsuttaigee.github.io/phonics/nippin-convert.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="一起學閩南語（臺語）漢字">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:url" content="https://bryenhsuttaigee.github.io/phonics/nippin-convert.html">
 <meta property="og:title" content="閩南語135拼音法 · 日文版 · 線上轉換器">
-<meta property="og:description" content="注音・ローマ字・カタカナ 三種都能打，程式逐字判別、互轉。台湾語をカタカナで。">
+<meta property="og:description" content="注音・ローマ字・カタカナ 三種都能打，學過臺羅也能直接打，程式逐字判別、互轉。台湾語をカタカナで。">
 <meta property="og:image" content="https://bryenhsuttaigee.github.io/phonics/og/og-index.png">
 <meta name="twitter:card" content="summary_large_image">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;900&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Sans+JP:wght@500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -44,6 +44,10 @@ main{max-width:860px;margin:0 auto;padding:1.2rem 1.2rem 3rem}
 h2{font-size:1.25rem;margin:2rem 0 .5rem;padding-bottom:.3rem;border-bottom:2px solid var(--line)}
 .box{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:1rem;margin:1rem 0}
 label.big{display:block;font-weight:700;margin-bottom:.35rem}
+.inhead{display:flex;align-items:baseline;flex-wrap:wrap;gap:.3rem 1.2rem;margin-bottom:.35rem}
+.inhead label.big{margin-bottom:0}
+.rsopt{font-size:.88rem;color:#555}
+.rsopt label{margin-left:.5rem;white-space:nowrap}
 #in{width:100%;font:700 22px/1.5 "Roboto Mono","Noto Sans JP","Noto Sans TC",monospace;padding:.6rem .7rem;
  border:2px solid var(--line);border-radius:6px;background:#fff;color:var(--ink)}
 #in:focus{border-color:var(--moss);outline:none}
@@ -104,13 +108,17 @@ sub{font-size:.7em}
 <div class="hero"><div class="hero-in">
 <p class="booktitle">閩南語135拼音法 · 日文版（日拼）</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ <span style="white-space:nowrap">カタカナ・ローマ字</span></span></h1>
-<p class="sub2"><span class="nw">讀的時候看カタカナ，打字的時候用ローマ字。</span><span class="nw">三種寫法都能打進來，程式逐字判別、互轉。</span><br><span class="nw">台湾語をカタカナで。</span></p>
-<span class="pill">v2 · 三種輸入自動判別（注音／ローマ字／カタカナ）· 三軌輸出 · 逐字可逆</span>
+<p class="sub2"><span class="nw">讀的時候看カタカナ，打字的時候用ローマ字。</span><span class="nw">三種寫法都能打進來，程式逐字判別、互轉；學過臺羅的，也能直接打臺羅。</span><br><span class="nw">台湾語をカタカナで。</span></p>
+<span class="pill">v4 · 三種輸入自動判別（注音／ローマ字／カタカナ）＋臺羅 · 四軌輸出 · 逐字可逆</span>
 </div></div>
 <main>
 
 <div class="box">
-  <label class="big" for="in">輸入</label>
+  <div class="inhead"><label class="big" for="in">輸入</label>
+    <span class="rsopt">羅馬字：
+    <label class="tip" title="本頁的ローマ字（日文版書的寫法）"><input type="radio" name="rs" value="nippin" checked> 日拼ローマ字</label>
+    <label class="tip" title="教育部臺灣閩南語羅馬字（臺羅）：調號用 á à â ā a̍ 或數字 1-9。字母相同、意思不同（臺羅 o＝ㄜ、oo＝ㄛ），所以要先選，程式不猜"><input type="radio" name="rs" value="tailo"> 臺羅（教育部）</label></span>
+  </div>
   <input id="in" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus
          placeholder="打注音（ㄍㄨㄊ˙）、ローマ字（kut.）或カタカナ（クツ·）——Enter＝複製勾選的輸出">
   <div class="hnav"><button type="button" id="hprev">◀ 上一筆</button><button type="button" id="hnext">下一筆 ▶</button><span id="hpos"></span><span class="hk">↑↓ 也可</span></div>
@@ -128,6 +136,8 @@ sub{font-size:.7em}
     <button data-v="ai_ ri\_">深深愛你（特殊變調）</button>
     <button data-v="si4" data-d="taiwan">四 si4（調號數字）</button>
     <button data-v="si53" data-d="pitch">四 si53（音高數字）</button>
+    <button data-v="lí-hó" data-r="tailo">你好 lí-hó（臺羅）</button>
+    <button data-v="Tâi-uân-lâng" data-r="tailo">台灣人（臺羅）</button>
   </div>
   <div class="opts">
     <span>數字調：</span>
@@ -150,6 +160,7 @@ sub{font-size:.7em}
     <label><input type="checkbox" class="orow" data-row="ka" checked> カタカナ</label>
     <label><input type="checkbox" class="orow" data-row="rm" checked> ローマ字</label>
     <label><input type="checkbox" class="orow" data-row="zy" checked> 注音</label>
+    <label class="tip" title="教育部臺羅，寫本調（不帶特殊變調記號）。給學過臺羅的人對照用"><input type="checkbox" class="orow" data-row="tl"> 臺羅</label>
     <span class="hint" style="margin:0">（勾選的列＝Enter 要複製的列）</span>
   </div>
   <p class="swaphint" id="swaphint"></p>
@@ -157,6 +168,7 @@ sub{font-size:.7em}
     <span class="k">カタカナ</span><span class="v ka" id="o_ka"></span><button class="cp" data-t="ka">複製</button>
     <span class="k">ローマ字</span><span class="v rm" id="o_rm"></span><button class="cp" data-t="rm">複製</button>
     <span class="k">注音</span><span class="v zy" id="o_zy"></span><button class="cp" data-t="zy">複製</button>
+    <span class="k">臺羅</span><span class="v rm" id="o_tl"></span><button class="cp" data-t="tl">複製</button>
   </div>
 </div>
 
@@ -224,7 +236,7 @@ function toneText(code, style) { return ({symbol: T.TONE_SYM, pitch: T.TONE_PITC
 function romanBody(p) { return p.onset + (p.nasal ? 'ng' : '') + p.rime; }
 function sylRoman(p, style, high) {
   style = style || 'symbol'; if (high === undefined) high = true;
-  const t0 = (!high && style === 'symbol' && p.tone === 't1') ? '' : toneText(p.tone, style);
+  const t0 = (!high && style === 'symbol' && p.tone === 't1' && !p.dual) ? '' : toneText(p.tone, style);   // 特殊變調一聲不省（2026-10-05）
   let out = romanBody(p) + t0;
   if (p.dual === FLAG) out += FLAG;
   else if (p.dual) out += (style !== 'symbol' ? SEP : '') + toneText(p.dual, style);
@@ -297,14 +309,19 @@ function splitDual(tok, toneChars, numToTone) {
   if (numToTone) {
     if (n >= 3 && (last in numToTone) && (toneChars.has(prev) || (prev in numToTone)))
       return [t.slice(0, -1), numToTone[last] || last];
+    // 2026-10-05「特殊變調時一聲就不能省了」：本調一聲用數字 1（ㄚ1_）＝第一碼數字＋第二碼調符
+    if (n >= 3 && toneChars.has(last) && (prev in numToTone)) return [t.slice(0, -1), last];
   }
   return [t, ''];
 }
 const splitDualZhuyin = tok => splitDual(tok, ZY_TONE_CHARS, T.NUM_TO_ZHUYIN_TONE);
 function markDualBoundariesZhuyin(text) {
   let t = (text || '').split(SEP).join('');
-  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙])([_+ˊˇˋ˙])/g, '$1$2' + SENT);
-  return t.split(FLAG).join(FLAG + SENT);
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙0-9])([_+ˊˇˋ˙])/g, '$1$2' + SENT);   // 第一碼可為數字（ㄚ1_，2026-10-05）
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙])(1)(?=[ㄅ-ㄩ])/g, '$1$2' + SENT);   // 一聲帶值直接接字（ㄐㄧ+1ㄅ；同 sandhi_dual，2026-10-07）
+  t = t.replace(/([ㄅ-ㄩ][0-9])([0-9])(?=[ㄅ-ㄩ])/g, '$1$2' + SENT);   // 兩碼數字直接接字（ㄚ49ㄎ；同 sandhi_dual，2026-10-07）
+  // 2026-10-06：帶值後再寫旗標（ㄐㄧ+_*）＝同一音節，`*` 前不插邊界（同 sandhi_dual）
+  return t.split(FLAG).join(FLAG + SENT).split(SENT + FLAG).join(FLAG);
 }
 
 function stripHtml(s) { return String(s == null ? '' : s).replace(/<[^>]+>/g, ''); }
@@ -314,7 +331,8 @@ function parseZhuyin(syl) {
   if (!syl) return null;
   let [base, d] = splitDualZhuyin(syl);
   if (base.endsWith(FLAG)) base = base.slice(0, -1);
-  if (d === FLAG) { const [b2, d2] = splitDualZhuyin(base); if (d2 && d2 !== FLAG) { base = b2; d = d2; } }
+  let star = false;   // 帶值後又寫旗標（ㄐㄧ+_*）：本調軌照寫回 `*`（2026-10-06）
+  if (d === FLAG) { const [b2, d2] = splitDualZhuyin(base); if (d2 && d2 !== FLAG) { base = b2; d = d2; star = true; } }
   let dual = '';
   if (d === FLAG) dual = FLAG;
   else if (d) { dual = d === '1' ? 't1' : (T.ZHUYIN_TO_CODE[d] || ''); if (!dual) return null; }
@@ -333,7 +351,11 @@ function parseZhuyin(syl) {
   if (onset && rest.startsWith('ㄥ') && (rest.slice(1) in T.RIME_ZHUYIN)) { nasal = true; rest = rest.slice(1); }
   else if (!onset && base.startsWith('ㄥ') && (base.slice(1) in T.RIME_ZHUYIN)) { nasal = true; rest = base.slice(1); }
   if (!(rest in T.RIME_ZHUYIN)) return null;
-  return mk(T.ONSET_ZHUYIN[onset], T.RIME_ZHUYIN[rest], nasal, tone, dual);
+  return withStar(mk(T.ONSET_ZHUYIN[onset], T.RIME_ZHUYIN[rest], nasal, tone, dual), star);
+}
+function withStar(p, star) {
+  if (star) p.star = true;
+  return p;
 }
 
 function foldRoman(s) {
@@ -385,8 +407,8 @@ function parseToneTail(tail, digits) {
   let seq = toneSeq(tail, digits);
   if (seq === null) return null;
   if (!seq.length) seq = ['t1'];
-  if (seq.length === 2) return [seq[0], seq[1]];
-  return [seq[0], flag ? FLAG : ''];
+  if (seq.length === 2) return [seq[0], seq[1], flag];
+  return [seq[0], flag ? FLAG : '', false];
 }
 function parseRoman(tok, digits) {
   tok = stripHtml(tok).trim().normalize('NFC');
@@ -395,7 +417,7 @@ function parseRoman(tok, digits) {
   if (!m) return null;
   const body = parseRomanBody(m[1]), tt = parseToneTail(m[2], digits || 'pitch');
   if (!body || !tt) return null;
-  return mk(body[0], body[1], body[2], tt[0], tt[1]);
+  return withStar(mk(body[0], body[1], body[2], tt[0], tt[1]), tt[2]);
 }
 const hiraToKata = s => [...s].map(c => (c >= 'ぁ' && c <= 'ゖ') ? String.fromCharCode(c.charCodeAt(0) + 0x60) : c).join('');
 const KANA_REV = {};
@@ -408,7 +430,7 @@ function parseKana(tok, digits) {
   if (!m) return null;
   const hit = KANA_REV[m[1].split('h').join('ʰ')], tt = parseToneTail(m[2], digits || 'pitch');
   if (!hit || !tt) return null;
-  return mk(hit[0], hit[1], nasal, tt[0], tt[1]);
+  return withStar(mk(hit[0], hit[1], nasal, tt[0], tt[1]), tt[2]);
 }
 const isZhuyin = s => /[ㄅ-ㄩ]/.test(s || '');
 const isKana = s => /[゠-ヿ぀-ゟ]/.test(s || '');
@@ -419,20 +441,27 @@ function parseAny(tok, digits) {
 }
 
 const PUNCT = '，。、；！？,;!?()（）「」『』【】《》〈〉：:—…\n';
+const BOUND = '\u2060';   // 帶值／旗標自帶的邊界＝接口（不是使用者打的空白）；逐行對照 nippin_core.py BOUND
 const TONE_END = [...new Set([...Object.values(T.TONE_SYM), ...Object.keys(T.SYM_TO_CODE), FLAG])].sort().join('');
 const reEsc = s => s.replace(/[\\\]\[^\-]/g, '\\$&');
 const RE_TONE_END = new RegExp('([' + reEsc(TONE_END) + '0-9])(?=[A-Za-z゠-ヿ぀-ゟ])', 'g');
+const RE_DUAL_END = new RegExp('([' + reEsc(TONE_END) + '])([' + reEsc(TONE_END) + '])(?=[A-Za-z゠-ヿ぀-ゟ])', 'g');
 function insertBoundaries(text) {
+  // 2026-10-05：注音的 `>` 可選（ㄚˋ>_ ≡ ㄚˋ_、ㄚ4>9 ≡ ㄚ49）→ 注音音節裡的先拿掉；ローマ字的（ri53>1）照保護
+  text = text.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙'"0-9]?)>/g, '$1');
   let t = markDualBoundariesZhuyin(text.split(SEP).join('\u0001')).split('\u0001').join(SEP);
-  t = t.replace(/\u0000(?=$|[\s\-－])/g, '').split(SENT).join(' ');
-  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙'"])(?=[ㄅ-ㄩ])/g, '$1 ');
+  t = t.split(SENT).map((seg, i, arr) => (i < arr.length - 1 && /^(?:$|[\s\-－]|[，。、；！？,;!?()（）「」『』【】《》〈〉：:—…\n])/.test(arr[i + 1])) ? seg : seg + (i < arr.length - 1 ? BOUND : '')).join('');
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙'"0-9]{2})(?=[ㄅ-ㄩ])/g, '$1' + BOUND);   // 兩碼＝帶值 → 自帶邊界（接口）
+  t = t.replace(/([ㄅ-ㄩ][_+ˊˇˋ˙'"0-9])(?=[ㄅ-ㄩ])/g, '$1 ');
+  t = t.replace(RE_DUAL_END, '$1$2' + BOUND);   // 帶值後直接接字＝接口（逐行對照 nippin_core.py，2026-10-07）
+  t = t.replace(new RegExp('(' + reEsc(SEP) + '[0-9.]+)(?=[A-Za-z゠-ヿ぀-ゟ])', 'g'), '$1' + BOUND);   // 調值數字帶值 a53>1kha3
   return t.replace(RE_TONE_END, '$1 ');
 }
 function tokenize(text) {
   const t = insertBoundaries((text || '').normalize('NFC'));
   const out = []; let buf = '';
   for (const c of t) {
-    if (/\s/.test(c) || c === '-' || c === '－' || PUNCT.includes(c)) {
+    if (/\s/.test(c) || c === '-' || c === '－' || PUNCT.includes(c) || c === BOUND) {
       if (buf) { out.push(['syl', buf]); buf = ''; }
       if (out.length && out[out.length - 1][0] === 'sep') out[out.length - 1][1] += c; else out.push(['sep', c]);
     } else buf += c;
@@ -447,10 +476,29 @@ function actualTone(x) {
   if (d === FLAG) return x.p.tone;
   return sandhi(x.p.tone, x.level);
 }
-function render(items, fn, keepSep, joiner) {
+/* star：詞句音層（作者 2026-09-28 裁定）——特殊變調（帶值或旗標）的接口寫 `*`；逐行對照 nippin_core.py Result._render */
+function render(items, fn, keepSep, joiner, star) {
   joiner = joiner || '';
-  return items.map(x => x.sep !== undefined && !x.syl ? (keepSep ? x.sep : x.sep.replace(/[-－]+/g, joiner))
-    : (x.p ? fn(x) : '?' + x.raw + '?')).join('');
+  const out = []; let skip = false;
+  items.forEach((x, i) => {
+    if (x.syl) {
+      out.push(x.p ? fn(x) : '?' + x.raw + '?');
+      if (star && x.p && x.p.dual) {
+        const nxt = items[i + 1], after = items[i + 2];
+        const junction = !!(nxt && !nxt.syl && after && after.syl && /^[\s\-－\u2060]+$/.test(nxt.sep) && /[-－\u2060]/.test(nxt.sep));
+        out.push(FLAG); skip = junction;     // 特殊變調一律標 `*`：接口取代連接號、詞尾掛字尾（書 §9.5.2 ai_ ri_*）
+      }
+      return;
+    }
+    if (skip) { skip = false; return; }
+    let sep = x.sep.split(BOUND).join('');
+    const prev = items[i - 1], nx = items[i + 1];
+    // 2026-10-07「容錯輸入、統一輸出」：本調軌帶值後的接口（自帶邊界／- ／--）一律 `-`（逐行對照 nippin_core.py）
+    if (!star && prev && prev.syl && prev.p && prev.p.dual && prev.p.dual !== FLAG && nx && nx.syl
+        && /^[-－⁠]+$/.test(x.sep)) sep = '-';
+    out.push(keepSep ? sep : sep.replace(/[-－]+/g, joiner));
+  });
+  return out.join('');
 }
 function convert(text, digits) {
   digits = digits || 'pitch';
@@ -465,23 +513,25 @@ function convert(text, digits) {
     items,
     syllables: items.filter(x => x.syl),
     bad: items.filter(x => x.syl && !x.p).map(x => x.raw),
+    // 只寫一個調值就接 `*`＝不完整（作者 2026-10-07）；照原樣輸出，由頁面提示
+    incomplete: items.filter(x => x.syl && x.p && x.p.dual === FLAG).map(x => x.raw),
     roman: (style, high = true) => render(items, x => sylRoman(x.p, style || 'symbol', high), true),
     kana: (sandhiOn = true, keepHyphen = false, html = false, high = true) => {
       const s = render(items, x => {
-        const d = x.p.dual;
-        if (sandhiOn) return sylKana(x.p, actualTone(x), !!d, html, high);
-        if (d && d !== FLAG) return sylKana(x.p, x.p.tone, false, html, high) + T.TONE_SYM[d];
-        return sylKana(x.p, x.p.tone, d === FLAG, html, high);
-      }, keepHyphen, ' ');
+        const d = x.p.dual, hi = high || !!d;   // 特殊變調一聲 ¯ 照寫（2026-10-05）
+        if (sandhiOn) return sylKana(x.p, actualTone(x), false, html, hi);   // `*` 由 render(star) 放
+        if (d && d !== FLAG) return sylKana(x.p, x.p.tone, false, html, hi) + T.TONE_SYM[d];
+        return sylKana(x.p, x.p.tone, d === FLAG, html, hi);
+      }, keepHyphen, ' ', sandhiOn);
       return html ? '<span class="ka">' + s + '</span>' : s;
     },
     zhuyin: (sandhiOn = true, keepHyphen = true, html = false) => render(items, x => {
       const d = x.p.dual;
-      if (sandhiOn) return sylZhuyin(x.p, actualTone(x), html, d === FLAG);
+      if (sandhiOn) return sylZhuyin(x.p, actualTone(x), html, false);   // `*` 由 render(star) 放
       let s = sylZhuyin(x.p, null, html, d === FLAG);
-      if (d && d !== FLAG) s += T.TONE_ZHUYIN[d] || '1';
+      if (d && d !== FLAG) s += (x.p.tone === 't1' ? '1' : '') + (T.TONE_ZHUYIN[d] || '1');   // 本調一聲也寫 1（ㄚ1_，2026-10-05）
       return s;
-    }, keepHyphen, ' '),
+    }, keepHyphen, ' ', sandhiOn),
   };
   return res;
 }
@@ -492,44 +542,477 @@ if (typeof module !== 'undefined' && module.exports) module.exports = API; else 
 
 </script>
 <script>
+/* ══ 臺羅（v3）：原文照搬，不改一字 ══
+   注音→臺羅 出自 台語標音器_v5_15.html；臺羅→注音 出自 tailo_135converter_v6_1.html（臺羅核心指定）
+   守門：tailo_convert\test_tailo_js_parity.py（TARGETS 含本頁）══ */
+const TL = (function(){
+const NUM_TO_TONE = {"1": "", "2": "ˊ", "3": "ˇ", "4": "ˋ", "5": "˙", "0": "+", "9": "_"};
+const ZHUYIN_TO_TAILO_INITIAL = {
+            'ㄅㄏ': 'b', 'ㄍㄏ': 'g', 'ㄍㄏㄥ': 'ng',
+            'ㄅ': 'p', 'ㄆ': 'ph', 'ㄇ': 'm',
+            'ㄉ': 't', 'ㄊ': 'th', 'ㄋ': 'n', 'ㄌ': 'l',
+            'ㄍ': 'k', 'ㄎ': 'kh', 'ㄏ': 'h',
+            'ㄐ': 'ts', 'ㄑ': 'tsh', 'ㄒ': 's',
+            'ㄗ': 'ts', 'ㄘ': 'tsh', 'ㄙ': 's',
+            'ㄖ': 'j'
+        };
+const ZHUYIN_TO_TAILO_FINAL = {
+            // 單韻母
+            'ㄚ': 'a', 'ㄛ': 'oo', 'ㄜ': 'o', 'ㄝ': 'e',
+            'ㄧ': 'i', 'ㄨ': 'u', 'ㄩ': 'io',
+            // 複韻母
+            'ㄞ': 'ai', 'ㄠ': 'au',
+            'ㄢ': 'an', 'ㄣ': 'un', 'ㄤ': 'ang', 'ㄥ': 'ng', 'ㄇ': 'm',  // ㄇ 成音節鼻音當韻母（ㄏㄇ→hm）
+            // 組合韻母
+            'ㄧㄚ': 'ia', 'ㄧㄛ': 'io', 'ㄧㄜ': 'io', 'ㄧㄝ': 'ie',
+            'ㄧㄞ': 'iai', 'ㄧㄠ': 'iau',
+            'ㄧㄢ': 'ian', 'ㄧㄣ': 'in', 'ㄧㄤ': 'iang', 'ㄧㄥ': 'ing',
+            'ㄧㄇ': 'im', 'ㄧㄆ': 'ip', 'ㄧㄊ': 'it', 'ㄧㄎ': 'ik',
+            'ㄨㄚ': 'ua', 'ㄨㄝ': 'ue',
+            'ㄨㄞ': 'uai', 'ㄨㄟ': 'ui',
+            'ㄨㄢ': 'uan', 'ㄨㄣ': 'un', 'ㄨㄤ': 'uang', 'ㄨㄥ': 'ong',
+            'ㄨㄊ': 'ut', 'ㄨㄎ': 'ok',
+            // 入聲韻尾
+            'ㄚㄆ': 'ap', 'ㄚㄊ': 'at', 'ㄚㄎ': 'ak',
+            'ㄛㄆ': 'op', 'ㄛㄊ': 'ot', 'ㄛㄎ': 'ok',
+            'ㄜㄆ': 'op', 'ㄜㄊ': 'ot', 'ㄜㄎ': 'ok',
+            'ㄝㄆ': 'ep', 'ㄝㄊ': 'et', 'ㄝㄎ': 'ek',
+            'ㄧㄆ': 'ip', 'ㄧㄊ': 'it', 'ㄧㄎ': 'ik',
+            'ㄨㄆ': 'up', 'ㄨㄊ': 'ut', 'ㄨㄎ': 'uk',
+            'ㄨㄚㄊ': 'uat', 'ㄩㄝㄊ': 'uet',  // 略 ㄌㄩㄝㄊ（美拼 lueht、臺羅 luet）
+            // ⭐ v3.10: ia- 系列（原缺失，會導致輸出 iaㄇ 等亂碼）
+            'ㄧㄚㄇ': 'iam',
+            'ㄧㄚㄆ': 'iap', 'ㄧㄚㄊ': 'iat', 'ㄧㄚㄎ': 'iak',
+            // 鼻韻母
+            'ㄚㄇ': 'am', 'ㄛㄇ': 'om', 'ㄧㄇ': 'im',
+            'ㄚㄥ': 'ang', 'ㄛㄥ': 'ong', 'ㄝㄥ': 'eng',
+            'ㄧㄥ': 'ing', 'ㄨㄥ': 'ong',
+            'ㄩㄎ': 'iok', 'ㄩㄥ': 'iong'
+        };
+const ZHUYIN_TO_TAILO_TONE = {
+            '': '1', 'ˋ': '2', '_': '3', '˙': '4', 'ˇ': '5', '+': '7', 'ˊ': '9'
+            // ⭐ v5.1 補 ˊ→9：135 二聲＝臺羅第9調(a̋)，比照核心 tailo_135converter；原漏→紅紅紅等第9調掉調號
+        };
+const TAILO_TONE_DIACRITICS = {
+            '2': '\u0301',  // ́ 銳音符
+            '3': '\u0300',  // ̀ 重音符
+            '5': '\u0302',  // ̂ 揚抑符
+            '7': '\u0304',  // ̄ 長音符
+            '8': '\u030D',  // ̍ 豎線
+            '9': '\u030B'   // ̋ 雙銳音符
+        };
+function isRusheng(zhuyin) {
+            return /[ㄆㄊㄎ]$/.test(zhuyin.replace(/[ˊˇˋ˙_+]/g, ''));
+        }
+function addTailoToneMark(syllable, toneNum) {
+            if (!toneNum || toneNum === '1' || toneNum === '') return syllable;
+            
+            const diacritic = TAILO_TONE_DIACRITICS[toneNum];
+            if (!diacritic) return syllable;  // 4調（入聲˙）等無對應符號 → 不加數字
+            
+            // 找到要加符號的母音位置（v5.1【逐字比照】指定核心 tailo_135converter / tailo_core）
+            // 優先序：oo → a → e → i → u → o（⭐單 o 最後 → io 系標 i：hiong→hîong；
+            //         iu/ui 皆落 i → siu＝síu、kui＝kuí，核心無 iu→u 特判，此處不自加）。
+            const low = syllable.toLowerCase();
+            let targetIdx = -1;
+            const ooIdx = low.indexOf('oo');
+            if (ooIdx !== -1) {
+                targetIdx = ooIdx;             // oo → 標第一個 o
+            } else {
+                for (const v of ['a', 'e', 'i', 'u', 'o']) {
+                    const idx = low.indexOf(v);
+                    if (idx !== -1) { targetIdx = idx; break; }
+                }
+            }
+
+            if (targetIdx === -1) {
+                // 成音節鼻音（ng/m/n 無母音）：調號標在鼻音韻核上（v5.1 修 JS 舊洞 ng2→ńg，對齊 tailo_core）
+                const ngIdx = low.lastIndexOf('ng');
+                const nasIdx = ngIdx !== -1 ? ngIdx : Math.max(low.lastIndexOf('m'), low.lastIndexOf('n'));
+                if (nasIdx !== -1) return syllable.slice(0, nasIdx + 1) + diacritic + syllable.slice(nasIdx + 1);
+                return syllable + toneNum;     // 真的找不到（極端情況）
+            }
+            
+            // 在目標位置後插入調號
+            return syllable.slice(0, targetIdx + 1) + diacritic + syllable.slice(targetIdx + 1);
+        }
+function zhuyinToTailo(zhuyin) {
+            if (!zhuyin || zhuyin === '?') return '?';
+            // ⭐ 2026-09-23 特殊變調：帶值（兩調碼連寫）與旗標 `*` **地位等同連接號**（要領 §三），
+            //   自帶音節邊界；母檔寫法本來就沒有空格（ㄍㄏㄧㄣˇˊㄍㄏㄧㄣˇ）。
+            //   不先插邊界 → 整串當一個音節 → 調符被當成字母（舊破口 ㄔㄨㄊ˙_ → tshùㄊ˙）。
+            //   ⛔ 與 Python 唯一核心 tailo_core 同一套（test_tailo_js_parity 逐音節守門）。
+            //   ⭐ 2026-10-20：逐字比照 sandhi_dual.mark_dual_boundaries_zhuyin 的三條正則——
+            //   _DUAL_ZY 第一碼可為數字（ㄍㄢ1ˊ＝本調一聲寫 1，作者 10-05）、_DUAL_ZY_ONE（ㄐㄧ+1ㄅㄧㄚ˙）、
+            //   _DUAL_ZY_NUM（ㄚ49ㄎㄚ˙）；帶值後再寫 `*`（ㄐㄧ+_*）＝同一音節，`*` 前不留邊界。
+            zhuyin = String(zhuyin).replace(/>/g, '')
+                .replace(/([\u3105-\u3129][_+ˊˇˋ˙0-9])([_+ˊˇˋ˙])/g, '$1$2\u0000')
+                .replace(/([\u3105-\u3129][_+ˊˇˋ˙])(1)(?=[\u3105-\u3129])/g, '$1$2\u0000')
+                .replace(/([\u3105-\u3129][0-9])([0-9])(?=[\u3105-\u3129])/g, '$1$2\u0000')
+                .replace(/\*/g, '*\u0000').replace(/\u0000\*/g, '*')
+                .replace(/\u0000(?=[\u3105-\u3129])/g, '-')
+                .replace(/\u0000/g, '');
+
+            // ⭐ v3.5: 處理 / 分隔的多讀音（ADD_ALT 模式）
+            if (zhuyin.includes('/')) {
+                return zhuyin.split('/').map(part => zhuyinToTailo(part.trim())).join('/');
+            }
+
+            // ⭐ v3.5: 處理 - 分隔的複合詞（詞句音）
+            if (zhuyin.includes('-')) {
+                return zhuyin.split('-').map(part => zhuyinToTailo(part.trim())).join('-');
+            }
+
+            // ⭐ 處理數字注音：ㄖㄧㄣ3 → ㄖㄧㄣˇ（直覺對應，僅1-5）
+            // ⭐ 2026-09-23：剝掉特殊變調的第二個調碼／旗標，**只轉本調**。
+            //   臺羅刻意不帶雙聲調（開發總則 v6.1〈臺羅核心指定〉、要領 §四「臺羅｜旗標：不帶」）。
+            //   ⭐ 2026-10-20：逐字比照 sandhi_dual.split_dual／split_dual_zhuyin（一次只剝最後一碼）——
+            //   舊版只收「調符＋調符／調符＋數字」，漏了「數字＋調符」（ㄍㄢ1ˊ 吐 ka̋n1）與「數字＋數字」（ㄚ49）。
+            const _sdTone = '_+ˊˇˋ˙', _sdNum = '1234509';   // _sdNum＝ZHUYIN_NUM_TO_TONE 的鍵
+            const _sdSplit = (t) => {
+                const a = t.slice(-2, -1), b = t.slice(-1);
+                if (t.length >= 2 && b === '*') return [t.slice(0, -1), '*'];
+                if (t.length >= 3 && _sdTone.includes(b) && _sdTone.includes(a)) return [t.slice(0, -1), b];
+                if (t.length >= 3 && _sdNum.includes(b) && (_sdTone.includes(a) || _sdNum.includes(a))) return [t.slice(0, -1), b];
+                if (t.length >= 3 && _sdTone.includes(b) && _sdNum.includes(a)) return [t.slice(0, -1), b];
+                return [t, ''];
+            };
+            let [_sdBase, _sdDual] = _sdSplit(zhuyin);
+            if (_sdDual === '*') {   // 帶值＋旗標並寫（ㄐㄧ+_*）：值已自足、旗標冗餘 → 回傳值
+                const [_b2, _d2] = _sdSplit(_sdBase);
+                if (_d2 && _d2 !== '*') { _sdBase = _b2; _sdDual = _d2; }
+            }
+            if (_sdDual) zhuyin = _sdBase;
+            const numMatch = zhuyin.match(/^(.+?)([1-5])$/);
+            if (numMatch && /[ㄅ-ㄩ]/.test(numMatch[1])) {
+                zhuyin = numMatch[1] + (NUM_TO_TONE[numMatch[2]] || '');
+            }
+            
+            // 提取聲調
+            const toneMatch = zhuyin.match(/[ˊˇˋ˙_+]$/);
+            const tone = toneMatch ? toneMatch[0] : '';
+            let body = toneMatch ? zhuyin.slice(0, -1) : zhuyin;
+            
+            // 處理下標格式
+            body = body.replace(/<sub>/g, '').replace(/<\/sub>/g, '');
+            
+            // ⭐ 檢查鼻化音：聲母後緊跟 ㄥ = 鼻化音標記
+            let nasalized = false;
+            
+            // 提取聲母
+            let initial = '';
+            let final = body;
+            
+            // 按長度排序聲母（先長後短）
+            const initials = Object.keys(ZHUYIN_TO_TAILO_INITIAL).sort((a, b) => b.length - a.length);
+            for (const ini of initials) {
+                if (body.startsWith(ini)) {
+                    initial = ZHUYIN_TO_TAILO_INITIAL[ini];
+                    final = body.slice(ini.length);
+                    break;
+                }
+            }
+            
+            // ⭐ 鼻化音處理：聲母後的 ㄥ 是鼻化標記，不是韻母
+            if (initial && final.startsWith('ㄥ') && final.length > 1) {
+                nasalized = true;
+                final = final.slice(1);  // 移除鼻化標記 ㄥ
+            }
+            
+            // 特殊處理：ㄐㄑㄒ + ㄧ → tsi/tshi/si
+            if (['ts', 'tsh', 's'].includes(initial) && final.startsWith('ㄧ')) {
+                // 保持 ts/tsh/s，不變
+            }
+            
+            // v5.1: 展開注音 ㄧㄛㄥ/ㄧㄛㄎ → 臺羅核心簡寫 ㄩㄥ/ㄩㄎ（臺羅表比照 tailo_135converter 只列簡寫；
+            //       展開式逐字轉會出 ioong/ioㄎ）。只影響臺羅查表，不動顯示注音。
+            if (final === 'ㄧㄛㄥ') final = 'ㄩㄥ';
+            else if (final === 'ㄧㄛㄎ') final = 'ㄩㄎ';
+
+            // 轉換韻母
+            let finalTailo = '';
+            // 先嘗試整體匹配
+            if (ZHUYIN_TO_TAILO_FINAL[final]) {
+                finalTailo = ZHUYIN_TO_TAILO_FINAL[final];
+            } else {
+                // 逐字轉換
+                for (const char of final) {
+                    finalTailo += ZHUYIN_TO_TAILO_FINAL[char] || char;
+                }
+            }
+            
+            // ⭐ 加上鼻化音 nn
+            if (nasalized) {
+                finalTailo += 'nn';
+            }
+            
+            // 轉換聲調
+            let toneNum = ZHUYIN_TO_TAILO_TONE[tone] || '';
+            // 入聲 + 號 → 8
+            if (tone === '+' && isRusheng(zhuyin)) {
+                toneNum = '8';
+            }
+            // 第1調不標
+            if (toneNum === '1') toneNum = '';
+            
+            // ⭐ ˙ 輕聲 + 非入聲韻尾 → 臺羅加 -h（如 mi˙ → mih，bik˙ 已有 -k 不加）
+            if (toneNum === '4' && !isRusheng(zhuyin)) {
+                finalTailo += 'h';
+            }
+
+            // ⭐ 轉成標準臺羅格式（聲調符號在母音上）
+            return addTailoToneMark(initial + finalTailo, toneNum);
+        }
+const ONSET = {
+            'tsh': 'ㄘ', 'ts': 'ㄗ', 'ng': 'ㄍ<sub>ㄏㄥ</sub>',  // ⭐ ng 聲母 = 訓音 ㄍㄏㄥ（濁鼻音）
+            'ph': 'ㄆ', 'th': 'ㄊ', 'kh': 'ㄎ',
+            'p': 'ㄅ', 't': 'ㄉ', 'k': 'ㄍ',
+            'm': 'ㄇ', 'n': 'ㄋ', 'l': 'ㄌ',
+            's': 'ㄙ', 'h': 'ㄏ', 'j': 'ㄖ',
+            'b': 'ㄅ<sub>ㄏ</sub>', 'g': 'ㄍ<sub>ㄏ</sub>'
+        };
+const RIME = {
+            // 單韻母
+            'a': 'ㄚ', 'i': 'ㄧ', 'u': 'ㄨ', 
+            'e': 'ㄝ',   // ⭐ 臺羅 e → ㄝ
+            'o': 'ㄜ',   // ⭐ 臺羅 o 一般情況 → ㄜ
+            'oo': 'ㄛ',  // ⭐ 特殊：oo → ㄛ
+            // 複韻母
+            'ai': 'ㄞ', 'au': 'ㄠ', 'ia': 'ㄧㄚ', 'io': 'ㄧㄜ', 
+            'iu': 'ㄧㄨ',  // ⭐ 修正：iu → ㄧㄨ（非ㄧㄡ）
+            'ie': 'ㄧㄝ',  // ⭐ 新增：ie → ㄧㄝ
+            'ua': 'ㄨㄚ', 'ue': 'ㄨㄝ', 'ui': 'ㄨㄧ',
+            'iau': 'ㄧㄠ', 'uai': 'ㄨㄞ',
+            // 鼻音韻母
+            'am': 'ㄚㄇ', 'an': 'ㄢ', 'ang': 'ㄤ',
+            'im': 'ㄧㄇ', 'in': 'ㄧㄣ', 'ing': 'ㄧㄥ',
+            'un': 'ㄨㄣ', 
+            'ong': 'ㄛㄥ',  // ⭐ 特殊：ong → ㄛㄥ
+            'eng': 'ㄝㄥ',  // ⭐ 臺羅：eng = e + ng = ㄝ + ㄥ（組合邏輯）
+            'ian': 'ㄧㄢ', 'uan': 'ㄨㄢ',
+            'iang': 'ㄧㄤ', 'uang': 'ㄨㄤ',
+            'iong': 'ㄩㄥ', 'iam': 'ㄧㄚㄇ', 
+            'om': 'ㄛㄇ',   // ⭐ 特殊：om → ㄛㄇ
+            // 獨立成韻
+            'm': 'ㄇ', 'ng': 'ㄥ', 'n': 'ㄣ'
+        };
+const TONE_UNICODE_TO_SYMBOL = {
+            '\u0301': 'ˋ',  // á → 第2調 → 135四聲
+            '\u0300': '_',  // à → 第3調 → 135低聲
+            '\u0302': 'ˇ',  // â → 第5調 → 135三聲
+            '\u0304': '+',  // ā → 第7調 → 135中聲
+            '\u030D': '+',  // a̍ → 第8調 → 135中聲
+            '\u030B': 'ˊ',  // a̋ → 第9調 → 135二聲
+        };
+const TONE_NUM_TO_SYMBOL = {
+            '1': '', '2': 'ˋ', '3': '_', '4': '˙',
+            '5': 'ˇ', '6': 'ˋ', '7': '+', '8': '+', '9': 'ˊ'
+        };
+function extractToneFromTailo(syllable) {
+            if (!syllable) return ['', ''];
+            
+            let toneMark = '';
+            let body = syllable;
+            
+            // 1. 處理符號聲調（結尾）
+            const symbolMap = {'_': '_', '+': '+', 'ˊ': 'ˊ', 'ˇ': 'ˇ', 'ˋ': 'ˋ', '˙': '˙', "'": "_", '"': '+'};
+            let lastChar = syllable.slice(-1);
+            if (symbolMap[lastChar]) {
+                toneMark = symbolMap[lastChar];
+                body = syllable.slice(0, -1);
+                return [body, toneMark];
+            }
+            
+            // 2. 處理數字聲調 (1-9)
+            let match = syllable.match(/^(.+?)([1-9])$/);
+            if (match) {
+                body = match[1];
+                let toneNum = match[2];
+                toneMark = TONE_NUM_TO_SYMBOL[toneNum] || '';
+                return [body, toneMark];
+            }
+            
+            // 3. 處理 Unicode 組合符號 (á, à, â, ā, a̍)
+            let nfd = body.normalize('NFD');
+            let cleanBody = '';
+            for (let char of nfd) {
+                if (TONE_UNICODE_TO_SYMBOL[char]) {
+                    toneMark = TONE_UNICODE_TO_SYMBOL[char];
+                } else {
+                    cleanBody += char;
+                }
+            }
+            body = cleanBody.normalize('NFC');
+            
+            return [body, toneMark];
+        }
+function convertSyllableToZhuyin(syllable) {
+            if (!syllable) return '';
+            
+            // 提取音節主體和聲調
+            let [body, toneMark] = extractToneFromTailo(syllable);
+            body = body.toLowerCase();
+            
+            // 直接處理獨立成韻 m/ng/n
+            if (body === 'm') return 'ㄇ' + toneMark;
+            if (body === 'ng') return 'ㄥ' + toneMark;
+            if (body === 'n') return 'ㄣ' + toneMark;
+            
+            // ⭐ 先處理入聲韻尾 (-p, -t, -k, -h)，再檢測鼻化音
+            let coda = '';
+            if (/[hptk]$/.test(body)) {
+                let tail = body.slice(-1);
+                body = body.slice(0, -1);
+                
+                if (tail === 'h') {
+                    coda = '';  // h 不輸出
+                } else if (tail === 'p') {
+                    coda = 'ㄆ';
+                } else if (tail === 't') {
+                    coda = 'ㄊ';
+                } else if (tail === 'k') {
+                    coda = 'ㄎ';
+                }
+                
+                // 入聲無標調時預設為輕聲
+                if (!toneMark) toneMark = '˙';
+            }
+            
+            // 處理鼻化音 nn（結尾）- 移到入聲韻尾之後
+            let nasalized = false;
+            if (/nn$/.test(body) && body !== 'nng') {
+                nasalized = true;
+                body = body.slice(0, -2);  // 移除 nn
+            }
+            
+            // 提取聲母
+            let onset = '';
+            let rest = body;
+            
+            // 一般聲母提取（最長匹配）
+            // ⭐ ng 作為聲母時會匹配到 ONSET['ng'] = 'ㄍ<sub>ㄏ</sub>ㄥ'
+            for (let key of Object.keys(ONSET).sort((a, b) => b.length - a.length)) {
+                if (body.startsWith(key)) {
+                    onset = ONSET[key];
+                    rest = body.slice(key.length);
+                    break;
+                }
+            }
+            
+            // i 前面的變化 (ts/tsh/s → j/q/x)
+            if (rest.startsWith('i')) {
+                if (onset === 'ㄙ') onset = 'ㄒ';
+                else if (onset === 'ㄗ') onset = 'ㄐ';
+                else if (onset === 'ㄘ') onset = 'ㄑ';
+            }
+            
+            // 處理鼻化音標記
+            if (nasalized) {
+                if (onset === '') {
+                    onset = 'ㄥ';  // 無聲母時，ㄥ 作為聲母
+                } else {
+                    // 移除現有下標後加上鼻化音下標
+                    onset = onset.replace(/<sub>.*?<\/sub>/g, '');
+                    onset = onset + '<sub>ㄥ</sub>';
+                }
+            }
+            
+            // 查找韻母
+            let rime;
+            // ⭐ 特殊處理: *iok → *ㄩㄎ
+            if (rest === 'io' && coda === 'ㄎ') {
+                rime = 'ㄩ';
+            }
+            // ⭐ 特殊處理: ok/ot/op 入聲時 o → ㄛ
+            else if (rest === 'o' && (coda === 'ㄎ' || coda === 'ㄊ' || coda === 'ㄆ')) {
+                rime = 'ㄛ';
+            }
+            // ⭐ 特殊處理: onn 鼻化音時 o → ㄛ
+            else if (nasalized && rest === 'o') {
+                rime = 'ㄛ';
+            }
+            else if (nasalized && rest.endsWith('n')) {
+                // 鼻化音的韻母（移除結尾的 n）
+                let baseRime = rest.slice(0, -1);
+                rime = RIME[baseRime] || RIME[rest] || `[${rest}]`;
+            } else {
+                rime = RIME[rest] || `[${rest}]`;
+            }
+            
+            return onset + rime + coda + toneMark;
+        }
+return {zhuyinToTailo, convertSyllableToZhuyin};
+})();
+</script>
+<script>
 (function(){
 const N = window.NippinCore, $ = id => document.getElementById(id);
 const esc = s => s.replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'})[c]);
 const TN = {low:'低',mid:'中',t1:'高',t2:'升',t3:'沈',t4:'降',light:'頓'};
-const SRC = {zhuyin:'注音', roman:'ローマ字', kana:'カタカナ'};
+const SRC = {zhuyin:'注音', roman:'ローマ字', kana:'カタカナ', tailo:'臺羅'};
 let base = false;                      // false＝讀的兩層寫詞句音（預設）；true＝本調
 let plain = {}, rich = {};
 const LS = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } };
 
+/* ── 臺羅（v3，2026-10-05）──
+   輸入：只把「含拉丁字母的那一段」交給臺羅核心轉成注音（本調），其餘（注音、カタカナ、分隔符）原樣留著，再進日拼核心。
+     臺羅的 - 照日拼的連接號用（前字變調）；臺羅的 --（後字輕聲）本頁不推算，先當成空格（前字不變調、後字照寫的調）。
+   輸出：每個音節取本調注音 → 臺羅核心 zhuyinToTailo；分隔照ローマ字，日拼的 --（二次變調）臺羅寫不出，收成 -。 */
+const hasLatin = s => /[a-zA-Z]/.test((s || '').normalize('NFD'));
+const tlSyl = s => hasLatin(s) ? TL.convertSyllableToZhuyin(s).replace(/<\/?sub>/g, '') : s;
+function tailoIn(text){
+  const t = (text || '').normalize('NFC').replace(/--/g, ' ');
+  return t.split(/([\s\-－\/／，。、；！？,.;!?()（）「」『』【】《》〈〉：:]+)/).map((x, i) => i % 2 ? x : (x ? tlSyl(x) : x)).join('');
+}
+/* ⭐ 碗族（零聲母鼻化）臺羅寫 -nn 不寫 ng-（與 ipa-convert 的 sylToTailo 同一規則）：ㄥㄝ→enn、ㄥㄨㄚˋ→uánn、ㄥㄛ→onn */
+function sylTailo(p){
+  if (!p.onset && p.nasal) {
+    let t = TL.zhuyinToTailo(N.sylZhuyin(Object.assign({}, p, {nasal: false}), null, false));
+    if (p.rime === 'o') t = t.slice(0, -1);            /* oo → o，鼻化的 ㄛ 臺羅寫 onn */
+    /* 輕聲的 -h 要在 nn 後面：ㄥㄧ˙＝innh（寫成 ihnn 臺羅核心讀不回來；2026-10-05 母檔往返實測抓到） */
+    t = t.normalize('NFC');
+    return /h$/.test(t) ? t.slice(0, -1) + 'nnh' : t + 'nn';
+  }
+  return TL.zhuyinToTailo(N.sylZhuyin(p, null, false)).normalize('NFC');
+}
+function tailoOut(r){
+  // 2026-10-07：自帶邊界（U+2060，帶值後直接接字）＝接口 → `-`（原本整個邊界字元漏到輸出：á⁠khah）
+  return r.items.map(x => x.syl ? (x.p ? sylTailo(x.p) : '?' + x.raw + '?')
+    : (/^[-－⁠]+$/.test(x.sep) ? '-' : x.sep.split('⁠').join('').replace(/[-－]{2,}/g, '-'))).join('');
+}
 function render(){
   const src = $('in').value;
   const dg = document.querySelector('input[name=dg]:checked').value;
-  const r = N.convert(src, dg);
+  const isTL = document.querySelector('input[name=rs]:checked').value === 'tailo';
+  const r = N.convert(isTL ? tailoIn(src) : src, dg);
   const hy = $('hyphen').checked, hi = $('high').checked, sd = !base;
-  plain = {ka: r.kana(sd, hy, false, hi), rm: r.roman('symbol', hi), zy: r.zhuyin(sd, hy)};
-  rich = {ka: r.kana(sd, hy, true, hi), rm: esc(plain.rm), zy: r.zhuyin(sd, hy, true)};
-  $('o_ka').innerHTML = rich.ka; $('o_rm').textContent = plain.rm; $('o_zy').innerHTML = rich.zy;
+  plain = {ka: r.kana(sd, hy, false, hi), rm: r.roman('symbol', hi), zy: r.zhuyin(sd, hy), tl: tailoOut(r)};
+  rich = {ka: r.kana(sd, hy, true, hi), rm: esc(plain.rm), zy: r.zhuyin(sd, hy, true), tl: esc(plain.tl)};
+  $('o_ka').innerHTML = rich.ka; $('o_rm').textContent = plain.rm; $('o_zy').innerHTML = rich.zy; $('o_tl').textContent = plain.tl;
   document.querySelectorAll('.orow').forEach(cb => {
     const on = cb.checked, row = cb.dataset.row;
     $('o_' + row).style.opacity = on ? '' : '.35';
   });
   $('swaphint').textContent = base ? '讀的兩層正顯示本調（未變調）。' : '';
-  const srcs = [...new Set(r.syllables.map(x => SRC[x.src]))];
+  const srcs = isTL && hasLatin(src) ? ['臺羅'] : [...new Set(r.syllables.map(x => SRC[x.src]))];
   $('kind').innerHTML = !src.trim() ? '' :
-    ('判讀為：' + srcs.join('＋') + (r.bad.length ? '　<span class="bad">⚠ 解析不出：' + r.bad.map(esc).join('　') + '</span>' : ''));
+    ('判讀為：' + srcs.join('＋') + (r.bad.length ? '　<span class="bad">⚠ 解析不出：' + r.bad.map(esc).join('　') + '</span>' : '')
+     + (r.incomplete.length ? '　<span class="bad">⚠ ' + r.incomplete.map(esc).join('　') + ' 只有一個調值：<code>*</code> 前要帶值（例 ㄚˋ_）</span>' : ''));
   const t = $('brk');
+  const fromTL = isTL && hasLatin(src) && !/[ㄅ-ㄩ]/.test(src);   // 整段是臺羅（沒混注音）：拆解表的輸入／來源照臺羅顯示
   // ⭐ 2026-10-02 作者：日拼不拆「聲母＋韻母」——ラヌ~ 是 ラ(ra) 加鼻音 n，不是 l＋an。照假名的組法拆。
-  t.innerHTML = '<tr><th>輸入</th><th>來源</th><th>カタカナ</th><th>ローマ字</th><th>注音</th><th>假名組成</th><th>調</th></tr>' +
+  t.innerHTML = '<tr><th>輸入</th><th>來源</th><th>カタカナ</th><th>ローマ字</th><th>注音</th><th>臺羅</th><th>假名組成</th><th>調</th></tr>' +
     r.syllables.map(x => {
-      if (!x.p) return '<tr><td>' + esc(x.raw) + '</td><td colspan="6" class="bad">解析不出</td></tr>';
+      if (!x.p) return '<tr><td>' + esc(x.raw) + '</td><td colspan="7" class="bad">解析不出</td></tr>';
       const p = x.p, act = N.actualTone(x);
       const tn = TN[p.tone] + ' ' + N.T.TONE_SYM[p.tone] + (act !== p.tone ? ' → ' + TN[act] + ' ' + N.T.TONE_SYM[act] : '') +
                  (p.dual === '*' ? '（*特殊）' : (p.dual ? '（特殊・帶值）' : ''));
       const parts = N.kanaBreakdown(p).map(([k, s, note]) =>
         '<span class="bp"><span class="' + (k === 'ng' ? 'nasmk' : 'ka') + '">' + esc(k) + '</span>' +
         (s ? '<span class="bs">' + esc(s) + '</span>' : '') + (note ? '<span class="bn">' + note + '</span>' : '') + '</span>').join('<span class="bplus">＋</span>');
-      return '<tr><td>' + esc(x.raw) + '</td><td>' + SRC[x.src] + '</td><td class="ka">' + N.sylKana(p, p.tone, false, true) +
-        '</td><td class="rm">' + esc(N.sylRoman(p)) + '</td><td>' + N.sylZhuyin(p, null, true) + '</td><td>' + parts +
+      const tlRow = fromTL && x.src === 'zhuyin';
+      return '<tr><td>' + esc(tlRow ? sylTailo(p) : x.raw) + '</td><td>' + (tlRow ? '臺羅' : SRC[x.src]) + '</td><td class="ka">' + N.sylKana(p, p.tone, false, true) +
+        '</td><td class="rm">' + esc(N.sylRoman(p)) + '</td><td>' + N.sylZhuyin(p, null, true) + '</td><td class="rm">' + esc(sylTailo(p)) + '</td><td>' + parts +
         '</td><td>' + tn + '</td></tr>';
     }).join('');
 }
@@ -538,12 +1021,12 @@ function render(){
 // ⭐ 2026-10-02（作者：大小比例美感不佳）：カタカナ為主，ローマ字・注音 ×0.78；ng ×0.82；
 //    每列一個 <p>，text-autospace:none＝關掉 Word「中英文間自動加空白」（ng ティヤ 不再冒空隙）；
 //    ローマ字列用拉丁字型（Noto Sans TC 會把 · 排成全形）。與面板 nippin_gui_v2.html_for_clipboard 同規格。
-const ROW_RATIO = {ka: 1, rm: 16 / 14, zy: 12 / 14};   // ＝歌詞 docx 注12／カナ14／ロ16（作者 2026-10-02 定案）
+const ROW_RATIO = {ka: 1, rm: 16 / 14, zy: 12 / 14, tl: 16 / 14};   // ＝歌詞 docx 注12／カナ14／ロ16（作者 2026-10-02 定案）
 function rowHtml(k, h){
   const n = Math.max(8, Math.min(96, parseInt($('pt').value) || 14)), sz = Math.round(n * ROW_RATIO[k]);
   const st = {co: 'font-size:' + Math.round(sz * .72) + 'pt', coR: 'font-size:' + Math.round(sz * .72) + 'pt;vertical-align:super',
               nasmk: 'font-family:Segoe UI;font-size:' + Math.round(sz * .82) + 'pt'};
-  const face = k === 'rm' ? 'Segoe UI' : 'Noto Sans TC';
+  const face = (k === 'rm' || k === 'tl') ? 'Segoe UI' : 'Noto Sans TC';
   return '<p style="margin:0;text-autospace:none;font-family:' + face + ';font-size:' + sz + 'pt">' +
     h.replace(/<span class="(\w+)">/g, (_, c) => st[c] ? '<span style="' + st[c] + '">' : '<span>') + '</p>';
 }
@@ -580,7 +1063,7 @@ async function copyRows(rows, done){
   }
   done(rows.length);
 }
-const ORDER = ['ka', 'rm', 'zy'];
+const ORDER = ['ka', 'rm', 'zy', 'tl'];
 /* Enter＝複製勾選中的輸出列（同 ipa-convert）；輸入法選字中的 Enter 不算 */
 $('in').addEventListener('keydown', e => {
   if (e.isComposing) return;
@@ -607,7 +1090,8 @@ $('tg').addEventListener('click', () => {
 });
 document.querySelectorAll('.exs button').forEach(b => b.addEventListener('click', () => {
   $('in').value = b.dataset.v;
-  if (b.dataset.d) document.querySelector('input[name=dg][value=' + b.dataset.d + ']').checked = true;   // 範例沒用到數字就不動使用者的選擇
+  if (b.dataset.d) document.querySelector('input[name=dg][value=' + b.dataset.d + ']').checked = true;
+  document.querySelector('input[name=rs][value=' + (b.dataset.r || 'nippin') + ']').checked = true;   // 臺羅範例切到臺羅，其餘回日拼   // 範例沒用到數字就不動使用者的選擇
   render(); $('in').focus();
 }));
 document.querySelectorAll('.orow').forEach(cb => {
@@ -616,6 +1100,8 @@ document.querySelectorAll('.orow').forEach(cb => {
 });
 ['in', 'hyphen', 'high', 'pt'].forEach(id => $(id).addEventListener('input', render));
 document.querySelectorAll('input[name=dg]').forEach(e => e.addEventListener('change', render));
+document.querySelectorAll('input[name=rs]').forEach(e => e.addEventListener('change', () => { LS('nippin_rs', e.value); render(); }));
+{ const v = LS('nippin_rs'); if (v === 'tailo' || v === 'nippin') document.querySelector('input[name=rs][value=' + v + ']').checked = true; }
 render();
 })();
 (function(){
