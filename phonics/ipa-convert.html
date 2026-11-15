@@ -1,6 +1,13 @@
 <!doctype html>
 <!--
 ========================================================================
+ 國際音標版線上轉換器 v12（2026-11-16）　※ 漢拼／臺羅副本：注音 ㄧㄝㄣ 當成 ㄧㄢ（輸入容錯）
+========================================================================
+ v11 → v12 變更（作者 2026-11-16 裁定；只各加一行，⛔ 未新增對照表）：
+  - HanpinCore.bopomofoToHanpin、zhuyinToTailo 開頭先把 ㄧㄝㄣ 換成 ㄧㄢ（同 sandhi_dual.normalize_zhuyin_input）。
+    IPA 軌本來就收 ㄧㄝㄣ；舊版同一個輸入 IPA 對、漢拼／臺羅出亂碼。pill 改 v12。
+  - 同日再裁定：ㄨㄝㄊ〔略〕也比照，當成 ㄩㄝㄊ；限後面不是注音字母，免得吃到下一字的聲母 ㄊ。
+========================================================================
  國際音標版線上轉換器 v11（2026-10-20）　※ 漢拼副本：parseSyllable 剝帶值第二碼
 ========================================================================
  v10 → v11 變更（只動 HanpinCore.parseSyllable 開頭，⛔ 未新增對照表）：
@@ -141,7 +148,7 @@ footer a{color:var(--cinnabar)}
 <p class="booktitle">閩南語135拼音法 · 國際音標（IPA）版</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ IPA</span></h1>
 <p class="sub2">沒有人該手打 IPA。輸入欄打純 ASCII 的調值寫法，顯示層的音段與趙氏調符交給程式——這正是雙層制存在的理由。</p>
-<span class="pill">v11 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
+<span class="pill">v12 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
 </div></div>
 <main>
 
@@ -472,6 +479,8 @@ const HanpinCore = (function() {
         
         function bopomofoToHanpin(input) {
             // 注音規則：無調號 = 一聲，輕聲一定要有 ˙
+            // ⭐ 2026-11-16 作者裁定：注音外顯寫法 ㄧㄝㄣ／ㄨㄝㄊ 當成標準 ㄧㄢ／ㄩㄝㄊ（輸入容錯；同 sandhi_dual.normalize_zhuyin_input）
+            if (typeof input === 'string') input = input.replace(/ㄧㄝㄣ/g, 'ㄧㄢ').replace(/ㄨㄝㄊ(?![\u3105-\u3129])/g, 'ㄩㄝㄊ');
             // 策略：逐字符翻譯，在「音節結束點」補聲調
             let result = '';
             let i = 0;
@@ -1282,6 +1291,8 @@ function addTailoToneMark(syllable, toneNum) {
         }
 function zhuyinToTailo(zhuyin) {
             if (!zhuyin || zhuyin === '?') return '?';
+            // ⭐ 2026-11-16 作者裁定：注音外顯寫法 ㄧㄝㄣ／ㄨㄝㄊ 當成標準 ㄧㄢ／ㄩㄝㄊ（輸入容錯；同 sandhi_dual.normalize_zhuyin_input）
+            zhuyin = String(zhuyin).replace(/ㄧㄝㄣ/g, 'ㄧㄢ').replace(/ㄨㄝㄊ(?![\u3105-\u3129])/g, 'ㄩㄝㄊ');
             // ⭐ 2026-09-23 特殊變調：帶值與旗標 `*` 自帶音節邊界（要領 §三）。
             //   ⛔ 與 Python 唯一核心 tailo_core 同一套（test_tailo_js_parity 逐音節守門）。
             //   ⭐ 2026-10-20：逐字比照 sandhi_dual.mark_dual_boundaries_zhuyin 的三條正則——
