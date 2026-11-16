@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 ========================================================================
- 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v5
+ 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v6
  ⛔ 本檔是「產物」：由 nippin_convert\build_nippin_web.py 從 nippin_page.tpl.html ＋ nippin_core.py 產生，⛔ 不要手改。
     版面比照 /phonics/ipa-convert.html（作者 2026-10-02：「參考這」→ A 案）。
     JS 核心與頁面上的對照表全部由 nippin_core.py 匯出；JS ⇄ Python 由 test_nippin_js_parity.py（node）守門。
@@ -109,7 +109,7 @@ sub{font-size:.7em}
 <p class="booktitle">閩南語135拼音法 · 日文版（日拼）</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ <span style="white-space:nowrap">カタカナ・ローマ字</span></span></h1>
 <p class="sub2"><span class="nw">讀的時候看カタカナ，打字的時候用ローマ字。</span><span class="nw">三種寫法都能打進來，程式逐字判別、互轉；學過臺羅的，也能直接打臺羅。</span><br><span class="nw">台湾語をカタカナで。</span></p>
-<span class="pill">v5 · 三種輸入自動判別（注音／ローマ字／カタカナ）＋臺羅 · 四軌輸出 · 逐字可逆</span>
+<span class="pill">v6 · 三種輸入自動判別（注音／ローマ字／カタカナ）＋臺羅 · 四軌輸出 · 逐字可逆</span>
 </div></div>
 <main>
 
@@ -562,7 +562,8 @@ const ZHUYIN_TO_TAILO_FINAL = {
             'ㄧ': 'i', 'ㄨ': 'u', 'ㄩ': 'io',
             // 複韻母
             'ㄞ': 'ai', 'ㄠ': 'au',
-            'ㄢ': 'an', 'ㄣ': 'un', 'ㄤ': 'ang', 'ㄥ': 'ng', 'ㄇ': 'm',  // ㄇ 成音節鼻音當韻母（ㄏㄇ→hm）
+            'ㄨㄛ': 'uoo',  // ⭐ 2026-11-16 作者裁定：單唸 ㄣ＝ㄜㄣ＝on、ㄨㄛ＝uoo（同 tailo_core）
+            'ㄢ': 'an', 'ㄣ': 'on', 'ㄤ': 'ang', 'ㄥ': 'ng', 'ㄇ': 'm',  // ㄇ 成音節鼻音當韻母（ㄏㄇ→hm）
             // 組合韻母
             'ㄧㄚ': 'ia', 'ㄧㄛ': 'io', 'ㄧㄜ': 'io', 'ㄧㄝ': 'ie',
             'ㄧㄞ': 'iai', 'ㄧㄠ': 'iau',
@@ -796,7 +797,8 @@ const RIME = {
             'iong': 'ㄩㄥ', 'iam': 'ㄧㄚㄇ', 
             'om': 'ㄛㄇ',   // ⭐ 特殊：om → ㄛㄇ
             // 獨立成韻
-            'm': 'ㄇ', 'ng': 'ㄥ', 'n': 'ㄣ'
+            'm': 'ㄇ', 'ng': 'ㄥ', 'n': 'ㄣ',
+            'on': 'ㄣ', 'uoo': 'ㄨㄛ'  // ⭐ 2026-11-16 作者裁定：單唸 ㄣ＝ㄜㄣ＝on、ㄨㄛ＝uoo（同 tailo_core）
         };
 const TONE_UNICODE_TO_SYMBOL = {
             '\u0301': 'ˋ',  // á → 第2調 → 135四聲
