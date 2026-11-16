@@ -1,6 +1,11 @@
 <!doctype html>
 <!--
 ========================================================================
+ 國際音標版線上轉換器 v16（2026-11-17）　※ 臺羅：零聲母鼻化寫 -nn
+
+ v15 → v16 變更：
+  - 注音→臺羅補零聲母鼻化（作者 2026-11-17：「nn 我們應有很明確的定義」「臺羅的 ng~ 開頭就是 ㄍㄏㄥ 聲母」）：ㄥ＋元音而前面沒有聲母（院 ㄥㄧ+、燕 ㄥㄧ_、影 ㄥㄧㄚˋ）原本逐字轉成 ngī／ngì／ngiá，與母檔臺羅欄（īnn／ìnn／iánn）不合、丟回去還會變成 ㄍㄏㄥ；現在寫 -nn。有聲母的鼻化（聲 siann）與 ㄍㄏㄥ→ng 原本就對，未動。 pill 改 v16。
+
  國際音標版線上轉換器 v15（2026-11-17）　※ 單獨 n＝聲母 ㄋ
 
  v14 → v15 變更：
@@ -166,7 +171,7 @@ footer a{color:var(--cinnabar)}
 <p class="booktitle">閩南語135拼音法 · 國際音標（IPA）版</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ IPA</span></h1>
 <p class="sub2">沒有人該手打 IPA。輸入欄打純 ASCII 的調值寫法，顯示層的音段與趙氏調符交給程式——這正是雙層制存在的理由。</p>
-<span class="pill">v15 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
+<span class="pill">v16 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
 </div></div>
 <main>
 
@@ -1391,6 +1396,11 @@ function zhuyinToTailo(zhuyin) {
             if (initial && final.startsWith('ㄥ') && final.length > 1) {
                 nasalized = true;
                 final = final.slice(1);  // 移除鼻化標記 ㄥ
+            }
+            // ⭐ 2026-11-17 作者：零聲母的鼻化（ㄥ＋元音，院 ㄥㄧ+）一樣寫 -nn（īnn）；臺羅 ng- 開頭只屬於 ㄍㄏㄥ 聲母
+            else if (!initial && final.length > 1 && final[0] === 'ㄥ' && 'ㄚㄛㄜㄝㄧㄨㄩㄞㄠㄢㄤ'.includes(final[1])) {
+                nasalized = true;
+                final = final.slice(1);
             }
             
             // 特殊處理：ㄐㄑㄒ + ㄧ → tsi/tshi/si

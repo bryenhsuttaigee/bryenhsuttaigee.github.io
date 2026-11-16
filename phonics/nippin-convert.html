@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
 ========================================================================
- 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v7
+ 閩南語135拼音法 · 日文版（日拼）· 線上轉換器  v8
  ⛔ 本檔是「產物」：由 nippin_convert\build_nippin_web.py 從 nippin_page.tpl.html ＋ nippin_core.py 產生，⛔ 不要手改。
     版面比照 /phonics/ipa-convert.html（作者 2026-10-02：「參考這」→ A 案）。
     JS 核心與頁面上的對照表全部由 nippin_core.py 匯出；JS ⇄ Python 由 test_nippin_js_parity.py（node）守門。
@@ -109,7 +109,7 @@ sub{font-size:.7em}
 <p class="booktitle">閩南語135拼音法 · 日文版（日拼）</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ <span style="white-space:nowrap">カタカナ・ローマ字</span></span></h1>
 <p class="sub2"><span class="nw">讀的時候看カタカナ，打字的時候用ローマ字。</span><span class="nw">三種寫法都能打進來，程式逐字判別、互轉；學過臺羅的，也能直接打臺羅。</span><br><span class="nw">台湾語をカタカナで。</span></p>
-<span class="pill">v7 · 三種輸入自動判別（注音／ローマ字／カタカナ）＋臺羅 · 四軌輸出 · 逐字可逆</span>
+<span class="pill">v8 · 三種輸入自動判別（注音／ローマ字／カタカナ）＋臺羅 · 四軌輸出 · 逐字可逆</span>
 </div></div>
 <main>
 
@@ -720,6 +720,11 @@ function zhuyinToTailo(zhuyin) {
             if (initial && final.startsWith('ㄥ') && final.length > 1) {
                 nasalized = true;
                 final = final.slice(1);  // 移除鼻化標記 ㄥ
+            }
+            // ⭐ 2026-11-17 作者：零聲母的鼻化（ㄥ＋元音，院 ㄥㄧ+）一樣寫 -nn（īnn）；臺羅 ng- 開頭只屬於 ㄍㄏㄥ 聲母
+            else if (!initial && final.length > 1 && final[0] === 'ㄥ' && 'ㄚㄛㄜㄝㄧㄨㄩㄞㄠㄢㄤ'.includes(final[1])) {
+                nasalized = true;
+                final = final.slice(1);
             }
             
             // 特殊處理：ㄐㄑㄒ + ㄧ → tsi/tshi/si
