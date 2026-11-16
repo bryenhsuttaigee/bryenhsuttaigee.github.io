@@ -1,6 +1,11 @@
 <!doctype html>
 <!--
 ========================================================================
+ 國際音標版線上轉換器 v15（2026-11-17）　※ 單獨 n＝聲母 ㄋ
+
+ v14 → v15 變更：
+  - 單獨 n 一律當聲母 ㄋ（作者 2026-11-17：「改成一致」——美拼面板本來就是 ㄋ；漢拼、臺羅原本把單獨 n 當 ㄣ，與「en 才是 ㄣ、n 是 ㄋ」衝突）。漢拼 RIME、臺羅反向表與特判的 n→ㄣ 改 n→ㄋ；單唸 ㄣ 只認 en（漢拼）／on（臺羅）。 pill 改 v15。
+
  國際音標版線上轉換器 v14（2026-11-17）　※ 補 ㄨㄛ 與單唸 ㄣ（＝ㄜㄣ）
 
  v13 → v14 變更（作者 2026-11-16 裁定、11-17「線上的也同步上線」）：
@@ -161,7 +166,7 @@ footer a{color:var(--cinnabar)}
 <p class="booktitle">閩南語135拼音法 · 國際音標（IPA）版</p>
 <h1>線上轉換器　<span class="silver">注音 ⇄ IPA</span></h1>
 <p class="sub2">沒有人該手打 IPA。輸入欄打純 ASCII 的調值寫法，顯示層的音段與趙氏調符交給程式——這正是雙層制存在的理由。</p>
-<span class="pill">v14 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
+<span class="pill">v15 · 四制輸入（甲IPA／乙美拼／丙漢拼／丁臺羅）· 六軌輸出 · 逐符可逆</span>
 </div></div>
 <main>
 
@@ -452,7 +457,7 @@ const HanpinCore = (function() {
             'iok': 'ㄩㄎ', 'ok': 'ㄛㄎ',
             'nga': 'ㄥㄚ', 'ngo': 'ㄥㄛ', 'nge': 'ㄥㄜ',
             'ngia': 'ㄥㄧㄚ', 'ngie': 'ㄥㄧㄜ', 'ngiau': 'ㄥㄧㄠ',
-            'm': 'ㄇ', 'n': 'ㄣ', 'ng': 'ㄥ',  // 可單獨成韻母（自成音節）；m/ng 與聲母值一致，n 當韻母為 ㄣ
+            'm': 'ㄇ', 'n': 'ㄋ', 'ng': 'ㄥ',  // 可單獨成韻母（自成音節）；m/ng 與聲母值一致，n＝聲母 ㄋ（2026-11-17 作者裁定；單唸 ㄣ 寫 en，n 不再當 ㄣ）
             // ⭐ 單獨聲母（測試/教學用）
             'b': 'ㄅ', 'p': 'ㄆ', 'd': 'ㄉ', 't': 'ㄊ', 'l': 'ㄌ',
             'g': 'ㄍ', 'k': 'ㄎ', 'h': 'ㄏ', 'j': 'ㄐ', 'q': 'ㄑ', 'x': 'ㄒ',
@@ -846,7 +851,7 @@ const TailoCore = (function() {
             'iong': 'ㄩㄥ', 'iam': 'ㄧㄚㄇ', 
             'om': 'ㄛㄇ',   // ⭐ 特殊：om → ㄛㄇ
             // 獨立成韻
-            'm': 'ㄇ', 'ng': 'ㄥ', 'n': 'ㄣ',
+            'm': 'ㄇ', 'ng': 'ㄥ', 'n': 'ㄋ',
             'on': 'ㄣ', 'uoo': 'ㄨㄛ'  // ⭐ 2026-11-16 作者裁定：單唸 ㄣ＝ㄜㄣ＝on、ㄨㄛ＝uoo（同 tailo_core）
         };
         
@@ -943,10 +948,10 @@ const TailoCore = (function() {
             let [body, toneMark] = extractToneFromTailo(syllable);
             body = body.toLowerCase();
             
-            // 直接處理獨立成韻 m/ng/n
+            // 直接處理獨立成韻 m/ng；單獨 n＝聲母 ㄋ
             if (body === 'm') return 'ㄇ' + toneMark;
             if (body === 'ng') return 'ㄥ' + toneMark;
-            if (body === 'n') return 'ㄣ' + toneMark;
+            if (body === 'n') return 'ㄋ' + toneMark;   // 2026-11-17 作者裁定：單獨 n＝聲母 ㄋ（單唸 ㄣ 寫 on）
             
             // ⭐ 先處理入聲韻尾 (-p, -t, -k, -h)，再檢測鼻化音
             let coda = '';
